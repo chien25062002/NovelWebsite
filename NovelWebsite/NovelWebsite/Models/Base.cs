@@ -2,11 +2,12 @@
 {
     public class Base
     {
-        public DateTime CreatedDate;
-        public string CreatedBy;
-        public DateTime UpdatedDate;
-        public string UpdatedBy;
-        public int Status;
-        public bool IsDeleted;
+        public DateTime CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public int Status { get; set; }
+        public bool IsDeleted { get; set; }
+        public string Slug { get; set; }
     }
 }
