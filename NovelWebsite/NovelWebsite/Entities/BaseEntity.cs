@@ -1,6 +1,6 @@
 ﻿namespace NovelWebsite.Models
 {
-    public class Base
+    public class BaseEntity
     {
         public DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }

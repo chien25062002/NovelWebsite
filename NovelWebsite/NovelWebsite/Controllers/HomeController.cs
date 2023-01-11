@@ -8,7 +8,6 @@ namespace NovelWebsite.Controllers
     public class HomeController : Controller
     {
         private readonly AppDbContext _dbContext;
-
         public HomeController(AppDbContext dbContext)
         {
             _dbContext = dbContext;
@@ -16,6 +15,7 @@ namespace NovelWebsite.Controllers
 
         public IActionResult Index()
         {
+            //var query = _dbContext.FollowingBooks.ToList();
             return View();
         }
 
