@@ -7,31 +7,31 @@ namespace NovelWebsite.Entities
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Author> Authors { get; set; }
-        public DbSet<BookStatus> BookStatuses { get; set; }
-        public DbSet<Book> Books { get; set; }
-        public DbSet<Account> Accounts { get; set; }
-        public DbSet<BookTag> BookTags { get; set; }
-        public DbSet<Chapter> Chapters { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<FollowingBook> FollowingBooks { get; set; }
-        public DbSet<User> Users { get; set; }
-        public DbSet<UserRole> UserRoles { get; set; }
+        public DbSet<CategoryEntity> Categories { get; set; }
+        public DbSet<AuthorEntity> Authors { get; set; }
+        public DbSet<BookStatusEntity> BookStatuses { get; set; }
+        public DbSet<BookEntity> Books { get; set; }
+        public DbSet<AccountEntity> Accounts { get; set; }
+        public DbSet<BookTagEntity> BookTags { get; set; }
+        public DbSet<ChapterEntity> Chapters { get; set; }
+        public DbSet<CommentEntity> Comments { get; set; }
+        public DbSet<FollowingBookEntity> FollowingBooks { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<UserRoleEntity> UserRoles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Category>().ToTable("Categories");
-            modelBuilder.Entity<Author>().ToTable("Authors");
-            modelBuilder.Entity<BookStatus>().ToTable("BookStatus");
-            modelBuilder.Entity<Book>().ToTable("Books");
-            modelBuilder.Entity<Account>().ToTable("Accounts");
-            modelBuilder.Entity<BookTag>().ToTable("BookTags");
-            modelBuilder.Entity<Chapter>().ToTable("Chapters");
-            modelBuilder.Entity<Comment>().ToTable("Comments");
-            modelBuilder.Entity<User>().ToTable("Users");
-            modelBuilder.Entity<UserRole>().ToTable("UserRoles");
-            modelBuilder.Entity<FollowingBook>().ToTable("FollowingBooks").HasKey(k => new {k.User, k.Book});
+            modelBuilder.Entity<CategoryEntity>().ToTable("Categories");
+            modelBuilder.Entity<AuthorEntity>().ToTable("Authors");
+            modelBuilder.Entity<BookStatusEntity>().ToTable("BookStatus");
+            modelBuilder.Entity<BookEntity>().ToTable("Books");
+            modelBuilder.Entity<AccountEntity>().ToTable("Accounts");
+            modelBuilder.Entity<BookTagEntity>().ToTable("BookTags");
+            modelBuilder.Entity<ChapterEntity>().ToTable("Chapters");
+            modelBuilder.Entity<CommentEntity>().ToTable("Comments");
+            modelBuilder.Entity<UserEntity>().ToTable("Users");
+            modelBuilder.Entity<UserRoleEntity>().ToTable("UserRoles");
+            modelBuilder.Entity<FollowingBookEntity>().ToTable("Following_Books").HasNoKey();
             base.OnModelCreating(modelBuilder);
         }
     }

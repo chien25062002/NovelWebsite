@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Git Web Project\\ndng1410.github.io\\NovelWebsite\\NovelWebsite\\NovelWebsite.csproj": {}
+    "F:\\Lập trình Web\\BTL\\NovelWebsite\\NovelWebsite\\NovelWebsite\\NovelWebsite.csproj": {}
   },
   "projects": {
-    "E:\\Git Web Project\\ndng1410.github.io\\NovelWebsite\\NovelWebsite\\NovelWebsite.csproj": {
+    "F:\\Lập trình Web\\BTL\\NovelWebsite\\NovelWebsite\\NovelWebsite\\NovelWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Git Web Project\\ndng1410.github.io\\NovelWebsite\\NovelWebsite\\NovelWebsite.csproj",
+        "projectUniqueName": "F:\\Lập trình Web\\BTL\\NovelWebsite\\NovelWebsite\\NovelWebsite\\NovelWebsite.csproj",
         "projectName": "NovelWebsite",
-        "projectPath": "E:\\Git Web Project\\ndng1410.github.io\\NovelWebsite\\NovelWebsite\\NovelWebsite.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "E:\\Git Web Project\\ndng1410.github.io\\NovelWebsite\\NovelWebsite\\obj\\",
+        "projectPath": "F:\\Lập trình Web\\BTL\\NovelWebsite\\NovelWebsite\\NovelWebsite\\NovelWebsite.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "F:\\Lập trình Web\\BTL\\NovelWebsite\\NovelWebsite\\NovelWebsite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,8 +71,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -84,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
