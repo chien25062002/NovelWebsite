@@ -42,6 +42,10 @@ a {
     margin-right: auto;
 }
 
+.header__main {
+    background: url(/image/hinhbg.jpg);
+}
+
 .logo {
     width: 220px;
     height: 60px;
@@ -504,3 +508,4 @@ ul li {
 .myBtn:hover {
     background-color: #bdbdbd; /* Add a dark-grey background on hover */
 }
+

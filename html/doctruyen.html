@@ -188,22 +188,19 @@
                 <div class="chapter-content">
                     <ul class="list-group control-area">
                         <li class="list-group-item control-title">
-                            <button id="popover-btn" type="button" class="btn btn-primary" data-bs-toggle="popover" data-bs-title="Popover title" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+                            <button id="popover-btn1" type="button" class="btn" data-bs-toggle="popover"><i class="fa-solid fa-list-ul"></i></button>
                         </li>
                         <li class="list-group-item control-title">
-                            <a href="#"><i class="fa-solid fa-gear"></i></a>
+                            <button id="popover-btn2" type="button" class="btn" data-bs-toggle="popover"><i class="fa-solid fa-gear"></i></button>
                         </li>
                         <li class="list-group-item control-title">
-                            <a href="#"><i class="fa-regular fa-comment-dots"></i></a>
+                            <button id="popover-btn" type="button" class="btn" data-bs-toggle="popover"><i class="fa-regular fa-comment-dots"></i></button>
                         </li>
                         <li class="list-group-item control-title">
-                            <a href="#"><i class="fa-solid fa-wrench"></i></a>
+                            <button id="popover-btn" type="button" class="btn" data-bs-toggle="popover"><i class="fa-solid fa-wrench"></i></button>
                         </li>
                     </ul>
-                    <div class="popover-content" style="display:none;">
-                        <p>Hello wtf</p>
-                    </div>
-                    <div class="hidden d-none panel-catalog">
+                    <div class="hidden d-none panel-catalog1">
                         <div class="popover-body">
                             <a href="#" type="button" class="btn">
                                 <i class="fa-solid fa-arrow-left"></i>
@@ -238,6 +235,43 @@
                             </div>
                         </div>
                     </div>
+                    <!-- <script type="text/javascript" src="/js/popover.js"></script> -->
+
+                    <div class="hidden d-none panel-catalog2">
+                        <div class="popover-body">
+                            <p>
+                                <i class="fa-solid fa-arrow-left"></i>
+                                Tùy chọn
+                            </p>
+                            <div class="catalog-chapter">
+                                <ul class="list-group list-group-horizontal row">
+                                    <li class="list-group-item col-6">
+                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
+                                    </li>
+                                    <li class="list-group-item col-6">
+                                        <a href="#">Chương 1: Vương trường sinh</a>
+                                    </li>
+                                    <li class="list-group-item col-6">
+                                        <a href="#">Chương 1: Vương trường sinh</a>
+                                    </li>
+                                    <li class="list-group-item col-6">
+                                        <a href="#">Chương 1: Vương trường sinh</a>
+                                    </li>
+                                    <li class="list-group-item col-6">
+                                        <a href="#">Chương 1: Vương trường sinh</a>
+                                    </li>
+                                    <li class="list-group-item col-6">
+                                        <a href="#">Chương 1: Vương trường sinh</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript" src="/js/popover.js"></script>
+
+
+
+
                     <div class="box-chap">
                         "Gian phòng bố cục đơn giản. 
 
@@ -573,12 +607,3 @@
     </body>
 </html>
 
-
-<script>
-    var popcontent = $('.popover-content').html();
-
-    const popover = new bootstrap.Popover($('#popover-btn'), {
-        content: popcontent,
-        html: true
-    });
-</script>
