@@ -166,3 +166,12 @@ p.etc {
 .dropdown-menu.mutli-column li {
     padding: 5px 15px;
 }
+
+.btn-filter {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.btn-filter i {
+    color: inherit;
+}
