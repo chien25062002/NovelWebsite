@@ -43,7 +43,7 @@ a {
 }
 
 .header__main {
-    background: url(/image/hinhbg.jpg);
+    background: #e5e4db;
 }
 
 .logo {
@@ -490,7 +490,7 @@ ul li {
 }
 
 .footer--container {
-    background-color: #f8f8f8;
+    background: #e5e4db;
     margin-top: 10px;
     padding: 20px 0;
     border-top: 1px solid #e7e7e7;
