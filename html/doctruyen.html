@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <script type="text/javascript" src="/js/scrollbutton.js"></script>
         <script type="text/javascript" src="/js/popover.js"></script>
+        <script type="text/javascript" src="/js/changtheme.js"></script>
     </head>
 
     <body>
@@ -330,26 +331,26 @@
                                             <h5>Theme</h5>
                                         </div>
                                         <div class="col-10 setting-box-option">
-                                            <span class="theme-value value-01">
+                                            <span class="theme-value value-01 active" onclick="changeTheme('01')">
                                                 <i class="fa-solid fa-check" aria-hidden="true"></i>
                                             </span>
-                                            <span class="theme-value value-02">
+                                            <span class="theme-value value-02" onclick="changeTheme('02')">
                                                 <i class="fa-solid fa-check" aria-hidden="true"></i>
                                             </span>
-                                            <span class="theme-value value-03">
+                                            <span class="theme-value value-03" onclick="changeTheme('03')">
                                                 <i class="fa-solid fa-check" aria-hidden="true"></i>
                                             </span>
-                                            <span class="theme-value value-04">
+                                            <span class="theme-value value-04" onclick="changeTheme('04')">
                                                 <i class="fa-solid fa-check" aria-hidden="true"></i>
                                             </span>
-                                            <span class="theme-value value-05">
+                                            <span class="theme-value value-05" onclick="changeTheme('05')">
                                                 <i class="fa-solid fa-check" aria-hidden="true"></i>
                                             </span>
-                                            <span class="theme-value value-06">
+                                            <span class="theme-value value-06" onclick="changeTheme('06')">
                                                 <i class="fa-solid fa-check" aria-hidden="true"></i>
                                             </span>
-                                            <span class="theme-value value-07">
-                                                <i class="fa-solid fa-check" aria-hidden="true"></i>
+                                            <span class="theme-value value-07" onclick="changeTheme('07')">
+                                                <i class="fa-regular fa-moon"></i>
                                             </span>
                                         </div>
                                     </div>
@@ -358,27 +359,27 @@
                                             <h5>Font chữ</h5>
                                         </div>
                                         <div class="col-10 setting-box-option">
-                                            <span class="font-value font-01">Palatino</span>
-                                            <span class="font-value font-02">Times</span>
-                                            <span class="font-value font-03">Arial</span>
-                                            <span class="font-value font-04">Roboto</span>
+                                            <span class="font-value font-01 active" onclick="changeFont('01')">Roboto</span>
+                                            <span class="font-value font-02" onclick="changeFont('02')">Times</span>
+                                            <span class="font-value font-03" onclick="changeFont('03')">Arial</span>
+                                            <span class="font-value font-04" onclick="changeFont('04')">Cambria</span>
                                         </div>
                                     </div>
                                     <div class="setting-box row">
                                         <div class="col-2 setting-box-title">
                                             <h5>Cỡ chữ</h5>
                                         </div>
-                                        <div class="col-10 setting-box-option no-justify">
-                                            <span class="prev">
+                                        <div class="col-10 setting-box-option no-justify box-size">
+                                            <span class="prev" onclick="changeSize(false)">
                                                 <em class="iconfont">A-</em>
                                             </span>
                                             <span class="lang">20</span>
-                                            <span class="next">
+                                            <span class="next" onclick="changeSize(true)">
                                                 <em class="iconfont">A+</em>
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="setting-box row">
+                                    <!-- <div class="setting-box row">
                                         <div class="col-2 setting-box-title">
                                             <h5>Zoom</h5>
                                         </div>
@@ -391,7 +392,7 @@
                                                 <em class="iconfont">A+</em>
                                             </span>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </li>
                             <li class="list-group-item control-title">
