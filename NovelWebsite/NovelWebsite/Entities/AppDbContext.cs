@@ -18,7 +18,7 @@ namespace NovelWebsite.Entities
         public DbSet<FollowingBookEntity> FollowingBooks { get; set; }
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<UserRoleEntity> UserRoles { get; set; }
-
+        public DbSet<PostEntity> Posts { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CategoryEntity>().ToTable("Categories");
@@ -31,6 +31,7 @@ namespace NovelWebsite.Entities
             modelBuilder.Entity<CommentEntity>().ToTable("Comments");
             modelBuilder.Entity<UserEntity>().ToTable("Users");
             modelBuilder.Entity<UserRoleEntity>().ToTable("UserRoles");
+            modelBuilder.Entity<PostEntity>().ToTable("Post");
             modelBuilder.Entity<FollowingBookEntity>().ToTable("Following_Books").HasNoKey();
             base.OnModelCreating(modelBuilder);
         }
