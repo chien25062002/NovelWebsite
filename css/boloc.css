@@ -53,7 +53,7 @@ li.box-active, li.box-active a{
     font-weight: 500;
 }
 
-.type-list p > a:first-child {
+.active--type-list {
     color: red;
 }
 
