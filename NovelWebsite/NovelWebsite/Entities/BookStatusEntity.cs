@@ -6,6 +6,6 @@ namespace NovelWebsite.Models
     {
         [Key]
         public string BookStatusId { get; set; }
-        public string StatusName { get; set; }
+        public string BookStatusName { get; set; }
     }
 }

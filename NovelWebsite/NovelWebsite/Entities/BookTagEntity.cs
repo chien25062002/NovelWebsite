@@ -2,7 +2,7 @@
 
 namespace NovelWebsite.Models
 {
-    public class BookTagEntity : BaseEntity
+    public class BookTagEntity
     {
         [Key]
         public string BookTagId { get; set; }

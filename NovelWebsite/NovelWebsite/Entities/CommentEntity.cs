@@ -13,7 +13,10 @@ namespace NovelWebsite.Models
         public BookEntity Book { get; set; }
         [ForeignKey("fk_comment_chapter")]
         public ChapterEntity Chapter { get; set; }
+        [ForeignKey("fk_comment_comment")]
+        public CommentEntity ReplyCommentId { get; set; }
         public string Content { get; set; }
         public int Likes { get; set; }
+        public int Dislikes { get; set; }
     }
 }
