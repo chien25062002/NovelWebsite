@@ -11,7 +11,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <script type="text/javascript" src="/js/scrollbutton.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        
+        <script type="text/javascript" src="/js/changbtn.js"></script>
+        <script src="https://cdn.tiny.cloud/1/70mtemgl7jp1hcmo3bika4x20zvv3ulinvq90cb91veacu42/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+        <script type="text/javascript" src="/js/tinymcescript.js"></script>
     </head>
 
     <body>
@@ -223,9 +225,9 @@
                         </p>
                         <p class="book--info-buttons">
                             <a class="btn" href="/html/doctruyen.html">Đọc truyện</a>
-                            <a class="btn" href="javascript:void(0)">Yêu thích</a>
-                            <a class="btn" href="javascript:void(0)">Theo dõi</a>
-                            <a class="btn" href="javascript:void(0)">Đề cử</a>
+                            <a class="btn" href="javascript:void(0)" onclick="onClickInfoBtn(this)">Yêu thích</a>
+                            <a class="btn" href="javascript:void(0)" onclick="onClickInfoBtn(this)">Theo dõi</a>
+                            <a class="btn" href="javascript:void(0)" onclick="onClickInfoBtn(this)">Đề cử</a>
                         </p>
                     </div>
                 </div>
@@ -243,6 +245,9 @@
                     </li>
                     <li class="nav-item">
                         <button class="nav-link" id="book--discuss-tab" data-bs-toggle="tab" data-bs-target="#book--discuss-id" type="button" role="tab" aria-controls="book--discuss-id" aria-selected="true">Bình luận</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" id="book--rate-tab" data-bs-toggle="tab" data-bs-target="#book--rate-id" type="button" role="tab" aria-controls="book--rate-id" aria-selected="true">Đánh giá</button>
                     </li>
                 </ul>
             </div>
@@ -336,262 +341,7 @@
                             <a href="javascript:void(0)"><img src="/image/test.jpg" class="banner-sm"></a>
                         </div>
                         
-                        <div class="user--comment">
-                            <div class="user--comment-wrap">
-                                <div class="user--comment-head row">
-                                    <div class="content--nav-wrap col-9">
-                                        <ul class="nav nav-tabs" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link active" id="user--comment-discuss-tab" data-bs-toggle="tab" data-bs-target="#user--comment-discuss-id" type="button" role="tab" aria-controls="user--comment-discuss-id" aria-selected="true">Bình luận</button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" id="user--comment-rate-tab" data-bs-toggle="tab" data-bs-target="#user--comment-rate-id" type="button" role="tab" aria-controls="user--commnet-rate-id" aria-selected="true">Đánh giá</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <span class="col-3">
-                                        <a href="javascript:void(0)">
-                                            <i class="fa-regular fa-comments"></i>
-                                            Viết bình luận
-                                        </a>
-                                    </span>
-                                </div>
-
-                                <div class="tab-content">
-                                    <div class="user--comment-discuss tab-pane show active" id="user--comment-discuss-id" role="tabpanel" aria-labelledby="user--comment-discuss-tab">
-                                        <div class="user--comment-discuss-wrap">
-                                            <div class="user--comment-discuss-list">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="user--photo col-md-2">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="/image/test3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="user--discussion col-md-10">
-                                                                <p class="users">
-                                                                    <a href="javascript:void(0)">kfc group</a>
-                                                                    <span>bá tánh bình dân</span>
-                                                                </p>
-                                                                <p class="comments collapse show" id="comment1">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
-                                                                <a href="#comment1" data-bs-toggle="collapse">Xem thêm</a>
-                                                                <p class="info--wrap">
-                                                                    <span>2 hrs</span>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-comment-dots"></i>
-                                                                        0 trả lời
-                                                                    </a>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-thumbs-up"></i>
-                                                                        0
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="user--photo col-md-2">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="/image/test3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="user--discussion col-md-10">
-                                                                <p class="users">
-                                                                    <a href="javascript:void(0)">kfc group</a>
-                                                                    <span>bá tánh bình dân</span>
-                                                                </p>
-                                                                <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
-                                                                <p class="info--wrap">
-                                                                    <span>2 hrs</span>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-comment-dots"></i>
-                                                                        0 trả lời
-                                                                    </a>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-thumbs-up"></i>
-                                                                        0
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="user--photo col-md-2">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="/image/test3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="user--discussion col-md-10">
-                                                                <p class="users">
-                                                                    <a href="javascript:void(0)">kfc group</a>
-                                                                    <span>bá tánh bình dân</span>
-                                                                </p>
-                                                                <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
-                                                                <p class="info--wrap">
-                                                                    <span>2 hrs</span>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-comment-dots"></i>
-                                                                        0 trả lời
-                                                                    </a>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-thumbs-up"></i>
-                                                                        0
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="user--photo col-md-2">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="/image/test3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="user--discussion col-md-10">
-                                                                <p class="users">
-                                                                    <a href="javascript:void(0)">kfc group</a>
-                                                                    <span>bá tánh bình dân</span>
-                                                                </p>
-                                                                <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
-                                                                <p class="info--wrap">
-                                                                    <span>2 hrs</span>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-comment-dots"></i>
-                                                                        0 trả lời
-                                                                    </a>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-thumbs-up"></i>
-                                                                        0
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                <p class="go--discuss">
-                                                    <a href="javascript:void(0)">Thêm bình luận</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="user--comment-rate tab-pane" id="user--comment-rate-id" role="tabpanel" aria-labelledby="user--comment-rate-tab">
-                                        <div class="user--comment-discuss-wrap">
-                                            <div class="user--comment-discuss-list">
-                                                <ul class="list-group list-group-flush">
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="user--photo col-md-2">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="/image/test3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="user--discussion col-md-10">
-                                                                <p class="users">
-                                                                    <a href="javascript:void(0)">kfc group</a>
-                                                                    <span>bá tánh bình dân</span>
-                                                                </p>
-                                                                <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay ruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện h
-                                                                    ay truyện hay truyện hay truyện hayruyện hay tru
-                                                                    yện hay truyện hay truyện hay truyện hay</p>
-                                                                <p class="info--wrap">
-                                                                    <span>2 hrs</span>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-thumbs-up"></i>
-                                                                        0
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="user--photo col-md-2">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="/image/test3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="user--discussion col-md-10">
-                                                                <p class="users">
-                                                                    <a href="javascript:void(0)">kfc group</a>
-                                                                    <span>bá tánh bình dân</span>
-                                                                </p>
-                                                                <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay ruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện h
-                                                                    ay truyện hay truyện hay truyện hayruyện hay tru
-                                                                    yện hay truyện hay truyện hay truyện hay</p>
-                                                                <p class="info--wrap">
-                                                                    <span>2 hrs</span>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-thumbs-up"></i>
-                                                                        0
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="user--photo col-md-2">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="/image/test3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="user--discussion col-md-10">
-                                                                <p class="users">
-                                                                    <a href="javascript:void(0)">kfc group</a>
-                                                                    <span>bá tánh bình dân</span>
-                                                                </p>
-                                                                <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay ruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện h
-                                                                    ay truyện hay truyện hay truyện hayruyện hay tru
-                                                                    yện hay truyện hay truyện hay truyện hay</p>
-                                                                <p class="info--wrap">
-                                                                    <span>2 hrs</span>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-thumbs-up"></i>
-                                                                        0
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                    <li class="list-group-item">
-                                                        <div class="row">
-                                                            <div class="user--photo col-md-2">
-                                                                <a href="javascript:void(0)">
-                                                                    <img src="/image/test3.jpg">
-                                                                </a>
-                                                            </div>
-                                                            <div class="user--discussion col-md-10">
-                                                                <p class="users">
-                                                                    <a href="javascript:void(0)">kfc group</a>
-                                                                    <span>bá tánh bình dân</span>
-                                                                </p>
-                                                                <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay ruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện h
-                                                                    ay truyện hay truyện hay truyện hayruyện hay tru
-                                                                    yện hay truyện hay truyện hay truyện hay</p>
-                                                                <p class="info--wrap">
-                                                                    <span>2 hrs</span>
-                                                                    <a href="javascript:void(0)">
-                                                                        <i class="fa-regular fa-thumbs-up"></i>
-                                                                        0
-                                                                    </a>
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                                <p class="go--discuss">
-                                                    <a href="javascript:void(0)">Thêm đánh giá</a>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="col-md-3">
                         <div class="card author">
@@ -1027,6 +777,300 @@
                             <li class="page-item"><a class="page-link" href="javascript:void(0)">Trang cuối</a></li>
                         </ul>
                     </div>
+                </div>
+            </div>
+
+            <div class="book--discuss tab-pane container fade" id="book--discuss-id">
+                <div class="user--comment">
+                    <!-- <div class="user--comment-wrap">
+                        <div class="user--comment-head row">
+                            <div class="content--nav-wrap col-9">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="user--comment-discuss-tab" data-bs-toggle="tab" data-bs-target="#user--comment-discuss-id" type="button" role="tab" aria-controls="user--comment-discuss-id" aria-selected="true">Bình luận</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="user--comment-rate-tab" data-bs-toggle="tab" data-bs-target="#user--comment-rate-id" type="button" role="tab" aria-controls="user--commnet-rate-id" aria-selected="true">Đánh giá</button>
+                                    </li>
+                                </ul>
+                            </div>
+                            <span class="col-3">
+                                <a href="javascript:void(0)">
+                                    <i class="fa-regular fa-comments"></i>
+                                    Viết bình luận
+                                </a>
+                            </span>
+                        </div> -->
+
+                    <div class="user--comment-discuss-wrap">
+                        <div class="user--comment-discuss-list">
+                            <div class="user--comment-discuss-list-title">Viết bình luận</div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <textarea></textarea>
+                                        </div>
+                                        <div class="submit-btn col-md-12">
+                                            <button class="btn btn-primary">Đăng</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="user--discussion col-md-10">
+                                            <p class="users">
+                                                <a href="javascript:void(0)">kfc group</a>
+                                                <span>bá tánh bình dân</span>
+                                            </p>
+                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                            </p>
+                                            <p class="info--wrap">
+                                                <span>2 hrs</span>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-comment-dots"></i>
+                                                    0 trả lời
+                                                </a>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                    0
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="user--discussion col-md-10">
+                                            <p class="users">
+                                                <a href="javascript:void(0)">kfc group</a>
+                                                <span>bá tánh bình dân</span>
+                                            </p>
+                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
+                                            <p class="info--wrap">
+                                                <span>2 hrs</span>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-comment-dots"></i>
+                                                    0 trả lời
+                                                </a>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                    0
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="user--discussion col-md-10">
+                                            <p class="users">
+                                                <a href="javascript:void(0)">kfc group</a>
+                                                <span>bá tánh bình dân</span>
+                                            </p>
+                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
+                                            <p class="info--wrap">
+                                                <span>2 hrs</span>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-comment-dots"></i>
+                                                    0 trả lời
+                                                </a>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                    0
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="user--discussion col-md-10">
+                                            <p class="users">
+                                                <a href="javascript:void(0)">kfc group</a>
+                                                <span>bá tánh bình dân</span>
+                                            </p>
+                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
+                                            <p class="info--wrap">
+                                                <span>2 hrs</span>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-comment-dots"></i>
+                                                    0 trả lời
+                                                </a>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                    0
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="go--discuss">
+                                <a href="javascript:void(0)">Thêm bình luận</a>
+                            </p>
+                        </div>
+                    </div>
+                        
+                </div>
+            </div>
+
+            <div class="book--rate tab-pane container fade" id="book--rate-id">
+                <div class="user--rate">
+                    <div class="user--comment-discuss-wrap">
+                        <div class="user--comment-discuss-list">
+                            <div class="user--comment-discuss-list-title">Viết đánh giá</div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <textarea></textarea>
+                                        </div>
+                                        <div class="submit-btn col-md-12">
+                                            <button class="btn btn-primary">Đăng</button>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="user--discussion col-md-10">
+                                            <p class="users">
+                                                <a href="javascript:void(0)">kfc group</a>
+                                                <span>bá tánh bình dân</span>
+                                            </p>
+                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay ruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện h
+                                                ay truyện hay truyện hay truyện hayruyện hay tru
+                                                yện hay truyện hay truyện hay truyện hay</p>
+                                            <p class="info--wrap">
+                                                <span>2 hrs</span>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                    0
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="user--discussion col-md-10">
+                                            <p class="users">
+                                                <a href="javascript:void(0)">kfc group</a>
+                                                <span>bá tánh bình dân</span>
+                                            </p>
+                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay ruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện h
+                                                ay truyện hay truyện hay truyện hayruyện hay tru
+                                                yện hay truyện hay truyện hay truyện hay</p>
+                                            <p class="info--wrap">
+                                                <span>2 hrs</span>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                    0
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="user--discussion col-md-10">
+                                            <p class="users">
+                                                <a href="javascript:void(0)">kfc group</a>
+                                                <span>bá tánh bình dân</span>
+                                            </p>
+                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay ruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện h
+                                                ay truyện hay truyện hay truyện hayruyện hay tru
+                                                yện hay truyện hay truyện hay truyện hay</p>
+                                            <p class="info--wrap">
+                                                <span>2 hrs</span>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                    0
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row">
+                                        <div class="user--photo col-md-2">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="user--discussion col-md-10">
+                                            <p class="users">
+                                                <a href="javascript:void(0)">kfc group</a>
+                                                <span>bá tánh bình dân</span>
+                                            </p>
+                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay ruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện hay truyện hay truyện hay truyện hayruyện hay truyện h
+                                                ay truyện hay truyện hay truyện hayruyện hay tru
+                                                yện hay truyện hay truyện hay truyện hay</p>
+                                            <p class="info--wrap">
+                                                <span>2 hrs</span>
+                                                <a href="javascript:void(0)">
+                                                    <i class="fa-regular fa-thumbs-up"></i>
+                                                    0
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p class="go--discuss">
+                                <a href="javascript:void(0)">Thêm đánh giá</a>
+                            </p>
+                        </div>
+                    </div>    
                 </div>
             </div>
         </div>

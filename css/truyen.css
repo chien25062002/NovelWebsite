@@ -1,4 +1,4 @@
-.book--information, .content--nav, .book--content, .book--chapter {
+.book--information, .content--nav, .book--content, .book--chapter, .book--discuss, .book--rate {
     width: 1200px;
     margin: 20px auto;
 }
@@ -48,6 +48,11 @@
     border: 1px solid #4949f2;
 }
 
+.book--info-buttons a.selected {
+    background-color: #4949f2;
+    color: #fff;
+}
+
 .book--info-tag {
     padding: 10px 0;
 }
@@ -69,6 +74,7 @@
     font-size: 14px;
     margin: 0 5px;
 }
+
 
 .book--info-intro {
     display: -webkit-box;
@@ -269,6 +275,12 @@
 
 .user--comment-discuss-list ul li {
     margin-top: 10px;
+    border: none;
+}
+
+.user--comment-discuss-list-title {
+    font-size: 20px;
+    font-weight: bold;
 }
 
 .info--wrap a {
@@ -285,6 +297,7 @@
     background-color: #f7f6f2;
     height: 40px;
     padding: 10px;
+    margin: 10px 0;
 }
 
 .go--discuss a {
@@ -375,8 +388,15 @@
     margin-top: 50px;
 }
 
-.user--discussion p:nth-child(2){
-    width: 90%;
+.user--discussion {
+    border: 1px solid #cacaca;
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 10.5px;
+}
+
+.info--wrap {
+    margin: 0;
 }
 
 .info--wrap a:hover {
@@ -412,3 +432,16 @@
     font-size: 16px;
 }
 
+.tox.tox-tinymce {
+    height: 200px !important;
+    border: 1px solid #cacaca;
+}
+
+.submit-btn {
+    padding: 10px 0 0 0;
+    margin-left: 54.5px;
+}
+
+.submit-btn button {
+    width: 100px;
+}
