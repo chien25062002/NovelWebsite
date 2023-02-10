@@ -8,6 +8,5 @@
         public string UpdatedBy { get; set; }
         public int Status { get; set; }
         public bool IsDeleted { get; set; }
-        public string Slug { get; set; }
     }
 }

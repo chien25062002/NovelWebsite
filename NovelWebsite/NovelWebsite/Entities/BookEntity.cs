@@ -10,7 +10,9 @@ namespace NovelWebsite.Models
         public string BookName { get; set; }
         //public string AuthorId { get; set; }
         //public string CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
         public CategoryEntity Category { get; set; }
+        [ForeignKey("AuthorId")]
         public AuthorEntity Author { get; set; }
         public int NumberOfChapters { get; set; }
         public int Views { get; set; }
@@ -18,9 +20,8 @@ namespace NovelWebsite.Models
         public int Recommends { get; set; }
         public string Avatar { get; set; }
         public string Introduce { get; set; }
-        public string AnotherName { get; set; }
         //public string BookStatusId { get; set; }
-        [ForeignKey("BookStatusId")]
+        [ForeignKey("fk_book_bookstatus")]
         public string BookStatusId { get; set; }
     }
 }

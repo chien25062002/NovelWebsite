@@ -26,5 +26,9 @@ namespace NovelWebsite.Areas.Admin.Controllers
             return View(query);
         }
         
+        public IActionResult AddOrUpdateBook(int id)
+        {
+            return View();
+        }
     }
 }

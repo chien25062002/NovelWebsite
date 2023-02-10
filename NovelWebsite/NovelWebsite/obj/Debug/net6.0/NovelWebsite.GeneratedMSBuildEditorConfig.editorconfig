@@ -15,6 +15,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = F:\Lập trình Web\BTL\NovelWebsite\NovelWebsite\NovelWebsite
 build_property._RazorSourceGeneratorDebug = 
 
+[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Book/AddOrUpdateBook.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va1xBZGRPclVwZGF0ZUJvb2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Book/ListOfBooks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va1xMaXN0T2ZCb29rcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
