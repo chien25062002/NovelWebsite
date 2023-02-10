@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovelWebsite.Models
 {
@@ -16,9 +17,10 @@ namespace NovelWebsite.Models
         public int Likes { get; set; }
         public int Recommends { get; set; }
         public string Avatar { get; set; }
-        public string Description { get; set; }
+        public string Introduce { get; set; }
         public string AnotherName { get; set; }
         //public string BookStatusId { get; set; }
-        public BookStatusEntity BookStatus { get; set; }
+        [ForeignKey("BookStatusId")]
+        public string BookStatusId { get; set; }
     }
 }

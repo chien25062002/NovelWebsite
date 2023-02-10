@@ -6,7 +6,7 @@ namespace NovelWebsite.Models
     public class CommentEntity : BaseEntity
     {
         [Key]
-        public string CommentId { get; set; }
+        public int CommentId { get; set; }
         [ForeignKey("fk_comment_user")]
         public UserEntity User { get; set; }
         [ForeignKey("fk_comment_book")]

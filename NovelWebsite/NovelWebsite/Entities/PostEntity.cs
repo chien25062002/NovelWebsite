@@ -4,14 +4,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovelWebsite.Entities
 {
-    public class PostEntity
+    public class PostEntity : BaseEntity
     {
         [Key]
         public string PostId { get; set; }
-        [ForeignKey("UserId")]
+        [ForeignKey("fk_post_user")]
         public UserEntity User { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
+        public string Content { get; set; }
         public int Views { get; set; }
         public int Likes { get; set; }
     }

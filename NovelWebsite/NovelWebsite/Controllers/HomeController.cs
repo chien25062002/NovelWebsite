@@ -15,19 +15,76 @@ namespace NovelWebsite.Controllers
 
         public IActionResult Index()
         {
-            //var query = _dbContext.FollowingBooks.ToList();
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult GetAllCategories()
         {
-            return View();
+            return Json(_dbContext.Categories.ToList());
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public IActionResult GetPosts(int number = 10)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return Json(_dbContext.Posts.OrderByDescending(p => p.UpdatedDate).Take(number).ToList());
+        }
+
+        public IActionResult GetChapterUpdated(int number = 10)
+        {
+            var query = _dbContext.Chapters.OrderByDescending(p => p.UpdatedDate);
+            List<ChapterEntity> listChapters = new List<ChapterEntity>();
+            foreach (var chapter in query)
+            {
+                if (listChapters.FirstOrDefault(c => c.Book.BookId == chapter.Book.BookId) != null)
+                {
+                    listChapters.Add(chapter);
+                }
+                if (listChapters.Count == number)
+                {
+                    break;
+                }
+            }
+            return Json(listChapters);
+        }
+
+        public IActionResult GetMostRecommends(int number = 10)
+        {
+            return Json(_dbContext.Books.OrderByDescending(b => b.Recommends).Take(number).ToList());
+        }
+
+        public IActionResult GetMostViews(int number = 10)
+        {
+            return Json(_dbContext.Books.OrderByDescending(b => b.Views).Take(number).ToList());
+        }
+
+        public IActionResult GetMostLikes(int number = 10)
+        {
+            return Json(_dbContext.Books.OrderByDescending(b => b.Likes).Take(number).ToList());
+        }
+
+        public IActionResult GetMostFollow(int number = 10)
+        {
+            var grBook = _dbContext.BookUsers.GroupBy(b => b.Book.BookId);
+            var query = grBook.Select(g => new
+            {
+                BookId = g.Key,
+                UserFollow = g.Count()
+            }).OrderByDescending(g => g.UserFollow).Take(number);
+            List<BookEntity> listBooks = new List<BookEntity>();
+            foreach (var item in query)
+            {
+                listBooks.Add(_dbContext.Books.Find(item.BookId));
+            }
+            return Json(listBooks);
+        }
+
+        public IActionResult GetNewBooks(int number = 10)
+        {
+            return Json(_dbContext.Books.OrderByDescending(b => b.CreatedDate).Take(number).ToList());
+        }
+
+        public IActionResult GetFinishedBooks(int number = 10)
+        {
+            return Json(_dbContext.Books.Where(b => b.BookStatusId == "HOANTHANH").OrderByDescending(b => b.CreatedDate).Take(number).ToList());
         }
     }
 }

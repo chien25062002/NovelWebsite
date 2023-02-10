@@ -1,11 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovelWebsite.Models
 {
     public class ChapterEntity : BaseEntity
     {
         [Key]
-        public string ChapterId { get; set; }
+        public int ChapterId { get; set; }
+
+        [ForeignKey("fk_chapter_book")]
         public BookEntity Book { get; set; }
         public string ChapterNumber { get; set; }
         public string ChapterName { get; set; }

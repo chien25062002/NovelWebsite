@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace NovelWebsite.Models
 {
-    public class CategoryEntity : BaseEntity
+    public class CategoryEntity
     {
         [Key]
-        public string CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
         public int Quantity { get; set; }
     }
