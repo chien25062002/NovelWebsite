@@ -7,13 +7,13 @@ namespace NovelWebsite.Models
     {
         [Key]
         public int CommentId { get; set; }
-        [ForeignKey("fk_comment_user")]
+        [ForeignKey("UserId")]
         public UserEntity User { get; set; }
-        [ForeignKey("fk_comment_book")]
+        [ForeignKey("BookId")]
         public BookEntity Book { get; set; }
-        [ForeignKey("fk_comment_chapter")]
+        [ForeignKey("ChapterId")]
         public ChapterEntity Chapter { get; set; }
-        [ForeignKey("fk_comment_comment")]
+        [ForeignKey("CommentId")]
         public CommentEntity ReplyCommentId { get; set; }
         public string Content { get; set; }
         public int Likes { get; set; }

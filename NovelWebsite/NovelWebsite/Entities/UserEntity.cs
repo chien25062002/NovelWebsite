@@ -11,7 +11,7 @@ namespace NovelWebsite.Models
         public string Avatar { get; set; }
         public string CoverPhoto { get; set; }
         public string Email { get; set; }
-        [ForeignKey("fk_role_user")]
+        [ForeignKey("UserId")]
         public RoleEntity UserRole { get; set; }
     }
 }

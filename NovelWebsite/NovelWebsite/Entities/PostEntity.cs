@@ -8,7 +8,7 @@ namespace NovelWebsite.Entities
     {
         [Key]
         public string PostId { get; set; }
-        [ForeignKey("fk_post_user")]
+        [ForeignKey("UserId")]
         public UserEntity User { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }

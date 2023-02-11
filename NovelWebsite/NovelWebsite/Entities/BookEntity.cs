@@ -14,6 +14,8 @@ namespace NovelWebsite.Models
         public CategoryEntity Category { get; set; }
         [ForeignKey("AuthorId")]
         public AuthorEntity Author { get; set; }
+        [ForeignKey("UserId")]
+        public UserEntity User { get; set; }
         public int NumberOfChapters { get; set; }
         public int Views { get; set; }
         public int Likes { get; set; }
@@ -21,7 +23,7 @@ namespace NovelWebsite.Models
         public string Avatar { get; set; }
         public string Introduce { get; set; }
         //public string BookStatusId { get; set; }
-        [ForeignKey("fk_book_bookstatus")]
+        [ForeignKey("BookStatusId")]
         public string BookStatusId { get; set; }
     }
 }

@@ -20,6 +20,8 @@ namespace NovelWebsite.Entities
         public DbSet<RoleEntity> UserRoles { get; set; }
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<ReviewEntity> Reviews { get; set; }
+
+        public DbSet<TagEntity> Tags { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CategoryEntity>().ToTable("Category");

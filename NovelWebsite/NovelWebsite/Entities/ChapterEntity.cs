@@ -8,7 +8,7 @@ namespace NovelWebsite.Models
         [Key]
         public int ChapterId { get; set; }
 
-        [ForeignKey("fk_chapter_book")]
+        [ForeignKey("BookId")]
         public BookEntity Book { get; set; }
         public string ChapterNumber { get; set; }
         public string ChapterName { get; set; }

@@ -8,9 +8,9 @@ namespace NovelWebsite.Entities
     {
         [Key]
         public int ReviewId { get; set; }
-        [ForeignKey("fk_review_user")]
+        [ForeignKey("UserId")]
         public UserEntity User { get; set; }
-        [ForeignKey("fk_review_book")]
+        [ForeignKey("BookId")]
         public BookEntity Book { get; set; }
         public string Content { get; set; }
         public int Likes { get; set; }
