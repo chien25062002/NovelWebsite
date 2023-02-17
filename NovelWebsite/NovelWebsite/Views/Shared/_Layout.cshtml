@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@model AccountModel
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Test</title>
@@ -87,16 +89,24 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
                             <!-- Modal body -->
-                            <form class="needs-validation" action="/action_page.php">
+                            <form class="needs-validation" action="/Account/Login" method="post">
+                                @{
+                                    var error = TempData["LoginError"];
+                                    if (error != null){
+                                        <span class="text-danger">@error</span>
+                                    }
+                                }
+                                <div asp-validation-summary="All"></div>
                                 <div class="modal-body">
+                                    <span asp-validation-for="AccountName" class="text-danger"></span>
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" id="tendangnhap1" placeholder="Tên đăng nhập" name="tdn" required>
-                                        <label for="tdn"><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
+                                        <input type="text" class="form-control" placeholder="Tên đăng nhập" asp-for="AccountName">
+                                        <label asp-for="AccountName"><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
                                     </div>
-
+                                    <span asp-validation-for="Password" class="text-danger"></span>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input type="password" class="form-control" id="matkhau1" placeholder="Mật khẩu" name="mk" required>
-                                        <label for="mk"><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
+                                        <input type="password" class="form-control" id="matkhau1" placeholder="Mật khẩu" asp-for="Password">
+                                        <label asp-for="Password"><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
                                     </div>
                                 </div>
                                 <!-- Modal footer -->
@@ -120,14 +130,14 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
                             <!-- Modal body -->
-                            <form class="needs-validation" action="/action_page.php">
+                            <form class="needs-validation" action="/Account/LoginAsync" method="post">
                                 <div class="modal-body">
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" id="tendangnhap2" placeholder="Tên đăng nhập" name="tdn" required>
+                                        <input type="text" class="form-control" id="tendangnhap2" placeholder="Tên đăng nhập" name="AccountName" required>
                                         <label for="tdn"><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
                                     </div>
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="email" class="form-control" id="email2" placeholder="Email" name="eml" required>
+                                        <input type="email" class="form-control" id="email2" placeholder="Email" name="Password" required>
                                         <label for="eml"><i class="fa-solid fa-envelope modal--icon"></i></i>Email</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">

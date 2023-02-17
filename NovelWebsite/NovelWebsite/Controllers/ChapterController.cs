@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NovelWebsite.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace NovelWebsite.Controllers
 {
@@ -11,10 +12,12 @@ namespace NovelWebsite.Controllers
         {
             _dbContext = dbContext;
         }
+
         public IActionResult Index(int id)
         {
-            var chapter = _dbContext.Chapters.Find(id);
-            return View(chapter);
+          
+            var chapter = _dbContext.Chapters.Where(c => c.ChapterId == id);
+            return Json(chapter);
         }
 
         public IActionResult GetListComments(int id)

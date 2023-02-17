@@ -17,7 +17,7 @@ namespace NovelWebsite.Entities
         public DbSet<CommentEntity> Comments { get; set; }
         public DbSet<BookUserEntity> BookUsers { get; set; }
         public DbSet<UserEntity> Users { get; set; }
-        public DbSet<RoleEntity> UserRoles { get; set; }
+        public DbSet<RoleEntity> Roles { get; set; }
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<ReviewEntity> Reviews { get; set; }
 

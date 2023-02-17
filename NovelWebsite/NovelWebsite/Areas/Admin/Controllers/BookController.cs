@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NovelWebsite.Entities;
+using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Models;
 
 namespace NovelWebsite.Areas.Admin.Controllers
@@ -20,15 +21,28 @@ namespace NovelWebsite.Areas.Admin.Controllers
             int pageCount = (int)Math.Ceiling(1.0 * pageTotal / pageSize);
             int skip = pageNumber * pageSize - pageSize;
             var query = _dbContext.Books.Where(b => string.IsNullOrEmpty(name) || b.BookName.ToLower().Contains(name.ToLower()))
-                                        .Skip(skip)
-                                        .Take(pageSize)
+                                        .Where(b => b.IsDeleted == false)
+                                        .Include(b => b.Author)
+                                        .Include(b => b.Category)
+                                        .Include(b => b.User)
+                                        .Include(b => b.BookStatus)
                                         .ToList();
             return View(query);
         }
         
-        public IActionResult AddOrUpdateBook(int id)
+        public IActionResult AddOrUpdateBook(int bookId)
         {
-            return View();
+            var query = _dbContext.Books.Where(b => b.BookId == bookId && b.IsDeleted == false)
+                                         .Include(b => b.Author)
+                                         .Include(b => b.Category)
+                                         .Include(b => b.User)
+                                         .Include(b => b.BookStatus)
+                                         .First();
+            if (query == null)
+            {
+                return NotFound();
+            }
+            return View(query);
         }
 
         [HttpPost]
@@ -36,7 +50,7 @@ namespace NovelWebsite.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-
+                return Redirect("/Admin/Book/AddOrUpdateBook?id=" + bookModel.BookId);
             }
             else
             {
@@ -49,9 +63,10 @@ namespace NovelWebsite.Areas.Admin.Controllers
                     };
                     _dbContext.Authors.Add(author);
                 }
-                if (bookModel.BookId == 0)
+                var book = _dbContext.Books.FirstOrDefault(b => b.BookId == bookModel.BookId && b.IsDeleted == false);
+                if (book.BookId == null)
                 {
-                    _dbContext.Books.Add(new BookEntity()
+                    book = new BookEntity()
                     {
                         BookName = bookModel.BookName,
                         BookId = bookModel.BookId,
@@ -65,10 +80,34 @@ namespace NovelWebsite.Areas.Admin.Controllers
                         Avatar = bookModel.Avatar,
                         Introduce = bookModel.Introduce,
                         BookStatusId = bookModel.BookStatusId,
-                    });
+                        CreatedDate = DateTime.Now,
+                        UpdatedDate = DateTime.Now,
+                    };
+                    _dbContext.Books.Add(book);
+                }
+                else
+                {
+                    book.BookName = bookModel.BookName;
+                    book.AuthorId = bookModel.AuthorId;
+                    book.CategoryId = bookModel.CategoryId;
+                    book.Avatar = bookModel.Avatar;
+                    book.Introduce = bookModel.Introduce;
+                    book.BookStatusId = bookModel.BookStatusId;
+                    book.UpdatedDate = DateTime.Now;
+                    _dbContext.Books.Update(book);
                 }
             }
+            _dbContext.SaveChanges();
             return AddOrUpdateBook(bookModel.BookId);
+        }
+
+        public IActionResult DeleteBook(int bookId)
+        {
+            var book = _dbContext.Books.First(x => x.BookId == bookId);
+            book.IsDeleted = true;
+            _dbContext.Books.Update(book);
+            _dbContext.SaveChanges();
+            return Redirect("/Admin/Book/ListOfBooks");
         }
     }
 }

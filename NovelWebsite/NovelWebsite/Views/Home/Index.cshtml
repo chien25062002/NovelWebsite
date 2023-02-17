@@ -178,7 +178,7 @@
         <div class="index__notice">
             <h3>Tin tức</h3>
             <div class="index__notice--list">
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" id="new-posts">
                     <li class="list-group-item odd">
                         <i class="fa-solid fa-share"></i>
                         <a href="javascript:void(0)">Đăng ký convert</a>
@@ -225,7 +225,7 @@
     <div class="index__truyenmoi col-md-3">
         <h4>Truyện mới cập nhật</h4>
         <div class="index__truyenmoi--list">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" id="new-chapters-updated">
                 <li class="list-group-item">
                     <i class="fa-solid fa-book-open"></i>
                     <a href="/html/truyen.html">Thanh liên chi đỉnh</a>
@@ -1639,17 +1639,260 @@
             success: function(data){
                 $('div.index__theloai--chitiet').html();
                 data.forEach((item,index) => {
-                    let row = `<div class="index__theloai--chitiet-cot1 col-md-6">
-                                    <a href="javascript:void(0)">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span>
-                                            <p class="tentruyen">${item.categoryName}</p>
-                                            <p class="soluongtruyen">${item.quantity}</p>
-                                        </span>
+                    console.log(item)
+                });
+            },
+            error: function(){},
+            complete: function(){}
+        })
 
-                                    </a>
+        $.ajax({
+            url: "/Home/GetPosts",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(){},
+            success: function(data){
+                $('#new-posts').html();
+                data.forEach((item,index) => {
+                    let row = `<li class="list-group-item odd">
+                                    <i class="fa-solid fa-share"></i>
+                                    <a href="/tin-tuc/${item.slug}">${item.title}</a>
+                                </li>`;
+                    $('#new-posts').append(row);
+                });
+            },
+            error: function(){},
+            complete: function(){}
+        })
+
+        $.ajax({
+            url: "/Home/GetChapterUpdated",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(){},
+            success: function(data){
+                $('#new-chapters-updated').html();
+                data.forEach((item,index) => {
+                    let row = `<li class="list-group-item">
+                                    <i class="fa-solid fa-book-open"></i>
+                                    <a href="/truyen/${item.book.slug}/${item.slug}">${item.book.bookName}</a>
+                                    <span class="index__truyenmoi--chuong">Chương ${item.chapterNumber}</span>
+                                </li>`;
+                    $('#new-chapters-updated').append(row);
+                });
+            },
+            error: function(){},
+            complete: function(){}
+        })
+
+        $.ajax({
+            url: "/Home/GetMostRecommends",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(){},
+            success: function(data){
+                $('#book-most-recommends').html();
+                data.forEach((item,index) => {
+                    console.log(item)
+                });
+            },
+            error: function(){},
+            complete: function(){}
+        })
+
+        $.ajax({
+            url: "/Home/GetMostViews",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(){},
+            success: function(data){
+                $('#book-most-views').html();
+                data.forEach((item,index) => {
+                    console.log(item)
+                });
+            },
+            error: function(){},
+            complete: function(){}
+        })
+
+        $.ajax({
+            url: "/Home/GetMostLikes",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(){},
+            success: function(data){
+                $('#book-most-likes').html();
+                data.forEach((item,index) => {
+                    console.log(item)
+                });
+            },
+            error: function(){},
+            complete: function(){}
+        })
+
+        $.ajax({
+            url: "/Home/GetMostFollows",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(){},
+            success: function(data){
+                $('#book-most-follows').html();
+                data.forEach((item,index) => {
+                    console.log(item)
+                });
+            },
+            error: function(){},
+            complete: function(){}
+        })
+
+        $.ajax({
+            url: "/Home/GetNewBooks",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(){},
+            success: function(data){
+                $('div.index__truyenmoito col-md-3').html();
+                $('div.index__truyenmoito col-md-3').html();
+                data.forEach((item,index) => {
+                    let row = ``;
+                    if (index > 0){
+                        row = `<div class="index__truyenmoito--listitem col-md-4">
+                                    <div class="book--img">
+                                        <a href="/truyen/${item.slug}-${item.id}">
+                                            <img src="${item.avatar}" class="book--imgcss">
+                                        </a>
+                                    </div>
+                                    <div class="book--info">
+                                        <h3>
+                                            <a href="/truyen/${item.slug}-${item.id}">${item.bookName}</a>
+                                        </h3>
+                                        <div class="book-state">
+                                            <a href="/tac-gia/${item.author.slug}">${item.author.authorName}</a>
+                                        </div>
+                                        <p>
+                                            <em>
+                                                <span class="chapters">${item.numberOfChapters}</span>
+                                            </em>
+                                            <cite>Số chương</cite>
+                                            <i>|</i>
+                                            <em>
+                                                <span class="views">${item.views}</span>
+                                            </em>
+                                            <cite>Lượt xem</cite>
+                                        </p>
+                                        <div class="catagory">
+                                            <p>Thể loại:</p>
+                                            <p class="catagory-wrap">
+                                                <a href="javascript:void(0)">${item.category.categoryName}</a>
+                                            </p>
+                                        </div>
+                                        <div class="describe">
+                                            <i class="fa-solid fa-quote-left"></i>
+                                            ${item.introduce}
+                                        </div>
+                                    </div>
                                 </div>`;
-                    $('div.index__theloai--chitiet').append(row);
+                        $('div.index__truyenmoito div.col-md-3').append(row);
+                    }
+                    else {
+                        row = `<div class="index__truyenmoito--chitiet card">
+                                        <img class="card-img-top" src="${item.avatar}" alt="Card image">
+                                        <div class="card-body">
+                                            <h4 class="card-title">
+                                                <a href="/truyen/${item.slug}">${item.bookName}</a>
+                                            </h4>
+                                            <p class="card-text index__truyenhoanthanh--theloai">${item.category.categoryName}</p>
+                                            <p class="card-text index__truyenhoanthanh--sochuong">${item.numberOfChapters}</p>
+                                            <p class="card-text index__truyenmoito--gioithieu">
+                                                <i>
+                                                    ${item.introduce}
+                                                </i>
+                                            </p>
+                                            <a href="/truyen/${item.slug}" class="btn index__truyenmoito--cardbtn">
+                                                Đọc truyện
+                                                <i class="fa-solid fa-chevron-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>`;
+                        $('div.index__truyenmoito div.col-md-9').append(row);
+                    }
+                });
+            },
+            error: function(){},
+            complete: function(){}
+        })
+
+        $.ajax({
+            url: "/Home/GetFinishedBooks",
+            type: "GET",
+            dataType: "json",
+            beforeSend: function(){},
+            success: function(data){
+                $('div.index__truyenhoanthanh div.col-md-3').html();
+                $('div.index__truyenhoanthanh div.col-md-9').html();
+                data.forEach((item,index) => {
+                    let row = ``;
+                    if (index > 0){
+                        row = `<div class="index__truyenhoanthanh--listitem col-md-4">
+                                    <div class="book--img">
+                                        <a href="/truyen/${item.slug}-${item.id}">
+                                            <img src="${item.avatar}" class="book--imgcss">
+                                        </a>
+                                    </div>
+                                    <div class="book--info">
+                                        <h3>
+                                            <a href="/truyen/${item.slug}-${item.id}">${item.bookName}</a>
+                                        </h3>
+                                        <div class="book-state">
+                                            <a href="/tac-gia/${item.author.slug}">${item.author.authorName}</a>
+                                        </div>
+                                        <p>
+                                            <em>
+                                                <span class="chapters">${item.numberOfChapters}</span>
+                                            </em>
+                                            <cite>Số chương</cite>
+                                            <i>|</i>
+                                            <em>
+                                                <span class="views">${item.views}</span>
+                                            </em>
+                                            <cite>Lượt xem</cite>
+                                        </p>
+                                        <div class="catagory">
+                                            <p>Thể loại:</p>
+                                            <p class="catagory-wrap">
+                                                <a href="javascript:void(0)">${item.category.categoryName}</a>
+                                            </p>
+                                        </div>
+                                        <div class="describe">
+                                            <i class="fa-solid fa-quote-left"></i>
+                                            ${item.introduce}
+                                        </div>
+                                    </div>
+                                </div>`;
+                        $('div.index__truyenhoanthanh div.col-md-3').append(row);
+                    }
+                    else {
+                        row = `<div class="index__truyenhoanthanh--chitiet card">
+                                        <img class="card-img-top" src="${item.avatar}" alt="Card image">
+                                        <div class="card-body">
+                                            <h4 class="card-title">
+                                                <a href="/truyen/${item.slug}">${item.bookName}</a>
+                                            </h4>
+                                            <p class="card-text index__truyenhoanthanh--theloai">${item.category.categoryName}</p>
+                                            <p class="card-text index__truyenhoanthanh--sochuong">${item.numberOfChapters}</p>
+                                            <p class="card-text index__truyenmoito--gioithieu">
+                                                <i>
+                                                    ${item.introduce}
+                                                </i>
+                                            </p>
+                                            <a href="/truyen/${item.slug}" class="btn index__truyenmoito--cardbtn">
+                                                Đọc truyện
+                                                <i class="fa-solid fa-chevron-right"></i>
+                                            </a>
+                                        </div>
+                                    </div>`;
+                        $('div.index__truyenhoanthanh div.col-md-9').append(row);
+                    }
                 });
             },
             error: function(){},

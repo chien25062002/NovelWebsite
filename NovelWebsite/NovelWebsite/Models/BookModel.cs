@@ -6,8 +6,7 @@ namespace NovelWebsite.Models
     {
         public int BookId { get; set; }
         public string BookName { get; set; }
-        //public string AuthorId { get; set; }
-        //public string CategoryId { get; set; }
+        public int AuthorId { get; set; }
         public int CategoryId { get; set; }
         public string AuthorName { get; set; }
         public int UserId { get; set; }
@@ -18,5 +17,6 @@ namespace NovelWebsite.Models
         public string Avatar { get; set; }
         public string Introduce { get; set; }
         public string BookStatusId { get; set; }
+
     }
 }

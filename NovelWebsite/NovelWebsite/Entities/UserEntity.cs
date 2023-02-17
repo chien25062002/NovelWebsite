@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NovelWebsite.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovelWebsite.Models
@@ -11,7 +12,8 @@ namespace NovelWebsite.Models
         public string Avatar { get; set; }
         public string CoverPhoto { get; set; }
         public string Email { get; set; }
-        [ForeignKey("UserId")]
-        public RoleEntity UserRole { get; set; }
+        [ForeignKey("RoleId")]
+        public int RoleId { get; set; }
+        public RoleEntity Role { get; set; }
     }
 }
