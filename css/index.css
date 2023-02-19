@@ -236,35 +236,35 @@ ul li {
     padding: 5px;
 }
 
-.index__theloai--chitiet-cot1, .index__theloai--chitiet-cot2 {
+.index__theloai--chitiet-cot {
     color: white;
 }
 
-.index__theloai--chitiet-cot1:hover, .index__theloai--chitiet-cot2:hover {
+.index__theloai--chitiet-cot:hover {
     background-color: #077c86;
     color: #fff;
     border-radius: 5px;
 }
 
-.index__theloai--chitiet-cot1 a, .index__theloai--chitiet-cot2 a {
+.index__theloai--chitiet-cot a {
     color: inherit;
     float: left;
     display: flex;
 }
 
-.index__theloai--chitiet-cot1 i, .index__theloai--chitiet-cot2 i {
+.index__theloai--chitiet-cot i {
     text-align: center;
     font-size: 16px;
     line-height: 40px;
     color: inherit;
 }
 
-.index__theloai--chitiet-cot1 p, .index__theloai--chitiet-cot2 p {
+.index__theloai--chitiet-cot p {
     color: inherit;
     margin: auto 0 auto 10px;
 }
 
-.index__theloai--chitiet-cot1 span, .index__theloai--chitiet-cot2 span {
+.index__theloai--chitiet-cot span {
     color: inherit;
 }
 
