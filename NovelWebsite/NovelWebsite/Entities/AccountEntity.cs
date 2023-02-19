@@ -10,6 +10,7 @@ namespace NovelWebsite.Models
         public string Password { get; set; }
 
         [ForeignKey("UserId")]
+        public int UserId { get; set; }
         public UserEntity User { get; set; }
     }
 }

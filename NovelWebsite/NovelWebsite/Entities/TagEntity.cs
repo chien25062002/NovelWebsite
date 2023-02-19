@@ -7,5 +7,6 @@ namespace NovelWebsite.Models
         [Key]
         public int TagId { get; set; }
         public string TagName { get; set; }
+        public string? Slug { get; set; }
     }
 }
