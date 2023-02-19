@@ -21,7 +21,7 @@ namespace NovelWebsite.Controllers
         public IActionResult GetAllCategories()
         {
             var query = _dbContext.Categories.ToList();
-            return View(query);
+            return Json(query);
         }
 
         public IActionResult GetPosts(int number = 10)

@@ -15,7 +15,7 @@ namespace NovelWebsite.Entities
         public int BookId { get; set; }
         public BookEntity Book { get; set; }
         public string Content { get; set; }
-        public int Likes { get; set; }
-        public int Dislikes { get; set; }
+        public int? Likes { get; set; }
+        public int? Dislikes { get; set; }
     }
 }

@@ -12,10 +12,10 @@ namespace NovelWebsite.Models
         public int BookId { get; set; }
         public BookEntity Book { get; set; }
         public int? ChapterNumber { get; set; }
-        public string ChapterName { get; set; }
-        public string Content { get; set; }
+        public string? ChapterName { get; set; }
+        public string? Content { get; set; }
         public int? Views { get; set; }
         public int? Likes { get; set; }
-        public string Slug { get; set; }
+        public string? Slug { get; set; }
     }
 }

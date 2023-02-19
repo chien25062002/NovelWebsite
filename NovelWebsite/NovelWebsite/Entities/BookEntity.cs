@@ -21,11 +21,11 @@ namespace NovelWebsite.Models
         public int? Views { get; set; }
         public int? Likes { get; set; }
         public int? Recommends { get; set; }
-        public string Avatar { get; set; }
-        public string Introduce { get; set; }
+        public string? Avatar { get; set; }
+        public string? Introduce { get; set; }
         [ForeignKey("BookStatusId")]
         public string BookStatusId { get; set; }
         public BookStatusEntity BookStatus { get; set; }
-        public string Slug { get; set; }
+        public string? Slug { get; set; }
     }
 }
