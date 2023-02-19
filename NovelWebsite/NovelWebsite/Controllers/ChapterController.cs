@@ -11,15 +11,21 @@ namespace NovelWebsite.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult Index(int id)
+        public IActionResult Index(int chapterId)
         {
-            var chapter = _dbContext.Chapters.Find(id);
+            var chapter = _dbContext.Chapters.Find(chapterId);
             return View(chapter);
         }
 
-        public IActionResult GetListComments(int id)
+        public IActionResult GetAllChapters(int bookId)
         {
-            var listComments = _dbContext.Comments.Where(c => c.Chapter.ChapterId == id).ToList();
+            var listChapters = _dbContext.Chapters.Where(c => c.BookId == bookId && c.IsDeleted == false);
+            return View(listChapters);
+        }
+
+        public IActionResult GetListComments(int chapterId)
+        {
+            var listComments = _dbContext.Comments.Where(c => c.Chapter.ChapterId == chapterId).ToList();
             return View(listComments);
         }
     }

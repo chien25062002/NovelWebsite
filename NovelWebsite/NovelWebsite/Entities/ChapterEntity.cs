@@ -10,6 +10,7 @@ namespace NovelWebsite.Models
 
         [ForeignKey("BookId")]
         public BookEntity Book { get; set; }
+        public int BookId { get; set; }
         public string ChapterNumber { get; set; }
         public string ChapterName { get; set; }
         public string Content { get; set; }
