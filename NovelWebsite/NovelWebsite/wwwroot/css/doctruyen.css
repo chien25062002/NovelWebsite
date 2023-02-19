@@ -120,7 +120,7 @@
 }
 
 .control-box-content a, .control-box-content i {
-    font-size: 26px;
+    font-size: 20px;
 }
 
 .control-box-content a {
@@ -421,3 +421,7 @@ a.closemark:hover {
     margin: 0 10px;
 }
 
+.comment-section-discuss-list ul li {
+    border: none;
+    margin-top: 10px;
+}

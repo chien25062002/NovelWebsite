@@ -1,5 +1,156 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+<div class="edit--main-body">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="editor--header">Giao diện chỉnh sửa chương</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Tên truyện:</h4>
+        </div>
+        <div class="col-md-10">
+            <div class="editor--content input-group">
+                <input type="text" class="editbook--name form-control" value="Đây là tên truyện" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Tác giả:</h4>
+        </div>
+        <div class="col-md-10">
+            <div class="editor--content input-group">
+                <input type="text" class="editbook--name form-control" value="Đây là tên tác giả" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Tên chương:</h4>
+        </div>
+        <div class="col-md-10">
+            <div class="editor--content input-group">
+                <input type="text" class="editbook--name form-control" value="Đây là tên chương" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Chương số:</h4>
+        </div>
+        <div class="col-md-10">
+            <div class="editor--content input-group">
+                <input type="text" class="editbook--name form-control" value="Chương số xxx" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Thumbnail:</h4>
+        </div>
+        <div class="col-md-10">
+            <div class="editor--img-wrap">
+                <div class="editor--img-container">
+                    <img src="/image/test.jpg">
+                </div>
+                <button class="btn btn-primary" onclick="importData()">Đổi ảnh</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Chương số:</h4>
+        </div>
+        <div class="col-md-10">
+            <div class="editor--content editbook--chapter">1234</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Tên chương:</h4>
+        </div>
+        <div class="col-md-10 editor-off">
+            <div class="editor--content editbook--chapter-title">
+                <div class="editbook--chapter-title-content">Đây là tên chương</div>
+                <button class="btn btn-primary" onclick="onClickSua(this)">Sửa</button>
+            </div>
+        </div>
+        <div class="col-md-10 d-none editor-on">
+            <textarea rows="1" cols="60" class="editbook--chapter-title-fix"></textarea>
+            <button class="btn btn-primary" onclick="onClickLuu(this,1)">Lưu</button>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Thể loại:</h4>
+        </div>
+        <!-- <div class="col-md-10 editor-off">
+            <div class="editor--content editbook--catagory-title">
+                <div class="editbook--catagory-title-content">Tên thể loại</div>
+                <button class="btn btn-primary" onclick="onClickSua(this,1)">Sửa</button>
+            </div>
+        </div>
+        <div class="col-md-10 d-none">
+            <textarea rows="1" cols="60" class="editbook--catagory-title-fix"></textarea>
+            <button class="btn btn-primary" onclick="onClickLuu(this,2)">Lưu</button>
+        </div> -->
+        <div class="col-md-10">
+            <div class="editor--content">
+                <select class="form-select">
+                    <option>Thể loại 1</option>
+                    <option>Thể loại 2</option>
+                    <option>Thể loại 3</option>
+                    <option>Thể loại 4</option>
+                    <option>Thể loại 5</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <h4 class="editor--title">Thể loại phụ:</h4>
+        </div>
+        <div class="col-md-10">
+            <div class="editor--content sub-catagory">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label">Option 1</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label">Option 2</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label">Option 3</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label">Option 4</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox">
+                    <label class="form-check-label">Option 5</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+            <h4 class="editor--title">Nội dung chương:</h4>
+        </div>
+        <div class="col-12">
+            <div>
+                <textarea id="tiny"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-primary submit-btn" type="submit">Chỉnh sửa</button>
+</div>

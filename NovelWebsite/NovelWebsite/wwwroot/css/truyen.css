@@ -285,11 +285,23 @@
 
 .info--wrap a {
     padding-left: 10px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .info--wrap span {
-    font-size: 14px;
+    font-size: 16px;
+}
+
+i.info-icon {
+    font-size: 18px;
+}
+
+.rate-up {
+    color: #007131 !important;
+}
+
+.rate-down {
+    color: #bd0101 !important;
 }
 
 .go--discuss {
@@ -438,10 +450,18 @@
 }
 
 .submit-btn {
-    padding: 10px 0 0 0;
-    margin-left: 54.5px;
+    padding: 10px 0 0;
+}
+
+.submit-btn-wrap {
+    width: 100px;
+    float: right;
 }
 
 .submit-btn button {
-    width: 100px;
+    width: inherit;
+}
+
+.input-comment {
+    padding-right: 0;
 }
