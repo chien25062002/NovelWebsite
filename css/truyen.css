@@ -285,11 +285,23 @@
 
 .info--wrap a {
     padding-left: 10px;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .info--wrap span {
-    font-size: 14px;
+    font-size: 16px;
+}
+
+i.info-icon {
+    font-size: 18px;
+}
+
+.rate-up {
+    color: #007131 !important;
+}
+
+.rate-down {
+    color: #bd0101 !important;
 }
 
 .go--discuss {

@@ -32,3 +32,16 @@
 .editor--img-wrap button {
     margin-top: 10px;
 }
+
+.sub-catagory {
+    display: flex;
+}
+
+.sub-catagory > .form-check {
+    margin-right: 10px;
+}
+
+.submit-btn {
+    margin-top: 10px;
+    width: 100px;
+}
