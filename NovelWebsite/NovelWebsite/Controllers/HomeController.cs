@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NovelWebsite.Entities;
+using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Models;
-using System.Diagnostics;
 
 namespace NovelWebsite.Controllers
 {
@@ -20,7 +20,8 @@ namespace NovelWebsite.Controllers
 
         public IActionResult GetAllCategories()
         {
-            return Json(_dbContext.Categories.ToList());
+            var query = _dbContext.Categories.ToList();
+            return Json(query);
         }
 
         public IActionResult GetPosts(int number = 10)
@@ -30,7 +31,7 @@ namespace NovelWebsite.Controllers
 
         public IActionResult GetChapterUpdated(int number = 10)
         {
-            var query = _dbContext.Chapters.OrderByDescending(p => p.UpdatedDate);
+            var query = _dbContext.Chapters.OrderByDescending(p => p.UpdatedDate).Include(b => b.Book);
             List<ChapterEntity> listChapters = new List<ChapterEntity>();
             foreach (var chapter in query)
             {
@@ -61,7 +62,7 @@ namespace NovelWebsite.Controllers
             return Json(_dbContext.Books.OrderByDescending(b => b.Likes).Take(number).ToList());
         }
 
-        public IActionResult GetMostFollow(int number = 10)
+        public IActionResult GetMostFollows(int number = 10)
         {
             var grBook = _dbContext.BookUsers.GroupBy(b => b.Book.BookId);
             var query = grBook.Select(g => new
@@ -79,12 +80,20 @@ namespace NovelWebsite.Controllers
 
         public IActionResult GetNewBooks(int number = 10)
         {
-            return Json(_dbContext.Books.OrderByDescending(b => b.CreatedDate).Take(number).ToList());
+            return Json(_dbContext.Books.OrderByDescending(b => b.CreatedDate)
+                                        .Include(b => b.BookStatus)
+                                        .Include(b => b.Category)
+                                        .Include(b => b.Author).Take(number).ToList());
         }
 
         public IActionResult GetFinishedBooks(int number = 10)
         {
-            return Json(_dbContext.Books.Where(b => b.BookStatusId == "HOANTHANH").OrderByDescending(b => b.CreatedDate).Take(number).ToList());
+            return Json(_dbContext.Books.Where(b => b.BookStatusId == "HOANTHANH")
+                                        .OrderByDescending(b => b.CreatedDate)
+                                        .Include(b => b.BookStatus)
+                                        .Include(b => b.Category)
+                                        .Include(b => b.Author)
+                                        .Take(number).ToList());
         }
     }
 }

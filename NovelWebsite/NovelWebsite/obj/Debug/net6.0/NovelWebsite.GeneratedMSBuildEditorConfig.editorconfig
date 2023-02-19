@@ -23,6 +23,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va1xMaXN0T2ZCb29rcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Chapter/AddOrUpdateChapter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2hhcHRlclxBZGRPclVwZGF0ZUNoYXB0ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Chapter/ListOfChapters.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2hhcHRlclxMaXN0T2ZDaGFwdGVycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -37,6 +45,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Chapter/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Filter/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsdGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Home/Index.cshtml]

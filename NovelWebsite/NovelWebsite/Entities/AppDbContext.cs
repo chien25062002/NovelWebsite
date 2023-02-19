@@ -12,12 +12,12 @@ namespace NovelWebsite.Entities
         public DbSet<BookStatusEntity> BookStatuses { get; set; }
         public DbSet<BookEntity> Books { get; set; }
         public DbSet<AccountEntity> Accounts { get; set; }
-        public DbSet<TagEntity> BookTags { get; set; }
+        public DbSet<BookTagEntity> BookTags { get; set; }
         public DbSet<ChapterEntity> Chapters { get; set; }
         public DbSet<CommentEntity> Comments { get; set; }
         public DbSet<BookUserEntity> BookUsers { get; set; }
         public DbSet<UserEntity> Users { get; set; }
-        public DbSet<RoleEntity> UserRoles { get; set; }
+        public DbSet<RoleEntity> Roles { get; set; }
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<ReviewEntity> Reviews { get; set; }
 
@@ -30,12 +30,13 @@ namespace NovelWebsite.Entities
             modelBuilder.Entity<BookEntity>().ToTable("Book");
             modelBuilder.Entity<AccountEntity>().ToTable("Account");
             modelBuilder.Entity<TagEntity>().ToTable("Tag");
+            modelBuilder.Entity<BookTagEntity>().ToTable("BookTag").HasKey(bt => new {bt.BookId, bt.TagId});
             modelBuilder.Entity<ChapterEntity>().ToTable("Chapter");
             modelBuilder.Entity<CommentEntity>().ToTable("Comment");
             modelBuilder.Entity<UserEntity>().ToTable("User");
             modelBuilder.Entity<RoleEntity>().ToTable("Role");
             modelBuilder.Entity<PostEntity>().ToTable("Post");
-            modelBuilder.Entity<BookUserEntity>().ToTable("BookUser").HasNoKey();
+            modelBuilder.Entity<BookUserEntity>().ToTable("BookUser").HasKey(bu => new {bu.BookId, bu.UserId});
             modelBuilder.Entity<ReviewEntity>().ToTable("Review");
             base.OnModelCreating(modelBuilder);
         }
