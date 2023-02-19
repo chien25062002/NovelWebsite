@@ -438,10 +438,18 @@
 }
 
 .submit-btn {
-    padding: 10px 0 0 0;
-    margin-left: 54.5px;
+    padding: 10px 0 0;
+}
+
+.submit-btn-wrap {
+    width: 100px;
+    float: right;
 }
 
 .submit-btn button {
-    width: 100px;
+    width: inherit;
+}
+
+.input-comment {
+    padding-right: 0;
 }
