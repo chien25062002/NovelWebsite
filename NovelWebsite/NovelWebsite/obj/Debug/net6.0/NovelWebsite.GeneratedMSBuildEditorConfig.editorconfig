@@ -8,77 +8,77 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = NovelWebsite
 build_property.RootNamespace = NovelWebsite
-build_property.ProjectDir = F:\Lập trình Web\BTL\NovelWebsite\NovelWebsite\NovelWebsite\
+build_property.ProjectDir = f:\Lập trình Web\BTL\NovelWebsite\NovelWebsite\NovelWebsite\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = F:\Lập trình Web\BTL\NovelWebsite\NovelWebsite\NovelWebsite
+build_property.MSBuildProjectDirectory = f:\Lập trình Web\BTL\NovelWebsite\NovelWebsite\NovelWebsite
 build_property._RazorSourceGeneratorDebug = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Book/AddOrUpdateBook.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Book/AddOrUpdateBook.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va1xBZGRPclVwZGF0ZUJvb2suY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Book/ListOfBooks.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Book/ListOfBooks.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQm9va1xMaXN0T2ZCb29rcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Chapter/AddOrUpdateChapter.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Chapter/AddOrUpdateChapter.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2hhcHRlclxBZGRPclVwZGF0ZUNoYXB0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Chapter/ListOfChapters.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Chapter/ListOfChapters.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2hhcHRlclxMaXN0T2ZDaGFwdGVycy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Home/Index.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Shared/_Layout.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Areas/Admin/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Book/Index.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Book/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Chapter/Index.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Chapter/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcHRlclxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Filter/Index.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Filter/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsdGVyXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Home/Index.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Home/Privacy.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Review/Index.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Review/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV2aWV3XEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Shared/Error.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Shared/_ValidationScriptsPartial.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/_ViewImports.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/_ViewStart.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[F:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Shared/_Layout.cshtml]
+[f:/Lập trình Web/BTL/NovelWebsite/NovelWebsite/NovelWebsite/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-in1nxz6fp1
