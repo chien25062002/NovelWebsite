@@ -37,7 +37,7 @@ a {
   } */
 
 .header__box--center {
-    width: 1200px;
+   
     margin-left: auto;
     margin-right: auto;
 }
@@ -236,35 +236,35 @@ ul li {
     padding: 5px;
 }
 
-.index__theloai--chitiet-cot {
+.index__theloai--chitiet-cot1, .index__theloai--chitiet-cot2 {
     color: white;
 }
 
-.index__theloai--chitiet-cot:hover {
+.index__theloai--chitiet-cot1:hover, .index__theloai--chitiet-cot2:hover {
     background-color: #077c86;
     color: #fff;
     border-radius: 5px;
 }
 
-.index__theloai--chitiet-cot a {
+.index__theloai--chitiet-cot1 a, .index__theloai--chitiet-cot2 a {
     color: inherit;
     float: left;
     display: flex;
 }
 
-.index__theloai--chitiet-cot i {
+.index__theloai--chitiet-cot1 i, .index__theloai--chitiet-cot2 i {
     text-align: center;
     font-size: 16px;
     line-height: 40px;
     color: inherit;
 }
 
-.index__theloai--chitiet-cot p {
+.index__theloai--chitiet-cot1 p, .index__theloai--chitiet-cot2 p {
     color: inherit;
     margin: auto 0 auto 10px;
 }
 
-.index__theloai--chitiet-cot span {
+.index__theloai--chitiet-cot1 span, .index__theloai--chitiet-cot2 span {
     color: inherit;
 }
 
@@ -479,6 +479,7 @@ ul li {
 }
 
 .catagory-wrap {
+    background-color: aquamarine;
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -522,6 +523,9 @@ ul li {
     padding-left: 0;
     padding-right: 0;
 }
+  .section {
+      display: none;
+  }
 
 /*css for go to top button*/
 
@@ -551,3 +555,190 @@ ul li {
     background-color: #bdbdbd; /* Add a dark-grey background on hover */
 }
 
+.nav__bars-btn {
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    display: none;
+    margin-left: 8px;
+}
+.nav__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    animation: fadeIn linear 0.2s;
+}
+
+.navbar_mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: rgb(134, 127, 127);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transfrom linear 0.2s;
+}
+
+.nav_mobile-item {
+    margin-top: 24px;
+}
+
+.nav__mobile-link {
+    
+    text-decoration: none;
+    color: #3b3939;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.4rem;
+}
+
+.nav__mobile-close {
+    width: 28px;
+    height: 28px;
+    color: #666;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+
+}
+
+.nav__input {
+    display: none;
+}
+
+.nav__input:checked~.nav__overlay {
+    display: block;
+}
+
+.nav__input:checked~.navbar_mobile  {
+    transform: translateX(0%);
+    opacity: 1;
+}
+#tin:active~ .index__tintuc{
+    display: block;
+}
+.mobile{
+    width: 10%;
+}
+/*Mobile:width<740px*/
+@media (max-width:46.1875em) {
+    .nav__bars-btn {
+        display: block;
+    }
+
+
+    ul.nav.navbar-nav {
+        display: none;
+    }
+
+    
+    #demo {
+            display: none;
+        }
+    
+   .header__box--center{
+    display: inline-block;
+
+   }
+   
+    .search{
+       width: 30%;
+    }
+        .navbar{
+            display: none;
+        }
+        .index__ranklist {
+            width:100%;
+        }
+}
+
+/*tablet:with >= 740px and width < 1024px*/
+@media only screen and (min-width: 46.25em)and (max-width:63.9375em) {
+#demo {
+        display: none;
+    }
+ .index__ranklist {
+    width: 50%;
+        }
+}
+@media only screen and (max-width: 768px) {
+    
+}
+/*mobile &tablet*/
+@media only screen and (max-width:63.9375em) {
+    .index__truyenmoito--listitem{
+        display: none;
+    }
+    .section{
+        display: block;
+        text-align: center;
+    }
+       .index__truyenmoito--listitem {
+          text-align: center;
+          
+          
+       }
+    
+#demo {
+        display: none;
+    }
+ h3{
+        text-align: left;
+    }
+.index__truyenmoito--listitem{
+            display: -webkit-inline-box;
+                padding-left: 35px;
+           }
+.nav__bars-btn {
+            display: block;
+        }
+    
+.search {
+    width: 20%;
+}
+ul.nav.navbar-nav {
+            display: none;
+        }
+
+ .logo {
+     display: none;
+    }
+ .banner-sm{
+    display: none;
+                }
+  .navbar{
+        display: none;  
+                }
+.index__tintuc{
+    display: none;
+}  
+.login{
+    justify-content: flex-start;
+}              
+.header__box--center{
+    display: flex;
+
+}
+footer{
+    position: absolute;
+}
+
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
