@@ -38,6 +38,7 @@ a {
 
 .header__box--center {
    
+  
     margin-left: auto;
     margin-right: auto;
 }
@@ -236,35 +237,35 @@ ul li {
     padding: 5px;
 }
 
-.index__theloai--chitiet-cot1, .index__theloai--chitiet-cot2 {
+.index__theloai--chitiet-cot {
     color: white;
 }
 
-.index__theloai--chitiet-cot1:hover, .index__theloai--chitiet-cot2:hover {
+.index__theloai--chitiet-cot:hover {
     background-color: #077c86;
     color: #fff;
     border-radius: 5px;
 }
 
-.index__theloai--chitiet-cot1 a, .index__theloai--chitiet-cot2 a {
+.index__theloai--chitiet-cot a {
     color: inherit;
     float: left;
     display: flex;
 }
 
-.index__theloai--chitiet-cot1 i, .index__theloai--chitiet-cot2 i {
+.index__theloai--chitiet-cot i {
     text-align: center;
     font-size: 16px;
     line-height: 40px;
     color: inherit;
 }
 
-.index__theloai--chitiet-cot1 p, .index__theloai--chitiet-cot2 p {
+.index__theloai--chitiet-cot p {
     color: inherit;
     margin: auto 0 auto 10px;
 }
 
-.index__theloai--chitiet-cot1 span, .index__theloai--chitiet-cot2 span {
+.index__theloai--chitiet-cot span {
     color: inherit;
 }
 
@@ -479,7 +480,6 @@ ul li {
 }
 
 .catagory-wrap {
-    background-color: aquamarine;
     border: 1px solid black;
     border-radius: 10px;
 }
@@ -523,9 +523,6 @@ ul li {
     padding-left: 0;
     padding-right: 0;
 }
-  .section {
-      display: none;
-  }
 
 /*css for go to top button*/
 
@@ -562,6 +559,7 @@ ul li {
     display: none;
     margin-left: 8px;
 }
+
 .nav__overlay {
     position: fixed;
     top: 0;
@@ -592,6 +590,7 @@ ul li {
 
 .nav__mobile-link {
     
+
     text-decoration: none;
     color: #3b3939;
     display: block;
@@ -618,15 +617,21 @@ ul li {
 }
 
 .nav__input:checked~.navbar_mobile  {
+.nav__input:checked~.navbar_mobile {
     transform: translateX(0%);
     opacity: 1;
 }
 #tin:active~ .index__tintuc{
+
+#tin:active~.index__tintuc {
     display: block;
 }
 .mobile{
+
+.mobile {
     width: 10%;
 }
+
 /*Mobile:width<740px*/
 @media (max-width:46.1875em) {
     .nav__bars-btn {
@@ -639,12 +644,18 @@ ul li {
     }
 
     
+
     #demo {
             display: none;
         }
     
    .header__box--center{
     display: inline-block;
+        display: none;
+    }
+
+    .header__box--center {
+        display: inline-block;
 
    }
    
@@ -657,11 +668,24 @@ ul li {
         .index__ranklist {
             width:100%;
         }
+
+    .search {
+        width: 30%;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .index__ranklist {
+        width: 100%;
+    }
 }
 
 /*tablet:with >= 740px and width < 1024px*/
 @media only screen and (min-width: 46.25em)and (max-width:63.9375em) {
 #demo {
+    #demo {
         display: none;
     }
  .index__ranklist {
@@ -670,65 +694,88 @@ ul li {
 }
 @media only screen and (max-width: 768px) {
     
+
+    .index__ranklist {
+        width: 50%;
+    }
 }
+
+@media only screen and (max-width: 768px) {}
+
 /*mobile &tablet*/
 @media only screen and (max-width:63.9375em) {
     .index__truyenmoito--listitem{
+    .index__truyenmoito--listitem {
         display: none;
     }
     .section{
+
+    .section {
         display: block;
         text-align: center;
     }
-       .index__truyenmoito--listitem {
-          text-align: center;
-          
-          
-       }
-    
 #demo {
+
+    .index__truyenmoito--listitem {
+        text-align: center;
+
+
+    }
+
+    #demo {
         display: none;
     }
  h3{
+
+    h3 {
         text-align: left;
     }
-.index__truyenmoito--listitem{
-            display: -webkit-inline-box;
-                padding-left: 35px;
-           }
-.nav__bars-btn {
-            display: block;
-        }
-    
-.search {
-    width: 20%;
-}
-ul.nav.navbar-nav {
-            display: none;
-        }
 
- .logo {
-     display: none;
+    .index__truyenmoito--listitem {
+        display: -webkit-inline-box;
+        padding-left: 35px;
     }
- .banner-sm{
-    display: none;
-                }
-  .navbar{
-        display: none;  
-                }
-.index__tintuc{
-    display: none;
-}  
-.login{
-    justify-content: flex-start;
-}              
-.header__box--center{
-    display: flex;
 
-}
-footer{
-    position: absolute;
-}
+    .nav__bars-btn {
+        display: block;
+    }
+
+    .search {
+        width: 20%;
+    }
+
+    ul.nav.navbar-nav {
+        display: none;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .banner-sm {
+        display: none;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .index__tintuc {
+        display: none;
+    }
+
+    .login {
+        justify-content: flex-start;
+    }
+
+    .header__box--center {
+        display: flex;
+
+    }
+
+    footer {
+        position: absolute;
+    }
 
 }
 
