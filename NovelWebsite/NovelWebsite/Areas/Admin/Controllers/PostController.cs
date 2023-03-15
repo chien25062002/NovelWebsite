@@ -18,12 +18,12 @@ namespace NovelWebsite.Areas.Admin.Controllers
             return View();
         }
 
-        public IActionResult AddOrUpdatePost(int postId)
+        public IActionResult AddOrUpdatePost(int? postId)
         {
             var post = _dbContext.Posts.FirstOrDefault(x => x.PostId == postId);
             if (post == null)
             {
-                return NotFound();
+                return View();
             }
             return View(post);
         }
