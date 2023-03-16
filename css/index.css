@@ -589,7 +589,6 @@ ul li {
 }
 
 .nav__mobile-link {
-    
 
     text-decoration: none;
     color: #3b3939;
@@ -616,22 +615,21 @@ ul li {
     display: block;
 }
 
-.nav__input:checked~.navbar_mobile  {
 .nav__input:checked~.navbar_mobile {
     transform: translateX(0%);
     opacity: 1;
 }
-#tin:active~ .index__tintuc{
 
 #tin:active~.index__tintuc {
     display: block;
 }
-.mobile{
 
 .mobile {
     width: 10%;
 }
-
+.section{
+    display: none;
+} 
 /*Mobile:width<740px*/
 @media (max-width:46.1875em) {
     .nav__bars-btn {
@@ -643,31 +641,15 @@ ul li {
         display: none;
     }
 
-    
 
     #demo {
-            display: none;
-        }
-    
-   .header__box--center{
-    display: inline-block;
         display: none;
     }
 
     .header__box--center {
         display: inline-block;
 
-   }
-   
-    .search{
-       width: 30%;
     }
-        .navbar{
-            display: none;
-        }
-        .index__ranklist {
-            width:100%;
-        }
 
     .search {
         width: 30%;
@@ -684,16 +666,9 @@ ul li {
 
 /*tablet:with >= 740px and width < 1024px*/
 @media only screen and (min-width: 46.25em)and (max-width:63.9375em) {
-#demo {
     #demo {
         display: none;
     }
- .index__ranklist {
-    width: 50%;
-        }
-}
-@media only screen and (max-width: 768px) {
-    
 
     .index__ranklist {
         width: 50%;
@@ -704,17 +679,14 @@ ul li {
 
 /*mobile &tablet*/
 @media only screen and (max-width:63.9375em) {
-    .index__truyenmoito--listitem{
     .index__truyenmoito--listitem {
         display: none;
     }
-    .section{
 
     .section {
         display: block;
         text-align: center;
     }
-#demo {
 
     .index__truyenmoito--listitem {
         text-align: center;
@@ -725,7 +697,6 @@ ul li {
     #demo {
         display: none;
     }
- h3{
 
     h3 {
         text-align: left;
