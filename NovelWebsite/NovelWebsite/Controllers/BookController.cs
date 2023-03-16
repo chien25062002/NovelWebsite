@@ -2,7 +2,7 @@
 using NovelWebsite.Entities;
 
 namespace NovelWebsite.Controllers
-{
+{   
     public class BookController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -11,6 +11,7 @@ namespace NovelWebsite.Controllers
         {
             _dbContext = dbContext;
         }
+
         public IActionResult Index(int id)
         {
             var book = _dbContext.Books.Find(id);

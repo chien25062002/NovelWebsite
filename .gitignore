@@ -3,6 +3,8 @@
 *.swp
 *.*~
 project.lock.json
+appsettings.json
+appsettings.Development.json
 .DS_Store
 *.pyc
 
@@ -37,4 +39,3 @@ NovelWebsite/.vs/
 NovelWebsite/NovelWebsite/obj/
 NovelWebsite/NovelWebsite/bin/
 .vs/
-*.json

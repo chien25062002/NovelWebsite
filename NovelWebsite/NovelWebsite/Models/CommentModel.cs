@@ -5,10 +5,11 @@ namespace NovelWebsite.Models
 {
     public class CommentModel : BaseModel
     {
-        public string CommentId { get; set; }
-        public UserModel User { get; set; }
-        public BookModel Book { get; set; }
-        public ChapterModel Chapter { get; set; }
+        public int CommentId { get; set; }
+        public int UserId { get; set; }
+        public int BookId { get; set; }
+        public int ChapterId { get; set; }
+        public int ReplyCommentId { get; set; }
         public string Content { get; set; }
         public int Likes { get; set; }
     }

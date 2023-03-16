@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NovelWebsite.Entities;
+using System.Data.Entity;
 
 namespace NovelWebsite.Controllers
 {
@@ -11,9 +12,37 @@ namespace NovelWebsite.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult Index()
+        public IActionResult Index(int categoryId = 0)
         {
-            return View();
+            try
+            {
+                var reviews = _dbContext.Reviews.Include(r => r.Book)
+                                                .Where(r => categoryId == 0 || r.Book.CategoryId == categoryId)
+                                                .OrderByDescending(r => r.CreatedDate).ToList();
+                return View(reviews);
+            }
+            catch (Exception ex)
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public IActionResult AddReview(ReviewModel review)
+        {
+            var rv = new ReviewEntity()
+            {
+                BookId = review.BookId,
+                UserId = review.UserId,
+                Content = review.Content,
+                Likes = 0,
+                Dislikes = 0,
+                CreatedDate = DateTime.Now,
+                UpdatedDate = DateTime.Now,
+            };
+            _dbContext.Reviews.Add(rv);
+            _dbContext.SaveChanges();
+            return NoContent();
         }
     }
 }
