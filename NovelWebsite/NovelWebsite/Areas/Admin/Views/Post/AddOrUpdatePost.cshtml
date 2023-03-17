@@ -5,27 +5,7 @@
     int categoryId = Model != null ? Model.CategoryId : -1;
 }
 
-@*<script>
-    tinymce.init({
-        selector: 'textarea#txt-content.form-control',
-        branding: false,
-        elementpath: false,
-        menubar: false,
-    });
-</script>*@
-
 <link rel="stylesheet" href="~/css/adminpost.css">
-
-@*<section class="content-header">
-    <h1>
-        &nbsp;
-    </h1>
-    <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Blog</a></li>
-        <li class="active">Quản lý bài viết</li>
-    </ol>
-</section>*@
 
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
@@ -70,7 +50,7 @@
                                 <label for="exampleInputFile">Nội dung</label>
                                 <textarea id="txt-content" class="form-control" style="height: 300px" name="content" value="@Html.Raw(Model == null ? "" : Model.Content)"></textarea>
                             </div>
-                            <div class="form-group">
+                            @*<div class="form-group">
                                 <label for="exampleInputFile">Category</label>
                                 <select class="form-control select2" id="category-blog" style="width: 100%;">
                                 </select>
@@ -96,7 +76,7 @@
                                 </div>
                                 <input type="file" id="image-upload" name="fileUpload" class="input-file">
                                 <p class="help-block">Chọn ảnh đại diện cho bài viết</p>
-                            </div>
+                            </div>*@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
