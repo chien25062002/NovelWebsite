@@ -4,6 +4,7 @@ using NovelWebsite.Models;
 
 namespace NovelWebsite.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class RoleController : Controller
     {
         private readonly AppDbContext _dbContext;
