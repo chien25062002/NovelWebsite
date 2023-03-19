@@ -236,7 +236,34 @@
             </div>
         </div>
     </header>
-
+    <div class="dropdown">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            Thể loại
+                            </button>
+                            <div class="dropdown-menu mutli-column">
+                                <div class="row">
+                                    <ul class="col-md-4">
+                                        <li><a href="javascript:void(0)">Tiên hiệp</a></li>
+                                        <li><a href="javascript:void(0)">Huyền huyễn</a></li>
+                                        <li><a href="javascript:void(0)">Đô thị</a></li>
+                                        <li><a href="javascript:void(0)">Khoa huyễn</a></li>
+                                        <li><a href="javascript:void(0)">Kỳ huyễn</a></li>
+                                    </ul>
+                                    <ul class="col-md-4">
+                                        <li><a href="javascript:void(0)">Lịch sử</a></li>
+                                        <li><a href="javascript:void(0)">Đồng nhân</a></li>
+                                        <li><a href="javascript:void(0)">Quân sự</a></li>
+                                        <li><a href="javascript:void(0)">Võ hiệp</a></li>
+                                    </ul>
+                                    <ul class="col-md-4">
+                                        <li><a href="javascript:void(0)">Cạnh ký</a></li>
+                                        <li><a href="javascript:void(0)">Linh dị</a></li>
+                                        <li><a href="javascript:void(0)">Ngôn tình</a></li>
+                                        <li><a href="javascript:void(0)">Du hí</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
     <div class="index__one row">
         <div class="index__theloai col-md-3">
             <div class="index__theloai--wrap">
@@ -530,7 +557,7 @@
                             <em>
                                 <span class="chapters">xxx</span>
                             </em>
-                            <cite>Số chương</cite>
+                            <cite>Số chương1</cite>
                             <i>|</i>
                             <em>
                                 <span class="views">xxx</span>
@@ -577,7 +604,7 @@
                             <em>
                                 <span class="chapters">xxx</span>
                             </em>
-                            <cite>Số chương</cite>
+                            <cite>Số chương2</cite>
                             <i>|</i>
                             <em>
                                 <span class="views">xxx</span>
@@ -626,7 +653,7 @@
                             <em>
                                 <span class="chapters">xxx</span>
                             </em>
-                            <cite>Số chương</cite>
+                            <cite>Số chương3</cite>
                             <i>|</i>
                             <em>
                                 <span class="views">xxx</span>
@@ -673,7 +700,7 @@
                             <em>
                                 <span class="chapters">xxx</span>
                             </em>
-                            <cite>Số chương</cite>
+                            <cite>Số chương4</cite>
                             <i>|</i>
                             <em>
                                 <span class="views">xxx</span>
@@ -722,7 +749,7 @@
                             <em>
                                 <span class="chapters">xxx</span>
                             </em>
-                            <cite>Số chương</cite>
+                            <cite>Số chương5</cite>
                             <i>|</i>
                             <em>
                                 <span class="views">xxx</span>
@@ -769,7 +796,7 @@
                             <em>
                                 <span class="chapters">xxx</span>
                             </em>
-                            <cite>Số chương</cite>
+                            <cite>Số chương6</cite>
                             <i>|</i>
                             <em>
                                 <span class="views">xxx</span>
@@ -803,8 +830,8 @@
         </div>
     </div>
     <div class="section">
-        <button class="w3-button w3-light-grey" onclick="plusDivs(-1)">❮ Prev</button>
-        <button class="w3-button w3-light-grey" onclick="plusDivs(1)">Next ❯</button>
+        <button class="w3-button w3-light-grey" id="btn-prev">❮ Prev</button>
+        <button class="w3-button w3-light-grey" id="btn-next">Next ❯</button>
     </div>
     <div class="index__banner">
         <a href="javascript:void(0)"><img src="/image/test.jpg" class="banner-sm"></a>
@@ -1310,106 +1337,106 @@
                         </div>
                     </div>
                 </div>
-                <div class="index__truyenmoito--listitem col-md-4">
-                    <div class="book--img">
-                        <a href="javascript:void(0)">
-                            <img src="/image/test3.jpg" class="book--imgcss">
-                        </a>
-                    </div>
-                    <div class="book--info">
-                        <h3>
-                            <a href="/html/truyen.html">Tên truyện mới 1</a>
-                        </h3>
-                        <div class="book-state">
-                            <a href="javascript:void(0)">Tác giả</a>
+                        <div class="index__truyenmoito--listitem col-md-4">
+                            <div class="book--img">
+                                <a href="javascript:void(0)">
+                                    <img src="/image/test3.jpg" class="book--imgcss">
+                                </a>
+                            </div>
+                            <div class="book--info">
+                                <h3>
+                                    <a href="/html/truyen.html">Tên truyện mới 1</a>
+                                </h3>
+                                <div class="book-state">
+                                    <a href="javascript:void(0)">Tác giả</a>
+                                </div>
+                                <p>
+                                    <em>
+                                        <span class="chapters">xxx</span>
+                                    </em>
+                                    <cite>Số chương</cite>
+                                    <i>|</i>
+                                    <em>
+                                        <span class="views">xxx</span>
+                                    </em>
+                                    <cite>Lượt xem</cite>
+                                </p>
+                                <div class="catagory">
+                                    <p>Thể loại:</p>
+                                    <p class="catagory-wrap">
+                                        <a href="javascript:void(0)">thục sơn</a>
+                                    </p>
+                                </div>
+                                <div class="describe">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
+                                    v
+                                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
+                                    Giới thiệu về truyện mới 1 Giới thiệu v
+                                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
+                                    Giới thiệu về truyện mới 1 Giới thiệu v
+                                    truyện mới 1Giới thiệu về truyện mới 1
+                                    Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
+                                    v
+                                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
+                                    Giới thiệu về truyện mới 1 Giới thiệu v
+                                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
+                                    Giới thiệu về truyện mới 1 Giới thiệu v
+                                    truyện mới 1Giới thiệu về truyện mới 1
+                                </div>
+                            </div>
                         </div>
-                        <p>
-                            <em>
-                                <span class="chapters">xxx</span>
-                            </em>
-                            <cite>Số chương</cite>
-                            <i>|</i>
-                            <em>
-                                <span class="views">xxx</span>
-                            </em>
-                            <cite>Lượt xem</cite>
-                        </p>
-                        <div class="catagory">
-                            <p>Thể loại:</p>
-                            <p class="catagory-wrap">
-                                <a href="javascript:void(0)">thục sơn</a>
-                            </p>
-                        </div>
-                        <div class="describe">
-                            <i class="fa-solid fa-quote-left"></i>
-                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
-                            v
-                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu v
-                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu v
-                            truyện mới 1Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
-                            v
-                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu v
-                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu v
-                            truyện mới 1Giới thiệu về truyện mới 1
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="index__truyenmoito--list row">
-                <div class="index__truyenmoito--listitem col-md-4">
-                    <div class="book--img">
-                        <a href="javascript:void(0)">
-                            <img src="/image/test3.jpg" class="book--imgcss">
-                        </a>
-                    </div>
-                    <div class="book--info">
-                        <h3>
-                            <a href="/html/truyen.html">Tên truyện mới 1</a>
-                        </h3>
-                        <div class="book-state">
-                            <a href="javascript:void(0)">Tác giả</a>
-                        </div>
-                        <p>
-                            <em>
-                                <span class="chapters">xxx</span>
-                            </em>
-                            <cite>Số chương</cite>
-                            <i>|</i>
-                            <em>
-                                <span class="views">xxx</span>
-                            </em>
-                            <cite>Lượt xem</cite>
-                        </p>
-                        <div class="catagory">
-                            <p>Thể loại:</p>
-                            <p class="catagory-wrap">
-                                <a href="javascript:void(0)">thục sơn</a>
-                            </p>
-                        </div>
-                        <div class="describe">
-                            <i class="fa-solid fa-quote-left"></i>
-                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
-                            v
-                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu v
-                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu v
-                            truyện mới 1Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
-                            v
-                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu v
-                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                            Giới thiệu về truyện mới 1 Giới thiệu v
-                            truyện mới 1Giới thiệu về truyện mới 1
-                        </div>
-                    </div>
-                </div>
+                            <div class="index__truyenmoito--listitem col-md-4">
+                                <div class="book--img">
+                                    <a href="javascript:void(0)">
+                                        <img src="/image/test3.jpg" class="book--imgcss">
+                                    </a>
+                                </div>
+                                <div class="book--info">
+                                    <h3>
+                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
+                                    </h3>
+                                    <div class="book-state">
+                                        <a href="javascript:void(0)">Tác giả</a>
+                                    </div>
+                                    <p>
+                                        <em>
+                                            <span class="chapters">xxx</span>
+                                        </em>
+                                        <cite>Số chương</cite>
+                                        <i>|</i>
+                                        <em>
+                                            <span class="views">xxx</span>
+                                        </em>
+                                        <cite>Lượt xem</cite>
+                                    </p>
+                                    <div class="catagory">
+                                        <p>Thể loại:</p>
+                                        <p class="catagory-wrap">
+                                            <a href="javascript:void(0)">thục sơn</a>
+                                        </p>
+                                    </div>
+                                    <div class="describe">
+                                        <i class="fa-solid fa-quote-left"></i>
+                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
+                                        v
+                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
+                                        Giới thiệu về truyện mới 1 Giới thiệu v
+                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
+                                        Giới thiệu về truyện mới 1 Giới thiệu v
+                                        truyện mới 1Giới thiệu về truyện mới 1
+                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
+                                        v
+                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
+                                        Giới thiệu về truyện mới 1 Giới thiệu v
+                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
+                                        Giới thiệu về truyện mới 1 Giới thiệu v
+                                        truyện mới 1Giới thiệu về truyện mới 1
+                                    </div>
+                                </div>
+                            </div>
                 <div class="index__truyenmoito--listitem col-md-4">
                     <div class="book--img">
                         <a href="javascript:void(0)">
@@ -2022,29 +2049,59 @@
         </div>
     </footer>
     <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
+        
+        function myFunction(a) {
+            
+            if (a.matches) { // If media query matches
+                var slideIndex = 1;
 
-        function plusDivs(n) {
-            showDivs(slideIndex += n);
-        }
+                // document.getElementById("btn-next").onclick = function(){ plusDivs(1)}
+                // document.getElementById("btn-prev").onclick =  function(){ plusDivs(-1)}
 
-        function currentDiv(n) {
-            showDivs(slideIndex = n);
-        }
+                document.getElementById("btn-next").addEventListener('click',function(){ plusDivs(1)})
+                document.getElementById("btn-prev").addEventListener('click',function(){ plusDivs(-1)})
 
-        function showDivs(n) {
-            var i;
-            var x = document.getElementsByClassName("index__truyenmoito--listitem");
 
-            if (n > x.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = x.length }
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
+
+
+
+                function plusDivs(n) {
+                           showDivs(slideIndex += n);
+                       }
+                function currentDiv(n) {
+                           showDivs(slideIndex = n);
+                       }
+               
+                showDivs(slideIndex);
+            
+                 function showDivs(n) {
+                        var i;
+                        var x = document.getElementsByClassName("index__truyenmoito--listitem");
+
+                        if (n > x.length) { slideIndex = 1 }
+                        if (n < 1) { slideIndex = x.length }
+                        for (i = 0; i < x.length; i++) {
+                            x[i].style.display = "none";
+                        }
+                        x[slideIndex - 1].style.display = "block";
+                    }
+
+                    
+                } else{
+                document.querySelectorAll(".index__truyenmoito--listitem").forEach((elm)=>elm.style.display="block")
+                }
             }
-            x[slideIndex - 1].style.display = "block";
-        }
+
+        var a = window.matchMedia("(max-width: 768px)")
+        myFunction(a) // Call listener function at run time
+        a.addListener(myFunction) // Attach listener function on state changes
+
+
+        
     </script>
+   
+    
 </body>
+
 
 </html>
