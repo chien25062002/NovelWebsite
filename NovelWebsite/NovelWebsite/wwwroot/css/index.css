@@ -385,8 +385,9 @@ ul li {
 }
 
 .card-img-top {
-    height: 210px;
-    width: 100%;
+    height: 200px;
+    /*width: 100%;*/
+    object-fit: contain;
 }
 
 .card-title a {
@@ -469,21 +470,21 @@ ul li {
     overflow: hidden;
 }
 
-.catagory {
+.category {
     display: flex;
     margin: 0;
 }
 
-.catagory p:first-child {
+.category p:first-child {
     padding-right: 5px;
 }
 
-.catagory-wrap {
+.category-wrap {
     border: 1px solid black;
     border-radius: 10px;
 }
 
-.catagory-wrap a {
+.category-wrap a {
     font-size: 14px;
     padding: 5px;
 }
