@@ -11,5 +11,6 @@ namespace NovelWebsite.Models
         public string CategoryName { get; set; }
         public int? Quantity { get; set; }
         public string? Slug { get; set; }
+        public string? CategoryImage { get; set; }
     }
 }

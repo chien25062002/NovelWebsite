@@ -178,7 +178,7 @@
         <div class="index__notice">
             <h3>Tin tức</h3>
             <div class="index__notice--list">
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush" id="new-posts">
                     <li class="list-group-item odd">
                         <i class="fa-solid fa-share"></i>
                         <a href="javascript:void(0)">Đăng ký convert</a>
@@ -225,7 +225,7 @@
     <div class="index__truyenmoi col-md-3">
         <h4>Truyện mới cập nhật</h4>
         <div class="index__truyenmoi--list">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush" id="new-chapters">
                 <li class="list-group-item">
                     <i class="fa-solid fa-book-open"></i>
                     <a href="/html/truyen.html">Thanh liên chi đỉnh</a>
@@ -277,260 +277,262 @@
 
     <div class="index__btv col-md-9">
         <h4>Biên tập viên đề cử</h4>
-        <div class="index__truyenmoito--list row">
-            <div class="index__truyenmoito--listitem col-md-6 listitem--odd">
-                <div class="book--img">
-                    <a href="javascript:void(0)">
-                        <img src="/image/test3.jpg" class="book--imgcss">
-                    </a>
-                </div>
-                <div class="book--info">
-                    <h3>
-                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                    </h3>
-                    <div class="book-state">
-                        <a href="javascript:void(0)">Tác giả</a>
+        <div id="editor-recommend">
+            <div class="index__truyenmoito--list row">
+                <div class="index__truyenmoito--listitem col-md-6 listitem--odd">
+                    <div class="book--img">
+                        <a href="javascript:void(0)">
+                            <img src="/image/test3.jpg" class="book--imgcss">
+                        </a>
                     </div>
-                    <p>
-                        <em>
-                            <span class="chapters">xxx</span>
-                        </em>
-                        <cite>Số chương</cite>
-                        <i>|</i>
-                        <em>
-                            <span class="views">xxx</span>
-                        </em>
-                        <cite>Lượt xem</cite>
-                    </p>
-                    <div class="catagory">
-                        <p>Thể loại:</p>
-                        <p class="catagory-wrap">
-                            <a href="javascript:void(0)">thục sơn</a>
+                    <div class="book--info">
+                        <h3>
+                            <a href="/html/truyen.html">Tên truyện mới 1</a>
+                        </h3>
+                        <div class="book-state">
+                            <a href="javascript:void(0)">Tác giả</a>
+                        </div>
+                        <p>
+                            <em>
+                                <span class="chapters">xxx</span>
+                            </em>
+                            <cite>Số chương</cite>
+                            <i>|</i>
+                            <em>
+                                <span class="views">xxx</span>
+                            </em>
+                            <cite>Lượt xem</cite>
                         </p>
+                        <div class="catagory">
+                            <p>Thể loại:</p>
+                            <p class="catagory-wrap">
+                                <a href="javascript:void(0)">thục sơn</a>
+                            </p>
+                        </div>
+                        <div class="describe">
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                        </div>
                     </div>
-                    <div class="describe">
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
+                </div>
+                <div class="index__truyenmoito--listitem col-md-6 listitem--even">
+                    <div class="book--img">
+                        <a href="javascript:void(0)">
+                            <img src="/image/test3.jpg" class="book--imgcss">
+                        </a>
+                    </div>
+                    <div class="book--info">
+                        <h3>
+                            <a href="/html/truyen.html">Tên truyện mới 1</a>
+                        </h3>
+                        <div class="book-state">
+                            <a href="javascript:void(0)">Tác giả</a>
+                        </div>
+                        <p>
+                            <em>
+                                <span class="chapters">xxx</span>
+                            </em>
+                            <cite>Số chương</cite>
+                            <i>|</i>
+                            <em>
+                                <span class="views">xxx</span>
+                            </em>
+                            <cite>Lượt xem</cite>
+                        </p>
+                        <div class="catagory">
+                            <p>Thể loại:</p>
+                            <p class="catagory-wrap">
+                                <a href="javascript:void(0)">thục sơn</a>
+                            </p>
+                        </div>
+                        <div class="describe">
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="index__truyenmoito--listitem col-md-6 listitem--even">
-                <div class="book--img">
-                    <a href="javascript:void(0)">
-                        <img src="/image/test3.jpg" class="book--imgcss">
-                    </a>
-                </div>
-                <div class="book--info">
-                    <h3>
-                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                    </h3>
-                    <div class="book-state">
-                        <a href="javascript:void(0)">Tác giả</a>
+            <div class="index__truyenmoito--list row">
+                <div class="index__truyenmoito--listitem col-md-6 listitem--odd">
+                    <div class="book--img">
+                        <a href="javascript:void(0)">
+                            <img src="/image/test3.jpg" class="book--imgcss">
+                        </a>
                     </div>
-                    <p>
-                        <em>
-                            <span class="chapters">xxx</span>
-                        </em>
-                        <cite>Số chương</cite>
-                        <i>|</i>
-                        <em>
-                            <span class="views">xxx</span>
-                        </em>
-                        <cite>Lượt xem</cite>
-                    </p>
-                    <div class="catagory">
-                        <p>Thể loại:</p>
-                        <p class="catagory-wrap">
-                            <a href="javascript:void(0)">thục sơn</a>
+                    <div class="book--info">
+                        <h3>
+                            <a href="/html/truyen.html">Tên truyện mới 1</a>
+                        </h3>
+                        <div class="book-state">
+                            <a href="javascript:void(0)">Tác giả</a>
+                        </div>
+                        <p>
+                            <em>
+                                <span class="chapters">xxx</span>
+                            </em>
+                            <cite>Số chương</cite>
+                            <i>|</i>
+                            <em>
+                                <span class="views">xxx</span>
+                            </em>
+                            <cite>Lượt xem</cite>
                         </p>
+                        <div class="catagory">
+                            <p>Thể loại:</p>
+                            <p class="catagory-wrap">
+                                <a href="javascript:void(0)">thục sơn</a>
+                            </p>
+                        </div>
+                        <div class="describe">
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                        </div>
                     </div>
-                    <div class="describe">
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
+                </div>
+                <div class="index__truyenmoito--listitem col-md-6 listitem--even">
+                    <div class="book--img">
+                        <a href="javascript:void(0)">
+                            <img src="/image/test3.jpg" class="book--imgcss">
+                        </a>
+                    </div>
+                    <div class="book--info">
+                        <h3>
+                            <a href="/html/truyen.html">Tên truyện mới 1</a>
+                        </h3>
+                        <div class="book-state">
+                            <a href="javascript:void(0)">Tác giả</a>
+                        </div>
+                        <p>
+                            <em>
+                                <span class="chapters">xxx</span>
+                            </em>
+                            <cite>Số chương</cite>
+                            <i>|</i>
+                            <em>
+                                <span class="views">xxx</span>
+                            </em>
+                            <cite>Lượt xem</cite>
+                        </p>
+                        <div class="catagory">
+                            <p>Thể loại:</p>
+                            <p class="catagory-wrap">
+                                <a href="javascript:void(0)">thục sơn</a>
+                            </p>
+                        </div>
+                        <div class="describe">
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="index__truyenmoito--list row">
-            <div class="index__truyenmoito--listitem col-md-6 listitem--odd">
-                <div class="book--img">
-                    <a href="javascript:void(0)">
-                        <img src="/image/test3.jpg" class="book--imgcss">
-                    </a>
-                </div>
-                <div class="book--info">
-                    <h3>
-                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                    </h3>
-                    <div class="book-state">
-                        <a href="javascript:void(0)">Tác giả</a>
+            <div class="index__truyenmoito--list row">
+                <div class="index__truyenmoito--listitem col-md-6 listitem--odd">
+                    <div class="book--img">
+                        <a href="javascript:void(0)">
+                            <img src="/image/test3.jpg" class="book--imgcss">
+                        </a>
                     </div>
-                    <p>
-                        <em>
-                            <span class="chapters">xxx</span>
-                        </em>
-                        <cite>Số chương</cite>
-                        <i>|</i>
-                        <em>
-                            <span class="views">xxx</span>
-                        </em>
-                        <cite>Lượt xem</cite>
-                    </p>
-                    <div class="catagory">
-                        <p>Thể loại:</p>
-                        <p class="catagory-wrap">
-                            <a href="javascript:void(0)">thục sơn</a>
+                    <div class="book--info">
+                        <h3>
+                            <a href="/html/truyen.html">Tên truyện mới 1</a>
+                        </h3>
+                        <div class="book-state">
+                            <a href="javascript:void(0)">Tác giả</a>
+                        </div>
+                        <p>
+                            <em>
+                                <span class="chapters">xxx</span>
+                            </em>
+                            <cite>Số chương</cite>
+                            <i>|</i>
+                            <em>
+                                <span class="views">xxx</span>
+                            </em>
+                            <cite>Lượt xem</cite>
                         </p>
-                    </div>
-                    <div class="describe">
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
+                        <div class="catagory">
+                            <p>Thể loại:</p>
+                            <p class="catagory-wrap">
+                                <a href="javascript:void(0)">thục sơn</a>
+                            </p>
+                        </div>
+                        <div class="describe">
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="index__truyenmoito--listitem col-md-6 listitem--even">
-                <div class="book--img">
-                    <a href="javascript:void(0)">
-                        <img src="/image/test3.jpg" class="book--imgcss">
-                    </a>
-                </div>
-                <div class="book--info">
-                    <h3>
-                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                    </h3>
-                    <div class="book-state">
-                        <a href="javascript:void(0)">Tác giả</a>
+                <div class="index__truyenmoito--listitem col-md-6 listitem--even">
+                    <div class="book--img">
+                        <a href="javascript:void(0)">
+                            <img src="/image/test3.jpg" class="book--imgcss">
+                        </a>
                     </div>
-                    <p>
-                        <em>
-                            <span class="chapters">xxx</span>
-                        </em>
-                        <cite>Số chương</cite>
-                        <i>|</i>
-                        <em>
-                            <span class="views">xxx</span>
-                        </em>
-                        <cite>Lượt xem</cite>
-                    </p>
-                    <div class="catagory">
-                        <p>Thể loại:</p>
-                        <p class="catagory-wrap">
-                            <a href="javascript:void(0)">thục sơn</a>
+                    <div class="book--info">
+                        <h3>
+                            <a href="/html/truyen.html">Tên truyện mới 1</a>
+                        </h3>
+                        <div class="book-state">
+                            <a href="javascript:void(0)">Tác giả</a>
+                        </div>
+                        <p>
+                            <em>
+                                <span class="chapters">xxx</span>
+                            </em>
+                            <cite>Số chương</cite>
+                            <i>|</i>
+                            <em>
+                                <span class="views">xxx</span>
+                            </em>
+                            <cite>Lượt xem</cite>
                         </p>
-                    </div>
-                    <div class="describe">
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="index__truyenmoito--list row">
-            <div class="index__truyenmoito--listitem col-md-6 listitem--odd">
-                <div class="book--img">
-                    <a href="javascript:void(0)">
-                        <img src="/image/test3.jpg" class="book--imgcss">
-                    </a>
-                </div>
-                <div class="book--info">
-                    <h3>
-                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                    </h3>
-                    <div class="book-state">
-                        <a href="javascript:void(0)">Tác giả</a>
-                    </div>
-                    <p>
-                        <em>
-                            <span class="chapters">xxx</span>
-                        </em>
-                        <cite>Số chương</cite>
-                        <i>|</i>
-                        <em>
-                            <span class="views">xxx</span>
-                        </em>
-                        <cite>Lượt xem</cite>
-                    </p>
-                    <div class="catagory">
-                        <p>Thể loại:</p>
-                        <p class="catagory-wrap">
-                            <a href="javascript:void(0)">thục sơn</a>
-                        </p>
-                    </div>
-                    <div class="describe">
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                    </div>
-                </div>
-            </div>
-            <div class="index__truyenmoito--listitem col-md-6 listitem--even">
-                <div class="book--img">
-                    <a href="javascript:void(0)">
-                        <img src="/image/test3.jpg" class="book--imgcss">
-                    </a>
-                </div>
-                <div class="book--info">
-                    <h3>
-                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                    </h3>
-                    <div class="book-state">
-                        <a href="javascript:void(0)">Tác giả</a>
-                    </div>
-                    <p>
-                        <em>
-                            <span class="chapters">xxx</span>
-                        </em>
-                        <cite>Số chương</cite>
-                        <i>|</i>
-                        <em>
-                            <span class="views">xxx</span>
-                        </em>
-                        <cite>Lượt xem</cite>
-                    </p>
-                    <div class="catagory">
-                        <p>Thể loại:</p>
-                        <p class="catagory-wrap">
-                            <a href="javascript:void(0)">thục sơn</a>
-                        </p>
-                    </div>
-                    <div class="describe">
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
+                        <div class="catagory">
+                            <p>Thể loại:</p>
+                            <p class="catagory-wrap">
+                                <a href="javascript:void(0)">thục sơn</a>
+                            </p>
+                        </div>
+                        <div class="describe">
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                            Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                            truyện mới 1Giới thiệu về truyện mới 1
+                        </div>
                     </div>
                 </div>
             </div>
@@ -552,7 +554,7 @@
             </a>
         </h4>
         <div class="ranklist--list">
-            <ul class="list-group">
+            <ul class="list-group" id="book-most-recommends">
                 <li class="list-group-item">
                     <i class="fa-solid fa-star"></i>
                     <a href="javascript:void(0)">Truyện hot 1</a>
@@ -605,7 +607,7 @@
             </a>
         </h4>
         <div class="ranklist--list">
-            <ul class="list-group">
+            <ul class="list-group" id="book-most-views">
                 <li class="list-group-item">
                     <i class="fa-solid fa-star"></i>
                     <a href="javascript:void(0)">Truyện hot 1</a>
@@ -658,7 +660,7 @@
             </a>
         </h4>
         <div class="ranklist--list">
-            <ul class="list-group">
+            <ul class="list-group" id="book-most-likes">
                 <li class="list-group-item">
                     <i class="fa-solid fa-star"></i>
                     <a href="javascript:void(0)">Truyện hot 1</a>
@@ -711,7 +713,7 @@
             </a>
         </h4>
         <div class="ranklist--list">
-            <ul class="list-group">
+            <ul class="list-group" id="book-most-follows">
                 <li class="list-group-item">
                     <i class="fa-solid fa-star"></i>
                     <a href="javascript:void(0)">Truyện hot 1</a>
@@ -769,7 +771,7 @@
             <i class="fa-solid fa-chevron-right"></i>
         </a>
     </h4>
-    <div class="index__truyenmoito col-md-3">
+    <div class="index__truyenmoito col-md-3" id="newbook-avatar">
         <div class="index__truyenmoito--chitiet card">
             <img class="card-img-top" src="/image/test2.jpg" alt="Card image">
             <div class="card-body">
@@ -796,7 +798,7 @@
             </div>
         </div>
     </div>
-    <div class="index__truyenmoito col-md-9">
+    <div class="index__truyenmoito col-md-9" id="newbook">
         <div class="index__truyenmoito--list row">
             <div class="index__truyenmoito--listitem col-md-4">
                 <div class="book--img">
@@ -1205,7 +1207,7 @@
             <i class="fa-solid fa-chevron-right"></i>
         </a>
     </h4>
-    <div class="index__truyenhoanthanh col-md-3">
+    <div class="index__truyenhoanthanh col-md-3" id="finishbook-avatar">
         <div class="index__truyenhoanthanh--chitiet card">
             <img class="card-img-top" src="/image/test2.jpg" alt="Card image">
             <div class="card-body">
@@ -1232,7 +1234,7 @@
             </div>
         </div>
     </div>
-    <div class="index__truyenhoanthanh col-md-9">
+    <div class="index__truyenhoanthanh col-md-9" id="finishbook">
         <div class="index__truyenhoanthanh--list row">
             <div class="index__truyenhoanthanh--listitem col-md-4">
                 <div class="book--img">
@@ -1630,273 +1632,5 @@
 </div>
 
 @section Scripts{
-    <script>
-        $.ajax({
-            url: "/Home/GetAllCategories",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('div.index__theloai--chitiet').html();
-                data.forEach((item,index) => {
-                    console.log(item)
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetPosts",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#new-posts').html();
-                data.forEach((item,index) => {
-                    let row = `<li class="list-group-item odd">
-                                    <i class="fa-solid fa-share"></i>
-                                    <a href="/tin-tuc/${item.slug}">${item.title}</a>
-                                </li>`;
-                    $('#new-posts').append(row);
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetChapterUpdated",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#new-chapters-updated').html();
-                data.forEach((item,index) => {
-                    let row = `<li class="list-group-item">
-                                    <i class="fa-solid fa-book-open"></i>
-                                    <a href="/truyen/${item.book.slug}/${item.slug}">${item.book.bookName}</a>
-                                    <span class="index__truyenmoi--chuong">Chương ${item.chapterNumber}</span>
-                                </li>`;
-                    $('#new-chapters-updated').append(row);
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetMostRecommends",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#book-most-recommends').html();
-                data.forEach((item,index) => {
-                    console.log(item)
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetMostViews",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#book-most-views').html();
-                data.forEach((item,index) => {
-                    console.log(item)
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetMostLikes",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#book-most-likes').html();
-                data.forEach((item,index) => {
-                    console.log(item)
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetMostFollows",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#book-most-follows').html();
-                data.forEach((item,index) => {
-                    console.log(item)
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetNewBooks",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('div.index__truyenmoito col-md-3').html();
-                $('div.index__truyenmoito col-md-3').html();
-                data.forEach((item,index) => {
-                    let row = ``;
-                    if (index > 0){
-                        row = `<div class="index__truyenmoito--listitem col-md-4">
-                                    <div class="book--img">
-                                        <a href="/truyen/${item.slug}-${item.id}">
-                                            <img src="${item.avatar}" class="book--imgcss">
-                                        </a>
-                                    </div>
-                                    <div class="book--info">
-                                        <h3>
-                                            <a href="/truyen/${item.slug}-${item.id}">${item.bookName}</a>
-                                        </h3>
-                                        <div class="book-state">
-                                            <a href="/tac-gia/${item.author.slug}">${item.author.authorName}</a>
-                                        </div>
-                                        <p>
-                                            <em>
-                                                <span class="chapters">${item.numberOfChapters}</span>
-                                            </em>
-                                            <cite>Số chương</cite>
-                                            <i>|</i>
-                                            <em>
-                                                <span class="views">${item.views}</span>
-                                            </em>
-                                            <cite>Lượt xem</cite>
-                                        </p>
-                                        <div class="catagory">
-                                            <p>Thể loại:</p>
-                                            <p class="catagory-wrap">
-                                                <a href="javascript:void(0)">${item.category.categoryName}</a>
-                                            </p>
-                                        </div>
-                                        <div class="describe">
-                                            <i class="fa-solid fa-quote-left"></i>
-                                            ${item.introduce}
-                                        </div>
-                                    </div>
-                                </div>`;
-                        $('div.index__truyenmoito div.col-md-3').append(row);
-                    }
-                    else {
-                        row = `<div class="index__truyenmoito--chitiet card">
-                                        <img class="card-img-top" src="${item.avatar}" alt="Card image">
-                                        <div class="card-body">
-                                            <h4 class="card-title">
-                                                <a href="/truyen/${item.slug}">${item.bookName}</a>
-                                            </h4>
-                                            <p class="card-text index__truyenhoanthanh--theloai">${item.category.categoryName}</p>
-                                            <p class="card-text index__truyenhoanthanh--sochuong">${item.numberOfChapters}</p>
-                                            <p class="card-text index__truyenmoito--gioithieu">
-                                                <i>
-                                                    ${item.introduce}
-                                                </i>
-                                            </p>
-                                            <a href="/truyen/${item.slug}" class="btn index__truyenmoito--cardbtn">
-                                                Đọc truyện
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>`;
-                        $('div.index__truyenmoito div.col-md-9').append(row);
-                    }
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetFinishedBooks",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('div.index__truyenhoanthanh div.col-md-3').html();
-                $('div.index__truyenhoanthanh div.col-md-9').html();
-                data.forEach((item,index) => {
-                    let row = ``;
-                    if (index > 0){
-                        row = `<div class="index__truyenhoanthanh--listitem col-md-4">
-                                    <div class="book--img">
-                                        <a href="/truyen/${item.slug}-${item.id}">
-                                            <img src="${item.avatar}" class="book--imgcss">
-                                        </a>
-                                    </div>
-                                    <div class="book--info">
-                                        <h3>
-                                            <a href="/truyen/${item.slug}-${item.id}">${item.bookName}</a>
-                                        </h3>
-                                        <div class="book-state">
-                                            <a href="/tac-gia/${item.author.slug}">${item.author.authorName}</a>
-                                        </div>
-                                        <p>
-                                            <em>
-                                                <span class="chapters">${item.numberOfChapters}</span>
-                                            </em>
-                                            <cite>Số chương</cite>
-                                            <i>|</i>
-                                            <em>
-                                                <span class="views">${item.views}</span>
-                                            </em>
-                                            <cite>Lượt xem</cite>
-                                        </p>
-                                        <div class="catagory">
-                                            <p>Thể loại:</p>
-                                            <p class="catagory-wrap">
-                                                <a href="javascript:void(0)">${item.category.categoryName}</a>
-                                            </p>
-                                        </div>
-                                        <div class="describe">
-                                            <i class="fa-solid fa-quote-left"></i>
-                                            ${item.introduce}
-                                        </div>
-                                    </div>
-                                </div>`;
-                        $('div.index__truyenhoanthanh div.col-md-3').append(row);
-                    }
-                    else {
-                        row = `<div class="index__truyenhoanthanh--chitiet card">
-                                        <img class="card-img-top" src="${item.avatar}" alt="Card image">
-                                        <div class="card-body">
-                                            <h4 class="card-title">
-                                                <a href="/truyen/${item.slug}">${item.bookName}</a>
-                                            </h4>
-                                            <p class="card-text index__truyenhoanthanh--theloai">${item.category.categoryName}</p>
-                                            <p class="card-text index__truyenhoanthanh--sochuong">${item.numberOfChapters}</p>
-                                            <p class="card-text index__truyenmoito--gioithieu">
-                                                <i>
-                                                    ${item.introduce}
-                                                </i>
-                                            </p>
-                                            <a href="/truyen/${item.slug}" class="btn index__truyenmoito--cardbtn">
-                                                Đọc truyện
-                                                <i class="fa-solid fa-chevron-right"></i>
-                                            </a>
-                                        </div>
-                                    </div>`;
-                        $('div.index__truyenhoanthanh div.col-md-9').append(row);
-                    }
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-    </script>
+    <script type="text/javascript" src="~/content/index.js"></script>
 }
