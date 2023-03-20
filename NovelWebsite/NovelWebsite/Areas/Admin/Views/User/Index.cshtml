@@ -2,15 +2,17 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
+<link rel="stylesheet" href="~/css/adminuser.css">
+
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-11">
                         <h4>Danh sách người dùng</h4>
                     </div>
-                    <div class="col-md-12">
+                    <div class="col-md-11">
                         <div class="table-responsive">
                             <table class="table border mb-0 table-striped">
                                 <thead class="table-dark fw-semibold">
@@ -20,7 +22,7 @@
                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
                                         </svg>
                                         </th>*@
-                                        <th>UserID</th>
+                                        @*<th>UserID</th>*@
                                         <th>User Name</th>
                                         <th>Email</th>
                                         <th>Role</th>
@@ -31,9 +33,9 @@
                                 </thead>
                                 <tbody>
                                     <tr class="align-middle">
-                                        <td>
+                                        @*<td>
                                             <div>LIYUE</div>
-                                        </td>
+                                        </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
                                         </td>
@@ -61,9 +63,9 @@
                                         </td>
                                     </tr>
                                     <tr class="align-middle">
-                                        <td>
+                                        @*<td>
                                             <div>LIYUE</div>
-                                        </td>
+                                        </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
                                         </td>
@@ -91,9 +93,9 @@
                                         </td>
                                     </tr>
                                     <tr class="align-middle">
-                                        <td>
+                                        @*<td>
                                             <div>LIYUE</div>
-                                        </td>
+                                        </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
                                         </td>
@@ -121,9 +123,9 @@
                                         </td>
                                     </tr>
                                     <tr class="align-middle">
-                                        <td>
+                                        @*<td>
                                             <div>LIYUE</div>
-                                        </td>
+                                        </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
                                         </td>
@@ -151,9 +153,9 @@
                                         </td>
                                     </tr>
                                     <tr class="align-middle">
-                                        <td>
+                                        @*<td>
                                             <div>LIYUE</div>
-                                        </td>
+                                        </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
                                         </td>
@@ -221,10 +223,10 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                        <button type="submit" class="btn btn-primary float-start">Lưu thay đổi</button>
                     </div>
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-primary">Xóa người dùng</button>
+                        <button type="submit" class="btn btn-primary float-end">Xóa người dùng</button>
                     </div>
                 </form>
             </div>
