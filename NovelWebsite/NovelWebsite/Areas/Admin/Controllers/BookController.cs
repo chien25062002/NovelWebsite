@@ -30,8 +30,12 @@ namespace NovelWebsite.Areas.Admin.Controllers
             return View(query);
         }
         
-        public IActionResult AddOrUpdateBook(int bookId)
+        public IActionResult AddOrUpdateBook(int bookId = 0)
         {
+            if (bookId == 0)
+            {
+                return View();
+            }
             var query = _dbContext.Books.Where(b => b.BookId == bookId && b.IsDeleted == false)
                                          .Include(b => b.Author)
                                          .Include(b => b.Category)
