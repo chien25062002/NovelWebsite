@@ -83,13 +83,13 @@ $.ajax({
         data.forEach((item, index) => {
             row.append(`<div class="index__right-wrap--listitem col-md-6">
                     <div class="book--img">
-                        <a href="javascript:void(0)">
+                        <a href="/truyen/${item.slug}-${item.bookId}">
                             <img src="${item.avatar}" class="book--imgcss">
                         </a>
                     </div>
                     <div class="book--info">
                         <div class="book-name">
-                            <a href="/html/truyen.html">${item.bookName}</a >
+                            <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                         </div>
                         <div class="book-state">
                             <a href="javascript:void(0)">${item.author.authorName}</a >
@@ -140,7 +140,7 @@ $.ajax({
         data.forEach((item, index) => {
             let row = `<li class="list-group-item">
                             <i class="fa-solid fa-star"></i>
-                            <a href="javascript:void(0)">${item.bookName}</a>
+                            <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a>
                         </li>`;
             $('#book-most-recommends').append(row);
         });
@@ -159,7 +159,7 @@ $.ajax({
         data.forEach((item, index) => {
             let row = `<li class="list-group-item">
                             <i class="fa-solid fa-star"></i>
-                            <a href="javascript:void(0)">${item.bookName}</a>
+                            <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a>
                         </li>`;
             $('#book-most-views').append(row);
         });
@@ -178,7 +178,7 @@ $.ajax({
         data.forEach((item, index) => {
             let row = `<li class="list-group-item">
                             <i class="fa-solid fa-star"></i>
-                            <a href="javascript:void(0)">${item.bookName}</a>
+                            <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a>
                         </li>`;
             $('#book-most-likes').append(row);
         });
@@ -197,7 +197,7 @@ $.ajax({
         data.forEach((item, index) => {
             let row = `<li class="list-group-item">
                             <i class="fa-solid fa-star"></i>
-                            <a href="javascript:void(0)">${item.bookName}</a>
+                            <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a>
                         </li>`;
             $('#book-most-follows').append(row);
         });
@@ -223,7 +223,7 @@ $.ajax({
                                 <img class="card-img-top" src="${item.avatar}" alt="Card image">
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="/html//truyen.html">${item.bookName}</a >
+                                        <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                                     </h4>
                                     <p class="card-text index__left-wrap--theloai">${item.category.categoryName}</p >
                                     <p class="card-text index__left-wrap--sochuong">${item.numberOfChapters} Chương</p >
@@ -232,7 +232,7 @@ $.ajax({
                                             ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0,255)}
                                         </i>
                                     </p>
-                                    <a href="/html/truyen.html" class="btn btn-primary index__left-wrap--cardbtn">
+                                    <a href="/truyen/${item.slug}-${item.bookId}" class="btn btn-primary index__left-wrap--cardbtn">
                                         Đọc truyện
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -242,13 +242,13 @@ $.ajax({
             else {
                 row.append(`<div class="index__right-wrap--listitem col-md-4">
                             <div class="book--img">
-                                <a href="javascript:void(0)">
+                                <a href="/truyen/${item.slug}-${item.bookId}">
                                     <img src="${item.avatar}" class="book--imgcss">
                                 </a>
                             </div>
                             <div class="book--info">
                                 <div class="book-name">
-                                    <a href="/html/truyen.html">${item.bookName}</a >
+                                    <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                                 </div>
                                 <div class="book-state">
                                     <a href="javascript:void(0)">${item.author.authorName}</a >
@@ -307,7 +307,7 @@ $.ajax({
                                 <img class="card-img-top" src="${item.avatar}" alt="Card image">
                                 <div class="card-body">
                                     <h4 class="card-title">
-                                        <a href="/html//truyen.html">${item.bookName}</a >
+                                        <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                                     </h4>
                                     <p class="card-text index__left-wrap--theloai">${item.category.categoryName}</p >
                                     <p class="card-text index__left-wrap--sochuong">${item.numberOfChapters} chương</p >
@@ -316,7 +316,7 @@ $.ajax({
                                             ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 255)}
                                         </i>
                                     </p>
-                                    <a href="/html/truyen.html" class="btn btn-primary index__truyenmoito--cardbtn">
+                                    <a href="/truyen/${item.slug}-${item.bookId}" class="btn btn-primary index__truyenmoito--cardbtn">
                                         Đọc truyện
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -326,13 +326,13 @@ $.ajax({
             else {
                 row.append(`<div class="index__right-wrap--listitem col-md-4">
                             <div class="book--img">
-                                <a href="javascript:void(0)">
+                                <a href="/truyen/${item.slug}-${item.bookId}">
                                     <img src="${item.avatar}" class="book--imgcss">
                                 </a>
                             </div>
                             <div class="book--info">
                                 <div class="book-name">
-                                    <a href="/html/truyen.html">${item.bookName}</a >
+                                    <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                                 </div>
                                 <div class="book-state">
                                     <a href="javascript:void(0)">${item.author.authorName}</a >
