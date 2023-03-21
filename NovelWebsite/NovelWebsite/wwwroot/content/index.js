@@ -78,19 +78,19 @@ $.ajax({
     success: function (data) {
         $('#editor-recommend').html('');
         let row = jQuery('<div>', {
-            class: 'index__truyenmoito--list row',
+            class: 'index__right-wrap--list row',
         });
         data.forEach((item, index) => {
-            row.append(`<div class="index__truyenmoito--listitem col-md-6">
+            row.append(`<div class="index__right-wrap--listitem col-md-6">
                     <div class="book--img">
                         <a href="javascript:void(0)">
                             <img src="${item.avatar}" class="book--imgcss">
                         </a>
                     </div>
                     <div class="book--info">
-                        <h3>
+                        <div class="book-name">
                             <a href="/html/truyen.html">${item.bookName}</a >
-                        </h3>
+                        </div>
                         <div class="book-state">
                             <a href="javascript:void(0)">${item.author.authorName}</a >
                         </div>
@@ -98,20 +98,21 @@ $.ajax({
                             <em>
                                 <span class="chapters">${item.numberOfChapters}</span >
                             </em>
-                            <cite>Số chương</cite>
+                            <cite>Chương</cite>
                             <i>|</i>
                             <em>
                                 <span class="views">${item.views}</span >
                             </em>
                             <cite>Lượt xem</cite>
                         </p>
-                        <div class="catagory">
+                        <div class="category">
                             <p>Thể loại:</p>
-                            <p class="catagory-wrap">
+                            <p class="category-wrap">
                                 <a href="javascript:void(0)">${item.category.categoryName}</a >
                             </p>
                         </div>
                         <div class="describe">
+                            <i class="fa-solid fa-quote-left"></i>
                             ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").replace(/<\/?[^>]+(>|$)/g, "")}
                         </div>
                     </div>
@@ -119,7 +120,7 @@ $.ajax({
             if (index % 2 == 1) {
                 $('#editor-recommend').append(row);
                 row = jQuery('<div>', {
-                    class: 'index__truyenmoito--list row',
+                    class: 'index__right-wrap--list row',
                 });;
             }
         });
@@ -214,24 +215,24 @@ $.ajax({
         $('#newbook-avatar').html('');
         $('#newbook').html('');
         let row = jQuery('<div>', {
-            class: 'index__truyenmoito--list row',
+            class: 'index__right-wrap--list row',
         });
         data.forEach((item, index) => {
             if (index == 0) {
-                $('#newbook-avatar').append(`<div class="index__truyenmoito--chitiet card">
+                $('#newbook-avatar').append(`<div class="index__left-wrap-detail card">
                                 <img class="card-img-top" src="${item.avatar}" alt="Card image">
                                 <div class="card-body">
                                     <h4 class="card-title">
                                         <a href="/html//truyen.html">${item.bookName}</a >
                                     </h4>
-                                    <p class="card-text index__truyenmoito--theloai">${item.category.categoryName}</p >
-                                    <p class="card-text index__truyenmoito--sochuong">${item.numberOfChapters} chương</p >
-                                    <p class="card-text index__truyenmoito--gioithieu">
+                                    <p class="card-text index__left-wrap--theloai">${item.category.categoryName}</p >
+                                    <p class="card-text index__left-wrap--sochuong">${item.numberOfChapters} Chương</p >
+                                    <p class="card-text index__left-wrap--gioithieu">
                                         <i>
                                             ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0,255)}
                                         </i>
                                     </p>
-                                    <a href="/html/truyen.html" class="btn btn-primary index__truyenmoito--cardbtn">
+                                    <a href="/html/truyen.html" class="btn btn-primary index__left-wrap--cardbtn">
                                         Đọc truyện
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -239,16 +240,16 @@ $.ajax({
                             </div>`);
             }
             else {
-                row.append(`<div class="index__truyenmoito--listitem col-md-4">
+                row.append(`<div class="index__right-wrap--listitem col-md-4">
                             <div class="book--img">
                                 <a href="javascript:void(0)">
                                     <img src="${item.avatar}" class="book--imgcss">
                                 </a>
                             </div>
                             <div class="book--info">
-                                <h3>
+                                <div class="book-name">
                                     <a href="/html/truyen.html">${item.bookName}</a >
-                                </h3>
+                                </div>
                                 <div class="book-state">
                                     <a href="javascript:void(0)">${item.author.authorName}</a >
                                 </div>
@@ -256,16 +257,16 @@ $.ajax({
                                     <em>
                                         <span class="chapters">${item.numberOfChapters}</span >
                                     </em>
-                                    <cite>Số chương</cite>
+                                    <cite>Chương</cite>
                                     <i>|</i>
                                     <em>
                                         <span class="views">${item.views}</span >
                                     </em>
                                     <cite>Lượt xem</cite>
                                 </p>
-                                <div class="catagory">
+                                <div class="category">
                                     <p>Thể loại:</p>
-                                    <p class="catagory-wrap">
+                                    <p class="category-wrap">
                                         <a href="javascript:void(0)">${item.category.categoryName}</a >
                                     </p>
                                 </div>
@@ -278,7 +279,7 @@ $.ajax({
                 if (index % 3 == 0) {
                     $('#newbook').append(row);
                     row = jQuery('<div>', {
-                        class: 'index__truyenmoito--list row',
+                        class: 'index__index__right-wrap--list row',
                     });
                 }
             }
@@ -297,20 +298,20 @@ $.ajax({
         $('#finishbook-avatar').html('');
         $('#finishbook').html('');
         let row = jQuery('<div>', {
-            class: 'index__truyenhoanthanh--list row',
+            class: 'index__right-wrap--list row',
         });
         console.log(data);
         data.forEach((item, index) => {
             if (index == 0) {
-                $('#finishbook-avatar').append(`<div class="index__truyenhoanthanh--chitiet card">
+                $('#finishbook-avatar').append(`<div class="index__left-wrap-detail card">
                                 <img class="card-img-top" src="${item.avatar}" alt="Card image">
                                 <div class="card-body">
                                     <h4 class="card-title">
                                         <a href="/html//truyen.html">${item.bookName}</a >
                                     </h4>
-                                    <p class="card-text index__truyenhoanthanh--theloai">${item.category.categoryName}</p >
-                                    <p class="card-text index__truyenhoanthanh--sochuong">${item.numberOfChapters} chương</p >
-                                    <p class="card-text index__truyenhoanthanh--gioithieu">
+                                    <p class="card-text index__left-wrap--theloai">${item.category.categoryName}</p >
+                                    <p class="card-text index__left-wrap--sochuong">${item.numberOfChapters} chương</p >
+                                    <p class="card-text index__left-wrap--gioithieu">
                                         <i>
                                             ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 255)}
                                         </i>
@@ -323,16 +324,16 @@ $.ajax({
                             </div>`);
             }
             else {
-                row.append(`<div class="index__truyenhoanthanh--listitem col-md-4">
+                row.append(`<div class="index__right-wrap--listitem col-md-4">
                             <div class="book--img">
                                 <a href="javascript:void(0)">
                                     <img src="${item.avatar}" class="book--imgcss">
                                 </a>
                             </div>
                             <div class="book--info">
-                                <h3>
+                                <div class="book-name">
                                     <a href="/html/truyen.html">${item.bookName}</a >
-                                </h3>
+                                </div>
                                 <div class="book-state">
                                     <a href="javascript:void(0)">${item.author.authorName}</a >
                                 </div>
@@ -340,16 +341,16 @@ $.ajax({
                                     <em>
                                         <span class="chapters">${item.numberOfChapters}</span >
                                     </em>
-                                    <cite>Số chương</cite>
+                                    <cite>Chương</cite>
                                     <i>|</i>
                                     <em>
                                         <span class="views">${item.views}</span >
                                     </em>
                                     <cite>Lượt xem</cite>
                                 </p>
-                                <div class="catagory">
+                                <div class="category">
                                     <p>Thể loại:</p>
-                                    <p class="catagory-wrap">
+                                    <p class="category-wrap">
                                         <a href="javascript:void(0)">${item.category.categoryName}</a >
                                     </p>
                                 </div>
@@ -362,7 +363,7 @@ $.ajax({
                 if (index % 3 == 0) {
                     $('#finishbook').append(row);
                     row = jQuery('<div>', {
-                        class: 'index__truyenhoanthanh--list row',
+                        class: 'index__index__right-wrap--list row',
                     });
                 }
             }
