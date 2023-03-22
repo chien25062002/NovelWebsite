@@ -48,7 +48,7 @@ namespace NovelWebsite.Controllers
         [Route("{action}")]
         public IActionResult GetListComments(int id)
         {
-            var listComment = _dbContext.Comments.Where(c => c.Book.BookId == id).Include("Users").OrderByDescending(c => c.CreatedDate).ToList();
+            var listComment = _dbContext.Comments.Where(c => c.Book.BookId == id).OrderByDescending(c => c.CreatedDate).ToList();
             return Json(listComment);
         }
 

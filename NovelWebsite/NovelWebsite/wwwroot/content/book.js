@@ -30,41 +30,78 @@ $.ajax({
     complete: function () { }
 })
 
-/*$.ajax({
-    url: "/Book/GetListReviews",
+$.ajax({
+    url: "/Book/GetListReviews?id=" + id,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
     success: function (data) {
-        $('.index__theloai--wrap').html('');
-        let row = jQuery('<div>', {
+        $('#list-review').html('');
+        /*let row = jQuery('<div>', {
             class: 'index__theloai--chitiet row',
-        });
-        data.forEach((item, index) => {
-            row.append(`<div class="index__theloai--chitiet-cot col-md-6">
+        });*/
+        $('#list-review').append(`<li class="list-group-item">
+                            <div class="row">
+                                <div class="user--photo col-md-auto">
                                     <a href="javascript:void(0)">
-                                        <i class="fa-solid fa-tags"></i>
-                                        <span>
-                                            <p class="tentruyen">${item.categoryName}</p>
-                                            <p class="soluongtruyen">${item.quantity}</p>
-                                        </span>
+                                        <img src="/image/test3.jpg">
                                     </a>
-                                </div>`);
-            if (index % 2 == 1) {
+                                </div>
+                                <div class="input-comment col">
+                                    <textarea></textarea>
+                                </div>
+                                <div class="submit-btn col-md-12">
+                                    <div class="submit-btn-wrap">
+                                        <button class="btn btn-primary">Đăng</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>`)
+        data.forEach((item, index) => {
+            $('#list-review').append(`<li class="list-group-item">
+                            <div class="row">
+                                <div class="user--photo col-md-auto">
+                                    <a href="javascript:void(0)">
+                                        <img src="/image/test3.jpg">
+                                    </a>
+                                </div>
+                                <div class="user--discussion col">
+                                    <p class="users">
+                                        <a href="javascript:void(0)">${item.userName}</a>
+                                        <span>${item.role}</span>
+                                    </p>
+                                    <p class="comments">
+                                        ${item.content}
+                                    </p>
+                                    <p class="info--wrap">
+                                        <span>${item.createdDate} </span>
+                                        <a href="javascript:void(0)">
+                                            <i class="fa-solid fa-square-caret-up info-icon rate-up"></i>
+                                            ${item.likes}
+                                        </a>
+                                        <a href="javascript:void(0)">
+                                            <i class="fa-solid fa-square-caret-down info-icon rate-down"></i>
+                                            ${item.dislikes}
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </li>`);
+/*            if (index % 2 == 1) {
                 $('.index__theloai--wrap').append(row);
                 row = jQuery('<div>', {
                     class: 'index__theloai--chitiet row',
                 });;
-            }
+            }*/
         });
     },
     error: function () { },
     complete: function () { }
-})*/
+})
 
 
 $.ajax({
-    url: "/Book/GetListComments",
+    url: "/Book/GetListComments?id=" + id,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
@@ -90,7 +127,6 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-        console.log()
         data.forEach((item, index) => {
             $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row">
@@ -191,7 +227,6 @@ $.ajax({
     error: function () { },
     complete: function () { }
 })
-
 
 $.ajax({
     url: "/Book/BooksMaybeYouLike?id=" + id,
