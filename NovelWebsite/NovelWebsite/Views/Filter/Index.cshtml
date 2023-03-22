@@ -174,7 +174,7 @@
                                     </div>
                                     <div class="book--info">
                                         <h3>
-                                            <a href="/truyen/@book.Slug">@book.BookName</a>
+                                            <a href="/truyen/@book.Slug-@book.BookId">@book.BookName</a>
                                         </h3>
                                         <div class="book-state">
                                             <a href="/tac-gia/@book.AuthorId/@book.Author.Slug">@book.Author.AuthorName</a>
@@ -184,7 +184,7 @@
                                             <p>@book.NumberOfChapters chương</p>
                                         </div>
                                         <div class="describe">
-                                            @book.Introduce
+                                            @Html.Raw(book.Introduce)
                                         </div>
                                     </div>
                                     <div class="book--info-buttons">

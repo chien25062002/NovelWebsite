@@ -2,10 +2,12 @@
 using NovelWebsite.Entities;
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace NovelWebsite.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class BookController : Controller
     {
         private readonly AppDbContext _dbContext;
