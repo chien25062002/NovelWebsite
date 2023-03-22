@@ -41,14 +41,14 @@ namespace NovelWebsite.Controllers
         [Route("{action}")]
         public IActionResult GetListReviews(int id)
         {
-            var listReviews = _dbContext.Reviews.Where(r => r.Book.BookId == id).OrderByDescending(r => r.CreatedDate).ToList();
+            var listReviews = _dbContext.Reviews.Where(r => r.Book.BookId == id).Include("User").OrderByDescending(r => r.CreatedDate).ToList();
             return Json(listReviews);
         }
 
         [Route("{action}")]
         public IActionResult GetListComments(int id)
         {
-            var listComment = _dbContext.Comments.Where(c => c.Book.BookId == id).OrderByDescending(c => c.CreatedDate).ToList();
+            var listComment = _dbContext.Comments.Where(c => c.Book.BookId == id).Include("User").OrderByDescending(c => c.CreatedDate).ToList();
             return Json(listComment);
         }
 

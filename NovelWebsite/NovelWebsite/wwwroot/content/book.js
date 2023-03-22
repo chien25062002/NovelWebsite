@@ -49,6 +49,14 @@ $.ajax({
                                 </div>
                                 <div class="input-comment col">
                                     <textarea></textarea>
+                                    <script>
+                                        tinymce.init({
+                                            selector: 'textarea',
+                                            branding: false,
+                                            elementpath: false,
+                                            menubar: false,
+                                        });
+                                    </script>
                                 </div>
                                 <div class="submit-btn col-md-12">
                                     <div class="submit-btn-wrap">
@@ -67,8 +75,7 @@ $.ajax({
                                 </div>
                                 <div class="user--discussion col">
                                     <p class="users">
-                                        <a href="javascript:void(0)">${item.userName}</a>
-                                        <span>${item.role}</span>
+                                        <a href="javascript:void(0)">${item.user.userName}</a>
                                     </p>
                                     <p class="comments">
                                         ${item.content}
@@ -119,6 +126,14 @@ $.ajax({
                                         </div>
                                         <div class="input-comment col">
                                             <textarea></textarea>
+                                            <script>
+                                                tinymce.init({
+                                                    selector: 'textarea',
+                                                    branding: false,
+                                                    elementpath: false,
+                                                    menubar: false,
+                                                });
+                                            </script>
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
@@ -138,7 +153,6 @@ $.ajax({
                                         <div class="user--discussion col">
                                             <p class="users">
                                                 <a href="javascript:void(0)">${item.userName}</a>
-                                                <span>${item.role}</span>
                                             </p>
                                             <p class="comments">
                                                 ${item.content}
