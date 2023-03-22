@@ -279,7 +279,7 @@ $.ajax({
                 if (index % 3 == 0) {
                     $('#newbook').append(row);
                     row = jQuery('<div>', {
-                        class: 'index__index__right-wrap--list row',
+                        class: 'index__right-wrap--list row',
                     });
                 }
             }
@@ -363,7 +363,7 @@ $.ajax({
                 if (index % 3 == 0) {
                     $('#finishbook').append(row);
                     row = jQuery('<div>', {
-                        class: 'index__index__right-wrap--list row',
+                        class: 'index__right-wrap--list row',
                     });
                 }
             }

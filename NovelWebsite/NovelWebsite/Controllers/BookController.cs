@@ -48,7 +48,7 @@ namespace NovelWebsite.Controllers
         [Route("{action}")]
         public IActionResult GetListComments(int id)
         {
-            var listComment = _dbContext.Comments.Where(c => c.Book.BookId == id).OrderByDescending(c => c.CreatedDate).ToList();
+            var listComment = _dbContext.Comments.Where(c => c.Book.BookId == id).Include("Users").OrderByDescending(c => c.CreatedDate).ToList();
             return Json(listComment);
         }
 
@@ -69,7 +69,7 @@ namespace NovelWebsite.Controllers
         [Route("{action}")]
         public IActionResult BooksMaybeYouLike(int id, int number = 6)
         {
-            var listBooks = _dbContext.Books.Where(b => b.Category.CategoryId == id).OrderByDescending(b => b.CreatedDate).Take(number).ToList();
+            var listBooks = _dbContext.Books.Where(b => b.Category.CategoryId == id).Include("Author").OrderByDescending(b => b.CreatedDate).Take(number).ToList();
             return Json(listBooks);
         }
     }
