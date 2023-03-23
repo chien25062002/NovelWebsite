@@ -7,16 +7,17 @@ $.ajax({
     success: function (data) {
         if (data == "") return;
         $('div.col.login').html('');
-        let user = `<div class="dropdown"></div>
-                    <div type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="${data.avatar}" class="user-home-img dropdown-toggle">
-                        ${data.username}
-                    </div>
-                        <ul class="dropdown-menu user-function" aria-labelledby="dropdownMenuButton1">
+        let user = `<div class="dropdown">
+                        <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="${data.avatar}" class="user-home-img">
+                            <div class="user-home-name"><p>${data.username}</p></div>
+                        </button>
+                        <ul class="dropdown-menu user-function dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="#">Hồ sơ</a></li>
                             <li><a class="dropdown-item" href="#">Tủ truyện</a></li>
                             <li><a class="dropdown-item" href="#">Đăng tải</a></li>
-                        </ul>`;
+                        </ul>
+                    </div>`;
         $('div.col.login').append(user);
         if (data.role != 'Người dùng') {
             $('.user-function').append(`<li><a class="dropdown-item" href="/Area/Admin">Quản trị</a></li>`);

@@ -651,3 +651,35 @@ ul li {
         display: flex;
     }
 
+.user-home-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+#dropdownMenuButton {
+    display: flex;
+}
+
+.user-function {
+    text-align: center;
+}
+
+.user-function li a {
+    width: 100%;
+}
+
+.user-home-name p {
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 0;
+    padding-top: 7px;
+    padding-bottom: 7px;
+/*    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;*/
+}
+

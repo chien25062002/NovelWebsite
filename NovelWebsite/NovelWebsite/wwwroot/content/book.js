@@ -44,7 +44,7 @@ $.ajax({
                             <div class="row">
                                 <div class="user--photo col-md-auto">
                                     <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg">
+                                        <img src="${data.avatar}">
                                     </a>
                                 </div>
                                 <div class="input-comment col">
@@ -70,7 +70,7 @@ $.ajax({
                             <div class="row">
                                 <div class="user--photo col-md-auto">
                                     <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg">
+                                        <img src="${data.avatar}">
                                     </a>
                                 </div>
                                 <div class="user--discussion col">
@@ -121,7 +121,7 @@ $.ajax({
                                     <div class="row">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
+                                                <img src="${data.avatar}">
                                             </a>
                                         </div>
                                         <div class="input-comment col">
@@ -147,7 +147,7 @@ $.ajax({
                                     <div class="row">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
+                                                <img src="${data.avatar}">
                                             </a>
                                         </div>
                                         <div class="user--discussion col">
