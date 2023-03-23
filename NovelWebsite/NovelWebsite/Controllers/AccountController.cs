@@ -26,14 +26,17 @@ namespace NovelWebsite.Controllers
         {
             var login = _dbContext.Accounts.Where(a => a.AccountName == account.AccountName && a.Password == account.Password)
                                             .Include(a => a.User)
-                                            .ThenInclude(a => a.Role);
-            if (login.Any())
+                                            .ThenInclude(a => a.Role)
+                                            .FirstOrDefault();
+            if (login != null)
             {
                 var claims = new List<Claim>()
                 {
                     new Claim(ClaimTypes.NameIdentifier, account.AccountName)
                 };
-                claims.Add(new Claim(ClaimTypes.Role, login.First().User.Role.RoleName));
+                claims.Add(new Claim("Role", login.User.Role.RoleName));
+                claims.Add(new Claim("Username", login.User.UserName));
+                claims.Add(new Claim("Avatar", login.User.Avatar));
                 var claimIndentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIndentity));
             }
@@ -44,5 +47,28 @@ namespace NovelWebsite.Controllers
             return Redirect("/");
         }
 
+        public IActionResult GetAccount()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var claims = HttpContext.User.Identity as ClaimsIdentity;
+                var x = claims.FindFirst("Role").Value;
+                var user = new UserModel()
+                {
+                    AccountName = claims.FindFirst(ClaimTypes.NameIdentifier).Value,
+                    Role = claims.FindFirst("Role").Value,
+                    Username = claims.FindFirst("Username").Value,
+                    Avatar = claims.FindFirst("Avatar").Value
+                };
+                return Json(user);
+            }
+            return Json("");
+        }
+
+        public async Task<IActionResult> SignoutAsync()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return Redirect("/");
+        }
     }
 }
