@@ -1,3 +1,7 @@
+:root {
+    --tagname: #1b92dd;
+}
+
 .book--information, .content--nav, .book--content, .book--chapter, .book--discuss, .book--rate {
     width: 1200px;
     margin: 20px auto;
@@ -60,13 +64,19 @@
 }
 
     .book--info-tag a {
-        color: #666;
-        border: 1px solid #666;
+        color: var(--tagname);
+        border: 1px solid rgba(27, 146, 221, 0.6);
         border-radius: 20px;
         padding: 3px 6px;
         font-size: 14px;
         font-weight: normal;
+        margin-right: 7px;
     }
+
+        .book--info-tag a:first-child {
+            color: #df1c1c;
+            border: 1px solid rgba(223, 28, 28, 0.6);
+        }
 
     .book--info-tag span {
         color: blue;
