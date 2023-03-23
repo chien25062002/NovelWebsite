@@ -20,6 +20,9 @@ builder.Services.AddSession(cfg => {
     cfg.IdleTimeout = new TimeSpan(0, 30, 0);    
 });
 
+builder.Services.AddSingleton<IHostedService, CacheUpdateService>();
+builder.Services.AddMemoryCache();
+
 
 var app = builder.Build();
 
@@ -36,6 +39,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(

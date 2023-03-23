@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using NovelWebsite.Entities;
+using NovelWebsite.Extensions;
 
 namespace NovelWebsite.Controllers
 {   
@@ -9,10 +11,36 @@ namespace NovelWebsite.Controllers
     public class BookController : Controller
     {
         private readonly AppDbContext _dbContext;
+        private readonly IMemoryCache _cache;
 
-        public BookController(AppDbContext dbContext)
+        public BookController(AppDbContext dbContext, IMemoryCache cache)
         {
             _dbContext = dbContext;
+            _cache = cache;
+        }
+
+        public int UpdateViewCount(int id, int views)
+        {
+            var str = "book-" + id.ToString();
+            if (_cache.TryGetValue("cache_keys", out List<string> cachedList))
+            {
+                cachedList.Add(str);
+                _cache.Set("cache_keys", cachedList, TimeSpan.FromMinutes(30));
+            }
+            else
+            {
+                var list = new List<String>();
+                list.Add(str);
+                _cache.Set("cache_keys", list, TimeSpan.FromMinutes(30));
+            }
+            var currentViewCount = _cache.Get<int>(str);
+            if (currentViewCount == 0)
+            {
+                _cache.Set(str, views);
+                currentViewCount = views;
+            }
+            _cache.Set(str, currentViewCount + 1);
+            return currentViewCount + 1;
         }
 
         [Route("{slug}-{id:int}")]
@@ -24,10 +52,7 @@ namespace NovelWebsite.Controllers
                                        .Include("User")
                                        .Include("Category")
                                        .FirstOrDefault();
-            if (book == null)
-            {
-                return View();
-            }
+            ViewData["Views"] = UpdateViewCount(book.BookId, (int)book.Views);
             return View(book);
         }
 
