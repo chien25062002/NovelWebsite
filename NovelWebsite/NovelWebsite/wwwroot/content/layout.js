@@ -1,5 +1,4 @@
-﻿
-$.ajax({
+﻿$.ajax({
     url: "/Account/GetAccount",
     type: "POST",
     dataType: "json",
@@ -20,7 +19,7 @@ $.ajax({
                     </div>`;
         $('div.col.login').append(user);
         if (data.role != 'Người dùng') {
-            $('.user-function').append(`<li><a class="dropdown-item" href="/Area/Admin">Quản trị</a></li>`);
+            $('.user-function').append(`<li><a class="dropdown-item" href="/Admin">Quản trị</a></li>`);
         }
         $('.user-function').append(`<li><a class="dropdown-item" href="/Account/Signout">Đăng xuất</a></li>`);
     },

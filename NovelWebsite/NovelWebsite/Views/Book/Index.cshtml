@@ -107,11 +107,11 @@
                                             </a>
                                         </div>
                                         <div class="input-comment col">
-                                            <textarea></textarea>
+                                            <textarea id="book-comment"></textarea>
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
-                                                <button class="btn btn-primary">Đăng</button>
+                                                <button type="button" class="btn btn-primary" onclick="AddBookComment()">Đăng</button>
                                             </div>
                                         </div>
                                     </div>
@@ -547,7 +547,7 @@
                                 </div>
                                 <div class="submit-btn col-md-12">
                                     <div class="submit-btn-wrap">
-                                        <button class="btn btn-primary">Đăng</button>
+                                        <button type="button" class="btn btn-primary" onclick="AddBookComment(@Model.BookId)">Đăng</button>
                                     </div>
                                 </div>
                             </div>
@@ -687,7 +687,12 @@
 </div>
 
 @section Scripts{
+    <script>
+        var bookId = `@Model.BookId`;
+        console.log(bookId);
+    </script>
     <script type="text/javascript" src="~/content/book.js"></script>
+    <script type="text/javascript" src="~/content/comment.js"></script>
 }
 
 

@@ -40,6 +40,7 @@ $.ajax({
         /*let row = jQuery('<div>', {
             class: 'index__theloai--chitiet row',
         });*/
+        console.log(data);
         $('#list-review').append(`<li class="list-group-item">
                             <div class="row">
                                 <div class="user--photo col-md-auto">
@@ -51,7 +52,7 @@ $.ajax({
                                     <textarea></textarea>
                                     <script>
                                         tinymce.init({
-                                            selector: 'textarea',
+                                            selector: 'textarea#review',
                                             branding: false,
                                             elementpath: false,
                                             menubar: false,
@@ -60,7 +61,7 @@ $.ajax({
                                 </div>
                                 <div class="submit-btn col-md-12">
                                     <div class="submit-btn-wrap">
-                                        <button class="btn btn-primary">Đăng</button>
+                                        <button class="btn btn-primary onclick="AddReview(${bookId})">Đăng</button>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +129,7 @@ $.ajax({
                                             <textarea></textarea>
                                             <script>
                                                 tinymce.init({
-                                                    selector: 'textarea',
+                                                    selector: 'textarea#book-comment',
                                                     branding: false,
                                                     elementpath: false,
                                                     menubar: false,
@@ -137,7 +138,7 @@ $.ajax({
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
-                                                <button class="btn btn-primary">Đăng</button>
+                                                <button class="btn btn-primary" onclick="AddBookComment(${bookId})">Đăng</button>
                                             </div>
                                         </div>
                                     </div>
@@ -198,8 +199,10 @@ $.ajax({
                                 <h5>Truyện cùng tác giả</h5>
                             </li>`)
         data.forEach((item, index) => {
+            console.log(item);
+            console.log(link);
             $('#book-same-author').append(`<li class="list-group-item">
-                                <a href="/truyen/${link}/${item.chapterNumber}">&#x2022; ${item.bookName}</a>
+                                <a href="/truyen/${item.slug}-${item.bookId}">&#x2022; ${item.bookName}</a>
                             </li>`);
             /*if (index % 2 == 1) {
                 $('.index__theloai--wrap').append(row);
@@ -228,7 +231,7 @@ $.ajax({
                             </li>`)
         data.forEach((item, index) => {
             $('#book-same-user').append(`<li class="list-group-item">
-                                <a href="/truyen/${link}/${item.chapterNumber}">&#x2022; ${item.bookName}</a>
+                                <a href="/truyen/${item.slug}-${item.bookId}">&#x2022; ${item.bookName}</a>
                             </li>`);
             /*if (index % 2 == 1) {
                 $('.index__theloai--wrap').append(row);
