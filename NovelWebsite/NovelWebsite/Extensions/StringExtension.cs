@@ -2,11 +2,12 @@
 
 namespace NovelWebsite.Extensions
 {
-    public class StringExtensions
+    public class StringExtension
     {
         public static string Slugify(string phrase)
         {
-            string str = Regex.Replace(phrase, @"[^a-z0-9\s-]", "");
+            string str = phrase.ToLowerInvariant();
+            str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
             // convert multiple spaces into one space   
             str = Regex.Replace(str, @"\s+", " ").Trim();
             // cut and trim 

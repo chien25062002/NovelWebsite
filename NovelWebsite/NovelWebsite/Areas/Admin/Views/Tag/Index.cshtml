@@ -22,118 +22,42 @@
                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
                                         </svg>
                                         </th>*@
-                                        <th>Mã tag</th>
-                                        <th>Tên tag</th>
-                                        <th>Số tác phẩm</th>
+                                        <th>Mã thẻ</th>
+                                        <th>Tên thẻ</th>
+                                        <th>Đường dẫn</th>
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="align-middle">
-                                        <td>
-                                            <div>Mã tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>Tên tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>xxx tác phẩm</div>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="align-middle">
-                                        <td>
-                                            <div>Mã tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>Tên tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>xxx tác phẩm</div>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="align-middle">
-                                        <td>
-                                            <div>Mã tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>Tên tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>xxx tác phẩm</div>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="align-middle">
-                                        <td>
-                                            <div>Mã tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>Tên tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>xxx tác phẩm</div>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="align-middle">
-                                        <td>
-                                            <div>Mã tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>Tên tag 1</div>
-                                        </td>
-                                        <td>
-                                            <div>xxx tác phẩm</div>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    <svg class="icon">
-                                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                                    </svg>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                            </div>
-                                        </td>
-                                    </tr>
+                                <tbody id="list-tags">
+                                    @{
+                                        foreach(var item in Model)
+                                        {
+                                            <tr class="align-middle">
+                                                <td>
+                                                    <div>@item.TagId</div>
+                                                </td>
+                                                <td>
+                                                    <div>@item.TagName</div>
+                                                </td>
+                                                <td>
+                                                    <div>@item.Slug</div>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                            <svg class="icon">
+                                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
+                                                            </svg>
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <a class="dropdown-item" onclick="AddOrUpdateTag(@item.TagId)">Chỉnh sửa</a>
+                                                            <a class="dropdown-item text-danger" href="/Admin/Tag/DeleteTag?id=@item.TagId">Xóa</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
                                 </tbody>
                             </table>
                         </div>
@@ -141,25 +65,17 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <form class="row g-3">
+                <form class="row g-3" method="post" action="/Admin/Tag/AddOrUpdateTag">
                     <div class="col-md-12">
                         <h4>Chỉnh sửa tag</h4>
                     </div>
                     <div class="col-12">
                         <label for="inputMaTheLoai" class="form-label">Mã tag</label>
-                        <input type="text" class="form-control" id="inputMaTheLoai">
+                        <input type="text" name="TagId" class="form-control" id="inputMaTheLoai" readonly>
                     </div>
                     <div class="col-12">
                         <label for="inputTenTheLoai" class="form-label">Tên tag</label>
-                        <input type="text" class="form-control" id="inputTenTheLoai">
-                    </div>
-                    <div class="col-12">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Xác nhận chỉnh sửa
-                            </label>
-                        </div>
+                        <input type="text" name="TagName" class="form-control" id="inputTenTheLoai">
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
@@ -169,4 +85,8 @@
         </div>
     </div>
 </div>
+
+@section Scripts{
+    <script type="text/javascript" src="~/content/admin/tag.js"></script>
+}
 
