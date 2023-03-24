@@ -9,10 +9,19 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
-                    <div class="col-md-11">
+                    <div class="col-md-12">
+                        <h4>Tìm kiếm tag</h4>
+                        <div class="search input-group float-md-start w-50 search-admin">
+                            <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
+                            <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
+                                <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
                         <h4>Quản lý tag</h4>
                     </div>
-                    <div class="col-md-11">
+                    <div class="col-md-12">
                         <div class="table-responsive">
                             <table class="table border mb-0 table-striped">
                                 <thead class="table-dark fw-semibold">
@@ -30,7 +39,7 @@
                                 </thead>
                                 <tbody id="list-tags">
                                     @{
-                                        foreach(var item in Model)
+                                        foreach (var item in Model)
                                         {
                                             <tr class="align-middle">
                                                 <td>
@@ -62,6 +71,31 @@
                             </table>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="box-footer">
+                            <div class="box-footer clearfix">
+                                @*<ul class="pagination pagination-sm no-margin pull-right">
+                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Max(pageNumber-1,1)">&laquo;</a></li>
+                                @for (int i = 1; i <= pageCount; ++i)
+                                {
+                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@i">@i</a></li>
+                                }
+                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Min(pageNumber+1,pageCount)">&raquo;</a></li>
+                                </ul>*@
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
+                                    <li class="page-item"><p class="etc">...</p></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">Trang cuối</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">
@@ -82,6 +116,7 @@
                     </div>
                 </form>
             </div>
+
         </div>
     </div>
 </div>

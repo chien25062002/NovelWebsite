@@ -710,5 +710,22 @@ ul li {
     opacity: 0.8;
 }
 
+.box-footer.clearfix {
+    margin-top: 20px;
+}
+
+.box-footer.clearfix ul li:not(:first-child) {
+    margin-left: 10px;
+    border: 1px black;
+}
+
+.box-footer.clearfix ul li a {
+    font-size: 16px;
+}
+
+.search-admin {
+    margin-bottom: 10px;
+}
+
 
 

@@ -121,7 +121,6 @@ $.ajax({
                                         </div>                                       
                                         <div class="input-comment col">
                                             <div id="toolbar-container"></div>
-                                            <div id="editor"></div>
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
