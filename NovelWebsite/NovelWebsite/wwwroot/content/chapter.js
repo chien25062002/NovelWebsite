@@ -61,16 +61,10 @@ $.ajax({
                                             </a>
                                         </div>
                                         <div class="input-comment col">
-                                            <textarea></textarea>
-                                            <script>
-                                                tinymce.init({
-                                                    selector: 'textarea',
-                                                    branding: false,
-                                                    elementpath: false,
-                                                    menubar: false,
-                                                });
-                                            </script>
+                                            <div id="toolbar-container"></div>
+                                            <div id="editor"></div>
                                         </div>
+                                        <script src="~/js/ckeditorscript.js"></script>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
                                                 <button class="btn btn-primary">Đăng</button>

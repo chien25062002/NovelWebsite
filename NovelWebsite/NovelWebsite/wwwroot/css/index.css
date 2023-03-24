@@ -652,18 +652,45 @@ ul li {
     }
 
 .user-home-img {
-    width: 44px;
-    height: 44px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
     margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 
 #dropdownMenuButton {
     display: flex;
+    padding: 5px 0;
+    background: none;
+    border: none;
 }
 
-.user-function {
-    text-align: center;
+.btn.btn-primary.dropdown-toggle {
+    background-color: #343a40;
+    color: #fff;
+    margin-left: 10px;
+}
+
+.dropdown-menu.mutli-column {
+    width: 410px;
+}
+
+    .dropdown-menu.mutli-column ul {
+        margin: 0;
+    }
+
+    .dropdown-menu.mutli-column li {
+        padding: 5px 15px;
+    }
+
+    .user-function {
+        text-align: center;
+    }
+
+.category-dropdown {
+    margin: auto;
 }
 
 .user-function li a {
@@ -671,9 +698,8 @@ ul li {
 }
 
 .user-home-name p {
-    color: #fff;
-    font-size: 1.2rem;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1;
     margin: 0;
     padding-top: 7px;
     padding-bottom: 7px;
@@ -681,5 +707,8 @@ ul li {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     overflow: hidden;*/
+    opacity: 0.8;
 }
+
+
 

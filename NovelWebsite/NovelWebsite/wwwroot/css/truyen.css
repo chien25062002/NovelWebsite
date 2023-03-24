@@ -488,3 +488,8 @@ i.info-icon {
 .input-comment {
     padding-right: 0;
 }
+
+#editor {
+    border: 1px solid #cacaca;
+}
+

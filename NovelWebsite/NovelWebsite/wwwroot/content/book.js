@@ -44,19 +44,12 @@ $.ajax({
                             <div class="row">
                                 <div class="user--photo col-md-auto">
                                     <a href="javascript:void(0)">
-                                        <img src="${data.avatar}">
+                                        <img src="/image/test3.jpg">
                                     </a>
                                 </div>
                                 <div class="input-comment col">
-                                    <textarea></textarea>
-                                    <script>
-                                        tinymce.init({
-                                            selector: 'textarea',
-                                            branding: false,
-                                            elementpath: false,
-                                            menubar: false,
-                                        });
-                                    </script>
+                                        <div id="toolbar-container"></div>
+                                        <div id="editor"></div>
                                 </div>
                                 <div class="submit-btn col-md-12">
                                     <div class="submit-btn-wrap">
@@ -70,7 +63,7 @@ $.ajax({
                             <div class="row">
                                 <div class="user--photo col-md-auto">
                                     <a href="javascript:void(0)">
-                                        <img src="${data.avatar}">
+                                        <img src="/image/test3.jpg">
                                     </a>
                                 </div>
                                 <div class="user--discussion col">
@@ -117,23 +110,17 @@ $.ajax({
         /*let row = jQuery('<div>', {
             class: 'index__theloai--chitiet row',
         });*/
+        
         $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="${data.avatar}">
+                                                <img src="/image/test3.jpg">
                                             </a>
-                                        </div>
+                                        </div>                                       
                                         <div class="input-comment col">
-                                            <textarea></textarea>
-                                            <script>
-                                                tinymce.init({
-                                                    selector: 'textarea',
-                                                    branding: false,
-                                                    elementpath: false,
-                                                    menubar: false,
-                                                });
-                                            </script>
+                                            <div id="toolbar-container"></div>
+                                            <div id="editor"></div>
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
@@ -147,7 +134,7 @@ $.ajax({
                                     <div class="row">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="${data.avatar}">
+                                                <img src="/image/test3.jpg">
                                             </a>
                                         </div>
                                         <div class="user--discussion col">

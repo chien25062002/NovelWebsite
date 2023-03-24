@@ -26,6 +26,22 @@ $.ajax({
                 });;
             }
         });
+        $('#chapter-category').html('');
+        let row1 = jQuery('<ul>', {
+            class: 'col-md-4',
+        });
+        let maxitem = Math.ceil(data.length / 3);
+        /*console.log(data.length, maxitem)*/
+        data.forEach((item, index) => {
+            row1.append(`<li><a href="javascript:void(0)">${item.categoryName}</a></li>`);
+            if ((index != 0 && index % maxitem == (maxitem - 1)) || index == data.length - 1) {
+                /*console.log(index)*/
+                $('#chapter-category').append(row1);
+                row1 = jQuery('<ul>', {
+                    class: 'col-md-4',
+                });
+            }
+        });
     },
     error: function () { },
     complete: function () { }

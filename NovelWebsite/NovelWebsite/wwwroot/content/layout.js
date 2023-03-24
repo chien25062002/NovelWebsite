@@ -22,6 +22,7 @@ $.ajax({
         if (data.role != 'Người dùng') {
             $('.user-function').append(`<li><a class="dropdown-item" href="/Area/Admin">Quản trị</a></li>`);
         }
+        $('.user-function').append(`<div class="dropdown-divider"></div>`);
         $('.user-function').append(`<li><a class="dropdown-item" href="/Account/Signout">Đăng xuất</a></li>`);
     },
     error: function () { },
