@@ -659,6 +659,12 @@ ul li {
 img {
   width: auto;
 }
+.bar {
+  width: 80%;
+  padding-top: 0.5rem;
+  opacity: 0.5;
+}
+
 /* the loai */
 .tool-box {
   padding: 0 10px;
@@ -688,6 +694,9 @@ img {
 .index__four__mobile {
   display: none;
 }
+.index__btv__mobile {
+  display: none;
+}
 /*Mobile:width<740px*/
 @media (max-width: 46.1875em) {
   .nav__bars-btn {
@@ -698,9 +707,9 @@ img {
     display: none;
   }
 
-  #demo {
+  /* #demo {
     display: none;
-  }
+  } */
 
   .header__box--center {
     display: inline-block;
@@ -717,20 +726,23 @@ img {
 
 /*tablet:with >= 740px and width < 1024px*/
 @media only screen and (min-width: 46.25em) and (max-width: 63.9375em) {
-  #demo {
+  /* #demo {
     display: none;
-  }
+  } */
 
   .index__ranklist {
     width: 50%;
   }
 }
 
-@media only screen and (max-width: 768px) {
-}
-
 /*mobile &tablet*/
 @media only screen and (max-width: 63.9375em) {
+  .index__btv__mobile {
+    display: block;
+  }
+  .index__btv {
+    display: none;
+  }
   .index__ranklist {
     max-width: 50%;
     margin-top: 2rem;
@@ -750,8 +762,7 @@ img {
   }
 
   h4.index__truyenmoi--title {
-    width: 95%;
-    margin: auto;
+    margin: 1rem auto;
   }
   .index__truyenhoanthanh--listitem {
     text-align: center;
@@ -782,19 +793,14 @@ img {
     text-align: center;
   }
 
-  #demo,
+  /* #demo, */
   .modal-title,
   .index__truyenmoi.col-md-3 {
     display: none;
   }
 
-  /* h3 {
-    text-align: left;
-  } */
-
   .index__truyenmoito--listitem {
-    display: -webkit-inline-box;
-    padding-left: 35px;
+    display: block;
   }
 
   .nav__bars-btn {
@@ -821,7 +827,8 @@ img {
     display: none;
   }
 
-  .index__tintuc {
+  .index__tintuc,
+  .index__theloai {
     display: none;
   }
 
@@ -833,19 +840,13 @@ img {
     display: flex;
   }
 
-  .index__one {
-    display: none;
-  }
-  .dropdown {
-    margin-top: 2rem;
-    display: block !important;
-  }
   .footer--container,
   .index__truyenmoito--list,
   .index__btv.col-md-9,
   .index__two,
   .index__four,
-  .index__five {
+  .index__five,
+  .index__one {
     max-width: 100%;
   }
   .index__three {
@@ -854,12 +855,6 @@ img {
   h4.index__truyenhoanthanh--title {
     width: 95%;
     margin: 1rem auto;
-  }
-  h4.index__ranklist--title {
-    max-width: 90%;
-  }
-  .book--info {
-    padding: 0 2rem;
   }
 }
 
