@@ -113,7 +113,7 @@
                                         
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
-                                                <button class="btn btn-primary btn-success" id="test123123123">Đăng</button>
+                                                <button type="button" class="btn btn-primary" onclick="AddBookComment()">Đăng</button>
                                             </div>
                                         </div>
                                     </div>
@@ -418,7 +418,7 @@
                                 </div>
                                 <div class="submit-btn col-md-12">
                                     <div class="submit-btn-wrap">
-                                        <button class="btn btn-primary">Đăng</button>
+                                        <button type="button" class="btn btn-primary" onclick="AddBookComment(@Model.BookId)">Đăng</button>
                                     </div>
                                 </div>
                             </div>
@@ -560,7 +560,12 @@
 <script type="text/javascript" src="~/js/ckeditorscript.js"></script>
 
 @section Scripts{
+    <script>
+        var bookId = `@Model.BookId`;
+        console.log(bookId);
+    </script>
     <script type="text/javascript" src="~/content/book.js"></script>
+    <script type="text/javascript" src="~/content/comment.js"></script>
 }
 
 

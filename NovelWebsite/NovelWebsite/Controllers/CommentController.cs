@@ -25,6 +25,7 @@ namespace NovelWebsite.Controllers
                 ChapterId = comment.ChapterId,
                 BookId = comment.BookId,
                 UserId = comment.UserId,
+                Content = comment.Content,
                 ReplyCommentId = comment.ReplyCommentId,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
