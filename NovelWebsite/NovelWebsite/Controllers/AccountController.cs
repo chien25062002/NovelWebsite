@@ -34,7 +34,7 @@ namespace NovelWebsite.Controllers
                 {
                     new Claim(ClaimTypes.NameIdentifier, account.AccountName)
                 };
-                claims.Add(new Claim("Role", login.User.Role.RoleName));
+                claims.Add(new Claim(ClaimTypes.Role, login.User.Role.RoleName));
                 claims.Add(new Claim("Username", login.User.UserName));
                 claims.Add(new Claim("Avatar", login.User.Avatar));
                 var claimIndentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -52,11 +52,10 @@ namespace NovelWebsite.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var claims = HttpContext.User.Identity as ClaimsIdentity;
-                var x = claims.FindFirst("Role").Value;
                 var user = new UserModel()
                 {
                     AccountName = claims.FindFirst(ClaimTypes.NameIdentifier).Value,
-                    Role = claims.FindFirst("Role").Value,
+                    Role = claims.FindFirst(ClaimTypes.Role).Value,
                     Username = claims.FindFirst("Username").Value,
                     Avatar = claims.FindFirst("Avatar").Value
                 };

@@ -1,6 +1,6 @@
 ﻿
 function AddBookComment(id) {
-    console.log($("book-comment").text());
+    console.log($("book-comment").conten());
     $.ajax({
         url: "/Comment/AddComment",
         type: "POST",
