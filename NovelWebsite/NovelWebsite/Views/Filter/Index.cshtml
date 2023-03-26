@@ -174,17 +174,17 @@
                                     </div>
                                     <div class="book--info">
                                         <h3>
-                                            <a href="/truyen/@book.Slug">@book.BookName</a>
+                                            <a href="/truyen/@book.Slug-@book.BookId">@book.BookName</a>
                                         </h3>
                                         <div class="book-state">
                                             <a href="/tac-gia/@book.AuthorId/@book.Author.Slug">@book.Author.AuthorName</a>
                                             <i>|</i>
                                             <p>@book.BookStatus.BookStatusName</p>
                                             <i>|</i>
-                                            <p>@book.NumberOfChapters</p>
+                                            <p>@book.NumberOfChapters chương</p>
                                         </div>
                                         <div class="describe">
-                                            @book.Introduce
+                                            @Html.Raw(book.Introduce)
                                         </div>
                                     </div>
                                     <div class="book--info-buttons">
@@ -195,7 +195,7 @@
                                 </li>
                             }
                         }
-                        <li class="list-group-item">
+                        @*<li class="list-group-item">
                             <div class="book--img">
                                 <a href="javascript:void(0)">
                                     <img src="/image/test3.jpg" class="book--imgcss">
@@ -231,7 +231,7 @@
                                     <a class="btn" href="javascript:void(0)">Chi tiết</a>
                                 </p>
                             </div>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>
@@ -253,57 +253,5 @@
 </div>
 
 @section Scripts{
-    <script>
-        $.ajax({
-            url: "/Filter/GetAllTags",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function () { },
-            success: function (data) {
-                $('#filter-tags').html("");
-                data.forEach((item, index) => {
-                    let row = ` <li class="nav-item">
-                                                <a href="javascript:void(0)">${item.tagName}</a>
-                                            </li>`;
-                    $('#filter-tags').append(row);
-                });
-            },
-            error: function () { },
-            complete: function () { }
-        });
-
-        $.ajax({
-            url: "/Filter/GetBookStatuses",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function () { },
-            success: function (data) {
-                $('#filter-status').html("");
-                data.forEach((item, index) => {
-                    let row = `<li class="nav-item">
-                                            <a href="javascript:void(0)">${item.bookStatusName}</a>
-                                        </li>`;
-                    $('#filter-status').append(row);
-                });
-            },
-            error: function () { },
-            complete: function () { }
-        })
-
-        $.ajax({
-            url: "/Home/GetAllCategories",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function () { },
-            success: function (data) {
-                $('#type-list').html(`<i>·</i>`);
-                data.forEach((item, index) => {
-                    let row = `<a href="javascript:void(0)" onclick="typeListClick(this)">${item.categoryName}</a><i>·</i>`;
-                    $('#type-list').append(row);
-                });
-            },
-            error: function () { },
-            complete: function () { }
-        });
-    </script>
+    <script type="text/javascript" src="~/content/filter.js"></script>
 }

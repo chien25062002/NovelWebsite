@@ -45,10 +45,6 @@
                 </div>
 
                 <div class="col login">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#taixuong">
-                        <i class="fa-solid fa-mobile-screen"></i>
-                        Tải xuống
-                    </a>
                     <a href="#" data-bs-toggle="modal" data-bs-target="#dangnhap">
                         <i class="fa-solid fa-user"></i>
                         Tài khoản
@@ -92,11 +88,11 @@
                                 <div asp-validation-summary="All"></div>
                                 <div class="modal-body">
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" placeholder="Tên đăng nhập">
+                                        <input type="text" class="form-control" name="AccountName" placeholder="Tên đăng nhập">
                                         <label><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input type="password" class="form-control" id="matkhau1" placeholder="Mật khẩu"">
+                                        <input type="password" class="form-control" name="Password" placeholder="Mật khẩu"">
                                         <label><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
                                     </div>
                                 </div>
@@ -170,16 +166,13 @@
                             </span>
                         </li>
                         <li class="nav-item navlist">
-                            <a class="nav-link navlist--item" href="javascript:void(0)">Diễn đàn</a>
+                            <a class="nav-link navlist--item" href="/bang-xep-hang">Bảng xếp hạng</a>
                         </li>
                         <li class="nav-item navlist">
-                            <a class="nav-link navlist--item" href="javascript:void(0)">Bảng xếp hạng</a>
+                            <a class="nav-link navlist--item" href="/bo-loc">Bộ lọc</a>
                         </li>
                         <li class="nav-item navlist">
-                            <a class="nav-link navlist--item" href="/html/boloc.html">Bộ lọc</a>
-                        </li>
-                        <li class="nav-item navlist">
-                            <a class="nav-link navlist--item" href="javascript:void(0)">Reviews</a>
+                            <a class="nav-link navlist--item" href="/review">Reviews</a>
                         </li>
                         <!-- <li class="nav-item navlist">
                             <a class="nav-link navlist--item" href="javascript:void(0)">Cửa hàng</a>
@@ -211,6 +204,7 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript" src="~/content/layout.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

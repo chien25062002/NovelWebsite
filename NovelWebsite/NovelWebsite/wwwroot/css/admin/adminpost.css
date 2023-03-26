@@ -1,0 +1,23 @@
+.form-group, .input-file, .img-upload, .box-footer {
+    margin-bottom: 10px;
+}
+
+.pull-right i {
+    color: inherit;
+    margin-right: 5px;
+}
+
+.pull-right button {
+    margin-left: 5px;
+    margin-bottom: 10px;
+}
+
+.user-block img {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+
+label {
+    margin-bottom: 5px;
+}

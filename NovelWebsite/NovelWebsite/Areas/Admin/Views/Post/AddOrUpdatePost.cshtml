@@ -5,19 +5,19 @@
     int categoryId = Model != null ? Model.CategoryId : -1;
 }
 
-<link rel="stylesheet" href="~/css/adminpost.css">
+<link rel="stylesheet" href="~/css/admin/adminpost.css">
 
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
         <div class="row">
-            <div class="col-md-3">
+            @*<div class="col-md-3">
                 <div class="box box-primary">
                     <div class="box-body box-profile" id="author-info">
                     </div>
                 </div>
-            </div>
+            </div>*@
             <!-- /.col -->
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="box box-primary">
                     <form method="post" action="/Admin/Blog/AddOrUpdate">
                         <div class="box-header with-border">
@@ -81,8 +81,8 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <div class="pull-right">
-                                <button type="submit" class="btn btn-secondary btnsubmit" name="save"><i class="fa fa-pencil"></i>Lưu bản nháp</button>
-                                <button type="submit" class="btn btn-primary btnsubmit" name="submit"><i class="fa fa-envelope"></i>Gửi đi</button>
+                                <button type="submit" class="btn btn-primary btnsubmit float-end" name="submit"><i class="fa fa-envelope"></i>Gửi đi</button>
+                                <button type="submit" class="btn btn-secondary btnsubmit float-end" name="save"><i class="fa fa-pencil"></i>Lưu bản nháp</button>
                             </div>
                         </div>
 

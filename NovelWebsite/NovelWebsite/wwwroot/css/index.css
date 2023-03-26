@@ -1,3 +1,7 @@
+:root {
+    --tagname: #1b92dd;
+}
+
 * {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
     color: #666;
@@ -211,16 +215,18 @@ ul li {
 
 */
 
-.index__one, .index__two, .index__three, .index__four, .index__five, .index__banner {
+.index__row, .index__banner {
     width: 1200px;
     margin-right: auto;
     margin-left: auto;
-}
-
-.index__one {
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+/*.index__one {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}*/
 
 .index__theloai--wrap {
     background-color: #343a40;
@@ -330,9 +336,9 @@ ul li {
     color: red;
 }
 
-.index__two, .index__three, .index__four, .index__five {
+/*.index__two, .index__three, .index__four, .index__five {
     margin: 30px auto;
-}
+}*/
 
 .index__truyenmoi h4, .index__btv h4 {
     padding: 7px 0;
@@ -367,34 +373,91 @@ ul li {
     padding: 0 10px;
 }
 
-.index__ranklist--title a, .index__truyenmoi--title a, .index__truyenhoanthanh--title a {
-    float: right;
+.index__wrap-title {
+    position: relative;
+}
+
+.index__wrap-title a {
+    position: absolute;
+    bottom: 0;
+    right: 0;
     color: #666;
 }
 
-.index__ranklist--title a:hover, .index__truyenmoi--title a:hover, .index__truyenhoanthanh--title a:hover {
+.index__wrap-title a:hover {
+    color: red;
+}
+
+.index__wrap-title a>i {
+    color: inherit;
+}
+
+/*.index__ranklist--title a, .index__truyenmoi--title a, .index__truyenhoanthanh--title a {
+    float: right;
+    color: #666;
+}*/
+
+/*.index__ranklist--title a:hover, .index__truyenmoi--title a:hover, .index__truyenhoanthanh--title a:hover {
     color: red;
 }
 
 .index__ranklist--title a>i, .index__truyenmoi--title a>i, .index__truyenhoanthanh--title a>i {
     color: inherit;
+}*/
+
+/*.index__truyenmoito--chitiet, .index__truyenhoanthanh--chitiet {
+    height: 100%;
+}*/
+
+/*.index__left-wrap-detail {
+    height: 100%;
+}*/
+
+.index__left-wrap--theloai {
+    font-size: 18px;
+    margin-bottom: 7px;
 }
 
-.index__truyenmoito--chitiet, .index__truyenhoanthanh--chitiet {
-    height: 100%;
+.index__left-wrap--sochuong {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.index__left-wrap--gioithieu i {
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
+}
+
+.index__left-wrap--cardbtn {
+    background-color: #343a40;
+    float: right;
+    color: #fff;
+}
+
+.index__left-wrap--cardbtn i {
+    color: inherit;
+}
+
+.index__left-wrap--cardbtn:hover, .index__left-wrap--cardbtn i:hover {
+    color: #fff;
 }
 
 .card-img-top {
-    height: 210px;
-    width: 100%;
+    height: 200px;
+    /*width: 100%;*/
+    object-fit: contain;
 }
 
 .card-title a {
     font-size: 20px;
     font-weight: 600;
+    text-align: center;
 }
 
-.index__truyenmoito--theloai, .index__truyenhoanthanh--theloai {
+/*.index__truyenmoito--theloai, .index__truyenhoanthanh--theloai {
     font-size: 18px;
 }
 
@@ -408,17 +471,25 @@ ul li {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 10;
     overflow: hidden;
+}*/
+
+.index__right-wrap--list {
+    padding-bottom: 20px;
 }
 
-.index__truyenmoito--list, .index__truyenhoanthanh--list {
+.index__right-wrap--listitem {
+    display: flex;
+}
+
+/*.index__truyenmoito--list, .index__truyenhoanthanh--list {
     padding-bottom: 20px;
 }
 
 .index__truyenmoito--listitem, .index__truyenhoanthanh--listitem {
     display: flex;
-}
+}*/
 
-.index__truyenmoito--cardbtn {
+/*.index__truyenmoito--cardbtn {
     background-color: #343a40;
     float: right;
     color: #fff;
@@ -430,7 +501,7 @@ ul li {
 
 .index__truyenmoito--cardbtn:hover, .index__truyenmoito--cardbtn i:hover {
     color: #fff;
-}
+}*/
 
 .listitem--odd {
     padding-right: 30px;
@@ -450,15 +521,28 @@ ul li {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    margin-bottom: 7px;
 }
 
-.book--info h3 {
+/*.book--info h3 {
     margin-top: -8px;
     margin-bottom: 0;
+}*/
+
+.book-name, .book-state {
+    margin-bottom: 5px;
+}
+
+.book-name a {
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 
 .book-state a {
-    font: 16px;
+    font-size: 16px;
     font-weight: lighter;
 }
 
@@ -469,23 +553,24 @@ ul li {
     overflow: hidden;
 }
 
-.catagory {
+.category {
     display: flex;
     margin: 0;
 }
 
-.catagory p:first-child {
+.category p:first-child {
     padding-right: 5px;
 }
 
-.catagory-wrap {
-    border: 1px solid black;
+.category-wrap {
+    border: 1px solid rgba(27, 146, 221, 0.6);
     border-radius: 10px;
 }
 
-.catagory-wrap a {
+.category-wrap a {
     font-size: 14px;
-    padding: 5px;
+    padding: 7px;
+    color: var(--tagname);
 }
 
 .footer--container {
@@ -549,5 +634,52 @@ ul li {
 
 .myBtn:hover {
     background-color: #bdbdbd; /* Add a dark-grey background on hover */
+}
+
+.ranklist--list ul li a {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+
+.ranklist--list ul li > a, .ranklist--list ul li > i {
+    line-height: 1.8;
+}
+
+    .ranklist--list ul li {
+        display: flex;
+    }
+
+.user-home-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+#dropdownMenuButton {
+    display: flex;
+}
+
+.user-function {
+    text-align: center;
+}
+
+.user-function li a {
+    width: 100%;
+}
+
+.user-home-name p {
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 0;
+    padding-top: 7px;
+    padding-bottom: 7px;
+/*    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;*/
 }
 
