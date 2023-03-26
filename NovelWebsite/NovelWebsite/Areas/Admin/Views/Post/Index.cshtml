@@ -19,20 +19,18 @@
     <div class="container-lg">
         <div class="row">
             <div class="col-md-12">
+                <h4>Tìm kiếm bài viết</h4>
+                <div class="search input-group float-md-start w-50 search-admin">
+                    <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
+                    <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
+                        <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Tất cả bài viết</h3>
-                        <div class="box-tools pull-right">
-                            <div class="has-feedback">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    @*<input type="text" name="name" class="form-control pull-right" id="input-search" placeholder="Search" value="@name">*@
-                                    <div class="input-group-btn">
-                                        <a href="###"><button class="btn btn-default" id="form-search"><i class="fa fa-search"></i></button></a>
-                                    </div>
-                                    <input type="number" name="pageNumber" id="txtPageNumber" value="1" hidden />
-                                </div>
-                            </div>
-                        </div>
+                        <h4 class="box-title">Tất cả bài viết</h4>
                         <!-- /.box-tools -->
                     </div>
                     <div class="tab-content" style="margin: 1.5rem">
@@ -69,76 +67,98 @@
                         </div>
                         }
                         }*@
-                        <div class="post">
-                            <div class="user-block">
-                                <img class="img-circle img-bordered-sm" src="/image/logo.jpg" alt="user image">
-                                <span class="username">
-                                    <span class="mailbox-read-time pull-right">
+                        <div class="post row">
+                            <div class="useravatar col-md-auto">
+                                <a href="#"><img class="img-circle img-bordered-sm col" src="/image/logo.jpg" alt="user image"></a>
+                            </div>
+                            <div class="user-post col row">
+                                <span class="user-post-title col-md-3">
+                                    <a href="/Admin/Blog/Post?id=">Tên bài viết rất dài</a>
+                                </span>
+                                <span class="user-post-name col-md-3">Written by Name</span>
+                                <span class="user-post-content col-md-12">
+                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
+                                        Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
+                                        Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus,
+                                        semper at cursus inter</p>
+                                </span>
+                                <span class="user-post-info col-md-12">
+                                    <span class="user-post-time">
+                                        Thời gian đăng bài
+                                    </span>
+                                    <span class="float-md-end">
                                         <i class="fa fa-edit"></i>
                                         <a href="javascript:void(0)">Edit</a>
                                         |
                                         <i class="fa fa-close"></i>
                                         <a href="javascript:void(0)">Delete</a>
                                     </span>
-                                    <a href="/Admin/Blog/Post?id=">Title</a>
-                                    <a href="#" class="pull-right btn-box-tool"></a>
-                                </span>
-                                <span class="description">Written by  - Shared public -.ToString("MMM d, yyyy")</span>
+                                </span> 
                             </div>
-                            <!-- /.user-block -->
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
-                                Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
-                                Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus, semper at cursus interdum, pulvinar sit amet leo. Praesent tempus mi purus, ut faucibus eros vehicula sit amet. Mauris eget euismod erat. Etiam vel elementum purus. Nullam tincidunt enim non nunc lobortis, at elementum erat ultrices. Donec non pulvinar orci, elementum tincidunt ipsum. In hac habitasse platea dictumst. Ut at nisi vitae quam aliquam commodo nec in mauris. Sed vitae congue sem. Phasellus quis purus et urna vehicula condimentum a quis mauris.
-                            </p>
                         </div>
 
-                        <div class="post">
-                            <div class="user-block">
-                                <img class="img-circle img-bordered-sm" src="/image/logo.jpg" alt="user image">
-                                <span class="username">
-                                    <span class="mailbox-read-time pull-right">
+                        <div class="post row">
+                            <div class="useravatar col-md-auto">
+                                <a href="#"><img class="img-circle img-bordered-sm col" src="/image/logo.jpg" alt="user image"></a>
+                            </div>
+                            <div class="user-post col row">
+                                <span class="user-post-title col-md-3">
+                                    <a href="/Admin/Blog/Post?id=">Tên bài viết rất dài</a>
+                                </span>
+                                <span class="user-post-name col-md-3">Written by Name</span>
+                                <span class="user-post-content col-md-12">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
+                                        Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
+                                        Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus,
+                                        semper at cursus inter
+                                    </p>
+                                </span>
+                                <span class="user-post-info col-md-12">
+                                    <span class="user-post-time">
+                                        Thời gian đăng bài
+                                    </span>
+                                    <span class="float-md-end">
                                         <i class="fa fa-edit"></i>
                                         <a href="javascript:void(0)">Edit</a>
                                         |
                                         <i class="fa fa-close"></i>
                                         <a href="javascript:void(0)">Delete</a>
                                     </span>
-                                    <a href="/Admin/Blog/Post?id=">Title</a>
-                                    <a href="#" class="pull-right btn-box-tool"></a>
                                 </span>
-                                <span class="description">Written by  - Shared public -.ToString("MMM d, yyyy")</span>
                             </div>
-                            <!-- /.user-block -->
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
-                                Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
-                                Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus, semper at cursus interdum, pulvinar sit amet leo. Praesent tempus mi purus, ut faucibus eros vehicula sit amet. Mauris eget euismod erat. Etiam vel elementum purus. Nullam tincidunt enim non nunc lobortis, at elementum erat ultrices. Donec non pulvinar orci, elementum tincidunt ipsum. In hac habitasse platea dictumst. Ut at nisi vitae quam aliquam commodo nec in mauris. Sed vitae congue sem. Phasellus quis purus et urna vehicula condimentum a quis mauris.
-                            </p>
                         </div>
 
-                        <div class="post">
-                            <div class="user-block">
-                                <img class="img-circle img-bordered-sm" src="/image/logo.jpg" alt="user image">
-                                <span class="username">
-                                    <span class="mailbox-read-time pull-right">
+                        <div class="post row">
+                            <div class="useravatar col-md-auto">
+                                <a href="#"><img class="img-circle img-bordered-sm col" src="/image/logo.jpg" alt="user image"></a>
+                            </div>
+                            <div class="user-post col row">
+                                <span class="user-post-title col-md-3">
+                                    <a href="/Admin/Blog/Post?id=">Tên bài viết rất dài</a>
+                                </span>
+                                <span class="user-post-name col-md-3">Written by Name</span>
+                                <span class="user-post-content col-md-12">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
+                                        Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
+                                        Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus,
+                                        semper at cursus inter
+                                    </p>
+                                </span>
+                                <span class="user-post-info col-md-12">
+                                    <span class="user-post-time">
+                                        Thời gian đăng bài
+                                    </span>
+                                    <span class="float-md-end">
                                         <i class="fa fa-edit"></i>
                                         <a href="javascript:void(0)">Edit</a>
                                         |
                                         <i class="fa fa-close"></i>
                                         <a href="javascript:void(0)">Delete</a>
                                     </span>
-                                    <a href="/Admin/Blog/Post?id=">Title</a>
-                                    <a href="#" class="pull-right btn-box-tool"></a>
                                 </span>
-                                <span class="description">Written by  - Shared public -.ToString("MMM d, yyyy")</span>
                             </div>
-                            <!-- /.user-block -->
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
-                                Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
-                                Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus, semper at cursus interdum, pulvinar sit amet leo. Praesent tempus mi purus, ut faucibus eros vehicula sit amet. Mauris eget euismod erat. Etiam vel elementum purus. Nullam tincidunt enim non nunc lobortis, at elementum erat ultrices. Donec non pulvinar orci, elementum tincidunt ipsum. In hac habitasse platea dictumst. Ut at nisi vitae quam aliquam commodo nec in mauris. Sed vitae congue sem. Phasellus quis purus et urna vehicula condimentum a quis mauris.
-                            </p>
                         </div>
                     </div>
                     <div class="box-footer">
@@ -151,6 +171,17 @@
                             }
                             <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Min(pageNumber+1,pageCount)">&raquo;</a></li>
                             </ul>*@
+                                <ul class="pagination justify-content-end">
+                                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
+                                    <li class="page-item"><p class="etc">...</p></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">Trang cuối</a></li>
+                                </ul>
                         </div>
                     </div>
                 </div>
