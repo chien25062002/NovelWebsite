@@ -1,6 +1,6 @@
 ﻿$.ajax({
     url: "/Account/GetAccount",
-    type: "POST",
+    type: "GET",
     dataType: "json",
     beforeSend: function () { },
     success: function (data) {
@@ -26,4 +26,59 @@
     },
     error: function () { },
     complete: function () { }
-})
+});
+
+function Login() {
+    $.ajax({
+        url: "/Account/Login",
+        type: "POST",
+        dataType: "json",
+        data: {
+            AccountName: $('input[name="AccountName"]').val(),
+            Password: $('input[name="Password"]').val()
+        },
+        beforeSend: function () { },
+        success: function (data) {
+            $('#modal-body-login').find('.alert-danger').first().remove();
+            if (data == "") {
+                location.reload();
+            }
+            else {
+                $('#modal-body-login').prepend(`<div class="form-floating mb-3 mt-3 alert alert-danger" role="alert" id="login-alert">
+                                            ${data}
+                                            </div>`);
+            }
+        },
+        error: function () { },
+        complete: function () { }
+    })
+}
+
+
+function Signup() {
+    $.ajax({
+        url: "/Account/Signup",
+        type: "POST",
+        dataType: "json",
+        data: {
+            AccountName: $('#signup-form input[name="AccountName"]').val(),
+            Password: $('#signup-form input[name="Password"]').val(),
+            Email: $('#signup-form input[name="Email"]').val()
+        },
+        beforeSend: function () { },
+        success: function (data) {
+            $('#modal-body-signup').find('.alert-danger').first().remove();
+            if (data == "") {
+                alert("Đăng ký thành công!");
+                location.reload();
+            }
+            else {
+                $('#modal-body-signup').prepend(`<div class="form-floating mb-3 mt-3 alert alert-danger" role="alert" id="login-alert">
+                                            ${data}
+                                            </div>`);
+            }
+        },
+        error: function () { },
+        complete: function () { }
+    })
+}

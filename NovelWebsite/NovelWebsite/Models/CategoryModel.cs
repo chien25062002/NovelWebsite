@@ -6,8 +6,9 @@ namespace NovelWebsite.Models
 {
     public class CategoryModel : BaseModel
     {
-        public string CategoryId { get; set; }
+        public int CategoryId { get; set; }
         public string CategoryName { get; set; }
+        public string CategoryImage { get; set; }
         public int Quantity { get; set; }
     }
 }

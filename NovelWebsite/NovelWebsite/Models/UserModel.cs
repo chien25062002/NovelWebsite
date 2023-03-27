@@ -5,7 +5,7 @@ namespace NovelWebsite.Models
     public class UserModel : BaseModel
     {
         public string AccountName { get; set; }
-        public string UserId { get; set; }
+        public int UserId { get; set; }
         public string Username { get; set; }
         public string Avatar { get; set; }
         public string CoverPhoto { get; set; }
