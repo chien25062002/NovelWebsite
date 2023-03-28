@@ -1,7 +1,5 @@
-﻿
-
+﻿<link rel="stylesheet" href="~/css/truyen.css">
 <link rel="stylesheet" href="~/css/doctruyen.css">
-<link rel="stylesheet" href="~/css/truyen.css">
 
 <div class="container body-container">
     <div class="content">
@@ -188,10 +186,10 @@
                                     <h5>Font chữ</h5>
                                 </div>
                                 <div class="col-10 setting-box-option">
-                                    <span class="font-value font-01 active" onclick="changeFont('01')">Roboto</span>
-                                    <span class="font-value font-02" onclick="changeFont('02')">Times</span>
-                                    <span class="font-value font-03" onclick="changeFont('03')">Arial</span>
-                                    <span class="font-value font-04" onclick="changeFont('04')">Cambria</span>
+                                    <span class="font-value font-01 active" onclick="changeFont('01')"><span class="font-name">Roboto</span></span>
+                                    <span class="font-value font-02" onclick="changeFont('02')"><span class="font-name">Times</span></span>
+                                    <span class="font-value font-03" onclick="changeFont('03')"><span class="font-name">Arial</span></span>
+                                    <span class="font-value font-04" onclick="changeFont('04')"><span class="font-name">Cambria</span></span>
                                 </div>
                             </div>
                             <div class="setting-box row">
@@ -248,25 +246,28 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="control-box">
+                    <div class="control-box-content">
+                        <a href="javascript:void(0)" type="button" class="btn btn-secondary">
+                            <i class="fa-solid fa-angle-left"></i>
+                            Chương trước
+                        </a>
+@*                        <i>|</i>*@
+                        <a href="javascript:void(0)" type="button" class="btn btn-secondary">
+                            Chương sau
+                            <i class="fa-solid fa-angle-right"></i>
+                        </a>
+                    </div>
+                </div>
+
             </div>
 
             <div class="quangcaotruyen">
                 <a href="javascript:void(0)"><img src="/image/test.jpg" class="banner-sm"></a>
             </div>
 
-            <div class="control-box">
-                <div class="control-box-content">
-                    <a href="javascript:void(0)" type="button" class="btn">
-                        <i class="fa-solid fa-arrow-left"></i>
-                        Chương trước
-                    </a>
-                    <i>|</i>
-                    <a href="javascript:void(0)" type="button" class="btn">
-                        Chương sau
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
+            
 
             <div class="comment-section">
                 <div class="comment-section-title">
@@ -412,4 +413,9 @@
     </div>
 </div>
 
+@section Scripts {
 <script type="text/javascript" src="~/content/chapter.js"></script>
+<script type="text/javascript" src="~/js/popover.js"></script>
+<script type="text/javascript" src="~/js/changtheme.js"></script>
+}
+
