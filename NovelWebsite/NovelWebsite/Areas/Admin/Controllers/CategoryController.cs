@@ -16,9 +16,17 @@ namespace NovelWebsite.Areas.Admin.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult Index()
+        public IActionResult Index(int pageNumber = 1, int pageSize = 10)
         {
-            return View(_dbContext.Categories.ToList());
+            var query = _dbContext.Categories.Skip(pageSize * pageNumber - pageSize)
+                                             .Take(pageSize)
+                                             .ToList(); 
+
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;
+            ViewBag.pageCount = Math.Ceiling(_dbContext.Categories.Count() * 1.0 / pageSize);
+            
+            return View(query);
         }
 
         [HttpPost]
@@ -32,6 +40,7 @@ namespace NovelWebsite.Areas.Admin.Controllers
                     CategoryId = category.CategoryId,
                     CategoryName = category.CategoryName,
                     CategoryImage = category.CategoryImage,
+                    Quantity = 0,
                     Slug = StringExtension.Slugify(category.CategoryName),
                 });
             }

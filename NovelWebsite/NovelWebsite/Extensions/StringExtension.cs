@@ -6,7 +6,7 @@ namespace NovelWebsite.Extensions
     {
         public static string Slugify(string phrase)
         {
-            string str = phrase.ToLowerInvariant();
+            string str = phrase.ToLower();
             str = Regex.Replace(str, @"[^a-z0-9\s-]", "");
             // convert multiple spaces into one space   
             str = Regex.Replace(str, @"\s+", " ").Trim();
