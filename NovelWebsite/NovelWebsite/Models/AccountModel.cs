@@ -4,9 +4,10 @@ namespace NovelWebsite.Models
 {
     public class AccountModel : BaseModel
     {
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Không được để trống tên đăng nhập")]
+        [Required]
         public string AccountName { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Không được để trống mật khẩu")]
+        [Required]
         public string Password { get; set; }
+        public string Email { get; set; }
     }
 }

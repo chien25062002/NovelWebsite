@@ -336,7 +336,6 @@ function startCKEditor(toolbar, editor) {
                 supportAllValues: true
             },
 
-            height: "400px",
         })
         .then(editor => {
             const toolbarContainer = document.querySelector('#' + toolbar);
