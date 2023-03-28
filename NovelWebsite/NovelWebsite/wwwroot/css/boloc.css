@@ -99,10 +99,10 @@ li.box-active, li.box-active a{
     overflow: hidden;
 }
 
-.book--info-buttons {
-    width: 260px;
-    position: relative;
-}
+    .book--info-buttons {
+        width: 260px;
+        position: relative;
+    }
 
 .book--info-buttons p {
     position: absolute;
@@ -135,10 +135,10 @@ li.box-active, li.box-active a{
     background-color: #e5eaf4;
 }
 
-.rank-box-main-pagination ul li:not(:first-child) {
+/*.rank-box-main-pagination ul li:not(:first-child) {
     margin-left: 10px;
     border: 1px black;
-}
+}*/
 
 .rank-box-main-pagination ul li a {
     color: #666;

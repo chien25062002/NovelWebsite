@@ -3,6 +3,7 @@
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
+    context: this,
     success: function (data) {
         $('#filter-tags').html("");
         data.forEach((item, index) => {
@@ -21,12 +22,13 @@ $.ajax({
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
+    context: this,
     success: function (data) {
         $('#filter-status').html("");
         data.forEach((item, index) => {
             let row = `<li class="nav-item">
-                                            <a href="javascript:void(0)">${item.bookStatusName}</a>
-                                        </li>`;
+                            <a href="javascript:void(0)">${item.bookStatusName}</a>
+                        </li>`;
             $('#filter-status').append(row);
         });
     },
@@ -49,3 +51,12 @@ $.ajax({
     error: function () { },
     complete: function () { }
 });
+
+/*$(document).ready(function () {
+    $(".rank-box-item-box li a").click(function () {
+        var element = $(".rank-box-item-box li a");
+        element.parent().toggleClass("box-active");
+    });*/
+
+
+

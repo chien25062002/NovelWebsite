@@ -7,7 +7,7 @@
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
                         <h4>Danh sách người dùng</h4>
@@ -34,7 +34,7 @@
                                 <tbody>
                                     <tr class="align-middle">
                                         @*<td>
-                                            <div>LIYUE</div>
+                                        <div>LIYUE</div>
                                         </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
@@ -58,13 +58,40 @@
                                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
                                                     </svg>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item">Time Out</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Chỉnh sửa</a>
+                                                    <a class="dropdown-item" data-coreui-toggle="modal" data-coreui-target="#roleModal" role="button">Time Out</a>
+                                                    <a class="dropdown-item text-danger" href="#">Xóa</a>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa Role</h5>
+                                                            <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label class="form-label" for="specificSizeSelect">Role</label>
+                                                            <select class="form-select" id="specificSizeSelect">
+                                                                <option selected>Chọn role...</option>
+                                                                <option value="1">Archon</option>
+                                                                <option value="2">Người thường</option>
+                                                                <option value="3">Đáy xã hội</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary" data-coreui-dismiss="modal">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr class="align-middle">
                                         @*<td>
-                                            <div>LIYUE</div>
+                                        <div>LIYUE</div>
                                         </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
@@ -88,13 +115,40 @@
                                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
                                                     </svg>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item">Time Out</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Chỉnh sửa</a>
+                                                    <a class="dropdown-item" data-coreui-toggle="modal" data-coreui-target="#roleModal" role="button">Time Out</a>
+                                                    <a class="dropdown-item text-danger" href="#">Xóa</a>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa Role</h5>
+                                                            <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label class="form-label" for="specificSizeSelect">Role</label>
+                                                            <select class="form-select" id="specificSizeSelect">
+                                                                <option selected>Chọn role...</option>
+                                                                <option value="1">Archon</option>
+                                                                <option value="2">Người thường</option>
+                                                                <option value="3">Đáy xã hội</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary" data-coreui-dismiss="modal">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr class="align-middle">
                                         @*<td>
-                                            <div>LIYUE</div>
+                                        <div>LIYUE</div>
                                         </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
@@ -118,13 +172,40 @@
                                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
                                                     </svg>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item">Time Out</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Chỉnh sửa</a>
+                                                    <a class="dropdown-item" data-coreui-toggle="modal" data-coreui-target="#roleModal" role="button">Time Out</a>
+                                                    <a class="dropdown-item text-danger" href="#">Xóa</a>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa Role</h5>
+                                                            <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label class="form-label" for="specificSizeSelect">Role</label>
+                                                            <select class="form-select" id="specificSizeSelect">
+                                                                <option selected>Chọn role...</option>
+                                                                <option value="1">Archon</option>
+                                                                <option value="2">Người thường</option>
+                                                                <option value="3">Đáy xã hội</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary" data-coreui-dismiss="modal">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr class="align-middle">
                                         @*<td>
-                                            <div>LIYUE</div>
+                                        <div>LIYUE</div>
                                         </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
@@ -148,13 +229,40 @@
                                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
                                                     </svg>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item">Time Out</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Chỉnh sửa</a>
+                                                    <a class="dropdown-item" data-coreui-toggle="modal" data-coreui-target="#roleModal" role="button">Time Out</a>
+                                                    <a class="dropdown-item text-danger" href="#">Xóa</a>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa Role</h5>
+                                                            <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label class="form-label" for="specificSizeSelect">Role</label>
+                                                            <select class="form-select" id="specificSizeSelect">
+                                                                <option selected>Chọn role...</option>
+                                                                <option value="1">Archon</option>
+                                                                <option value="2">Người thường</option>
+                                                                <option value="3">Đáy xã hội</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary" data-coreui-dismiss="modal">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
                                     <tr class="align-middle">
                                         @*<td>
-                                            <div>LIYUE</div>
+                                        <div>LIYUE</div>
                                         </td>*@
                                         <td>
                                             <div>Zhongli-ssi</div>
@@ -178,7 +286,34 @@
                                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
                                                     </svg>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item">Time Out</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">Chỉnh sửa</a>
+                                                    <a class="dropdown-item" data-coreui-toggle="modal" data-coreui-target="#roleModal" role="button">Time Out</a>
+                                                    <a class="dropdown-item text-danger" href="#">Xóa</a>
+                                                </div>
+                                            </div>
+                                            <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-sm">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa Role</h5>
+                                                            <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <label class="form-label" for="specificSizeSelect">Role</label>
+                                                            <select class="form-select" id="specificSizeSelect">
+                                                                <option selected>Chọn role...</option>
+                                                                <option value="1">Archon</option>
+                                                                <option value="2">Người thường</option>
+                                                                <option value="3">Đáy xã hội</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                                                            <button type="button" class="btn btn-primary" data-coreui-dismiss="modal">Save changes</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </td>
                                     </tr>
@@ -221,7 +356,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            @*<div class="col-md-4">
                 <form class="row g-3">
                     <div class="col-md-12">
                         <h4>Chỉnh sửa người dùng</h4>
@@ -251,7 +386,7 @@
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck">
                             <label class="form-check-label" for="gridCheck">
-                            Xác nhận chỉnh sửa
+                                Xác nhận chỉnh sửa
                             </label>
                         </div>
                     </div>
@@ -262,7 +397,8 @@
                         <button type="submit" class="btn btn-primary float-end">Xóa người dùng</button>
                     </div>
                 </form>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>
+

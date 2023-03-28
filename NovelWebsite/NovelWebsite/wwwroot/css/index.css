@@ -516,7 +516,7 @@ ul li {
     font-weight: 600;   
 }
 
-.book--info p {
+.book-state {
     font-size: 14px;
     overflow: hidden;
     white-space: nowrap;
