@@ -70,7 +70,9 @@ namespace NovelWebsite.Controllers
                 CreatedDate = DateTime.Now,
                 CreatedBy = "system",
                 UpdatedDate = DateTime.Now,
-                UpdatedBy = "system"
+                UpdatedBy = "system",
+                Status = 0,
+                IsDeleted = false,
             };
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
@@ -83,7 +85,9 @@ namespace NovelWebsite.Controllers
                 CreatedDate = DateTime.Now,
                 CreatedBy = "system",
                 UpdatedDate = DateTime.Now,
-                UpdatedBy = "system"
+                UpdatedBy = "system",
+                Status = 0,
+                IsDeleted = false,
             };
             _dbContext.Accounts.Add(acc);
             _dbContext.SaveChanges();

@@ -18,9 +18,18 @@ namespace NovelWebsite.Areas.Admin.Controllers
             _dbContext = dbContext;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? name, int pageNumber = 1, int pageSize = 10)
         {
-            var query = _dbContext.Tags.ToList();
+            var query = _dbContext.Tags.Where(t => string.IsNullOrEmpty(name) || t.TagName.ToLower().Trim().Contains(name.ToLower().Trim()));
+                                       
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;    
+            ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
+            ViewBag.searchName = name;
+
+            query.Skip(pageSize * pageNumber - pageSize)
+                         .Take(pageSize)
+                         .ToList();
             return View(query);
         }
 
