@@ -51,7 +51,7 @@ $.ajax({
                                 </div>
                                 <div class="input-comment col">
                                         <div id="review-toolbar"></div>
-                                        <div id="review-editor"></div>
+                                        <div id="review-editor" class="input--box"></div>
                                 </div>
                                 <div class="submit-btn col-md-12">
                                     <div class="submit-btn-wrap">
@@ -123,7 +123,7 @@ $.ajax({
                                         </div>                                       
                                         <div class="input-comment col">
                                             <div id="comment-toolbar"></div>
-                                            <div id="comment-editor"></div>
+                                            <div id="comment-editor" class="input--box"></div>
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">

@@ -710,14 +710,14 @@ ul li {
     opacity: 0.8;
 }
 
-.box-footer.clearfix {
+.box-footer {
     margin-top: 20px;
 }
 
-.box-footer.clearfix ul li:not(:first-child) {
+/*.box-footer.clearfix ul li:not(:first-child) {
     margin-left: 10px;
     border: 1px black;
-}
+}*/
 
 .box-footer.clearfix ul li a {
     font-size: 16px;
@@ -727,5 +727,8 @@ ul li {
     margin-bottom: 10px;
 }
 
+.input--box {
+    border: 1px solid #cacaca !important;
+}
 
 
