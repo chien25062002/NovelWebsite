@@ -38,25 +38,21 @@
     font-size: 16px;
 }
 
-.truyen-author {
-    font-weight: bold;
-}
-
 .chapter-content {
     position: relative;
 }
 
 .control-area-wrap {
-    position: absolute;
-    height: 100%;
-    margin-left: 100px;
+    position: absolute ;
+    height: 100% ;
+    margin-left: 100px ;
 }
 
 .control-area {
     /* position: fixed; */
-    position: sticky;
-    top: 0;
-    width: 50px;
+    position: sticky ;
+    top: 0 ;
+    width: 50px ;
     /* left: 50%; */
     /* margin-left: -520px; */
     z-index: 100;
@@ -76,14 +72,7 @@
     font-size: 20px;   
 }
 
-
-
-.control-box {
-    width: 290px;
-    margin: auto;
-}
-
-.box-ads, .control-box {
+.box-ads {
     margin-top: 20px;
 }
 
@@ -112,7 +101,7 @@
     color: inherit;
 }
 
-.quangcaotruyen, .comment-section {
+.quangcaotruyen, .control-box, .comment-section {
     max-width: 900px;
     margin: 0 auto;
 }
@@ -123,29 +112,26 @@
 
 .control-box-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+}
+
+.control-box-content a, .control-box-content i {
+    font-size: 20px;
 }
 
 .control-box-content a {
-    font-size: 18px;
-    color: #fff;
-}
-
-/*.control-box-content a {
-    padding: 5px;
-    background-color: #f6c594;
+    background-color: antiquewhite;
     border: 1px solid;
 }
 
 .control-box-content a:hover {
     background-color: #f6c594;
     border: 1px solid;
-}*/
-
-.control-box-content i {
-    color: #fff !important;
 }
 
+.control-box-content i:nth-child(2) {
+    margin: auto 10px;
+}
 
 .control-area button, .control-area a {
     padding: 0;
@@ -325,26 +311,20 @@
 
 .theme-value i {
     position: absolute;
-    top: 9px;
+    top: 10px;
     left: 9px;
-    bottom: 9px;
-    right: 9px;
     font-size: 14px;
 }
 
 .font-value {
-    /*border: 1px solid;*/
-/*    line-height: 1.8;*/
+    border: 1px solid;
+    line-height: 34px;
     width: 78px;
     height: 34px;
     border: 1px solid;
     border-radius: 5px;
     font-size: 16px;
-    display: flex;
-}
-
-.font-name {
-    margin: auto;
+    text-align: center;
 }
 
 .font-value:hover {
@@ -368,12 +348,8 @@
 }
 
 .active {
-    border: 2px solid #6c757d;
-    color: #6c757d;
-}
-
-.active:nth-child(7) {
-    color: #fff;
+    border: 1px solid red;
+    color: red;
 }
 
 .active i {
@@ -445,16 +421,3 @@ a.closemark:hover {
     border: none;
     margin-top: 10px;
 }
-
-.input-comment {
-    border: 1px solid #cacaca;
-    border-radius: 10px;
-    padding: 0;
-    margin-left: 10.5px;
-}
-
-.submit-btn-wrap-chapter {
-    padding-left: 54.5px;
-    width: 100px;
-}
-

@@ -1,0 +1,599 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <link rel="shortcut icon" href="/NovelWebsite/NovelWebsite/wwwroot/favicon.ico">
+    <meta name="robots" content="noarchive">
+	
+	
+    <link rel="stylesheet" href="/NovelWebsite/NovelWebsite/wwwroot/css/index.css" !important>
+
+	<link rel="stylesheet" type="text/css" href="/NovelWebsite/NovelWebsite/wwwroot/css/listpost.css"/>
+	<link rel="prefetch" href="/NovelWebsite/NovelWebsite/wwwroot/js/utils/jsquery-ui-1.10.4.custom.js"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+	<link rel="stylesheet" href="/NovelWebsite/NovelWebsite/wwwroot/css/utils/railcast.css" />
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href=/NovelWebsite/NovelWebsite/wwwroot/css/utils/materialize-wiki.min.css type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href=/NovelWebsite/NovelWebsite/wwwroot/css/utils/font-awesome.min.css type="text/css" rel="stylesheet"media="screen,projection" />
+    <link href=/NovelWebsite/NovelWebsite/wwwroot/css/utils/animate.min.css type="text/css" rel="stylesheet"media="screen,projection" />
+	<script src=/NovelWebsite/NovelWebsite/wwwroot/js/utils/jquery-2.2.4.min.js></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/NovelWebsite/NovelWebsite/wwwroot/css/truyen.css">
+	<link rel="stylesheet" href="/NovelWebsite/NovelWebsite/wwwroot/css/utils/railcast.css" />
+
+
+    <!-- <script src="https://cdn.tiny.cloud/1/70mtemgl7jp1hcmo3bika4x20zvv3ulinvq90cb91veacu42/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
+    <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/tinymcescript.js"></script>
+	<script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/utils/materialize-wiki.min.js"></script>
+	
+		</head>
+<body>
+	<button onclick="topFunction()" class="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+    <header>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <div class="header__main">
+            <div class="header__box--center row">
+                <div class="col logo">
+                    <a href="index.html" data-eid="qd_A11">
+                    </a>
+                </div>
+
+                <div class="col search input-group">
+                    <!-- <form id="form1" action="#" method="get">
+                        <p>
+                            <input class="search__searchbox" name="kw" type="text" data-type="search" placeholder="Nhập tên truyện" autocomplete="off">
+                        </p>
+                        <label class="search__btn" for="search__submit">
+                            <em class="search__btn--icon">
+                                <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                            </em>
+                        </label>
+                    </form> -->
+                    <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
+                    <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
+                        <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                    </button>
+                </div>
+
+                <div class="col login">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#taixuong">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        Tải xuống
+                    </a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#dangnhap">
+                        <i class="fa-solid fa-user"></i>
+                        Tài khoản
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
+                </div>
+
+                <div class="modal fade" id="taixuong">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Tải xuống</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                PHẦN MỀM ĐANG TRONG QUÁ TRÌNH HOÀN THIỆN
+                                <br>
+                                MỜI BẠN QUAY LẠI SAU!
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="dangnhap">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Đăng nhập</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal body -->
+                            <form class="needs-validation" action="/Account/Login" method="post">
+                           
+                                <div asp-validation-summary="All"></div>
+                                <div class="modal-body">
+                                    <div class="form-floating mb-3 mt-3">
+                                        <input type="text" class="form-control" placeholder="Tên đăng nhập">
+                                        <label><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
+                                    </div>
+                                    <div class="form-floating mt-3 mb-3">
+                                        <input type="password" class="form-control" id="matkhau1" placeholder="Mật khẩu"">
+                                        <label><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success">Đăng nhập</button>
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dangky">Đăng ký</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="dangky">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Đăng ký</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal body -->
+                            <form class="needs-validation" action="/Account/LoginAsync" method="post">
+                                <div class="modal-body">
+                                    <div class="form-floating mb-3 mt-3">
+                                        <input type="text" class="form-control" id="tendangnhap2" placeholder="Tên đăng nhập" name="AccountName" required>
+                                        <label for="tdn"><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
+                                    </div>
+                                    <div class="form-floating mb-3 mt-3">
+                                        <input type="email" class="form-control" id="email2" placeholder="Email" name="Password" required>
+                                        <label for="eml"><i class="fa-solid fa-envelope modal--icon"></i></i>Email</label>
+                                    </div>
+                                    <div class="form-floating mt-3 mb-3">
+                                        <input type="password" class="form-control" id="matkhau2" placeholder="Mật khẩu" name="mk" required>
+                                        <label for="mk"><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
+                                    </div>
+
+                                    <div class="form-floating mt-3 mb-3">
+                                        <input type="password" class="form-control" id="nlmatkhau2" placeholder="Nhập lại mật khẩu" name="rmk" required>
+                                        <label for="rmk"><i class="fa-solid fa-key modal--icon"></i>Nhập lại mật khẩu</label>
+                                    </div>
+
+                                    <div class="form-check mt-3 mb-3">
+                                        <input type="checkbox" class="form-check-input" id="check2" name="dksd" required>
+                                        <label for="dksd" class="form-check-label">Đồng ý với điều khoản sử dụng</label>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Đăng ký</button>
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dangnhap">Đăng nhập</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="navbar navbar-expand-md">
+                <div class="navbar__main">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item--trangchu">
+                            <span>
+                                <i class="fa-solid fa-list"></i>
+                                Trang chủ
+                            </span>
+                        </li>
+                        <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="javascript:void(0)">Diễn đàn</a>
+                        </li>
+                        <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="javascript:void(0)">Bảng xếp hạng</a>
+                        </li>
+                        <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="/html/boloc.html">Bộ lọc</a>
+                        </li>
+                        <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="javascript:void(0)">Reviews</a>
+                        </li>
+                        <!-- <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="javascript:void(0)">Cửa hàng</a>
+                        </li> -->
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+<main class="page-category ">
+	
+		<div class="container" id="content">
+<div widget-area="header"></div>
+<div class="row">
+	<div class="category col-sm-12" no-widget-class="category col-lg-12 col-sm-12" no-widget-target="sidebar">
+						<button component="category/post" id="new_topic" class="btn btn-primary">Chủ đề mới</button>
+
+						<a class="dropdown-button right" data-hover="true" data-beloworigin="true"
+						data-constrainwidth="false" data-activates='ddCommentFilter'
+						style="font-size: 1.23rem; color: #666666;">Sắp xếp theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
+					 <ul id='ddCommentFilter' class='dropdown-content'>
+						 <li class="active"><a href="/review">Mới nhất</a></li>
+						 <li class=""><a href="">Lượt bình chọn</a></li>
+						 <li class=""><a href="">Lượt bình luận</a></li>
+ 
+					 </ul>
+					
+		<hr class="hidden-xs" />
+
+		
+
+<ul component="category" class="topic-list" itemscope itemtype="http://www.schema.org/ItemList" data-nextstart="20" data-set="">
+	<meta itemprop="itemListOrder" content="descending">
+	
+		<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+
+
+	<!--  -->
+
+
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	<li component="category/topic" class="row clearfix"data-index="0"vitemprop="itemListElement">
+		<meta itemprop="name" content="Tìm truyện đồng nhân không cp">
+
+		<div class="col-md-10 col-sm-9 col-xs-10 content">
+			<div class="avatar pull-left" title="Hong Van Nguyen Ngoc">
+								<a href="/user/hong-van-nguyen-ngoc" class="pull-left">
+															<img component="user/picture" data-uid="23027" src="https://graph.facebook.com/492634271156263/picture?type=large" class="user-img" />
+				</a>
+			</div>
+			<h2 component="topic/header" class="title">
+				<i component="topic/pinned" class="fa fa-thumb-tack hide" title="Pinned"></i>
+				<i component="topic/locked" class="fa fa-lock hide" title="Khóa"></i>
+				
+				<div class="card-title">
+					<a href="/topic/11071/tìm-truyện-đồng-nhân-không-cp"  itemprop="url">Tìm truyện đồng nhân không cp</a><br />
+				</div>
+				<small href="/user/hong-van-nguyen-ngoc">Hong Van Nguyen Ngoc &bull; 16:47 October 19.</small>
+				<div>
+					<span>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. 
+							   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. </p>
+					</span>	
+				</div>
+				
+			</h2>
+		</div>
+	</li>
+	
+	<!--  -->
+	</ul>
+	<div component="pagination" class="text-center pagination-container">
+		<ul class="pagination hidden-xs">
+			<li class="previous pull-left disabled">
+				<a href="?page=1" data-page="1"><i class="fa fa-chevron-left"></i> </a>
+			</li>
+	
+									<li class="page active" >
+					<a href="?page=1" data-page="1">1</a>
+				</li>
+							<li class="page" >
+					<a href="?page=2" data-page="2">2</a>
+				</li>
+							<li class="page" >
+					<a href="?page=3" data-page="3">3</a>
+				</li>
+							<li component="pagination/select-page" class="page select-page">
+					<a href="#"><i class="fa fa-ellipsis-h"></i></a>
+				</li>
+							<li class="page" >
+					<a href="?page=177" data-page="9">9</a>
+				</li>
+							<li class="page" >
+					<a href="?page=178" data-page="10">10</a>
+				</li>
+	
+			<li class="next pull-right">
+				<a href="?page=2" data-page="2"> <i class="fa fa-chevron-right"></i></a>
+			</li>
+		</ul>
+	
+		<ul class="pagination hidden-sm hidden-md hidden-lg">
+			<li class="first disabled">
+				<a href="?page=1" data-page="1"><i class="fa fa-fast-backward"></i> </a>
+			</li>
+			
+			<li class="previous disabled">
+				<a href="?page=1" data-page="1"><i class="fa fa-chevron-left"></i> </a>
+			</li>
+	
+			<li component="pagination/select-page" class="page select-page">
+				<a href="#">1 / 178</a>
+			</li>
+			
+			<li class="next">
+				<a href="?page=2" data-page="2"> <i class="fa fa-chevron-right"></i></a>
+			</li>
+			
+			<li class="last">
+				<a href="?page=178" data-page="178"><i class="fa fa-fast-forward"></i> </a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+	
+	
+			</div><!-- END container -->
+		</main>
+
+		<footer>
+			<div class="footer--container">
+				<div class="row footer--inside-container">
+					<div class="col-md-3">
+						<img src="/NovelWebsite/NovelWebsite/wwwroot/image/Illustration4.png" height="60" width="100%" alt="logoweb">
+					</div>
+					<div class="col-md-9 footer--text">
+						<i class="fa-regular fa-copyright"></i>
+						Đây là sản phẩm giả tưởng
+						Không có giá trị thương mại
+						<a href="javascript:void(0)">Điều khoản sử dụng</a>
+						<br>
+						Đây là sân chơi mở và free cho cộng đồng fan kiếm hiệp, tiên hiệp, ngôn tình.
+						Chúc các bạn có những giây phút thư giãn thoải mái sau giờ làm việc và học tập căng thẳng.
+					</div>
+				</div>
+			</div>
+		</footer>
+
+	</main>
+	</body>
+	</html>
