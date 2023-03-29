@@ -110,7 +110,7 @@ $.ajax({
                         <div class="book-state">
                             <a href="javascript:void(0)">${item.author.authorName}</a >
                         </div>
-                        <p>
+                        <p class="book-status">
                             <em>
                                 <span class="chapters">${item.numberOfChapters}</span >
                             </em>
@@ -269,7 +269,7 @@ $.ajax({
                                 <div class="book-state">
                                     <a href="javascript:void(0)">${item.author.authorName}</a >
                                 </div>
-                                <p>
+                                <p class="book-status">
                                     <em>
                                         <span class="chapters">${item.numberOfChapters}</span >
                                     </em>
@@ -332,7 +332,7 @@ $.ajax({
                                             ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 255)}
                                         </i>
                                     </p>
-                                    <a href="/truyen/${item.slug}-${item.bookId}" class="btn btn-primary index__truyenmoito--cardbtn">
+                                    <a href="/truyen/${item.slug}-${item.bookId}" class="btn btn-primary index__left-wrap--cardbtn">
                                         Đọc truyện
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -353,7 +353,7 @@ $.ajax({
                                 <div class="book-state">
                                     <a href="javascript:void(0)">${item.author.authorName}</a >
                                 </div>
-                                <p>
+                                <p class="book-status">
                                     <em>
                                         <span class="chapters">${item.numberOfChapters}</span >
                                     </em>

@@ -279,6 +279,7 @@
     font-size: 16px;
     color: #3838c1;
     font-weight: 500;
+    padding: 0;
 }
 
 .users span {
@@ -414,11 +415,24 @@ i.info-icon {
     margin-top: 50px;
 }
 
+.user--comment-section {
+    margin: 0;
+}
+
+.user--discussion-main {
+    padding-right: 0;
+}
+
 .user--discussion {
     border: 1px solid #cacaca;
     border-radius: 10px;
     padding: 10px;
-    margin-left: 10.5px;
+    /* margin-left: 10.5px; */
+}
+
+.user--discussion-child ul li, .user--comment-discuss-list ul li {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .info--wrap {

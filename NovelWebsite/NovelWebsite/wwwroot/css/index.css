@@ -449,6 +449,7 @@ ul li {
     height: 200px;
     /*width: 100%;*/
     object-fit: contain;
+    padding: 10px;
 }
 
 .card-title a {
