@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 using NovelWebsite.Models;
@@ -19,10 +20,20 @@ namespace NovelWebsite.Areas.Admin.Controllers
 
         // isDeleted = true: xoá tk, Status = 0: đang hoạt động, Status = 1: bị ban
 
-        public IActionResult Index(int pageNumber = 1)
+        public IActionResult Index(int pageNumber = 1, int pageSize = 10)
         {
-            var listUser = _dbContext.Users.Where(x => x.Status == 0 && x.IsDeleted == false).ToList();
-            return View(listUser);
+            var listUser = _dbContext.Accounts.Where(x => x.Status == 0 && x.IsDeleted == false)
+                                              .Include(x => x.User).ThenInclude(x => x.Role)
+                                              .OrderByDescending(a => a.CreatedDate);
+
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;
+            ViewBag.pageCount = Math.Ceiling(listUser.Count() * 1.0 / pageSize);
+
+            ViewBag.Role = new SelectList(_dbContext.Roles.ToList(), "RoleId", "RoleName");
+            return View(listUser.Skip(pageSize * pageNumber - pageSize)
+                         .Take(pageSize)
+                         .ToList());
         }
 
         public IActionResult AddOrUpdateUser(string account)
@@ -57,9 +68,9 @@ namespace NovelWebsite.Areas.Admin.Controllers
             return Json("");
         }
 
-        public IActionResult UpdateRole(int id, int roleId)
+        public IActionResult UpdateRole(int userId, int roleId)
         {
-            var user = _dbContext.Users.FirstOrDefault(x => x.UserId == id);
+            var user = _dbContext.Users.FirstOrDefault(x => x.UserId == userId);
             if (user != null)
             {
                 user.RoleId = roleId;

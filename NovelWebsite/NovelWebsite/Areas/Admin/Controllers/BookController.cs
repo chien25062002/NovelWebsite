@@ -28,17 +28,18 @@ namespace NovelWebsite.Areas.Admin.Controllers
                                         .Include(b => b.Category)
                                         .Include(b => b.User)
                                         .Include(b => b.BookStatus)
+                                        .OrderByDescending(b => b.CreatedDate)
                                         .ToList();
             return View(query);
         }
         
-        public IActionResult AddOrUpdateBook(int bookId = 0)
+        public IActionResult AddOrUpdateBook(int id = 0)
         {
-            if (bookId == 0)
+            if (id == 0)
             {
                 return View();
             }
-            var query = _dbContext.Books.Where(b => b.BookId == bookId && b.IsDeleted == false)
+            var query = _dbContext.Books.Where(b => b.BookId == id && b.IsDeleted == false)
                                          .Include(b => b.Author)
                                          .Include(b => b.Category)
                                          .Include(b => b.User)

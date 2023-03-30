@@ -29,6 +29,7 @@
                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
                                     </svg>
                                 </th>*@
+                                <th>STT</th>
                                 <th>Tên truyện</th>
                                 <th>Tác giả</th>
                                 <th>Thể loại</th>
@@ -43,9 +44,13 @@
                         </thead>
                         <tbody>
                             @{
+                                int i = 1;
                                 foreach (var item in Model)
                                 {
                                     <tr class="align-middle">
+                                        <td>
+                                            <div>@i</div>
+                                        </td>
                                         <td>
                                             <div>@item.BookName</div>
                                         </td>
@@ -80,10 +85,14 @@
                                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
                                                     </svg>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="/truyen/@item.Slug-@item.BookId">Thông tin truyện</a>
+                                                    <a class="dropdown-item" href="/Admin/Book/AddOrUpdateBook?id=@item.BookId">Chỉnh sửa</a>
+                                                    <a class="dropdown-item text-danger" href="#">Xoá</a></div>
                                             </div>
                                         </td>
                                     </tr>
+                                    i++;
                                 }
                             }
                             @*<tr class="align-middle">

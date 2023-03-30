@@ -27,17 +27,14 @@ namespace NovelWebsite.Areas.Admin.Controllers
 
             return View(query.Skip(pageSize * pageNumber - pageSize)
                          .Take(pageSize)
+                         .OrderByDescending(p => p.CreatedDate)
                          .ToList());
         }
 
         [HttpGet]
-        public IActionResult AddOrUpdatePost(int id = 0)
+        public IActionResult AddOrUpdatePost(int id)
         {
             var post = _dbContext.Posts.FirstOrDefault(x => x.PostId == id && x.IsDeleted == false);
-            if (post == null)
-            {
-                return View();
-            }
             return View(post);
         }
 
