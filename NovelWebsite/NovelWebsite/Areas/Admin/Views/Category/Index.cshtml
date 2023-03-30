@@ -4,15 +4,27 @@
     int pageCount = (int)ViewBag.pageCount;
     int pageNumber = (int)ViewBag.pageNumber;
 }
-}
 
 <link rel="stylesheet" href="~/css/admin/admincategory.css">
+<link rel="stylesheet" href="~/css/admin/adminedit.css">
+<script type="text/javascript" src="~/js/importdata.js"></script>
 
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
         <div class="row">
             <div class="col-md-8">
                 <div class="row">
+                    <div class="col-md-12">
+                        <h4>Tìm kiếm thể loại</h4>
+                        <form action="/Admin/Tag/Index" method="get">
+                            <div class="search input-group float-md-start w-50 search-admin">
+                                <input type="text" class="form-control shadow-none" name="name" placeholder="Nhập tên tag">
+                                <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
+                                    <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="col-md-12">
                         <h4>Quản lý thể loại</h4>
                     </div>
@@ -124,13 +136,28 @@
                         <input type="text" name="CategoryName" class="form-control" id="inputTenTheLoai">
                     </div>
                     <div class="col-12">
+                        <label class="form-labal">Ảnh đại diện</label>
+                    </div>
+                    <div class="col-auto">
+                        <div class="category-select-picture">
+                            <div class="category-img-container">
+                                <img src="/image/test.jpg">
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-primary" onclick="importData()">Đổi ảnh</button>
+                    </div>
+                    <div class="col-12">
                         <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
                     </div>
                 </form>
             </div>
-            
+        </div>
     </div>
 </div>
+
 @section Scripts{
     <script type="text/javascript" src="~/content/admin/category.js"></script>
 }
