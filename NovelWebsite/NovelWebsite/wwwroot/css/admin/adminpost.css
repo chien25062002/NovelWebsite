@@ -38,8 +38,16 @@
 }
 
 .user-post span a {
-    font-size: 16px;
+/*    font-size: 16px;*/
     text-decoration: none;
+}
+
+.user-post-title a {
+    font-size: 18px;
+}
+
+.control-button a {
+    font-size: 14px;
 }
 
 .float-md-end {
