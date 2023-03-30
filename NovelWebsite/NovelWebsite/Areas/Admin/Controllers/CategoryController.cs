@@ -51,7 +51,7 @@ namespace NovelWebsite.Areas.Admin.Controllers
                 cat.Slug = StringExtension.Slugify(category.CategoryName);
             }
             _dbContext.SaveChanges();
-            return Redirect("/Admin/Tag/Index");
+            return Redirect("/Admin/Category/Index");
         }
 
         public IActionResult AddOrUpdateCategory(int id)

@@ -113,12 +113,13 @@ $.ajax({
         /*let row = jQuery('<div>', {
             class: 'index__theloai--chitiet row',
         });*/
-        
+        var user = GetUserInfo();
+        console.log(data);
         $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
+                                                <img src="${user.user.avatar}">
                                             </a>
                                         </div>                                       
                                         <div class="input-comment col">
@@ -137,12 +138,12 @@ $.ajax({
                                     <div class="row">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
+                                                <img src="${user.user.avatar}">
                                             </a>
                                         </div>
                                         <div class="user--discussion col">
                                             <p class="users">
-                                                <a href="javascript:void(0)">${item.userName}</a>
+                                                <a href="javascript:void(0)">${user.user.userName}</a>
                                             </p>
                                             <p class="comments">
                                                 ${item.content}

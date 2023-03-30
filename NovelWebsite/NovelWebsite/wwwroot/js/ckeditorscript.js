@@ -1,3 +1,5 @@
+var commentEditor
+
 DecoupledEditor
 		.create( document.querySelector( '#editor' ), {
 			toolbar: {
@@ -64,7 +66,8 @@ DecoupledEditor
 
 			toolbarContainer.prepend( editor.ui.view.toolbar.element );
 
-			window.editor = editor;
+            window.editor = editor;
+            commentEditor = editor;
 		} )
 		.catch( err => {
 			console.error( err.stack );

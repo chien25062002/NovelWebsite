@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NovelWebsite.Entities;
+using NovelWebsite.Extensions;
 using NovelWebsite.Models;
 
 namespace NovelWebsite.Controllers
@@ -22,17 +23,19 @@ namespace NovelWebsite.Controllers
         {
             var cmt = new CommentEntity()
             {
-                ChapterId = comment.ChapterId,
-                BookId = comment.BookId,
+                ChapterId = comment.ChapterId == 0 ? null : comment.ChapterId,
+                BookId = comment.BookId == 0 ? null : comment.BookId,
                 UserId = comment.UserId,
-                Content = comment.Content,
-                ReplyCommentId = comment.ReplyCommentId,
+                Content = StringExtension.HtmlEncode(comment.Content),
+                ReplyCommentId = comment.ReplyCommentId == 0 ? null : comment.ReplyCommentId,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
+                Status = 0,
+                IsDeleted = false
             };
             _dbContext.Comments.Add(cmt);
             _dbContext.SaveChanges();
-            return NoContent();
+            return Json("200");
         }
 
         [HttpDelete]
@@ -40,7 +43,7 @@ namespace NovelWebsite.Controllers
         {
             var cmt = _dbContext.Comments.Where(c => c.ChapterId == commentId).FirstOrDefault();
             _dbContext.Comments.Remove(cmt);
-            return NoContent();
+            return Json("200");
         }
     }
 }

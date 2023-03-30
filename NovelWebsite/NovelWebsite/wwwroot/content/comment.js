@@ -1,17 +1,23 @@
 ﻿
 function AddBookComment(id) {
-    console.log($("book-comment").conten());
+    var user = GetUserInfo();
+    if (user == "") {
+        alert("Bạn cần đăng nhập để có thể bình luận!");
+        return;
+    }
     $.ajax({
         url: "/Comment/AddComment",
         type: "POST",
         data: {
             BookId: id,
-            Content: tinymce.get("book-comment").getContent()
+            UserId: user.userId,
+            Content: $('#comment-editor').html()
         },
         dataType: "json",
         beforeSend: function () { },
         success: function () {
             console.log("success");
+            location.reload();
         },
         error: function () { },
         complete: function () { }
@@ -19,17 +25,24 @@ function AddBookComment(id) {
 }
 
 function AddChapterComment(id) {
+    var user = GetUserInfo();
+    if (user == "") {
+        alert("Bạn cần đăng nhập để có thể bình luận!");
+        return;
+    }
     $.ajax({
         url: "/Comment/AddComment",
         type: "POST",
         data: {
             ChapterId: id,
-            Content: tinymce.get("chapter-comment").getContent()
+            UserId: user.userId,
+            Content: $('#comment-editor').html()
         },
         dataType: "json",
         beforeSend: function () { },
         success: function () {
             console.log("success");
+            location.reload();
         },
         error: function () { },
         complete: function () { }

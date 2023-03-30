@@ -27,10 +27,9 @@ namespace NovelWebsite.Areas.Admin.Controllers
             ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
             ViewBag.searchName = name;
 
-            query.Skip(pageSize * pageNumber - pageSize)
+            return View(query.Skip(pageSize * pageNumber - pageSize)
                          .Take(pageSize)
-                         .ToList();
-            return View(query);
+                         .ToList());
         }
 
         [HttpPost]

@@ -111,6 +111,19 @@ namespace NovelWebsite.Controllers
             return Json("");
         }
 
+        public IActionResult GetUser()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                var claims = HttpContext.User.Identity as ClaimsIdentity;
+                var account = _dbContext.Accounts.Where(a => a.AccountName == claims.FindFirst(ClaimTypes.NameIdentifier).Value)
+                                                 .Include(a => a.User)
+                                                 .FirstOrDefault();
+                return Json(account);
+            }
+            return Json("");
+        }
+
         public async Task<IActionResult> SignoutAsync()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
