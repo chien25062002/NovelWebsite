@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 using NovelWebsite.Models;
 
@@ -13,14 +14,26 @@ namespace NovelWebsite.Areas.Admin.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult Index()
+        public IActionResult Index(string? name, int pageNumber = 1, int pageSize = 5)
         {
-            return View();
+            var query = _dbContext.Posts.Where(p => p.IsDeleted == false)
+                                        .Where(p => string.IsNullOrEmpty(name) || p.Title.ToLower().Trim().Contains(name.ToLower().Trim()))
+                                        .Include(p => p.User);
+
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;
+            ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
+            ViewBag.searchName = name;
+
+            return View(query.Skip(pageSize * pageNumber - pageSize)
+                         .Take(pageSize)
+                         .ToList());
         }
 
-        public IActionResult AddOrUpdatePost(int? postId)
+        [HttpGet]
+        public IActionResult AddOrUpdatePost(int id = 0)
         {
-            var post = _dbContext.Posts.FirstOrDefault(x => x.PostId == postId);
+            var post = _dbContext.Posts.FirstOrDefault(x => x.PostId == id && x.IsDeleted == false);
             if (post == null)
             {
                 return View();
@@ -31,10 +44,6 @@ namespace NovelWebsite.Areas.Admin.Controllers
         [HttpPost]
         public IActionResult AddOrUpdatePost(PostModel postModel)
         {
-            if (!ModelState.IsValid)
-            {
-                return Redirect($"/Admin/Post/AddOrUpdate?postId={postModel.PostId}");
-            }
             var post = _dbContext.Posts.FirstOrDefault(p => p.PostId == postModel.PostId);
             if (post == null)
             {
@@ -59,12 +68,12 @@ namespace NovelWebsite.Areas.Admin.Controllers
                 _dbContext.Posts.Update(post);
             }
             _dbContext.SaveChanges();
-            return Redirect($"/Admin/Post/AddOrUpdate?postId={postModel.PostId}");
+            return Redirect($"/Admin/Post/Index");
         }
 
-        public IActionResult DeletePost(int postId)
+        public IActionResult DeletePost(int id)
         {
-            var post = _dbContext.Posts.First(p => p.PostId == postId);
+            var post = _dbContext.Posts.First(p => p.PostId == id);
             post.IsDeleted = true;
             _dbContext.Posts.Update(post);
             _dbContext.SaveChanges();
