@@ -116,9 +116,8 @@ main {
 
 .book-list {
     margin-top: 2rem;
-    margin-right: -15px;
-    margin-left: -15px;
-    text-align: center
+    text-align: center;
+    display: inline-block
 }
 
 .book-item {
@@ -217,27 +216,9 @@ main {
     display: inline-block
 }
 
-.adv-box div {
-    display: inline-block
-}
-
-.right{
-    float: right;
-}
-
-.adv-btn:hover .dropdown-content{
-    display:block
-}
-
-
 .sort-box {
     margin-top: 1.5rem;
-    border-bottom: 1px solid #bbb
-}
-
-.adv-box {
-    margin-top: .7rem;
-    padding: .4rem 0
+    margin-left: 20px;
 }
 
 .sort-lbl {

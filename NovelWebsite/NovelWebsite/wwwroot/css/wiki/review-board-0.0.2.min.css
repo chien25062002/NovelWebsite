@@ -1,8 +1,8 @@
 ﻿#commentBoard {
-    padding: 1.5rem 3rem 1rem 2rem;
+    padding: 1.5rem 3rem 0rem 2rem;
     background-color: white;
     position: relative;
-    clear: both
+    clear: both;
 }
 
     #commentBoard.profile-review {
@@ -93,9 +93,6 @@ margin-bottom: 10px;
 
 .comment-textarea-box, .comment-content-box {
     flex: 1;
-    border: 1px solid #bbb;
-    border-radius: 10px;
-    background-color: white
 }
 
 .comment-content-box {
@@ -259,7 +256,6 @@ input.book-url {
     color: #343a40;
     font-size: 1.1rem;
     font-weight: bold;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.18),0 2px 2px 0 rgba(0,0,0,0.15);
     background-color: #eff4f3;
     text-transform: none;
     border-radius: 5px;
@@ -271,7 +267,7 @@ input.book-url {
 }
 
     .btn-load-book:hover {
-        color: #eff4f3;
+        color: #eff4f3 !important;
         background-color: #343a40
     }
 
@@ -287,7 +283,7 @@ input.book-url {
     text-align: center;
     margin-bottom: 1rem;
     flex: 0 0 200px;
-    padding-top: 1rem
+    padding-top: 4em;
 }
 
 .midup-body{
@@ -454,7 +450,8 @@ margin-left: 5px;
 }
 
 .comment-title {
-    margin-left: 1rem
+    margin-left: 1rem;
+    margin-bottom: 1rem;
 }
 
 .btn-thank i {
