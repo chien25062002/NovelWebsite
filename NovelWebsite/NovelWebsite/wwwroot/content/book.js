@@ -136,6 +136,7 @@ $.ajax({
                                     </div>
                                 </li>`);
         data.forEach((item, index) => {
+            var content = $('<textarea />').html(item.content).text();
             $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
@@ -149,7 +150,7 @@ $.ajax({
                                                     <a href="javascript:void(0)">${user.user.userName}</a>
                                                 </p>
                                                 <p class="comments">
-                                                    ${item.content}
+                                                    ${content}
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
