@@ -18,14 +18,21 @@ namespace NovelWebsite.Controllers
 
         [Route("{searchName?}")]
         [Route("{action}")]
-        public IActionResult Index(string? searchName)
+        public IActionResult Index(string? searchName, int pageNumber = 1, int pageSize = 10)
         {
             var query = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false)
                                         .Where(b => string.IsNullOrEmpty(searchName) || b.BookName.ToLower().Trim().Contains(searchName.ToLower().Trim()))
                                         .Include(b => b.Author)
-                                        .Include(b => b.BookStatus)
-                                        .ToList();
-            return View(query);
+                                        .Include(b => b.BookStatus);
+
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;
+            ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
+            ViewBag.searchName = searchName;
+
+            return View(query.Skip(pageSize * pageNumber - pageSize)
+                         .Take(pageSize)
+                         .ToList());
         }
 
         [Route("{action}")]

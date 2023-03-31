@@ -18,16 +18,23 @@ namespace NovelWebsite.Controllers
             var query = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false)
                                         .Where(b => category_id == 0 || b.CategoryId == category_id)
                                         .Include(b => b.Author)
-                                        .Include(b => b.Category)
-                                        .Skip(pageSize * pageNumber - pageSize)
-                                        .Take(pageNumber);
+                                        .Include(b => b.Category);
+                                        
             if (!string.IsNullOrEmpty(sort_by))
             {
                 switch (sort_by)
                 {
-                    case "views":
+                    case "view":
+                        query.OrderByDescending(b => b.Views);
                         break;
-                    case "likes":
+                    case "like":
+                        query.OrderByDescending(b => b.Likes);
+                        break;
+                    case "follow":
+                        
+                        break;
+                    case "recommend":
+                        query.OrderByDescending(b => b.Recommends);
                         break;
                 }
             }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NovelWebsite.Entities;
+using NovelWebsite.Extensions;
 using System.Data.Entity;
 
 namespace NovelWebsite.Controllers
@@ -34,7 +35,7 @@ namespace NovelWebsite.Controllers
             {
                 BookId = review.BookId,
                 UserId = review.UserId,
-                Content = review.Content,
+                Content = StringExtension.HtmlEncode(review.Content),
                 Likes = 0,
                 Dislikes = 0,
                 CreatedDate = DateTime.Now,

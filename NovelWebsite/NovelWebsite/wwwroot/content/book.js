@@ -42,6 +42,7 @@ $.ajax({
         /*let row = jQuery('<div>', {
             class: 'index__theloai--chitiet row',
         });*/
+        var user = GetUserInfo();
         $('#list-review').append(`<li class="list-group-item">
                             <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
@@ -55,12 +56,13 @@ $.ajax({
                                 </div>
                                 <div class="submit-btn col-md-12">
                                     <div class="submit-btn-wrap">
-                                        <button class="btn btn-primary onclick="AddReview(${bookId})">Đăng</button>
+                                        <button class="btn btn-primary" onclick="AddReview(${bookId})">Đăng</button>
                                     </div>
                                 </div>
                             </div>
                         </li>`)
         data.forEach((item, index) => {
+            var content = $('<textarea />').html(item.content).text();
             $('#list-review').append(`<li class="list-group-item">
                                     <div class="row">
                                         <div class="user--photo col-md-auto">
@@ -74,7 +76,7 @@ $.ajax({
                                                         <a href="javascript:void(0)">${item.user.userName}</a>
                                                     </p>
                                                     <p class="comments">
-                                                        ${item.content}
+                                                        ${content}
                                                     </p>
                                                     <p class="info--wrap">
                                                         <span>${item.createdDate} </span>
@@ -91,12 +93,6 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-/*            if (index % 2 == 1) {
-                $('.index__theloai--wrap').append(row);
-                row = jQuery('<div>', {
-                    class: 'index__theloai--chitiet row',
-                });;
-            }*/
         });
         startCKEditor('review-toolbar', 'review-editor')
     },
@@ -116,7 +112,6 @@ $.ajax({
             class: 'index__theloai--chitiet row',
         });*/
         var user = GetUserInfo();
-        console.log(data);
         $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
