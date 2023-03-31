@@ -6383,7 +6383,8 @@ a.permalink:active {
     margin-top: -43px;
     margin-left: 61px;
     word-wrap: break-word;
-    overflow: hidden
+    overflow: hidden;
+    padding: static;
 }
 
 .topic .post-tools {

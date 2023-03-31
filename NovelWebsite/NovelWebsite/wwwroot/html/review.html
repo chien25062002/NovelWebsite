@@ -221,39 +221,41 @@
             <div class="intro">
                 Bạn vừa đọc xong một truyện cực hay muốn giới thiệu cho nhiều người cùng đọc, hoặc vừa bỏ một mớ thời gian oan uổng ra đọc một truyện cực dở, muốn cảnh báo mọi người đừng nhảy hố....  Mời bạn viết cảm nhận, đánh giá, spoil, trích đoạn vào đây để mọi người có thêm sự tham khảo khi chọn truyện đọc.
             </div>
-
+            
             <div id="commentBoard" class="">
                 
                 <div class="comment-title">
-                    <a class="dropdown-button" data-hover="true" data-beloworigin="true"
-                       data-constrainwidth="false"
-                       style="font-size: 1.23rem; color: #666666; ">Xếp theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem;"></i></a>
-                    <ul class='dropdown-content'>
-
-                        <li class=""><a href="/review?order=oldest">Cũ nhất</a></li>
-                        <li class="active"><a href="/review">Mới nhất</a></li>
-
-                    </ul>
-
-                    <a class="dropdown-button" data-hover="true" data-beloworigin="true"
-                       data-constrainwidth="false"
-                       style="font-size: 1.23rem; color: #666666; ; margin-right: 0.5rem; margin-bottom: 1rem;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
-                    <ul class='dropdown-content'>
-                        <li class="active"><a href="/review">Tất cả</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-                        
-                        <li class=""><a href="">Cate</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-
-                    </ul>
+                    
+                    <a id="btnCommentSort" class="dropdown-button right" data-hover="true" data-beloworigin="true"
+           data-constrainwidth="false" data-activates='ddCommentSort'
+            style="font-size: 1.23rem; color: #666666; margin-top: 0.37rem">Xếp theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem;"></i></a>
+        <ul id='ddCommentSort' class='dropdown-content'>
+        
+            <li class=""><a href="/review?order=oldest">Cũ nhất</a></li>
+            <li class="active"><a href="/review">Mới nhất</a></li>
+        
+        </ul>
+        <i class="fa fa-commenting" aria-hidden="true" style="font-size: 2rem; margin-right: 0.7rem; color: #343434;"></i><span style="font-size: 1.37rem; font-weight: bold; color: #555555">Review</span>
+        
+            <a id="btnCommentSort" class="dropdown-button right" data-hover="true" data-beloworigin="true"
+               data-constrainwidth="false" data-activates='ddCommentFilter'
+                style="font-size: 1.23rem; color: #666666; margin-top: 0.37rem; margin-right: 0.5rem; margin-bottom: 1rem;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
+            <ul id='ddCommentFilter' class='dropdown-content'>
+            <li class="active"><a href="/review">Tất cả</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+            </ul>
 
                 </div>
 

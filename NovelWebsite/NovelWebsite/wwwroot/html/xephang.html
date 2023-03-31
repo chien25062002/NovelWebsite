@@ -26,6 +26,7 @@
     <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/scrollbutton.js"></script>
     <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/utils/materialize-wiki.min.js"></script>
     <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/utils/jquery-2.2.4.min.js"></script>
+    <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/utils/jsquery-ui-1.10.4.custom.js"></script>
  
 
    
@@ -215,38 +216,26 @@
 
             <div class="sort-box float-wrapper">
                 
-                <div class="comment-title">
-                    <a class="dropdown-button" data-hover="true" data-beloworigin="true"
-                       data-constrainwidth="false" data-activates='ddCommentSort'
-                       style="font-size: 1.23rem; color: #666666; ">Xếp theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem;"></i></a>
-                    <ul id='ddCommentSort' class='dropdown-content'>
-
-                        <li class=""><a href="/review?order=oldest">Cũ nhất</a></li>
-                        <li class="active"><a href="/review">Mới nhất</a></li>
-
-                    </ul>
-
-                    <a class="dropdown-button" data-hover="true" data-beloworigin="true"
-                       data-constrainwidth="false" data-activates='ddCommentFilter'
-                       style="font-size: 1.23rem; color: #666666; ; margin-right: 0.5rem; margin-bottom: 1rem;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
-                    <ul id='ddCommentFilter' class='dropdown-content'>
-                        <li class="active"><a href="/review">Tất cả</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-                        
-                        <li class=""><a href="">Cate</a></li>
-
-                        <li class=""><a href="">Cate</a></li>
-
-                    </ul>
-
-                </div>
+                    
+                <a id="btnCommentSort" class="dropdown-button right" data-hover="true" data-beloworigin="true"
+               data-constrainwidth="false" data-activates='ddCommentFilter'
+                style="font-size: 1.23rem; color: #666666; margin-top: 0.37rem; margin-right: 0.5rem; margin-bottom: 1rem;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
+            <ul id='ddCommentFilter' class='dropdown-content'>
+            <li class="active"><a href="/review">Tất cả</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+                <li class=""><a href=>Cate</a></li>
+            
+            </ul>
             </div>
             
             <div class="book-list">

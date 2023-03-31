@@ -18,7 +18,7 @@ a {
     color: #262626 !important;
 }
 
-/* @media screen and (max-width: 576px) {
+ @media screen and (max-width: 576px) {
     .header__box--center {
         width: 100%;
         margin-left: auto;
@@ -34,10 +34,10 @@ a {
     .logo a {
         height: 100px;
     }
-  } */
+  } 
 
 .header__box--center {
-    width: 1200px !important;
+    width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
