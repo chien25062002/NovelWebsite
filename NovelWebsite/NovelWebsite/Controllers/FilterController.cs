@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NovelWebsite.Controllers
 {
+    [Route("/bo-loc")]
+    [Route("/{controller}")]
     public class FilterController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -13,14 +15,20 @@ namespace NovelWebsite.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult Index()
+
+        [Route("{searchName?}")]
+        [Route("{action}")]
+        public IActionResult Index(string? searchName)
         {
-            var query = _dbContext.Books.Where(b => b.IsDeleted == false)
+            var query = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false)
+                                        .Where(b => string.IsNullOrEmpty(searchName) || b.BookName.ToLower().Trim().Contains(searchName.ToLower().Trim()))
                                         .Include(b => b.Author)
                                         .Include(b => b.BookStatus)
                                         .ToList();
             return View(query);
         }
+
+        [Route("{action}")]
 
         [HttpPost]
         public IActionResult Index(FilterModel filterModel)
@@ -89,10 +97,14 @@ namespace NovelWebsite.Controllers
             return View(filterAll);
         }
 
+        [Route("{action}")]
+
         public IActionResult GetBookStatuses()
         {
             return Json(_dbContext.BookStatuses.ToList());
         }
+
+        [Route("{action}")]
 
         public IActionResult GetAllTags()
         {

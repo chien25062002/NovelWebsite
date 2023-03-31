@@ -46,7 +46,7 @@ $.ajax({
                             <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                     <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg">
+                                        <img src="${user.user.avatar}">
                                     </a>
                                 </div>
                                 <div class="input-comment col">

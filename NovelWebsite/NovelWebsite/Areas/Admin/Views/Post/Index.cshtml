@@ -1,5 +1,9 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    int pageSize = (int)ViewBag.pageSize;
+    int pageCount = (int)ViewBag.pageCount;
+    int pageNumber = (int)ViewBag.pageNumber;
+    string name = ViewBag.searchName as string;
 }
 
 @*<section class="content-header">
@@ -20,12 +24,14 @@
         <div class="row">
             <div class="col-md-12">
                 <h4>Tìm kiếm bài viết</h4>
-                <div class="search input-group float-md-start w-50 search-admin">
-                    <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
-                    <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
-                        <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
-                    </button>
-                </div>
+                    <form action="/Admin/Post/Index" method="get"> 
+                        <div class="search input-group float-md-start w-50 search-admin">
+                            <input type="text" class="form-control shadow-none" name="name" placeholder="Nhập tiêu đề...">
+                            <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
+                                <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                            </button>
+                        </div>
+                    </form>
             </div>
             <div class="col-md-12">
                 <div class="box box-primary">
@@ -33,7 +39,7 @@
                         <h4 class="box-title">Tất cả bài viết</h4>
                         <!-- /.box-tools -->
                     </div>
-                    <div class="tab-content">
+                    <div class="tab-content" style="margin: 1.5rem">
                         @*@{
                         foreach (var item in Model)
                         {
@@ -67,173 +73,66 @@
                         </div>
                         }
                         }*@
-                        <div class="post row">
-                            <div class="useravatar col-md-auto">
-                                <a href="#"><img class="img-circle img-bordered-sm col" src="/image/logo.jpg" alt="user image"></a>
-                            </div>
-                            <div class="user-post col row">
-                                <span class="user-post-title col-md-10">
-                                    <a href="/Admin/Blog/Post?id=">Tên bài viết rất dài</a>
-                                </span>
-                                <span class="col-md-2">
-                                    <span class="control-button">
-                                        <i class="fa fa-edit"></i>
-                                        <a href="javascript:void(0)">Edit</a>
-                                        |
-                                        <i class="fa fa-close"></i>
-                                        <a href="javascript:void(0)">Delete</a>
-                                    </span>
-                                </span>
-                                <span class="user-post-name col-md-12">
-                                    Written by Name - Thời gian đăng bài
-                                </span>
-                                <span class="user-post-content col-md-12">
-                                       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
-                                        Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
-                                        Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus,
-                                        semper at cursus inter</p>
-                                </span>
-                            </div>
-                        </div>
 
-                        <div class="post row">
-                            <div class="useravatar col-md-auto">
-                                <a href="#"><img class="img-circle img-bordered-sm col" src="/image/logo.jpg" alt="user image"></a>
-                            </div>
-                            <div class="user-post col row">
-                                <span class="user-post-title col-md-10">
-                                    <a href="/Admin/Blog/Post?id=">Tên bài viết rất dài</a>
-                                </span>
-                                <span class="col-md-2">
-                                    <span class="control-button">
-                                        <i class="fa fa-edit"></i>
-                                        <a href="javascript:void(0)">Edit</a>
-                                        |
-                                        <i class="fa fa-close"></i>
-                                        <a href="javascript:void(0)">Delete</a>
-                                    </span>
-                                </span>
-                                <span class="user-post-name col-md-12">
-                                    Written by Name - Thời gian đăng bài
-                                </span>
-                                <span class="user-post-content col-md-12">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
-                                        Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
-                                        Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus,
-                                        semper at cursus inter
-                                    </p>
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="post row">
-                            <div class="useravatar col-md-auto">
-                                <a href="#"><img class="img-circle img-bordered-sm col" src="/image/logo.jpg" alt="user image"></a>
-                            </div>
-                            <div class="user-post col row">
-                                <span class="user-post-title col-md-10">
-                                    <a href="/Admin/Blog/Post?id=">Tên bài viết rất dài</a>
-                                </span>
-                                <span class="col-md-2">
-                                    <span class="control-button">
-                                        <i class="fa fa-edit"></i>
-                                        <a href="javascript:void(0)">Edit</a>
-                                        |
-                                        <i class="fa fa-close"></i>
-                                        <a href="javascript:void(0)">Delete</a>
-                                    </span>
-                                </span>
-                                <span class="user-post-name col-md-12">
-                                    Written by Name - Thời gian đăng bài
-                                </span>
-                                <span class="user-post-content col-md-12">
-                                    <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eget eros elementum quam congue congue. Donec interdum non mauris non aliquet. Ut feugiat nibh sit amet viverra placerat. Mauris nec aliquet arcu. In hac habitasse platea dictumst. Aenean rhoncus turpis placerat, auctor eros non, dictum est. Vestibulum id ipsum vel nisi accumsan dignissim.
-                                        Maecenas sollicitudin, urna eleifend consectetur aliquet, nisi diam laoreet velit, in porta ante mi eleifend ligula. Nulla ut lobortis nulla. Nulla id ligula porttitor, efficitur elit at, tempor massa. Praesent elementum ante sapien, vulputate porta nunc tristique in. Sed in lorem quis lacus malesuada euismod. Duis magna nibh, rutrum ut feugiat ut, fringilla nec purus. Donec vel diam felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec vitae imperdiet metus. Donec tincidunt sed sem id porttitor. Duis pellentesque quis erat ullamcorper mollis. Nulla lobortis justo id nibh lacinia, blandit vehicula sem aliquet.
-                                        Pellentesque eu sapien pulvinar enim molestie fringilla et id ligula. In pulvinar posuere eros. Etiam ut efficitur tellus, vitae dignissim urna. Vivamus ipsum tellus,
-                                        semper at cursus inter
-                                    </p>
-                                </span>
-                            </div>
-                        </div>
+                        @{
+                            foreach(var item in Model)
+                            {
+                               <div class="post row">
+                                    <div class="useravatar col-md-auto">
+                                        <a href="#"><img class="img-circle img-bordered-sm col" src="@item.User.Avatar" alt="user image"></a>
+                                    </div>
+                                    <div class="user-post col row">
+                                        <span class="user-post-title col-md-10">
+                                            <a href="/Admin/Post/AddOrUpdatePost?id=@item.PostId">@item.Title</a>
+                                        </span>
+                                        <span class="float-end col-md-2">
+                                            <i class="fa fa-edit"></i>
+                                            <a href="/Admin/Post/AddOrUpdatePost?id=@item.PostId">Edit</a>
+                                            |
+                                            <i class="fa fa-close"></i>
+                                            <a href="/Admin/Post/DeletePost?id=@item.PostId">Delete</a>
+                                        </span>
+                                        <span class="user-post-name col-md-12">
+                                            Written by @item.User.UserName - @item.CreatedDate
+                                        </span>
+                                        <span class="user-post-content col-md-12">
+                                             @Html.Raw(item.Content)
+                                        </span>
+                                    </div>
+                                </div> 
+                            }
+                        }
                     </div>
                 </div>
                 <!-- /. box -->
             </div>
             <div class="col-md-12">
-                        <div class="box-footer">
-                            <div class="box-footer clearfix">
-                                @*<ul class="pagination pagination-sm no-margin pull-right">
-                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Max(pageNumber-1,1)">&laquo;</a></li>
-                                @for (int i = 1; i <= pageCount; ++i)
+                <div class="box-footer">
+                    <div class="box-footer clearfix">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item">
+                                <a class="page-link" href="/Admin/Post/Index?pageNumber=@Math.Max(1, pageNumber - 1)">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            @{
+                                for (int i = 1; i <= pageCount; ++i)
                                 {
-                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@i">@i</a></li>
+                                        <li class="page-item"><a class="page-link" href="/Admin/Post/Index?pageNumber=@i">@i</a></li>
                                 }
-                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Min(pageNumber+1,pageCount)">&raquo;</a></li>
-                                </ul>*@
-                                <ul class="pagination justify-content-end">
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
-                                    <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="javascript:void(0)">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+                            }
+                            <li class="page-item">
+                                <a class="page-link" href="/Admin/Post/Index?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 @section Scripts{
-    <script>
-        $.ajax({
-            url: "/Blog/GetCategoryBlog",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function () { },
-            success: function (data) {
-                data.forEach(function (item, index) {
-                    let row = `<li><a href="/Admin/Blog/Index?arg=${item.id}"><i class="fa fa-folder-o"></i>${item.name}</a></li>`;
-                    $('#blog-category').prepend(row);
-                });
-            },
-            error: function () { },
-            complete: function () { }
-        });
-
-        $('#form-search').on('click', function () {
-            let link = "/Admin/Blog/Index?name=" + $('#input-search').val();
-            $("a[href='###']").attr('href', link);
-            $('#form-search')[0].click();
-        });
-
-        $('#add-folder').click(function () {
-            console.log(1);
-            $.ajax({
-                url: "/Admin/Blog/AddCategoryBlog?name=" + $('#cblog-name').val(),
-                type: "GET",
-                dataType: "json",
-                beforeSend: function () { },
-                success: function (data) {
-                    location.reload();
-                },
-                error: function () { },
-                complete: function () { }
-            });
-        })
-    </script>
 }
