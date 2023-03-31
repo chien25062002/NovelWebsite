@@ -103,5 +103,6 @@ namespace NovelWebsite.Controllers
                                         .Include(b => b.Author)
                                         .Take(number).ToList());
         }
+
     }
 }

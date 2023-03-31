@@ -27,22 +27,15 @@
                     </a>
                 </div>
 
-                <div class="col search input-group">
-                    <!-- <form id="form1" action="#" method="get">
-                        <p>
-                            <input class="search__searchbox" name="kw" type="text" data-type="search" placeholder="Nhập tên truyện" autocomplete="off">
-                        </p>
-                        <label class="search__btn" for="search__submit">
-                            <em class="search__btn--icon">
-                                <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
-                            </em>
-                        </label>
-                    </form> -->
-                    <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
-                    <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
-                        <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
-                    </button>
-                </div>
+                    <div class="col search input-group">
+                <form method="get" action="/bo-loc/">
+                        <input type="text" class="form-control shadow-none" name="searchName" placeholder="Nhập tên truyện">
+                        <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
+                            <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                        </button> 
+                        </form>
+                    </div>
+              
 
                 <div class="dropdown col-md-1 category-dropdown">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">

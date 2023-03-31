@@ -39,6 +39,8 @@ namespace NovelWebsite.Controllers
                 Dislikes = 0,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
+                Status = 0,
+                IsDeleted = false
             };
             _dbContext.Reviews.Add(rv);
             _dbContext.SaveChanges();
