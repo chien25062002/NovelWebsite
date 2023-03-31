@@ -44,62 +44,69 @@ $.ajax({
         });*/
         var user = GetUserInfo();
         $('#list-review').append(`<li class="list-group-item">
-                            <div class="row user--comment-section">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
-                                    <a href="javascript:void(0)">
-                                        <img src="${user.user.avatar}">
-                                    </a>
-                                </div>
-                                <div class="input-comment col">
-                                        <div id="review-toolbar"></div>
-                                        <div id="review-editor" class="input--box"></div>
-                                </div>
-                                <div class="submit-btn col-md-12">
-                                    <div class="submit-btn-wrap">
-                                        <button class="btn btn-primary" onclick="AddReview(${bookId})">Đăng</button>
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>                                       
+                                        <div class="input-comment col">
+                                            <div id="review-toolbar"></div>
+                                            <div id="review-editor" class="input--box"></div>
+                                        </div>
+                                        <div class="submit-btn col-md-12">
+                                            <div class="submit-btn-wrap">
+                                                <button class="btn btn-primary" onclick="AddBookComment(${bookId})">Đăng</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </li>`)
+                                </li>`);
+        console.log(1234);
         data.forEach((item, index) => {
             var content = $('<textarea />').html(item.content).text();
             $('#list-review').append(`<li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
                                                 <img src="/image/test3.jpg">
                                             </a>
                                         </div>
-                                            <div class="row user--comment-section">
-                                                <div class="user--photo col-md-auto">
-                                                    <p class="users">
-                                                        <a href="javascript:void(0)">${item.user.userName}</a>
-                                                    </p>
-                                                    <p class="comments">
-                                                        ${content}
-                                                    </p>
-                                                    <p class="info--wrap">
-                                                        <span>${item.createdDate} </span>
-                                                        <a href="javascript:void(0)">
-                                                            <i class="fa-solid fa-square-caret-up info-icon rate-up"></i>
-                                                            ${item.likes}
-                                                        </a>
-                                                        <a href="javascript:void(0)">
-                                                            <i class="fa-solid fa-square-caret-down info-icon rate-down"></i>
-                                                            ${item.dislikes}
-                                                        </a>
-                                                    </p>
-                                                </div>
+                                        <div class="col user--discussion-main">
+                                            <div class="user--discussion">
+                                                <p class="users">
+                                                    <a href="javascript:void(0)">${user.user.userName}</a>
+                                                </p>
+                                                <p class="comments">
+                                                    ${content}
+                                                </p>
+                                                <p class="info--wrap">
+                                                    <span>${item.createdDate} </span>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-solid fa-square-caret-up info-icon rate-up"></i>
+                                                        ${item.likes}
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-solid fa-square-caret-up info-icon rate-down"></i>
+                                                        ${item.dislikes}
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>`);
+            /*if (index % 2 == 1) {
+                $('.index__theloai--wrap').append(row);
+                row = jQuery('<div>', {
+                    class: 'index__theloai--chitiet row',
+                });;
+            }*/
+            
         });
-        startCKEditor('review-toolbar', 'review-editor')
+        startCKEditor('review-toolbar', 'review-editor');
     },
     error: function () { },
     complete: function () { }
 })
-
 
 $.ajax({
     url: "/Book/GetListComments?id=" + id,
@@ -108,9 +115,9 @@ $.ajax({
     beforeSend: function () { },
     success: function (data) {
         $('#list-comment').html('');
-        /*let row = jQuery('<div>', {
+        let row = jQuery('<div>', {
             class: 'index__theloai--chitiet row',
-        });*/
+        });
         var user = GetUserInfo();
         $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
@@ -162,19 +169,18 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-            /*if (index % 2 == 1) {
+            if (index % 2 == 1) {
                 $('.index__theloai--wrap').append(row);
                 row = jQuery('<div>', {
                     class: 'index__theloai--chitiet row',
                 });;
-            }*/
+            }
         });
         startCKEditor('comment-toolbar', 'comment-editor');
     },
     error: function () { },
     complete: function () { }
 })
-
 
 $.ajax({
     url: "/Book/GetAuthorBooks?id=" + id,
@@ -348,4 +354,5 @@ function startCKEditor(toolbar, editor) {
         .catch(err => {
             console.error(err.stack);
         });
+
 }
