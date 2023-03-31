@@ -28,6 +28,34 @@
     complete: function () { }
 });
 
+$.ajax({
+    url: "/Chapter/GetAllCategories",
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        $('#chapter-category').html('');
+        let row = jQuery('<ul>', {
+            class: 'col-md-4',
+        });
+        let maxitem = Math.ceil(data.length / 3);
+        console.log(data.length, maxitem)
+        data.forEach((item, index) => {
+            row.append(`<li><a href="/bo-loc?categoryId=${item.categoryId}">${item.categoryName}</a></li>`);
+            if ((index != 0 && index % maxitem == (maxitem - 1)) || index == data.length - 1) {
+
+                console.log(index)
+                $('#chapter-category').append(row);
+                row = jQuery('<ul>', {
+                    class: 'col-md-4',
+                });
+            }
+        });
+    },
+    error: function () { },
+    complete: function () { }
+})
+
 function GetUserInfo() {
     var user = "";
     $.ajax({
