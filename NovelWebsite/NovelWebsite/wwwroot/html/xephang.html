@@ -23,10 +23,12 @@
           media="screen,projection" />
     <link href=/NovelWebsite/NovelWebsite/wwwroot/css/wiki/base-0.1.0.min.css type="text/css" rel="stylesheet"
           media="screen,projection" />
+    <link href=/NovelWebsite/NovelWebsite/wwwroot/css/boloc.css type="text/css" rel="stylesheet"
+          media="screen,projection" />
     <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/scrollbutton.js"></script>
     <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/utils/materialize-wiki.min.js"></script>
     <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/utils/jquery-2.2.4.min.js"></script>
-    <script type="text/javascript" src="/NovelWebsite/NovelWebsite/wwwroot/js/utils/jsquery-ui-1.10.4.custom.js"></script>
+   
  
 
    
@@ -187,16 +189,16 @@
                                 </span>
                             </li>
                             <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="javascript:void(0)">Diễn đàn</a>
+                                <a class="nav-link navlist--item" href="/NovelWebsite/NovelWebsite/wwwroot/html/listpost.html">Diễn đàn</a>
                             </li>
                             <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="javascript:void(0)">Bảng xếp hạng</a>
+                                <a class="nav-link navlist--item" href="/NovelWebsite/NovelWebsite/wwwroot/html/xephang.html">Bảng xếp hạng</a>
                             </li>
                             <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="/html/boloc.html">Bộ lọc</a>
+                                <a class="nav-link navlist--item" href="/NovelWebsite/NovelWebsite/wwwroot/html/boloc.html">Bộ lọc</a>
                             </li>
                             <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="javascript:void(0)">Reviews</a>
+                                <a class="nav-link navlist--item" href="/NovelWebsite/NovelWebsite/wwwroot/html/review.html">Reviews</a>
                             </li>
                             <!-- <li class="nav-item navlist">
                                 <a class="nav-link navlist--item" href="javascript:void(0)">Cửa hàng</a>
@@ -217,7 +219,7 @@
             <div class="sort-box float-wrapper">
                 
                     
-                <a id="btnCommentSort" class="dropdown-button right" data-hover="true" data-beloworigin="true"
+                <a class="dropdown-button right" data-hover="true" data-beloworigin="true"
                data-constrainwidth="false" data-activates='ddCommentFilter'
                 style="font-size: 1.23rem; color: #666666; margin-top: 0.37rem; margin-right: 0.5rem; margin-bottom: 1rem;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
             <ul id='ddCommentFilter' class='dropdown-content'>
@@ -728,57 +730,17 @@
 
             </div>
 
-            <div style="margin-top: 1rem; height: 25px; text-align: center">
-                <ul class="pagination" style="margin: 0; display: inline-block">
-
-
-
-                    <li class=" active " style="">
-                        <a href=" #! ">1</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=20&amp;tr=4&amp;so=5 ">2</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=40&amp;tr=4&amp;so=5 ">3</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=60&amp;tr=4&amp;so=5 ">4</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=80&amp;tr=4&amp;so=5 ">5</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=100&amp;tr=4&amp;so=5 ">6</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=120&amp;tr=4&amp;so=5 ">7</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=140&amp;tr=4&amp;so=5 ">8</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=160&amp;tr=4&amp;so=5 ">9</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /bang-xep-hang?start=180&amp;tr=4&amp;so=5 ">10</a>
-                    </li>
-
-
-                    <li class="waves-effect"><a href="/bang-xep-hang?start=20&amp;tr=4&amp;so=5"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-
-
-                    <li class="waves-effect"><a href="/bang-xep-hang?start=980&amp;tr=4&amp;so=5"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-
+            <div class="rank-box-main-pagination">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
+                    <li class="page-item"><p class="etc">...</p></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">Trang cuối</a></li>
                 </ul>
             </div>
 
