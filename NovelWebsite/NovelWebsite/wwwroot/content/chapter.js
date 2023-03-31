@@ -16,7 +16,6 @@ var link = p[p.length - 1];
     error: function () { },
     complete: function () { }
 })*/
-console.log(123456)
 $.ajax({
     url: "/Chapter/GetAllCategories",
     type: "GET",
@@ -30,7 +29,7 @@ $.ajax({
         let maxitem = Math.ceil(data.length / 3);
         console.log(data.length, maxitem)
         data.forEach((item, index) => {
-            row.append(`<li><a href="javascript:void(0)">${item.categoryName}</a></li>`);
+            row.append(`<li><a href="/bo-loc?categoryId=${item.categoryId}">${item.categoryName}</a></li>`);
             if ((index != 0 && index % maxitem == (maxitem - 1)) || index == data.length - 1) {
 
                 console.log(index)

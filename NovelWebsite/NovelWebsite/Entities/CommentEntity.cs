@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using NovelWebsite.Entities;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovelWebsite.Models
@@ -16,6 +17,10 @@ namespace NovelWebsite.Models
         [ForeignKey("ChapterId")]
         public int? ChapterId { get; set; }
         public ChapterEntity Chapter { get; set; }
+        [ForeignKey("PostId")]
+        public int? PostId { get; set; }
+        public PostEntity Post { get; set; }
+
         [ForeignKey("CommentId")]
         public int? ReplyCommentId { get; set; }
         public CommentEntity ReplyComment { get; set; }

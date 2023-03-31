@@ -8,8 +8,8 @@
         $('#filter-tags').html("");
         data.forEach((item, index) => {
             let row = ` <li class="nav-item">
-                                                <a href="javascript:void(0)">${item.tagName}</a>
-                                            </li>`;
+                            <a href="javascript:void(0)">${item.tagName}</a>
+                        </li>`;
             $('#filter-tags').append(row);
         });
     },
@@ -44,7 +44,7 @@ $.ajax({
     success: function (data) {
         $('#type-list').html(`<i>·</i>`);
         data.forEach((item, index) => {
-            let row = `<a href="javascript:void(0)" onclick="typeListClick(this)">${item.categoryName}</a><i>·</i>`;
+            let row = `<a href="/bo-loc?categoryId=${item.categoryId}" onclick="typeListClick(this)">${item.categoryName}</a><i>·</i>`;
             $('#type-list').append(row);
         });
     },
