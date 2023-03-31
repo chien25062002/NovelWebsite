@@ -23,8 +23,6 @@
           media="screen,projection" />
     <link href=/NovelWebsite/wwwroot/css/wiki/base-0.1.0.min.css type="text/css" rel="stylesheet"
           media="screen,projection" />
-    <link href=/NovelWebsite/wwwroot/css/boloc.css type="text/css" rel="stylesheet"
-          media="screen,projection" />
     <script type="text/javascript" src="/NovelWebsite/wwwroot/js/scrollbutton.js"></script>
     <script type="text/javascript" src="/NovelWebsite/wwwroot/js/utils/materialize-wiki.min.js"></script>
     <script type="text/javascript" src="/NovelWebsite/wwwroot/js/utils/jquery-2.2.4.min.js"></script>
@@ -35,182 +33,180 @@
 </head>
 <body>
     
+    <button onclick="topFunction()" class="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
+    <header>
+        <div class="header__main">
+            <div class="header__box--center row">
+                <div class="col logo">
+                    <a href="index.html" data-eid="qd_A11">
+                    </a>
+                </div>
 
-    <main>
-        <button onclick="topFunction()" class="myBtn" title="Go to top"><i class="fa-solid fa-arrow-up"></i></button>
-        <header>
-            <div class="header__main">
-                <div class="header__box--center row">
-                    <div class="col logo">
-                        <a href="index.html" data-eid="qd_A11">
-                        </a>
+                <div class="col search input-group">
+                    <!-- <form id="form1" action="#" method="get">
+                        <p>
+                            <input class="search__searchbox" name="kw" type="text" data-type="search" placeholder="Nhập tên truyện" autocomplete="off">
+                        </p>
+                        <label class="search__btn" for="search__submit">
+                            <em class="search__btn--icon">
+                                <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                            </em>
+                        </label>
+                    </form> -->
+                    <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
+                    <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
+                        <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                    </button>
+                </div>
+
+                <div class="col login">
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#taixuong">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        Tải xuống
+                    </a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#dangnhap">
+                        <i class="fa-solid fa-user"></i>
+                        Tài khoản
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                    </a>
+                </div>
+
+                <div class="modal fade" id="taixuong">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Tải xuống</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                PHẦN MỀM ĐANG TRONG QUÁ TRÌNH HOÀN THIỆN
+                                <br>
+                                MỜI BẠN QUAY LẠI SAU!
+                            </div>
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                            </div>
+                        </div>
                     </div>
-    
-                    <div class="col search input-group">
-                        <!-- <form id="form1" action="#" method="get">
-                            <p>
-                                <input class="search__searchbox" name="kw" type="text" data-type="search" placeholder="Nhập tên truyện" autocomplete="off">
-                            </p>
-                            <label class="search__btn" for="search__submit">
-                                <em class="search__btn--icon">
-                                    <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
-                                </em>
-                            </label>
-                        </form> -->
-                        <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
-                        <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
-                            <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
-                        </button>
-                    </div>
-    
-                    <div class="col login">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#taixuong">
-                            <i class="fa-solid fa-mobile-screen"></i>
-                            Tải xuống
-                        </a>
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#dangnhap">
-                            <i class="fa-solid fa-user"></i>
-                            Tài khoản
-                            <i class="fa-solid fa-right-to-bracket"></i>
-                        </a>
-                    </div>
-    
-                    <div class="modal fade" id="taixuong">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Tải xuống</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                <!-- Modal body -->
+                </div>
+
+                <div class="modal fade" id="dangnhap">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Đăng nhập</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal body -->
+                            <form class="needs-validation" action="/Account/Login" method="post">
+                           
+                                <div asp-validation-summary="All"></div>
                                 <div class="modal-body">
-                                    PHẦN MỀM ĐANG TRONG QUÁ TRÌNH HOÀN THIỆN
-                                    <br>
-                                    MỜI BẠN QUAY LẠI SAU!
+                                    <div class="form-floating mb-3 mt-3">
+                                        <input type="text" class="form-control" placeholder="Tên đăng nhập">
+                                        <label><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
+                                    </div>
+                                    <div class="form-floating mt-3 mb-3">
+                                        <input type="password" class="form-control" id="matkhau1" placeholder="Mật khẩu"">
+                                        <label><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
+                                    </div>
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success">Đăng nhập</button>
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dangky">Đăng ký</button>
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
                                 </div>
-                            </div>
+                            </form>
+
                         </div>
                     </div>
-    
-                    <div class="modal fade" id="dangnhap">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Đăng nhập</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                <!-- Modal body -->
-                                <form class="needs-validation" action="/Account/Login" method="post">
-                               
-                                    <div asp-validation-summary="All"></div>
-                                    <div class="modal-body">
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input type="text" class="form-control" placeholder="Tên đăng nhập">
-                                            <label><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
-                                        </div>
-                                        <div class="form-floating mt-3 mb-3">
-                                            <input type="password" class="form-control" id="matkhau1" placeholder="Mật khẩu"">
-                                            <label><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
-                                        </div>
-                                    </div>
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success">Đăng nhập</button>
-                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dangky">Đăng ký</button>
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
-                                    </div>
-                                </form>
-    
-                            </div>
-                        </div>
-                    </div>
-    
-                    <div class="modal fade" id="dangky">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Đăng ký</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-                                <!-- Modal body -->
-                                <form class="needs-validation" action="/Account/LoginAsync" method="post">
-                                    <div class="modal-body">
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input type="text" class="form-control" id="tendangnhap2" placeholder="Tên đăng nhập" name="AccountName" required>
-                                            <label for="tdn"><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
-                                        </div>
-                                        <div class="form-floating mb-3 mt-3">
-                                            <input type="email" class="form-control" id="email2" placeholder="Email" name="Password" required>
-                                            <label for="eml"><i class="fa-solid fa-envelope modal--icon"></i></i>Email</label>
-                                        </div>
-                                        <div class="form-floating mt-3 mb-3">
-                                            <input type="password" class="form-control" id="matkhau2" placeholder="Mật khẩu" name="mk" required>
-                                            <label for="mk"><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
-                                        </div>
-    
-                                        <div class="form-floating mt-3 mb-3">
-                                            <input type="password" class="form-control" id="nlmatkhau2" placeholder="Nhập lại mật khẩu" name="rmk" required>
-                                            <label for="rmk"><i class="fa-solid fa-key modal--icon"></i>Nhập lại mật khẩu</label>
-                                        </div>
-    
-                                        <div class="form-check mt-3 mb-3">
-                                            <input type="checkbox" class="form-check-input" id="check2" name="dksd" required>
-                                            <label for="dksd" class="form-check-label">Đồng ý với điều khoản sử dụng</label>
-                                        </div>
-                                    </div>
-                                    <!-- Modal footer -->
-                                    <div class="modal-footer">
-                                        <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Đăng ký</button>
-                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dangnhap">Đăng nhập</button>
-                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
-                                    </div>
-                                </form>
-    
-                            </div>
-                        </div>
-                    </div>
-    
                 </div>
-    
-                <div class="navbar navbar-expand-md">
-                    <div class="navbar__main">
-                        <ul class="nav navbar-nav">
-                            <li class="nav-item--trangchu">
-                                <span>
-                                    <i class="fa-solid fa-list"></i>
-                                    Trang chủ
-                                </span>
-                            </li>
-                            <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="/NovelWebsite/wwwroot/html/listpost.html">Diễn đàn</a>
-                            </li>
-                            <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="/NovelWebsite/wwwroot/html/xephang.html">Bảng xếp hạng</a>
-                            </li>
-                            <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="/NovelWebsite/wwwroot/html/boloc.html">Bộ lọc</a>
-                            </li>
-                            <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="/NovelWebsite/wwwroot/html/review.html">Reviews</a>
-                            </li>
-                            <!-- <li class="nav-item navlist">
-                                <a class="nav-link navlist--item" href="javascript:void(0)">Cửa hàng</a>
-                            </li> -->
-                        </ul>
-    
+
+                <div class="modal fade" id="dangky">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Đăng ký</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <!-- Modal body -->
+                            <form class="needs-validation" action="/Account/LoginAsync" method="post">
+                                <div class="modal-body">
+                                    <div class="form-floating mb-3 mt-3">
+                                        <input type="text" class="form-control" id="tendangnhap2" placeholder="Tên đăng nhập" name="AccountName" required>
+                                        <label for="tdn"><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
+                                    </div>
+                                    <div class="form-floating mb-3 mt-3">
+                                        <input type="email" class="form-control" id="email2" placeholder="Email" name="Password" required>
+                                        <label for="eml"><i class="fa-solid fa-envelope modal--icon"></i></i>Email</label>
+                                    </div>
+                                    <div class="form-floating mt-3 mb-3">
+                                        <input type="password" class="form-control" id="matkhau2" placeholder="Mật khẩu" name="mk" required>
+                                        <label for="mk"><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
+                                    </div>
+
+                                    <div class="form-floating mt-3 mb-3">
+                                        <input type="password" class="form-control" id="nlmatkhau2" placeholder="Nhập lại mật khẩu" name="rmk" required>
+                                        <label for="rmk"><i class="fa-solid fa-key modal--icon"></i>Nhập lại mật khẩu</label>
+                                    </div>
+
+                                    <div class="form-check mt-3 mb-3">
+                                        <input type="checkbox" class="form-check-input" id="check2" name="dksd" required>
+                                        <label for="dksd" class="form-check-label">Đồng ý với điều khoản sử dụng</label>
+                                    </div>
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Đăng ký</button>
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#dangnhap">Đăng nhập</button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Đóng</button>
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
+                </div>
+
+            </div>
+
+            <div class="navbar navbar-expand-md">
+                <div class="navbar__main">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item--trangchu">
+                            <span>
+                                <i class="fa-solid fa-list"></i>
+                                Trang chủ
+                            </span>
+                        </li>
+                        <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="/NovelWebsite/wwwroot/html/listpost.html">Diễn đàn</a>
+                        </li>
+                        <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="/NovelWebsite/wwwroot/html/xephang.html">Bảng xếp hạng</a>
+                        </li>
+                        <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="/NovelWebsite/wwwroot/html/boloc.html">Bộ lọc</a>
+                        </li>
+                        <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="/NovelWebsite/wwwroot/html/review.html">Reviews</a>
+                        </li>
+                        <!-- <li class="nav-item navlist">
+                            <a class="nav-link navlist--item" href="javascript:void(0)">Cửa hàng</a>
+                        </li> -->
+                    </ul>
+
                 </div>
             </div>
-        </header>
+        </div>
+    </header>
 
-
+    <main>
         <div class="container">
 
 
@@ -221,7 +217,7 @@
                     
                 <a class="dropdown-button" data-hover="true" data-beloworigin="true"
                data-constrainwidth="false" data-activates='ddRankCate'
-                style="font-size: 1.23rem; color: #666666; margin-left: 3rem;">Thể loại<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
+                style="font-size: 1.23rem; color: #666666;">Thể loại<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
             <ul id='ddRankCate' class='dropdown-content'>
             <li class="active"><a href="/review">Tất cả</a></li>
             
@@ -255,7 +251,7 @@
             </ul>
             <a class="dropdown-button right" data-hover="true" data-beloworigin="true"
                data-constrainwidth="false" data-activates='ddRankSort'
-                style="font-size: 1.23rem; color: #666666;margin-right:4rem;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
+                style="font-size: 1.23rem; color: #666666;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
             <ul id='ddRankSort' class='dropdown-content'>
             <li class="active"><a href="/review">Từ trên xuống</a></li>
             
@@ -789,18 +785,8 @@
         </div>
     </footer>
     
+    <script src=/NovelWebsite/wwwroot/js/utils/jquery-2.2.4.min.js.js></script>
     <script src=/NovelWebsite/wwwroot/js/utils/materialize-wiki.min.js></script>
-    <script src=/NovelWebsite/wwwroot/js/utils/jquery.mCustomScrollbar-3.1.5.min.js></script>
-    <script src=/NovelWebsite/wwwroot/js/wiki/base-0.0.8.min.js></script>
 
-    <script src=/NovelWebsite/wwwroot/js/wiki/review-board-0.0.4.min.js></script>
-
-    <script>
-        initTinyMCE('txtComment');
-        var $bookUrlInput = $('input.book-url');
-        if ($bookUrlInput && $bookUrlInput.val()) {
-            actions.getBook($bookUrlInput.next('.btn-load-book'));
-        }
-    </script>
 </body>
 </html>

@@ -1,22 +1,4 @@
-﻿.pagination li.active {
-    background-color: #343a40
-}
-
-.pagination li {
-    font-size: 1.1rem;
-    line-height: 1.9rem;
-    min-width: 1.8rem;
-    padding: 0
-}
-
-    .pagination li a {
-        display: inline-block;
-        width: 100%
-    }
-
-    .pagination li i {
-        font-size: 1.7rem
-    }
+﻿
 
 .float-wrapper:after {
     clear: both;
