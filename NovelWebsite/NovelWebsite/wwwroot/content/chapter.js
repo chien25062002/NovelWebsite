@@ -77,10 +77,10 @@ $.ajax({
     dataType: "json",
     beforeSend: function () { },
     success: function (data) {
+        var user = GetUserInfo();
+
         $('#list-comment-chapter').html('');
-        /*let row = jQuery('<div>', {
-            class: 'index__theloai--chitiet row',
-        });*/
+        
         $('#list-comment-chapter').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
@@ -99,22 +99,22 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-        console.log(data)
         data.forEach((item, index) => {
+            var content = $('<textarea />').html(item.content).text();
             $('#list-comment-chapter').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="${item.avatar}">
+                                                <img src="${user.user.avatar}">
                                             </a>
                                         </div>
                                         <div class="col user--discussion-main">
                                             <div class="user--discussion">
                                                 <p class="users">
-                                                    <a href="javascript:void(0)">${item.userName}</a>
+                                                    <a href="javascript:void(0)">${user.user.userName}</a>
                                                 </p>
                                                 <p class="comments">
-                                                    ${item.content}
+                                                    ${content}
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
@@ -131,12 +131,6 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-            /*if (index % 2 == 1) {
-                $('.index__theloai--wrap').append(row);
-                row = jQuery('<div>', {
-                    class: 'index__theloai--chitiet row',
-                });;
-            }*/
             startCKEditor('chapter-toolbar', 'chapter-editor');
         });
     },
