@@ -1,4 +1,37 @@
-﻿
+﻿$.ajax({
+    url: "/Banner/GetMainBanner",
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        // k xài empty html với carousel k nó sẽ lỗi
+        //$('#categories').html('');
+        data.forEach(function (item, index) {
+            let row = `<div class="carousel-item active">
+                            <img src="${item.bannerImage}" alt="Los Angeles" class="d-block w-100">
+                        </div>`;
+            $('.carousel-inner').append(row);
+            //$('#categories').append(row);
+        });
+        $('.carousel-inner').trigger('refresh.owl.carousel');
+    },
+    error: function () { },
+    complete: function () { }
+});
+
+$.ajax({
+    url: "/Banner/GetAdsBanner",
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        var randomBanner = data[Math.floor(Math.random() * data.length)];
+        $('.banner-sm').attr('src', randomBanner.bannerImage);
+    },
+    error: function () { },
+    complete: function () { }
+});
+
 $.ajax({
     url: "/Home/GetAllCategories",
     type: "GET",

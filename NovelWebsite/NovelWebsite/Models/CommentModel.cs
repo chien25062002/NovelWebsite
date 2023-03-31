@@ -10,6 +10,7 @@ namespace NovelWebsite.Models
         public int UserId { get; set; }
         public int BookId { get; set; }
         public int ChapterId { get; set; }
+        public int PostId { get; set; }
         public int ReplyCommentId { get; set; }
         [Required]
         public string Content { get; set; }
