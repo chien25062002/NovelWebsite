@@ -78,10 +78,10 @@
 
 
 
-.control-box {
-    width: 290px;
-    margin: auto;
-}
+/*.control-box {
+    width: 290px;*/
+/*    margin: auto;*/
+/*}*/
 
 .box-ads, .control-box {
     margin-top: 20px;
@@ -128,7 +128,7 @@
 
 .control-box-content a {
     font-size: 18px;
-    color: #fff;
+/*    color: #fff;*/
 }
 
 /*.control-box-content a {
@@ -143,7 +143,7 @@
 }*/
 
 .control-box-content i {
-    color: #fff !important;
+    color: inherit;
 }
 
 
@@ -447,8 +447,6 @@ a.closemark:hover {
 }
 
 .input-comment {
-    border: 1px solid #cacaca;
-    border-radius: 10px;
     padding: 0;
     margin-left: 10.5px;
 }

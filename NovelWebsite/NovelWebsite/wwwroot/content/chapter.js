@@ -1,6 +1,8 @@
 ﻿var queryString = window.location.href;
 var param = queryString.split('-');
 var id = param[param.length - 1];
+var p = queryString.split('/');
+var link = p[p.length - 1];
 
 /*$.ajax({
     url: "/Account/GetAccount",
@@ -44,6 +46,32 @@ $.ajax({
 })
 
 $.ajax({
+    url: "/Chapter/GetListChapters?id=" + id,
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        $('#list-chapter-box').html('');
+        /*let row = jQuery('<div>', {
+            class: 'index__theloai--chitiet row',
+        });*/
+        data.forEach((item, index) => {
+            $('#list-chapter-box').append(`<li class="list-group-item col-6">
+                        <a href="/truyen/${link}/chuong-${item.chapterNumber}-${item.slug}-${item.chapterId}">Chương ${item.chapterNumber}: ${item.chapterName}</a>
+                        </li>`);
+            /*if (index % 2 == 1) {
+                $('.index__theloai--wrap').append(row);
+                row = jQuery('<div>', {
+                    class: 'index__theloai--chitiet row',
+                });;
+            }*/
+        });
+    },
+    error: function () { },
+    complete: function () { }
+})
+
+$.ajax({
     url: "/Chapter/GetListComments?id=" + id,
     type: "GET",
     dataType: "json",
@@ -54,17 +82,16 @@ $.ajax({
             class: 'index__theloai--chitiet row',
         });*/
         $('#list-comment-chapter').append(`<li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
                                                 <img src="/image/test3.jpg">
                                             </a>
-                                        </div>
+                                        </div>                                       
                                         <div class="input-comment col">
                                             <div id="chapter-toolbar"></div>
                                             <div id="chapter-editor" class="input--box"></div>
                                         </div>
-                                        <script src="~/js/ckeditorscript.js"></script>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
                                                 <button class="btn btn-primary">Đăng</button>
@@ -75,30 +102,32 @@ $.ajax({
         console.log(data)
         data.forEach((item, index) => {
             $('#list-comment-chapter').append(`<li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
+                                                <img src="${item.avatar}">
                                             </a>
                                         </div>
-                                        <div class="user--discussion col">
-                                            <p class="users">
-                                                <a href="javascript:void(0)">${item.userName}</a>
-                                            </p>
-                                            <p class="comments">
-                                                ${item.content}
-                                            </p>
-                                            <p class="info--wrap">
-                                                <span>${item.createdDate} </span>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-solid fa-square-caret-up info-icon rate-up"></i>
-                                                    ${item.likes}
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-solid fa-square-caret-down info-icon rate-down"></i>
-                                                    ${item.dislikes}
-                                                </a>
-                                            </p>
+                                        <div class="col user--discussion-main">
+                                            <div class="user--discussion">
+                                                <p class="users">
+                                                    <a href="javascript:void(0)">${item.userName}</a>
+                                                </p>
+                                                <p class="comments">
+                                                    ${item.content}
+                                                </p>
+                                                <p class="info--wrap">
+                                                    <span>${item.createdDate} </span>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-comment-dots info-icon"></i>
+                                                        ${item.likes} trả lời
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                        ${item.dislikes} thích
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>`);

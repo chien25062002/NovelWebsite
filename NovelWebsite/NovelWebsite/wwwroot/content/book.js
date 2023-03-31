@@ -43,8 +43,8 @@ $.ajax({
             class: 'index__theloai--chitiet row',
         });*/
         $('#list-review').append(`<li class="list-group-item">
-                            <div class="row">
-                                <div class="user--photo col-md-auto">
+                            <div class="row user--comment-section">
+                                        <div class="user--photo col-md-auto">
                                     <a href="javascript:void(0)">
                                         <img src="/image/test3.jpg">
                                     </a>
@@ -62,33 +62,35 @@ $.ajax({
                         </li>`)
         data.forEach((item, index) => {
             $('#list-review').append(`<li class="list-group-item">
-                            <div class="row">
-                                <div class="user--photo col-md-auto">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg">
-                                    </a>
-                                </div>
-                                <div class="user--discussion col">
-                                    <p class="users">
-                                        <a href="javascript:void(0)">${item.user.userName}</a>
-                                    </p>
-                                    <p class="comments">
-                                        ${item.content}
-                                    </p>
-                                    <p class="info--wrap">
-                                        <span>${item.createdDate} </span>
-                                        <a href="javascript:void(0)">
-                                            <i class="fa-solid fa-square-caret-up info-icon rate-up"></i>
-                                            ${item.likes}
-                                        </a>
-                                        <a href="javascript:void(0)">
-                                            <i class="fa-solid fa-square-caret-down info-icon rate-down"></i>
-                                            ${item.dislikes}
-                                        </a>
-                                    </p>
-                                </div>
-                            </div>
-                        </li>`);
+                                    <div class="row">
+                                        <div class="user--photo col-md-auto">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                            <div class="row user--comment-section">
+                                                <div class="user--photo col-md-auto">
+                                                    <p class="users">
+                                                        <a href="javascript:void(0)">${item.user.userName}</a>
+                                                    </p>
+                                                    <p class="comments">
+                                                        ${item.content}
+                                                    </p>
+                                                    <p class="info--wrap">
+                                                        <span>${item.createdDate} </span>
+                                                        <a href="javascript:void(0)">
+                                                            <i class="fa-solid fa-square-caret-up info-icon rate-up"></i>
+                                                            ${item.likes}
+                                                        </a>
+                                                        <a href="javascript:void(0)">
+                                                            <i class="fa-solid fa-square-caret-down info-icon rate-down"></i>
+                                                            ${item.dislikes}
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </li>`);
 /*            if (index % 2 == 1) {
                 $('.index__theloai--wrap').append(row);
                 row = jQuery('<div>', {
@@ -116,7 +118,7 @@ $.ajax({
         var user = GetUserInfo();
         console.log(data);
         $('#list-comment').append(`<li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
                                                 <img src="${user.user.avatar}">
@@ -135,30 +137,32 @@ $.ajax({
                                 </li>`);
         data.forEach((item, index) => {
             $('#list-comment').append(`<li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
                                                 <img src="${user.user.avatar}">
                                             </a>
                                         </div>
-                                        <div class="user--discussion col">
-                                            <p class="users">
-                                                <a href="javascript:void(0)">${user.user.userName}</a>
-                                            </p>
-                                            <p class="comments">
-                                                ${item.content}
-                                            </p>
-                                            <p class="info--wrap">
-                                                <span>${item.createdDate} </span>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-solid fa-square-caret-up info-icon rate-up"></i>
-                                                    ${item.likes}
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-solid fa-square-caret-down info-icon rate-down"></i>
-                                                    ${item.dislikes}
-                                                </a>
-                                            </p>
+                                        <div class="col user--discussion-main">
+                                            <div class="user--discussion">
+                                                <p class="users">
+                                                    <a href="javascript:void(0)">${user.user.userName}</a>
+                                                </p>
+                                                <p class="comments">
+                                                    ${item.content}
+                                                </p>
+                                                <p class="info--wrap">
+                                                    <span>${item.createdDate} </span>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-comment-dots info-icon"></i>
+                                                        ${item.likes} trả lời
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                        ${item.dislikes} thích
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>`);
