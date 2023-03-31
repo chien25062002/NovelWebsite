@@ -5779,19 +5779,6 @@ button.close {
     }
 }
 
-.clearfix:after,
-.dl-horizontal dd:after,
-.container:after,
-.container-fluid:after,
-.row:after,
-.btn-toolbar:after,
-.btn-group-vertical>.btn-group:after,
-.pager:after,
-.panel-body:after,
-html[data-dir="rtl"] .container:after,
-html[data-dir="rtl"] .row:after {
-    clear: both
-}
 
 .center-block {
     display: block;

@@ -213,7 +213,9 @@ main {
 }
 
 .sort-box div {
-    display: inline-block
+    display: inline-block;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 .sort-box {
