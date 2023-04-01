@@ -1,4 +1,16 @@
-﻿<link rel="stylesheet" href="~/css/wiki/review-board-0.0.2.min.css">
+﻿@using NovelWebsite.Entities
+@using System.Web
+@{
+    int pageSize = (int)ViewBag.pageSize;
+    int pageCount = (int)ViewBag.pageCount;
+    int pageNumber = (int)ViewBag.pageNumber;
+    string categoryId = ViewBag.categoryId as string;
+    string sort_by = ViewBag.sortBy;
+}
+
+@model List<ReviewEntity>
+
+<link rel="stylesheet" href="~/css/wiki/review-board-0.0.2.min.css">
 <link href=~/css/utils/materialize-wiki.min.css type="text/css" rel="stylesheet"
       media="screen,projection" />
 <link href=~/css/utils/animate.min.css type="text/css" rel="stylesheet"
@@ -17,28 +29,21 @@
         </div>
 
         <div id="commentBoard" class="">
-
             <div class="comment-title">
-
                 <a id="btnCommentSort" class="dropdown-button right" data-hover="true" data-beloworigin="true"
                    data-constrainwidth="false" data-activates='ddCommentSort'
                    style="font-size: 1.23rem; color: #666666; margin-top: 0.37rem">Xếp theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem;"></i></a>
                 <ul id='ddCommentSort' class='dropdown-content'>
-
-                    <li class=""><a href="/review?order=oldest">Cũ nhất</a></li>
-                    <li class="active"><a href="/review">Mới nhất</a></li>
-
+                    <li class=""><a href="/review?sort_by=up">Cũ nhất</a></li>
+                    <li class="active"><a href="/review?sort_by=down">Mới nhất</a></li>
                 </ul>
                 <i class="fa fa-commenting" aria-hidden="true" style="font-size: 2rem; margin-right: 0.7rem; color: #343434;"></i><span style="font-size: 1.37rem; font-weight: bold; color: #555555">Review</span>
-
                 <a id="btnCommentSort" class="dropdown-button right" data-hover="true" data-beloworigin="true"
                    data-constrainwidth="false" data-activates='ddCommentFilter'
                    style="font-size: 1.23rem; color: #666666; margin-top: 0.37rem; margin-right: 0.5rem; margin-bottom: 1rem;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
                 <ul id='ddCommentFilter' class='dropdown-content'>
                     <li class="active"><a href="/review">Tất cả</a></li>
-
                     <li class=""><a href=>Cate</a></li>
-
                     <li class=""><a href=>Cate</a></li>
 
                     <li class=""><a href=>Cate</a></li>
@@ -52,966 +57,112 @@
                 </ul>
 
             </div>
-
-
             <div id="commentList">
 
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
+                @{
+                    foreach (var item in Model)
+                    {
+                        <div class="review-group">
+                            <div class="book-item float-wrapper hide-on-med-and-up">
+                                <a class="hoverable smallbook" href="/truyen/@item.Book.Slug-@item.Book.BookId">
+                                    <img class="cover-wrapper carousel-inner " src="@item.Book.Avatar" alt="Card image">
+                                </a>
+                                <div class="midup-body card-body">
+                                    <h4 class="card-title">
+                                        <a href="/truyen/@item.Book.Slug-@item.Book.BookId">@item.Book.BookName</a>
+                                    </h4>
+                                    <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">@item.Book.Author.AuthorName</a></p>
+                                    <p class="index__truyenmoito--gioithieu">
+                                        <i>
+                                            @Html.Raw(item.Book.Introduce.Substring(0,128))
+                                        </i>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="comment-group">
+                                <div class="comment-element">
+                                    <div class="comment-avatar-box">
+                                        <div class="center-align comment-avatar">
+                                            <a href="/user/lycorisaki" class="avatar-link">
+                                                <img src="@item.User.Avatar" class="avatar-img" />
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="comment-content">
+                                        <div class="comment-content-box">
+                                            <div class="comment-username">
+                                                <a href="/user/lycorisaki" class="username-link">
+                                                    @item.User.UserName
+                                                </a>
+                                            </div>
+                                            <div class="comment-info">
+                                                <a href="#!" class="comment-interval"></a>
+                                            </div>
+                                            <div class="comment-content-msg  word-wrap">
+                                                @Html.Raw(HttpUtility.HtmlDecode(item.Content))
+                                            </div>
+                                            <div class="comment-content-footer">
+
+                                                <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
+                                                    <a href="#!" class="comment-report-btn">Báo cáo</a>
+                                                </div>
+                                                <a href="#!" class="comment-reply-btn ">
+                                                    <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
+                                                </a>
+                                                <a href="#!" class="comment-reply-btn ">
+                                                    <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="book-item hide-on-small-only">
+                                <div>
+                                    <a class="hoverable" href="/truyen/@item.Book.Slug-@item.Book.BookId">
+                                        <img class="cover-wrapper carousel-inner" src="@item.Book.Avatar" alt="Card image">
                                     </a>
                                 </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
+                                <div class="card-body">
+                                    <h4 class="card-title">
+                                        <a href="/truyen/@item.Book.Slug-@item.Book.BookId">@item.Book.BookName</a>
+                                    </h4>
+                                    <p class="book-author"><a class="truncate" href="">@item.Book.Author.AuthorName</a></p>
+                                    <p class="card-text index__truyenmoito--gioithieu">
+                                        <i>
+                                            @Html.Raw(item.Book.Introduce.Substring(0,128))
+                                        </i>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="review-group">
-                    <div class="book-item float-wrapper hide-on-med-and-up">
-                        <a class="hoverable smallbook" href="/truyen/">
-                            <img class="cover-wrapper carousel-inner " src="~/image/test2.jpg" alt="Card image">
-                        </a>
-                        <div class="midup-body card-body">
-                            <h4 class="card-title">
-                                <a href="/html/truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="comment-group">
-                        <div class="comment-element">
-                            <div class="comment-avatar-box">
-                                <div class="center-align comment-avatar">
-                                    <a href="/user/lycorisaki" class="avatar-link">
-                                        <img src="https://graph.facebook.com/2882209628688840/picture?type=large" class="avatar-img" />
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="comment-content">
-                                <div class="comment-content-box">
-                                    <div class="comment-username">
-                                        <a href="/user/lycorisaki" class="username-link">
-                                            LycorisAki
-                                        </a>
-                                    </div>
-                                    <div class="comment-info">
-                                        <a href="#!" class="comment-interval"></a>
-                                    </div>
-                                    <div class="comment-content-msg  word-wrap">
-                                        <p>Truyện ổn. Không qua hay nhưng cũng không đến nỗi quá tệ.</p>
-                                        <p>Một vài chương đầu hơi không thích thụ cho lắm vì cái cách ẻm bẻ lại công khi công đang là đạo sư (không nhớ phải gọi như vậy không nữa) trong chương trình ẻm tham gia. Cảm giác tính cách hơi bốc đồng, không biết suy nghĩ nhưng càng đọc thì thấy càng thương thụ. Lý do thì mọi người đọc truyện đi rồi biết ha.</p>
-                                        <p>Lúc đầu thương thụ thì về sau thương công. Anh công đúng kiểu đội vợ lên đầu luôn ý, thương lắm. Hai người trải qua bao hiểu lầm, khó khăn cuối cùng cũng đến với nhau. Đồng đội cùng xuất đạo của thụ đều rất dễ thương.</p>
-                                        <p>Tóm lại, cũng hơi hơi đề cử bộ này.</p>
-                                    </div>
-                                    <div class="comment-content-footer">
-
-                                        <div class="comment-view-controls" style="display: inline-block; margin-right: 0.5rem;">
-                                            <a href="#!" class="comment-report-btn">Báo cáo</a>
-                                        </div>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-up" style="color: #343a40"></i> Cảm ơn <span class="thank-num">0</span>
-                                        </a>
-                                        <a href="#!" class="comment-reply-btn ">
-                                            <i class="fa-sharp fa-regular fa-thumbs-down" style="color: #343a40"></i> Phản đối <span class="thank-num">0</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="book-item hide-on-small-only">
-                        <div>
-                            <a class="hoverable" href="/truyen/sau-khi-cung-doi-truong-cu-buon-ban-ta-b-XtEpKkbIjhsfFNna">
-
-                                <img class="cover-wrapper carousel-inner" src="~/image/test2.jpg" alt="Card image">
-
-
-                            </a>
-                        </div>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="/html//truyen.html">Vĩnh dạ thần hành</a>
-                            </h4>
-                            <p class="book-author"><a class="truncate" href="">Tác giả</a></p>
-                            <p class="card-text index__truyenmoito--gioithieu">
-                                <i>
-                                    Sương mù xám bao phủ, thế giới đắm chìm ở trong bóng tối.
-                                </i>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--  -->
-
-
-
-
-
-
+                    }
+                }
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-            <div style="margin-top: 1.5rem; height: 25px; text-align: center">
-
-
-                <ul class="pagination" style="margin: 0; display: inline-block">
-
-
-
-                    <li class=" active " style="">
-                        <a href=" #! ">1</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /review?start=10 ">2</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /review?start=20 ">3</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /review?start=30 ">4</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /review?start=40 ">5</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /review?start=50 ">6</a>
-                    </li>
-
-                    <li class=" waves-effect " style="">
-                        <a href=" /review?start=60 ">7</a>
-                    </li>
-
-                    <li class="waves-effect"><a href="/review?start=7"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-
-
-                    <li class="waves-effect"><a href="/review?start=32850"><i class="fa fa-angle-double-right" aria-hidden="true"></i></a></li>
-
-                </ul>
+            <div class="col-md-12">
+                <div class="box-footer">
+                    <div class="box-footer clearfix">
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item">
+                                <a class="page-link" href="/review?sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@Math.Max(1, pageNumber - 1)">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            @{
+                                for (int i = 1; i <= pageCount; ++i)
+                                {
+                                    <li class="page-item"><a class="page-link" href="/review?sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@i">@i</a></li>
+                                }
+                            }
+                            <li class="page-item">
+                                <a class="page-link" href="/review?sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@Math.Min(pageNumber + 1, pageCount)">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

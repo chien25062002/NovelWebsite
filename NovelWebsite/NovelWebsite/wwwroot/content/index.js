@@ -90,7 +90,7 @@ $.ajax({
         data.forEach((item, index) => {
             let row = `<li class="list-group-item ${index % 2 ? " odd" : ""}">
             <i class="fa-solid fa-share"></i>
-            <a href="/tin-tuc/${item.id}${item.createdDate}/${item.slug}">${item.title}</a>
+            <a href="/tin-tuc/${item.slug}-${item.postId}">${item.title}</a>
                                 </li>`;
             $('#new-posts').append(row);
         });

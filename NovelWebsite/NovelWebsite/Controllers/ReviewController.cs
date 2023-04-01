@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 using NovelWebsite.Extensions;
-using System.Data.Entity;
 
 namespace NovelWebsite.Controllers
 {
@@ -13,19 +13,26 @@ namespace NovelWebsite.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult Index(int categoryId = 0)
+        public IActionResult Index(string? sort_by, int categoryId = 0, int pageNumber = 1, int pageSize = 8)
         {
-            try
+            var reviews = _dbContext.Reviews.Where(r => categoryId == 0 || r.Book.CategoryId == categoryId)
+                                            .Include(b => b.User)
+                                            .Include(r => r.Book).ThenInclude(b => b.Author)
+                                            .OrderByDescending(r => r.CreatedDate);
+            if (sort_by != null)
             {
-                var reviews = _dbContext.Reviews.Include(r => r.Book)
-                                                .Where(r => categoryId == 0 || r.Book.CategoryId == categoryId)
-                                                .OrderByDescending(r => r.CreatedDate).ToList();
-                return View(reviews);
+                if (sort_by == "up")
+                {
+                    reviews = reviews.OrderBy(r => r.CreatedDate);
+                }
             }
-            catch (Exception ex)
-            {
-                return View();
-            }
+
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;
+            ViewBag.pageCount = Math.Ceiling(reviews.Count() * 1.0 / pageSize);
+            ViewBag.categoryId = categoryId;
+            ViewBag.sortBy = sort_by;
+            return View(reviews.Skip(pageSize * pageNumber - pageSize).Take(pageSize).ToList());            
         }
 
         [HttpPost]

@@ -83,7 +83,7 @@
                                     </div>
                                     <div class="user-post col row">
                                         <span class="user-post-title col-md-10">
-                                            <a href="/Admin/Post/AddOrUpdatePost?id=@item.PostId">@item.Title</a>
+                                            <a href="/tin-tuc/@item.Slug-@item.PostId">@item.Title</a>
                                         </span>
                                         <span class="float-end col-md-2">
                                             <span class="control-button">
@@ -98,7 +98,7 @@
                                             Written by @item.User.UserName - @item.CreatedDate
                                         </span>
                                         <span class="user-post-content col-md-12">
-                                             @Html.Raw(item.Content)
+                                             @item.Description
                                         </span>
                                     </div>
                                 </div> 

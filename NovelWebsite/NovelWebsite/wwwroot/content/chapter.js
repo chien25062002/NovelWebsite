@@ -4,18 +4,6 @@ var id = param[param.length - 1];
 var p = queryString.split('/');
 var link = p[p.length - 1];
 
-/*$.ajax({
-    url: "/Account/GetAccount",
-    type: "GET",
-    dataType: "json",
-    beforeSend: function () { },
-    success: function (data) {
-        $('.col.login').html('');
-     
-    },
-    error: function () { },
-    complete: function () { }
-})*/
 $.ajax({
     url: "/Chapter/GetAllCategories",
     type: "GET",
@@ -89,15 +77,16 @@ $.ajax({
                                         </div>                                       
                                         <div class="input-comment col">
                                             <div id="chapter-toolbar"></div>
-                                            <div id="chapter-editor" class="input--box"></div>
+                                            <div id="comment-editor" class="input--box"></div>
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
-                                                <button class="btn btn-primary">Đăng</button>
+                                                <button class="btn btn-primary" onclick="AddChapterComment(${chapterId})">Đăng</button>
                                             </div>
                                         </div>
                                     </div>
                                 </li>`);
+        startCKEditor('chapter-toolbar', 'comment-editor');
         data.forEach((item, index) => {
             var content = $('<textarea />').html(item.content).text();
             $('#list-comment-chapter').append(`<li class="list-group-item">
@@ -130,7 +119,6 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-            startCKEditor('chapter-toolbar', 'chapter-editor');
         });
     },
     error: function (e) { console.log(e) },

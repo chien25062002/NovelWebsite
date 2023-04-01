@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 
 namespace NovelWebsite.Controllers
@@ -14,13 +15,23 @@ namespace NovelWebsite.Controllers
         }
 
         [Route("")]
-        public IActionResult ListOfPosts(int pageNumber = 1, int pageSize = 10)
+        public IActionResult ListOfPosts(string? sort_by, string? name, int pageNumber = 1, int pageSize = 10)
         {
-            var query = _dbContext.Tags;
-
+            var query = _dbContext.Posts.Where(p => string.IsNullOrEmpty(name) || p.Title.ToLower().Trim().Contains(name.ToLower().Trim()))
+                                           .Include(b => b.User)
+                                           .OrderByDescending(r => r.CreatedDate);
+            if (string.IsNullOrEmpty(sort_by))
+            {
+                if (sort_by == "up")
+                {
+                    query = query.OrderBy(p => p.CreatedDate);
+                }
+            }
             ViewBag.pageNumber = pageNumber;
             ViewBag.pageSize = pageSize;
             ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
+            ViewBag.searchName = name;
+            ViewBag.sortBy = sort_by;
          
             return View(query.Skip(pageSize * pageNumber - pageSize)
                          .Take(pageSize)
@@ -30,7 +41,9 @@ namespace NovelWebsite.Controllers
         [Route("{slug}-{id:int}")]
         public IActionResult Index(int id)
         {
-            var post = _dbContext.Posts.Where(p => p.Status == 0 && p.IsDeleted == true && p.PostId == id).FirstOrDefault();
+            var post = _dbContext.Posts.Where(p => p.Status == 0 && p.IsDeleted == false && p.PostId == id)
+                                       .Include(p => p.User)
+                                       .FirstOrDefault();
             return View(post);
         }
     }
