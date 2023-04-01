@@ -15,7 +15,7 @@
                         <ul class="dropdown-menu user-function dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="/ho-so/${user.userId}">Hồ sơ</a></li>
                             <li><a class="dropdown-item" href="/ho-so/${user.userId}/tu-truyen">Tủ truyện</a></li>
-                            <li><a class="dropdown-item" href="/ho-so/${user.userId}/truyen-da-dang">Tủ truyện</a></li>
+                            <li><a class="dropdown-item" href="/ho-so/${user.userId}/truyen-da-dang">Truyện đã đăng</a></li>
                             <li><a class="dropdown-item" href="/dang-truyen">Đăng tải</a></li>
                         </ul>
                     </div>`;

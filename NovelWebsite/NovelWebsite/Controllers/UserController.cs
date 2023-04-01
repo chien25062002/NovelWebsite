@@ -21,7 +21,13 @@ namespace NovelWebsite.Controllers
         }
 
         [Route("{id}/tu-truyen")]
-        public IActionResult BookShelf(int id)
+        public IActionResult Bookshelf(int id)
+        {
+            return View();
+        }
+
+        [Route("{id}/truyen-da-dang")]
+        public IActionResult BookUpload(int id)
         {
             return View();
         }
