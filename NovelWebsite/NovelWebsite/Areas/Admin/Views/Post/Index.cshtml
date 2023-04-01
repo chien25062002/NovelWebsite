@@ -86,11 +86,13 @@
                                             <a href="/Admin/Post/AddOrUpdatePost?id=@item.PostId">@item.Title</a>
                                         </span>
                                         <span class="float-end col-md-2">
-                                            <i class="fa fa-edit"></i>
-                                            <a href="/Admin/Post/AddOrUpdatePost?id=@item.PostId">Edit</a>
-                                            |
-                                            <i class="fa fa-close"></i>
-                                            <a href="/Admin/Post/DeletePost?id=@item.PostId">Delete</a>
+                                            <span class="control-button">
+                                                    <i class="fa fa-edit"></i>
+                                                    <a href="/Admin/Post/AddOrUpdatePost?id=@item.PostId">Edit</a>
+                                                    |
+                                                    <i class="fa fa-close"></i>
+                                                    <a href="/Admin/Post/DeletePost?id=@item.PostId">Delete</a>
+                                            </span>   
                                         </span>
                                         <span class="user-post-name col-md-12">
                                             Written by @item.User.UserName - @item.CreatedDate
