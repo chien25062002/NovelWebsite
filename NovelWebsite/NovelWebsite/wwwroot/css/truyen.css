@@ -7,6 +7,13 @@
     margin: 20px auto;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+/* * {
+  overflow-x: hidden;
+} */
+
 .book--img {
     height: 200px;
     width: 150px;
@@ -506,4 +513,56 @@ i.info-icon {
 #editor {
     border: 1px solid #cacaca;
 }
+
+/*mobile &tablet*/
+@media only screen and (max-width: 63.9375em) {
+    * {
+        font-size: 12px;
+        padding-left: 3px;
+    }
+
+    p {
+        /* width: calc(100vw); */
+        font-size: 12px !important;
+    }
+
+    ul.list-group.list-group-flush {
+        max-width: 100%;
+    }
+    /* h4 {
+    width: 90%;
+  } */
+    .content--nav,
+    .book--information,
+    .book--info,
+    .nav,
+    .content--nav-wrap,
+    p.go--discuss,
+    .card.author,
+    .like-more,
+    .book--content-detail-intro,
+    ul.list-group.list-group-flush,
+    div#book--content-id,
+    .col-md-3,
+    .row,
+    div#book--rate-id {
+        max-width: 100%;
+    }
+
+    .fa-user,
+    .fa-right-to-bracket {
+        display: none;
+    }
+    /* .modal-title {
+    display: none;
+  } */
+    .login a {
+        font-size: 12px;
+    }
+
+    .like-more-list {
+        margin: 0;
+    }
+}
+
 
