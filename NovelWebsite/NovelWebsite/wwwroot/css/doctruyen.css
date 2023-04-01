@@ -76,7 +76,14 @@
     font-size: 20px;   
 }
 
-.box-ads {
+
+
+/*.control-box {
+    width: 290px;*/
+/*    margin: auto;*/
+/*}*/
+
+.box-ads, .control-box {
     margin-top: 20px;
 }
 
@@ -105,7 +112,7 @@
     color: inherit;
 }
 
-.quangcaotruyen, .control-box, .comment-section {
+.quangcaotruyen, .comment-section {
     max-width: 900px;
     margin: 0 auto;
 }
@@ -116,26 +123,29 @@
 
 .control-box-content {
     display: flex;
-    justify-content: center;
-}
-
-.control-box-content a, .control-box-content i {
-    font-size: 20px;
+    justify-content: space-between;
 }
 
 .control-box-content a {
-    background-color: antiquewhite;
+    font-size: 18px;
+/*    color: #fff;*/
+}
+
+/*.control-box-content a {
+    padding: 5px;
+    background-color: #f6c594;
     border: 1px solid;
 }
 
 .control-box-content a:hover {
     background-color: #f6c594;
     border: 1px solid;
+}*/
+
+.control-box-content i {
+    color: inherit;
 }
 
-.control-box-content i:nth-child(2) {
-    margin: auto 10px;
-}
 
 .control-area button, .control-area a {
     padding: 0;
@@ -315,20 +325,26 @@
 
 .theme-value i {
     position: absolute;
-    top: 10px;
+    top: 9px;
     left: 9px;
+    bottom: 9px;
+    right: 9px;
     font-size: 14px;
 }
 
 .font-value {
-    border: 1px solid;
-    line-height: 34px;
+    /*border: 1px solid;*/
+/*    line-height: 1.8;*/
     width: 78px;
     height: 34px;
     border: 1px solid;
     border-radius: 5px;
     font-size: 16px;
-    text-align: center;
+    display: flex;
+}
+
+.font-name {
+    margin: auto;
 }
 
 .font-value:hover {
@@ -352,8 +368,12 @@
 }
 
 .active {
-    border: 1px solid red;
-    color: red;
+    border: 2px solid #6c757d;
+    color: #6c757d;
+}
+
+.active:nth-child(7) {
+    color: #fff;
 }
 
 .active i {
@@ -425,3 +445,14 @@ a.closemark:hover {
     border: none;
     margin-top: 10px;
 }
+
+.input-comment {
+    padding: 0;
+    margin-left: 10.5px;
+}
+
+.submit-btn-wrap-chapter {
+    padding-left: 54.5px;
+    width: 100px;
+}
+

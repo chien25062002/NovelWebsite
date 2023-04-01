@@ -34,8 +34,20 @@
     <!-- We use those styles to show code examples, you should remove them in your application.-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism.css">
     <link href="~/dist/css/examples.css" rel="stylesheet">
+    <link href="~/css/truyen.css" rel="stylesheet">
+    <link href="~/css/boloc.css" rel="stylesheet">
+    <link href="~/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script type="text/javascript" src="~/js/scrollbutton.js"></script>
+        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -48,7 +60,12 @@
         // Bootstrap ID
         gtag('config', 'UA-118965717-5');
     </script>
+    <script type="text/javascript" src="~/tinymce/js/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript" src="~/js/tinymcescript.js"></script>
     <link href="~/dist/vendors/@@coreui/chartjs/css/coreui-chartjs.css" rel="stylesheet">
+    <script type="text/javascript" src="~/ckeditor5-build-decoupled-document/ckeditor.js"></script>
+    @*<script type="text/javascript" src="~/ckeditor5-build-decoupled-document/ckeditor.js.map" defer></script>*@
+    <script type="text/javascript" src="~/ckeditor5-build-decoupled-document/translations/vi.js"></script>
 </head>
 <body>
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
@@ -90,8 +107,8 @@
                     </svg> Tin tức
                 </a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="~/dist/base/accordion.html"><span class="nav-icon"></span> Tất cả bài viết</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/dist/base/breadcrumb.html"><span class="nav-icon"></span> Viết bài mới</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Post/Index"><span class="nav-icon"></span> Tất cả bài viết</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Post/AddOrUpdatePost"><span class="nav-icon"></span> Viết bài mới</a></li>
                 </ul>
             </li>
             <li class="nav-group">
@@ -101,10 +118,10 @@
                     </svg> Truyện
                 </a>
                 <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="~/dist/buttons/buttons.html"><span class="nav-icon"></span> Tất cả truyện</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/dist/buttons/button-group.html"><span class="nav-icon"></span> Đăng truyện mới</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/dist/buttons/dropdowns.html"><span class="nav-icon"></span> Thể loại</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/dist/buttons/dropdowns.html"><span class="nav-icon"></span> Thẻ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Book/ListOfBooks"><span class="nav-icon"></span> Tất cả truyện</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Book/AddOrUpdateBook"><span class="nav-icon"></span> Đăng truyện mới</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Category/Index"><span class="nav-icon"></span> Thể loại</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin/Tag/Index"><span class="nav-icon"></span> Thẻ</a></li>
                 </ul>
             </li>
             <li class="nav-item">
@@ -112,6 +129,13 @@
                     <svg class="nav-icon">
                         <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-chart-pie"></use>
                     </svg> Email
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Admin/User/Index">
+                    <svg class="nav-icon">
+                        <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
+                    </svg> Người dùng
                 </a>
             </li>
             <li class="nav-group">

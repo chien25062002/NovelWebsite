@@ -1,35 +1,34 @@
-﻿<div class="book--information">
+﻿@model BookEntity
+
+<link rel="stylesheet" href="~/css/truyen.css">
+
+<div class="book--information">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="book--img">
                 <a href="javascript:void(0)">
-                    <img src="/image/test.jpg">
+                    <img src="@Model.Avatar">
                 </a>
             </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10">
             <div class="book--info">
-                <h1>Thanh Liên Chí Đình - Tên khác của truyện</h1>
+                <h1>@Model.BookName</h1>
                 <p class="book--info-tag">
-                    <a href="javascript:void(0)">Tiêu thập nhất mạc</a>
-                    <a href="javascript:void(0)">Đang ra</a>
-                    <a href="javascript:void(0)">Tiên hiệp</a>
+                    <a href="javascript:void(0)">@Model.Author.AuthorName</a>
+                    <a href="javascript:void(0)">@Model.BookStatus.BookStatusName</a>
+                    <a href="javascript:void(0)">@Model.Category.CategoryName</a>
                 </p>
-                <p class="book--info-intro">Tiên giới, Thanh Liên Tiên vực. Thanh Liên sơn mạch, nhất tọa...</p>
                 <p>
-                    <span class="like">xxx</span>
+                    <span class="like">@Model.Likes</span>
                     <i class="no-italic">Yêu thích</i>
                     <i>|</i>
 
-                    <span class="view">xxx</span>
+                    <span class="view">@ViewData["Views"]</span>
                     <i class="no-italic">Lượt xem</i>
                     <i>|</i>
 
-                    <span class="follow">xxx</span>
-                    <i class="no-italic">Theo dõi</i>
-                    <i>|</i>
-
-                    <span class="nominate">xxx</span>
+                    <span class="nominate">@Model.Recommends</span>
                     <i class="no-italic">Đề cử</i>
                 </p>
                 <p class="book--info-buttons">
@@ -65,49 +64,7 @@
             <div class="col-md-9">
                 <div class="book--content-detail">
                     <div class="book--content-detail-intro">
-                        <p>
-                            Tiên giới, Thanh Liên Tiên vực.
-                            <br>
-                            Thanh Liên sơn mạch, nhất tọa rường cột chạm trổ kim sắc gác lửng, bảng hiệu bên trên viết "Thanh Liên lâu" ba chữ to.
-                            <br>
-                            Vương Trường Sinh cùng Uông Như Yên đứng tại dày đặc linh vị phía trước, bọn hắn đốt lên đàn hương, cắm ở lư hương bên trong, đi ra ngoài.
-                            <br>
-                            Mười vạn danh Vương gia tử đệ sắp xếp chỉnh tề đứng vững, nét mặt của bọn hắn nghiêm túc.
-                            <br>
-                            Vương Trường Sinh mở miệng nói ra: "Hiện tại nói với các ngươi nói một cái gia tộc chúng ta khởi nguyên, này sự muốn theo một cái gọi Đông Ly giới Hạ vị giao diện nói lên, chúng ta Vương gia xuất thân Đông Ly giới Đông Hoang một cái tiểu quốc, đương thời chỉ là một cái tiểu gia tộc ······ "
-                            <br>
-                            <br>
-                            Nhất cái tu tiên tiểu tộc, tại lịch đại tiên tổ cố gắng dưới, chậm rãi phát triển thành nhất cái Tiên Tộc, đây là nhất cái tiểu gia tộc phát triển lớn mạnh lịch sử, trong lúc đó có ngọt bùi cay đắng, cũng có tranh quyền đoạt lợi.
-                            <br>
-                            Vương gia Công pháp
-                            <br>
-                            « Quỳ Thủy chân kinh »: Tạm định Địa phẩm, chỉ có nửa phần trên, có thể từ Luyện Khí một tầng tu luyện tới Kết Đan cửu tầng.
-                            <br>
-                            « Thiên Âm bảo điển »: Âm luật Công pháp, tạm chưa định phẩm giai, có thể từ Luyện Khí một tầng tu luyện tới Kết Đan ba tầng.
-                            <br>
-                            « Thanh Minh Kiếm kinh 》: Kiếm đạo Công pháp, Huyền phẩm Công pháp, có thể từ Luyện Khí một tầng tu luyện tới Nguyên Anh Cửu tầng.
-                            <br>
-                            « Thiên Diễm bảo điển »: Hỏa thuộc tính Công pháp, Huyền phẩm Công pháp, có thể từ Luyện Khí một tầng tu luyện Nguyên Anh Cửu tầng.
-                            <br>
-                            « Cửu Nguyên Kim Ngọc quyết »: Kim thuộc tính Công pháp, Huyền phẩm Công pháp, cao nhất có thể lấy tu luyện tới Nguyên Anh Cửu tầng.
-                            <br>
-                            « Trường Xuân Hóa Nguyên công »: Mộc thuộc tính Công pháp, Huyền phẩm Công pháp, cao nhất có thể lấy tu luyện tới Kết Đan Cửu tầng.
-                            <br>
-                            « Ngự Linh Mật sách »: Huyền phẩm Công pháp, cao nhất có thể lấy tu luyện tới Kết Đan Cửu tầng.
-                            <br>
-                            « Hàn Nguyệt Tịch Nguyên quyết »: Huyền phẩm Công pháp, cao nhất có thể lấy tu luyện tới Kết Đan Cửu tầng.
-                            <br>
-                            - Bảo vật đẳng cấp
-                            <br>
-                            Pháp khí, Pháp bảo, Linh bảo, Thông Thiên linh bảo, Huyền Thiên chi bảo, Tiên khí.
-                            <br>
-                            Thông Thiên linh bảo phân vi hạ trung thượng tam cái cấp bậc, Huyền Thiên chi bảo phân vi Tiên Thiên và Hậu Thiên, Huyền Thiên tàn bảo uy lực yếu tại Huyền Thiên chi bảo, thuộc về không trọn vẹn phẩm, Pháp lực tiêu hao đặc biệt lớn,
-                            <br>
-                            <br>
-                            <br>
-                            P/s: các bạn có thể donate ủng hộ để cvt có thể ra chương nhanh nhất vào các stk sau :D
-                            - momo: 0989680713 - Vietinbank: 103869728507 Mạc Chí Công
-                        </p>
+                        @Html.Raw(Model.Introduce)
                     </div>
                     <div class="book--content-detail-state">
                         <ul class="list-group list-group-flush">
@@ -115,24 +72,14 @@
                                 <b>Người đăng</b>
                                 <div class="detail">
                                     <p class="tag-wrap">
-                                        <a href="javascript:void(0)">mac</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Chương mới</b>
-                                <div class="detail">
-                                    <p class="cf">
-                                        <a href="javascript:void(0)">Chương 3698 xuất chinh dị giới</a>
-                                        <i>|</i>
-                                        <em class="time">11 giờ trước</em>
+                                        <a href="javascript:void(0)">@Model.User.UserName</a>
                                     </p>
                                 </div>
                             </li>
                             <li class="list-group-item">
                                 <b>Tags</b>
                                 <div class="detail">
-                                    <p class="tag-wrap">
+                                    <p class="tag-wrap" id="book-tag">
                                         <a href="javascript:void(0)">thục sơn</a>
                                         <a href="javascript:void(0)">lệ chi</a>
                                         <a href="javascript:void(0)">chủng điền văn</a>
@@ -150,142 +97,305 @@
                     <div class="user--comment-discuss-wrap">
                         <div class="user--comment-discuss-list">
                             <div class="user--comment-discuss-list-title">Viết bình luận</div>
-                            <ul class="list-group list-group-flush">
+                            
+                            <ul class="list-group list-group-flush" id="list-comment">
                                 <li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
                                                 <img src="/image/test3.jpg">
                                             </a>
                                         </div>
                                         <div class="input-comment col">
-                                            <textarea></textarea>
+                                            <div id="toolbar-container"></div>
+                                            <div id="editor"></div>
                                         </div>
+
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
-                                                <button class="btn btn-primary">Đăng</button>
+                                                <button type="button" class="btn btn-primary" onclick="AddBookComment()">Đăng</button>
+                                            </div>
+                                        </div>
+                                        <!-- <form class="form-horizontal">
+                                            <input type="hidden" name="" value="testing" />
+                                            <button class="btn btn-primary submit-btn" type="submit">Đăng</button>
+                                        </form> -->
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row user--comment-section">
+                                        <div class="user--photo col-md-auto">
+                                            <a href="javascript:void(0)">
+                                                <img src="/image/test3.jpg">
+                                            </a>
+                                        </div>
+                                        <div class="col user--discussion-main">
+                                            <div class="user--discussion">
+                                                <p class="users">
+                                                    <a href="javascript:void(0)">kfc group</a>
+                                                    <span>bá tánh bình dân</span>
+                                                </p>
+                                                <p class="comments">
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                </p>
+                                                <p class="info--wrap">
+                                                    <span>2 hrs</span>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-comment-dots info-icon"></i>
+                                                        0 trả lời
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                        0
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div class="user--discussion-child">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">
+                                                        <div class="row user--comment-section">
+                                                            <div class="user--photo col-md-auto">
+                                                                <a href="javascript:void(0)">
+                                                                    <img src="/image/test3.jpg">
+                                                                </a>
+                                                            </div>
+                                                            <div class="user--discussion-main col">
+                                                                <div class="user--discussion">
+                                                                    <p class="users">
+                                                                        <a href="javascript:void(0)">kfc group</a>
+                                                                        <span>bá tánh bình dân</span>
+                                                                    </p>
+                                                                    <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
+                                                                    <p class="info--wrap">
+                                                                        <span>2 hrs</span>
+                                                                        <a href="javascript:void(0)">
+                                                                            <i class="fa-regular fa-comment-dots info-icon"></i>
+                                                                            0 trả lời
+                                                                        </a>
+                                                                        <a href="javascript:void(0)">
+                                                                            <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                                            0
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="row user--comment-section">
+                                                            <div class="user--photo col-md-auto">
+                                                                <a href="javascript:void(0)">
+                                                                    <img src="/image/test3.jpg">
+                                                                </a>
+                                                            </div>
+                                                            <div class="input-comment col">
+
+                                                                <textarea></textarea>
+                                                            </div>
+                                                            <div class="submit-btn col-md-12">
+                                                                <div class="submit-btn-wrap">
+                                                                    <button class="btn btn-primary">Đăng</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- <form class="form-horizontal">
+                                                                <input type="hidden" name="" value="testing" />
+                                                                <button class="btn btn-primary submit-btn" type="submit">Đăng</button>
+                                                            </form> -->
+                                                        </div>
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
                                                 <img src="/image/test3.jpg">
                                             </a>
                                         </div>
-                                        <div class="user--discussion col">
-                                            <p class="users">
-                                                <a href="javascript:void(0)">kfc group</a>
-                                                <span>bá tánh bình dân</span>
-                                            </p>
-                                            <p class="comments">
-                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
-                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
-                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
-                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
-                                                truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
-                                            </p>
-                                            <p class="info--wrap">
-                                                <span>2 hrs</span>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-regular fa-comment-dots info-icon"></i>
-                                                    0 trả lời
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                    0
-                                                </a>
-                                            </p>
+                                        <div class="col user--discussion-main">
+                                            <div class="user--discussion">
+                                                <p class="users">
+                                                    <a href="javascript:void(0)">kfc group</a>
+                                                    <span>bá tánh bình dân</span>
+                                                </p>
+                                                <p class="comments">
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                </p>
+                                                <p class="info--wrap">
+                                                    <span>2 hrs</span>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-comment-dots info-icon"></i>
+                                                        0 trả lời
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                        0
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div class="user--discussion-child">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">
+                                                        <div class="row user--comment-section">
+                                                            <div class="user--photo col-md-auto">
+                                                                <a href="javascript:void(0)">
+                                                                    <img src="/image/test3.jpg">
+                                                                </a>
+                                                            </div>
+                                                            <div class="user--discussion-main col">
+                                                                <div class="user--discussion">
+                                                                    <p class="users">
+                                                                        <a href="javascript:void(0)">kfc group</a>
+                                                                        <span>bá tánh bình dân</span>
+                                                                    </p>
+                                                                    <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
+                                                                    <p class="info--wrap">
+                                                                        <span>2 hrs</span>
+                                                                        <a href="javascript:void(0)">
+                                                                            <i class="fa-regular fa-comment-dots info-icon"></i>
+                                                                            0 trả lời
+                                                                        </a>
+                                                                        <a href="javascript:void(0)">
+                                                                            <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                                            0
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="row user--comment-section">
+                                                            <div class="user--photo col-md-auto">
+                                                                <a href="javascript:void(0)">
+                                                                    <img src="/image/test3.jpg">
+                                                                </a>
+                                                            </div>
+                                                            <div class="input-comment col">
+
+                                                                <textarea></textarea>
+                                                            </div>
+                                                            <div class="submit-btn col-md-12">
+                                                                <div class="submit-btn-wrap">
+                                                                    <button class="btn btn-primary">Đăng</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- <form class="form-horizontal">
+                                                                <input type="hidden" name="" value="testing" />
+                                                                <button class="btn btn-primary submit-btn" type="submit">Đăng</button>
+                                                            </form> -->
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="list-group-item">
-                                    <div class="row">
+                                    <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
                                                 <img src="/image/test3.jpg">
                                             </a>
                                         </div>
-                                        <div class="user--discussion col">
-                                            <p class="users">
-                                                <a href="javascript:void(0)">kfc group</a>
-                                                <span>bá tánh bình dân</span>
-                                            </p>
-                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
-                                            <p class="info--wrap">
-                                                <span>2 hrs</span>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-regular fa-comment-dots info-icon"></i>
-                                                    0 trả lời
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                    0
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="user--photo col-md-auto">
-                                            <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
-                                            </a>
-                                        </div>
-                                        <div class="user--discussion col">
-                                            <p class="users">
-                                                <a href="javascript:void(0)">kfc group</a>
-                                                <span>bá tánh bình dân</span>
-                                            </p>
-                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
-                                            <p class="info--wrap">
-                                                <span>2 hrs</span>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-regular fa-comment-dots info-icon"></i>
-                                                    0 trả lời
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                    0
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="list-group-item">
-                                    <div class="row">
-                                        <div class="user--photo col-md-auto">
-                                            <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
-                                            </a>
-                                        </div>
-                                        <div class="user--discussion col">
-                                            <p class="users">
-                                                <a href="javascript:void(0)">kfc group</a>
-                                                <span>bá tánh bình dân</span>
-                                            </p>
-                                            <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
-                                            <p class="info--wrap">
-                                                <span>2 hrs</span>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-regular fa-comment-dots info-icon"></i>
-                                                    0 trả lời
-                                                </a>
-                                                <a href="javascript:void(0)">
-                                                    <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                    0
-                                                </a>
-                                            </p>
+                                        <div class="col user--discussion-main">
+                                            <div class="user--discussion">
+                                                <p class="users">
+                                                    <a href="javascript:void(0)">kfc group</a>
+                                                    <span>bá tánh bình dân</span>
+                                                </p>
+                                                <p class="comments">
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                    truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay
+                                                </p>
+                                                <p class="info--wrap">
+                                                    <span>2 hrs</span>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-comment-dots info-icon"></i>
+                                                        0 trả lời
+                                                    </a>
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                        0
+                                                    </a>
+                                                </p>
+                                            </div>
+                                            <div class="user--discussion-child">
+                                                <ul class="list-group list-group-flush">
+                                                    <li class="list-group-item">
+                                                        <div class="row user--comment-section">
+                                                            <div class="user--photo col-md-auto">
+                                                                <a href="javascript:void(0)">
+                                                                    <img src="/image/test3.jpg">
+                                                                </a>
+                                                            </div>
+                                                            <div class="user--discussion-main col">
+                                                                <div class="user--discussion">
+                                                                    <p class="users">
+                                                                        <a href="javascript:void(0)">kfc group</a>
+                                                                        <span>bá tánh bình dân</span>
+                                                                    </p>
+                                                                    <p class="comments">truyện hay truyện hay truyện hay truyện hay truyện hay truyện hay </p>
+                                                                    <p class="info--wrap">
+                                                                        <span>2 hrs</span>
+                                                                        <a href="javascript:void(0)">
+                                                                            <i class="fa-regular fa-comment-dots info-icon"></i>
+                                                                            0 trả lời
+                                                                        </a>
+                                                                        <a href="javascript:void(0)">
+                                                                            <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                                            0
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item">
+                                                        <div class="row user--comment-section">
+                                                            <div class="user--photo col-md-auto">
+                                                                <a href="javascript:void(0)">
+                                                                    <img src="/image/test3.jpg">
+                                                                </a>
+                                                            </div>
+                                                            <div class="input-comment col">
+
+                                                                <textarea></textarea>
+                                                            </div>
+                                                            <div class="submit-btn col-md-12">
+                                                                <div class="submit-btn-wrap">
+                                                                    <button class="btn btn-primary">Đăng</button>
+                                                                </div>
+                                                            </div>
+                                                            <!-- <form class="form-horizontal">
+                                                                <input type="hidden" name="" value="testing" />
+                                                                <button class="btn btn-primary submit-btn" type="submit">Đăng</button>
+                                                            </form> -->
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
                             </ul>
-                            <p class="go--discuss">
-                                <a href="javascript:void(0)">Thêm bình luận</a>
-                            </p>
+                            @*<p class="go--discuss">
+                            <a href="javascript:void(0)">Thêm bình luận</a>
+                            </p>*@
                         </div>
                     </div>
                 </div>
@@ -295,13 +405,13 @@
                 <div class="card author">
                     <div class="author--photo-wrap">
                         <a href="javascript:void(0)" class="author--photo">
-                            <img class="card-img-top" src="/image/test2.jpg" alt="Card image">
+                            <img class="card-img-top" src="@Model.User.Avatar" alt="Card image">
                         </a>
                     </div>
 
                     <div class="card-body">
-                        <h4 class="card-title">Tiểu thập nhất mạc</h4>
-                        <ul class="list-group">
+                        <h4 class="card-title">@Model.Author.AuthorName</h4>
+                        <ul class="list-group" id="book-same-author">
                             <li class="list-group-item">
                                 <h5>Truyện cùng tác giả</h5>
                             </li>
@@ -318,13 +428,13 @@
                 <div class="card author">
                     <div class="author--photo-wrap">
                         <a href="javascript:void(0)" class="author--photo">
-                            <img class="card-img-top" src="/image/test2.jpg" alt="Card image">
+                            <img class="card-img-top" src="@Model.User.Avatar" alt="Card image">
                         </a>
                     </div>
 
                     <div class="card-body">
-                        <h4 class="card-title">Tiểu thập nhất mạc</h4>
-                        <ul class="list-group">
+                        <h4 class="card-title">@Model.User.UserName</h4>
+                        <ul class="list-group" id="book-same-user">
                             <li class="list-group-item">
                                 <h5>Truyện cùng người đăng</h5>
                             </li>
@@ -341,7 +451,7 @@
                 <div class="like-more">
                     <h4>Có thể bạn sẽ thích</h4>
                     <div class="like-more-list">
-                        <ul class="list-group list-group-flush">
+                        <ul class="list-group list-group-flush" id="book-same-like">
                             <li class="list-group-item">
                                 <div class="like-more-img">
                                     <a href="javascript:void(0)">
@@ -351,7 +461,7 @@
                                 <h4 class="relate-content">
                                     <a href="/html/truyen.html">Tu chân thế giới</a>
                                     <p>Phương tưởng</p>
-                                    <a href="/html/truyen.html" class="btn index__truyenmoito--cardbtn truyen-btn">
+                                    <a href="/html/truyen.html" class="btn index__left-wrap--cardbtn truyen-btn">
                                         Đọc truyện
                                         <i class="fa-solid fa-chevron-right"></i>
                                     </a>
@@ -429,153 +539,32 @@
         <div class="book--chapter-wrap">
             <div class="volume">
                 <h4>Danh sách chương</h4>
-                <ul class="list-group list-group-horizontal row">
+                <ul class="list-group list-group-horizontal row" id="list-chuong">
                     <li class="list-group-item col-4">
                         <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
                     </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
-                    <li class="list-group-item col-4">
-                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                    </li>
+
                 </ul>
             </div>
             <div class="book--pagination">
                 <ul class="pagination justify-content-end">
-                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:void(0)">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
                     <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
                     <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
                     <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
                     <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)"><i class="fa-solid fa-angles-right"></i></a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">Trang cuối</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="javascript:void(0)">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -586,7 +575,8 @@
             <div class="user--comment-discuss-wrap">
                 <div class="user--comment-discuss-list">
                     <div class="user--comment-discuss-list-title">Viết đánh giá</div>
-                    <ul class="list-group list-group-flush">
+                    
+                    <ul class="list-group list-group-flush" id="list-review">
                         <li class="list-group-item">
                             <div class="row">
                                 <div class="user--photo col-md-auto">
@@ -595,11 +585,10 @@
                                     </a>
                                 </div>
                                 <div class="input-comment col">
-                                    <textarea></textarea>
                                 </div>
                                 <div class="submit-btn col-md-12">
                                     <div class="submit-btn-wrap">
-                                        <button class="btn btn-primary">Đăng</button>
+                                        <button type="button" class="btn btn-primary" onclick="AddReview(@Model.BookId)">Đăng</button>
                                     </div>
                                 </div>
                             </div>
@@ -729,11 +718,28 @@
                             </div>
                         </li>
                     </ul>
-                    <p class="go--discuss">
-                        <a href="javascript:void(0)">Thêm đánh giá</a>
-                    </p>
+
+                    @*<p class="go--discuss">
+                    <a href="javascript:void(0)">Thêm đánh giá</a>
+                    </p>*@
                 </div>
             </div>
         </div>
     </div>
 </div>
+@*<script type="text/javascript" src="~/js/ckeditorscript.js"></script>*@
+
+@section Scripts{
+    <script>
+        var bookId = `@Model.BookId`;
+        console.log(bookId);
+    </script>
+
+    @*<script type="text/javascript" src="~/js/ckeditorscript.js"></script>*@
+    <script type="text/javascript" src="~/content/book.js"></script>
+    <script type="text/javascript" src="~/content/comment.js"></script>
+    <script type="text/javascript" src="~/content/review.js"></script>
+
+}
+
+

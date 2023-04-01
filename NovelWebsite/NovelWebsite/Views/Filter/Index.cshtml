@@ -1,124 +1,135 @@
-﻿<div class="rank-box box-center row">
+﻿@{
+    int pageSize = (int)ViewBag.pageSize;
+    int pageCount = (int)ViewBag.pageCount;
+    int pageNumber = (int)ViewBag.pageNumber;
+    string name = ViewBag.searchName as string;
+}
+
+
+<link rel="stylesheet" href="~/css/boloc.css">
+
+
+<div class="rank-box box-center row">
     <div class="rank-box-list col-3">
         <form method="post" action="/Filter/Index">
-        <div class="rank-box-item-box">
-            <h4>Tình trạng</h4>
-            <ul class="nav nav-pills" id="filter-status">
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Toàn bộ</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Đang ra</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Hoàn thành</a>
-                </li>
-            </ul>
-        </div>
+            <div class="rank-box-item-box">
+                <h4>Tình trạng</h4>
+                <ul class="nav nav-pills" id="filter-status">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Toàn bộ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Đang ra</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Hoàn thành</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="rank-box-item-box">
-            <h4>Xếp hạng</h4>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Không xếp hạng</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Xem nhiều</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Đề cử</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Yêu thích</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Theo dõi</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Bình luận</a>
-                </li>
-            </ul>
-        </div>
+            <div class="rank-box-item-box">
+                <h4>Xếp hạng</h4>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Không xếp hạng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Xem nhiều</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Đề cử</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Yêu thích</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Theo dõi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Bình luận</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="rank-box-item-box">
-            <h4>Số chương</h4>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Toàn bộ</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">< 300</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">300 - 1000</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">1000 - 2000</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">> 2000</a>
-                </li>
-            </ul>
-        </div>
+            <div class="rank-box-item-box">
+                <h4>Số chương</h4>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Toàn bộ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">< 300</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">300 - 1000</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">1000 - 2000</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">> 2000</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="rank-box-item-box">
-            <h4>Sắp xếp theo</h4>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Mới cập nhật</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Truyện mới</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Số chương</a>
-                </li>
-            </ul>
-        </div>
+            <div class="rank-box-item-box">
+                <h4>Sắp xếp theo</h4>
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Mới cập nhật</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Truyện mới</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Số chương</a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="rank-box-item-box">
-            <h4>Tags</h4>
-            <ul class="nav nav-pills" id="filter-tags">
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Không lọc</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Cô nhi</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Đạo tặc</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Đặc công</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Cô nhi</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Đạo tặc</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Đặc công</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Cô nhi</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Đạo tặc</a>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript:void(0)">Đặc công</a>
-                </li>
-            </ul>
-        </div>
+            <div class="rank-box-item-box">
+                <h4>Tags</h4>
+                <ul class="nav nav-pills" id="filter-tags">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Không lọc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Cô nhi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Đạo tặc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Đặc công</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Cô nhi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Đạo tặc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Đặc công</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Cô nhi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Đạo tặc</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)">Đặc công</a>
+                    </li>
+                </ul>
+            </div>
 
-        <button type="submit" class="btn btn-primary btn-filter">
-            Lọc truyện
-            <i class="fa-solid fa-chevron-right"></i>
-        </button>
+            <button type="submit" class="btn btn-primary btn-filter">
+                Lọc truyện
+                <i class="fa-solid fa-chevron-right"></i>
+            </button>
         </form>
     </div>
-    
+
     <div class="rank-box-main col-9">
         <div class="rank-box-main-header">
             <h4>Bộ lọc</h4>
@@ -171,17 +182,17 @@
                                     </div>
                                     <div class="book--info">
                                         <h3>
-                                            <a href="/truyen/@book.Slug">@book.BookName</a>
+                                            <a href="/truyen/@book.Slug-@book.BookId">@book.BookName</a>
                                         </h3>
                                         <div class="book-state">
                                             <a href="/tac-gia/@book.AuthorId/@book.Author.Slug">@book.Author.AuthorName</a>
                                             <i>|</i>
                                             <p>@book.BookStatus.BookStatusName</p>
                                             <i>|</i>
-                                            <p>@book.NumberOfChapters</p>
+                                            <p>@book.NumberOfChapters chương</p>
                                         </div>
                                         <div class="describe">
-                                            @book.Introduce
+                                            @Html.Raw(book.Introduce)
                                         </div>
                                     </div>
                                     <div class="book--info-buttons">
@@ -189,10 +200,10 @@
                                             <a class="btn" href="/truyen/@book.Slug">Đọc truyện</a>
                                         </p>
                                     </div>
-                        </li>
+                                </li>
                             }
                         }
-                        <li class="list-group-item">
+                        @*<li class="list-group-item">
                             <div class="book--img">
                                 <a href="javascript:void(0)">
                                     <img src="/image/test3.jpg" class="book--imgcss">
@@ -228,79 +239,36 @@
                                     <a class="btn" href="javascript:void(0)">Chi tiết</a>
                                 </p>
                             </div>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>
         </div>
         <div class="rank-box-main-pagination">
             <ul class="pagination justify-content-end">
-                <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                <li class="page-item"><p class="etc">...</p></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">Trang cuối</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="/bo-loc?pageNumber=@Math.Max(1, pageNumber - 1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                @{
+                    for (int i = 1; i <= pageCount; ++i)
+                    {
+                            <li class="page-item"><a class="page-link" href="/bo-loc?pageNumber=@i">@i</a></li>
+                    }
+                }
+                <li class="page-item">
+                    <a class="page-link" href="/bo-loc?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 </div>
 
 @section Scripts{
-    <script>
-        $.ajax({
-            url: "/Filter/GetAllTags",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#filter-tags').html("");
-                data.forEach((item,index) => {
-                    let row = ` <li class="nav-item">
-                                        <a href="javascript:void(0)">${item.tagName}</a>
-                                    </li>`;
-                    $('#filter-tags').append(row);
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        });
-
-        $.ajax({
-            url: "/Filter/GetBookStatuses",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#filter-status').html("");
-                data.forEach((item,index) => {
-                    let row = `<li class="nav-item">
-                                    <a href="javascript:void(0)">${item.bookStatusName}</a>
-                                </li>`;
-                    $('#filter-status').append(row);
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        })
-
-        $.ajax({
-            url: "/Home/GetAllCategories",
-            type: "GET",
-            dataType: "json",
-            beforeSend: function(){},
-            success: function(data){
-                $('#type-list').html(`<i>·</i>`);
-                data.forEach((item,index) => {
-                    let row = `<a href="javascript:void(0)" onclick="typeListClick(this)">${item.categoryName}</a><i>·</i>`;
-                    $('#type-list').append(row);
-                });
-            },
-            error: function(){},
-            complete: function(){}
-        });
-    </script>
+    <script type="text/javascript" src="~/js/filterbtn.js"></script>
+    <script type="text/javascript" src="~/content/filter.js"></script>
+   
 }

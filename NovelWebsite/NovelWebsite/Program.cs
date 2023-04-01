@@ -20,6 +20,9 @@ builder.Services.AddSession(cfg => {
     cfg.IdleTimeout = new TimeSpan(0, 30, 0);    
 });
 
+builder.Services.AddSingleton<IHostedService, CacheUpdateService>();
+builder.Services.AddMemoryCache();
+
 
 var app = builder.Build();
 
@@ -36,6 +39,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -52,6 +56,31 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllerRoute(
       name: "default",
       pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    endpoints.MapControllerRoute(
+      name: "reviews",
+      pattern: "review/{categoryId?}",
+      defaults: new { controller = "Review", action = "Index"});
+
+    endpoints.MapControllerRoute(
+     name: "filter",
+     pattern: "bo-loc/",
+     defaults: new { controller = "Filter", action = "Index" });
+
+    /*    endpoints.MapControllerRoute(
+          name: "truyen",
+          pattern: "truyen/{slug}-{createddate}{id}",
+          defaults: new {controller = "Book", action = "Index"});*/
+
+    /*    endpoints.MapControllerRoute(
+          name: "tintuc",
+          pattern: "tin-tuc/{slug}-{createddate}{id}",
+          defaults: new { controller = "Post", action = "Index" });
+
+        endpoints.MapControllerRoute(
+          name: "chuong",
+          pattern: "truyen/{slug}-{createddate}{id}-chuong-{chapternumber?}-{chapterslug?}",
+          defaults: new { controller = "Chapter", action = "Index" });*/
 });
 
 // Create Database If Not Exists

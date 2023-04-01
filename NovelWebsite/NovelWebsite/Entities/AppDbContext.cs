@@ -20,8 +20,8 @@ namespace NovelWebsite.Entities
         public DbSet<RoleEntity> Roles { get; set; }
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<ReviewEntity> Reviews { get; set; }
-
         public DbSet<TagEntity> Tags { get; set; }
+        public DbSet<BannerEntity> Banner { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CategoryEntity>().ToTable("Category");
@@ -38,6 +38,7 @@ namespace NovelWebsite.Entities
             modelBuilder.Entity<PostEntity>().ToTable("Post");
             modelBuilder.Entity<BookUserEntity>().ToTable("BookUser").HasKey(bu => new {bu.BookId, bu.UserId});
             modelBuilder.Entity<ReviewEntity>().ToTable("Review");
+            modelBuilder.Entity<BannerEntity>().ToTable("Banner");
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -5,6 +5,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NovelWebsite.Controllers
 {
+    [Route("/bo-loc")]
+    [Route("/{controller}")]
     public class FilterController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -13,14 +15,29 @@ namespace NovelWebsite.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult Index()
+
+        [Route("{searchName?}")]
+        [Route("{action}")]
+        public IActionResult Index(string? searchName, int categoryId = 0, int pageNumber = 1, int pageSize = 10)
         {
-            var query = _dbContext.Books.Where(b => b.IsDeleted == false)
+            var query = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false)
+                                        .Where(b => string.IsNullOrEmpty(searchName) || b.BookName.ToLower().Trim().Contains(searchName.ToLower().Trim()))
+                                        .Where(b => categoryId == 0 || b.CategoryId == categoryId)
                                         .Include(b => b.Author)
                                         .Include(b => b.BookStatus)
-                                        .ToList();
-            return View(query);
+                                        .OrderByDescending(b => b.CreatedDate);
+
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;
+            ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
+            ViewBag.searchName = searchName;
+
+            return View(query.Skip(pageSize * pageNumber - pageSize)
+                         .Take(pageSize)
+                         .ToList());
         }
+
+        [Route("{action}")]
 
         [HttpPost]
         public IActionResult Index(FilterModel filterModel)
@@ -89,10 +106,14 @@ namespace NovelWebsite.Controllers
             return View(filterAll);
         }
 
+        [Route("{action}")]
+
         public IActionResult GetBookStatuses()
         {
             return Json(_dbContext.BookStatuses.ToList());
         }
+
+        [Route("{action}")]
 
         public IActionResult GetAllTags()
         {

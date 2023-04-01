@@ -1,9 +1,21 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
+<link rel="stylesheet" href="~/css/admin/adminbook.css">
+
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
         <div class="row">
+            <div class="col-md-12">
+                <h4>Tìm kiếm truyện</h4>
+                <div class="search input-group float-md-start w-50 search-admin">
+                    <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
+                    <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
+                        <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
+                    </button>
+                </div>
+            </div>
             <div class="col-md-12">
                 <h4>Danh sách truyện</h4>
             </div>
@@ -17,6 +29,7 @@
                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
                                     </svg>
                                 </th>*@
+                                <th>STT</th>
                                 <th>Tên truyện</th>
                                 <th>Tác giả</th>
                                 <th>Thể loại</th>
@@ -25,15 +38,19 @@
                                 <th>Yêu thích</th>
                                 <th>Đề cử</th>
                                 <th>Tình trạng</th>
-                                <th>Cập nhật mới nhất</th>
+                                <th>Cập nhật mới</th>
                                 <th></th>
                             </tr>
                         </thead>
                         <tbody>
                             @{
+                                int i = 1;
                                 foreach (var item in Model)
                                 {
                                     <tr class="align-middle">
+                                        <td>
+                                            <div>@i</div>
+                                        </td>
                                         <td>
                                             <div>@item.BookName</div>
                                         </td>
@@ -68,38 +85,42 @@
                                                         <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
                                                     </svg>
                                                 </button>
-                                                <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="/truyen/@item.Slug-@item.BookId">Thông tin truyện</a>
+                                                    <a class="dropdown-item" href="/Admin/Book/AddOrUpdateBook?id=@item.BookId">Chỉnh sửa</a>
+                                                    <a class="dropdown-item text-danger" href="#">Xoá</a></div>
                                             </div>
                                         </td>
                                     </tr>
+                                    i++;
                                 }
                             }
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
+                            @*<tr class="align-middle">
+                                <td>
+                                    <div>Đây là tên truyện 1</div>
                                 </td>
                                 <td>
                                     <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
                                 </td>
                                 <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-paper-plane"></use>
-                                    </svg>
+                                    <div>Thể loại Vjp</div>
                                 </td>
                                 <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                                    </svg>
+                                    <div>xxx Chương</div>
                                 </td>
                                 <td>
-                                    <div class="small text-medium-emphasis">Last login</div>
+                                    <div>xxx Lượt xem</div>
+                                </td>
+                                <td>
+                                    <div>xxx Yêu thích</div>
+                                </td>
+                                <td>
+                                    <div>xxx Đề cử</div>
+                                </td>
+                                <td>
+                                    <div>Đang tiến hành</div>
+                                </td>
+                                <td>
                                     <div class="fw-semibold">10 sec ago</div>
                                 </td>
                                 <td>
@@ -109,12 +130,45 @@
                                                 <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
                                             </svg>
                                         </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
+                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Duyệt</a><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr>*@
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="box-footer">
+                    <div class="box-footer-clearfix">
+                        @*<ul class="pagination pagination-sm no-margin pull-right">
+                        <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Max(pageNumber-1,1)">&laquo;</a></li>
+                        @for (int i = 1; i <= pageCount; ++i)
+                        {
+                        <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@i">@i</a></li>
+                        }
+                        <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Min(pageNumber+1,pageCount)">&raquo;</a></li>
+                        </ul>*@
+                        <ul class="pagination justify-content-end">
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0)">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
+                            <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="javascript:void(0)">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>

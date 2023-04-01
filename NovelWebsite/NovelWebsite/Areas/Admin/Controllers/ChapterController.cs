@@ -14,17 +14,19 @@ namespace NovelWebsite.Areas.Admin.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult ListOfChapters(int bookId, string name, int pageNumber = 1)
+        public IActionResult ListOfChapters(int bookId, string? name, int pageNumber = 1)
         {
             var query = _dbContext.Chapters.Where(c => c.BookId == bookId && c.IsDeleted == false)
                                         .Where(c => string.IsNullOrEmpty(name) || c.ChapterName.ToLower().Contains(name.ToLower()))
+                                        .Include(c => c.Book).ThenInclude(c => c.Author)
+                                        .Include(c => c.Book).ThenInclude(c => c.BookStatus)
                                         .ToList();
             return View(query);
         }
 
         public IActionResult AddOrUpdateChapter(int chapterId)
         {
-            var chapter = _dbContext.Chapters.First(c => c.ChapterId == chapterId);
+            var chapter = _dbContext.Chapters.Where(c => c.ChapterId == chapterId).FirstOrDefault();
             return View(chapter);
         }
 
