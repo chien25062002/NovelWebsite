@@ -10,14 +10,16 @@
 html::-webkit-scrollbar {
     display: none;
 }
-/* * {
-  overflow-x: hidden;
-} */
 
-.book--img {
-    height: 200px;
-    width: 150px;
+.book--info p {
+    font-size: 14px;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.book--img {
+    height: 100%;
+  /*  overflow: hidden;*/
 }
 
     .book--img img {
@@ -146,6 +148,7 @@ html::-webkit-scrollbar {
 
 .tag-wrap {
     margin: 0;
+    display: inline-flex;
 }
 
     .tag-wrap a {
@@ -201,23 +204,23 @@ html::-webkit-scrollbar {
     width: 100%;
 }
 
-.relate-content a:first-child {
-    font-size: 16px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
-    overflow: hidden;
-    padding: 0;
-}
+    .relate-content a:first-child {
+        font-size: 16px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
+        padding: 0;
+    }
 
-.relate-content p {
-    font-size: 16px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    padding: 0;
-}
+    .relate-content p {
+        font-size: 16px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        padding: 0;
+    }
 
 .truyen-btn {
     position: absolute;
@@ -434,7 +437,6 @@ i.info-icon {
     border: 1px solid #cacaca;
     border-radius: 10px;
     padding: 10px;
-    /* margin-left: 10.5px; */
 }
 
 .user--discussion-child ul li, .user--comment-discuss-list ul li {
@@ -466,13 +468,7 @@ i.info-icon {
         padding-left: 0;
     }
 
-        /*.volume ul li:nth-child(1), .volume ul li:nth-child(2), .volume ul li:nth-child(3) {
-    border-top: 1px solid #666;
-}*/
 
-        /*.volume ul li {
-    border-bottom: 1px solid #d6d6d6;
-}*/
 
         .volume ul li a {
             font-size: 14px;
@@ -522,16 +518,13 @@ i.info-icon {
     }
 
     p {
-        /* width: calc(100vw); */
         font-size: 12px !important;
     }
 
     ul.list-group.list-group-flush {
         max-width: 100%;
     }
-    /* h4 {
-    width: 90%;
-  } */
+
     .content--nav,
     .book--information,
     .book--info,
@@ -543,7 +536,7 @@ i.info-icon {
     .book--content-detail-intro,
     ul.list-group.list-group-flush,
     div#book--content-id,
-    .col-md-3,
+    .col-md-2,
     .row,
     div#book--rate-id {
         max-width: 100%;
@@ -553,9 +546,7 @@ i.info-icon {
     .fa-right-to-bracket {
         display: none;
     }
-    /* .modal-title {
-    display: none;
-  } */
+
     .login a {
         font-size: 12px;
     }
@@ -564,5 +555,3 @@ i.info-icon {
         margin: 0;
     }
 }
-
-
