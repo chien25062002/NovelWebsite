@@ -264,3 +264,7 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 >>>>>>> c1d85e653f98c47eef09c51e14e4e0f38969e559
+NovelWebsite/NovelWebsite/obj/Debug/net6.0/NovelWebsite.assets.cache
+*.cache
+NovelWebsite/NovelWebsite/appsettings.Development.json
+NovelWebsite/NovelWebsite/appsettings.json
