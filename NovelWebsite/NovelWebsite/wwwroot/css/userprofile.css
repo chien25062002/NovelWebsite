@@ -1,12 +1,13 @@
-﻿
-/* userprofile1 */
+﻿﻿ /* userprofile1 */
 .index__truyendangdoc--listitem {
     display: flex;
     margin-bottom: 3rem;
     margin-left: 27px;
     margin-top: 31px;
 }
-
+.listitem--odd {
+    padding: 21px;
+}
 .book--imgcss {
     height: 120px;
     width: 80px;
@@ -62,38 +63,221 @@
         padding: 5px;
     }
 /* Profile image header */
+/*.header__box--center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .header__box--center.row {
+        margin-bottom: 2rem;
+    }
+
+header {
+    height: 5rem;
+    height: calc(24vh);
+}
+
+.header__main {
+    background: #e5e4db;
+}
+
+.logo {
+    width: 220px;
+    height: 60px;
+    margin: 16px;
+    padding: 0;
+}
+    .logo a {
+        width: 220px;
+        height: 60px;
+        display: block;
+        background: url(/image/Illustration4.png) no-repeat;
+        background-size: 100%;
+    }
+*/
+
+/*.search {
+    margin: 1.5rem auto;
+    width: 360px;
+}
+
+.search__btn--icons {
+    font-size: 16px;
+    color: #fff;
+}
+
+.btn--search-color {
+    background-color: #343a40;
+}
+
+    .btn--search-color:hover {
+        background-color: #3e98a1;
+    }
+
+.navbar {
+    background-color: #343a40;
+    height: 40px;
+    padding: 0;
+}
+
+.navbar__main {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #343a40;
+}
+
+ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item--trangchu {
+    width: 300px;
+    cursor: pointer;
+    background-color: #1d2124;
+}*/
+
+    .nav-item--trangchu span,
+    .fa-list {
+        font-size: 16px;
+        display: block;
+        color: #fff;
+        background-color: #1d2124;
+        margin: 6px 0;
+    }
+
+    .nav-item--trangchu span {
+        padding-left: 18px;
+        display: flex;
+    }
+
+.fa-list {
+    padding-right: 10px;
+}
+
+.navlist--item {
+    padding: 6px 32px !important;
+    color: white !important;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+    .navlist--item:hover {
+        background-color: #1d2124;
+        color: white;
+        height: 100%;
+    }
+
+.nav__bars-btn {
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    display: none;
+    margin-left: 8px;
+}
+
+.nav__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    animation: fadeIn linear 0.2s;
+}
+
+.navbar_mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: rgb(134, 127, 127);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform linear 0.2s;
+}
+
+.nav_mobile-item {
+    margin-top: 24px;
+}
+
+.nav__mobile-link {
+    text-decoration: none;
+    color: #3b3939;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.4rem;
+}
+
+.nav__mobile-close {
+    width: 28px;
+    height: 28px;
+    color: #666;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.nav__input {
+    display: none;
+}
+
+    .nav__input:checked ~ .nav__overlay {
+        display: block;
+    }
+
+    .nav__input:checked ~ .navbar_mobile {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+.mobile {
+    width: 20%;
+    z-index: 5;
+    padding-top: 1rem;
+}
+
+.modal--icon {
+    padding-right: 10px;
+}
+/* a:hover {
+  border: none;
+}
+i:hover {
+  border: none;
+} */
+
 #profile-upper {
     position: relative;
 }
 
-#profile-d {
-    position: absolute;
-    left: 59px;
-    bottom: 0px;
-    right: 0px;
-    height: 180px;
-    z-index: 2;
-}
-
 #profile-banner-image {
-    height: 360px;
-    overflow: hidden;
+    height: 10rem;
     z-index: 1;
 }
 
     #profile-banner-image img {
-        width: 100%;
-        height: 100%;
-        /* margin-top: -20%; */
-        margin: 0;
-        padding: 0;
+        width: 12%;
+        height: calc(8vw);
+        object-fit: cover;
+        z-index: 1;
+        position: absolute;
+        border: 5px solid white;
+        top: 6rem;
+        left: 6.5rem;
+        display: inline;
     }
 
 #profile-pic {
-    width: 180px;
-    height: 180px;
-    border-radius: 3px;
-    margin-top: 28px;
+    width: 20%;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: 28rem;
     overflow: hidden;
     box-shadow: 0 0 0 5px #fff;
 }
@@ -104,17 +288,17 @@
 
 #u-name {
     position: absolute;
-    top: 120px;
-    left: 208px;
+    top: 106px;
+    left: 230px;
     color: #fff;
-    font-size: 36px;
+    font-size: 25px;
     font-weight: bold;
 }
 
 #m-btns {
     position: absolute;
-    right: 56px;
-    bottom: 20px;
+    right: 3px;
+    bottom: 10px;
     width: 50px;
 }
 
@@ -167,55 +351,176 @@
 }
 
 #profile-banner-image {
-    background-image: url(/NovelWebsite/NovelWebsite/wwwroot/image/test.jpg);
-    background-image: 100%;
-}
-/* Profile image header finished */
-table {
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 5rem;
-    width: 60%;
-}
-
-th,
-td {
-    border-right: 1px solid black;
-    padding: 0.5rem;
-    width: 50%;
-}
-
-p {
-    border-bottom: 1px solid black;
-    width: 100%;
-    text-align: center;
-    color: #ff9800;
-    font-size: 4rem;
+    background-image: url(/image/test.jpg);
+    border-radius: 5px 5px 0 0;
 }
 
 a {
     text-decoration: none;
     color: black;
-    opacity: 0.5;
 }
 
 main {
+    width: 80%;
+    margin: auto;
     display: flex;
+    box-sizing: border-box;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
 }
 
 .row-left {
-    width: 20%;
-    text-align: center;
-    display: grid;
+    float: left;
+    width: 200px;
+    margin: 0 40px 0 0;
 }
 
-    .row-left :hover {
-        border: 1px solid black;
-        border-radius: 5px;
-        margin: 0 10px;
-    }
+li.active a {
+    font-weight: 600;
+}
+
+#hoso,
+#tutruyen {
+    border: 0.5px solid rgba(190, 186, 186, 0.7);
+    border-radius: 5px;
+}
+
+.reading {
+    padding-left: 1.5rem;
+    padding-top: 10px;
+}
+
+span {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+li.active a:hover {
+    color: black;
+}
+
+li.col-left.active {
+    font-size: 14px;
+    line-height: 36px;
+}
 
 .row-right {
+    border: 0.5px solid rgba(190, 186, 186, 0.7);
+    border-radius: 10px;
     width: 80%;
+}
+
+.col-left {
+    display: block;
+    overflow: hidden;
+    padding: 0 20px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border-radius: 4px;
+    color: #3e3d43;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+i.fa.fa-user,
+i.fa.fa-book,
+i.fa.fa-bell,
+i.fa-solid.fa-message {
+    padding-right: 0.5rem;
+}
+
+.footer--container {
+    background: #e5e4db;
+    margin-top: 10px;
+    padding: 20px 0;
+    border-top: 1px solid #e7e7e7;
+    color: #4e4e4e;
+}
+
+.footer--inside-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.footer--text {
+    opacity: 0.7;
+}
+
+form {
+    display: grid;
+    /* width: 50%; */
+}
+
+.container {
+    width: 80%;
+    /* box-sizing: border-box;
+
+  border: 1px solid #e7e7e7;
+  border-radius: 20px; */
+    margin-top: 5rem;
+    margin-bottom: 20px;
+}
+
+input#name,
+input#email,
+input[type="password"] {
+    border: 1px solid #e7e7e7;
+    padding-top: 0.5rem;
+    border-radius: 5px;
+}
+
+label {
+    padding: 0.5rem 0;
+}
+
+@media only screen and (max-width: 767px) {
+    .nav__bars-btn {
+        display: block;
+    }
+
+    ul.nav.navbar-nav {
+        display: none;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .row-left {
+        display: none;
+    }
+
+    .row-right {
+        width: 100%;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    #profile-banner-image img {
+        width: 105px;
+        height: 105px;
+        object-fit: cover;
+        z-index: 1;
+        position: absolute;
+        border: 5px solid white;
+        top: 6rem;
+        left: 1rem;
+        display: inline;
+    }
+
+    .header__box--center.row {
+        width: 80%;
+    }
+
+    #u-name {
+        left: 130px;
+        font-size: 20px;
+    }
+
+    header {
+        height: 5rem;
+        height: calc(15vh);
+    }
 }
