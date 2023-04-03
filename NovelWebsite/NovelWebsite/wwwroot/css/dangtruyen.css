@@ -59,7 +59,10 @@
 h4.editor--title {
     font-size: 17px;
 }
-
+textarea {
+    
+    margin-left: 11px;
+}
 @media only screen and (max-width: 767px) {
     .sub-catagory {
         display: block;

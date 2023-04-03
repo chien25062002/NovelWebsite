@@ -746,6 +746,7 @@ ul li {
 .mobile {
     width: 10%;
     z-index: 5;
+    display:none;
 }
 
 .section {
@@ -849,7 +850,9 @@ img {
         max-width: 50%;
         margin-top: 2rem;
     }
-
+    .mobile{
+        display:block;
+    }
 
 
 
