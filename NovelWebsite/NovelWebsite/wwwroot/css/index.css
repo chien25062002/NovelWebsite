@@ -71,7 +71,7 @@ a {
 }
 
 .search form {
-    width: inherit;
+   /* width: inherit;*/
     display: flex;
 }
 
@@ -1009,6 +1009,8 @@ img {
 
 .category-dropdown {
     margin: auto;
+    width:30%;
+
 }
 
 .user-function li a {
@@ -1048,7 +1050,9 @@ img {
 .input--box {
     border: 1px solid #cacaca !important;
 }
-
+.header__box--center.row {
+    flex-wrap: unset;
+}
 
 
 
