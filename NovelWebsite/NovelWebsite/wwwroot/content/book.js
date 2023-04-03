@@ -56,7 +56,7 @@ $.ajax({
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
-                                                <button class="btn btn-primary" onclick="AddBookComment(${bookId})">Đăng</button>
+                                                <button class="btn btn-primary" onclick="AddReview(${bookId})">Đăng</button>
                                             </div>
                                         </div>
                                     </div>

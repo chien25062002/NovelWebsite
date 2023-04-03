@@ -2,52 +2,56 @@
       href="~/css/userprofile.css">
 
 <main>
-  <div class="row-left">
-    <div>Cá nhân</div>
-    <div>Viết thư mới</div>
-    <div>Hộp thư đến</div>
-    <div>Hộp thư đi</div>
-    <div>Truyện của tôi</div>
-    <div>Đăng truyện</div>
-    <div>Đăng chương</div>
-    <div>Tác giả</div>
-    <div>Nạp vàng</div>
-    <div>Lịch sử nạp</div>
-    <div>Shop vật phẩm</div>
-  </div>
-  <div class="row-right">
-    <div id="profile-upper">
-      <div id="profile-banner-image">
-        <!-- <img src="/image/test.jpg" alt="Banner image" /> -->
+    <ul class="row-left">
+        <li class="col-left active" id="hoso"><a href="/NovelWebsite/NovelWebsite/wwwroot/html/userprofile.html" style="color:#EE4259"><i class="fa fa-user"></i>Hồ sơ</a></li>
 
-        <div id="profile-d">
-          <div id="profile-pic">
-            <img src="/NovelWebsite/NovelWebsite/wwwroot/image/test2.jpg" />
-          </div>
-          <div id="u-name">Username (ID)</div>
-          <div class="tb" id="m-btns">
-            <div class="td">
-              <div class="m-btn"><i class="fa-regular fa-gear"></i></div>
+        <li class="col-left active">
+            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/userprofile1.html">
+                <i class="fa fa-book"></i>Tủ truyện
+            </a>
+        </li>
+
+        <li class="col-left active">
+            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/dangtruyen.html">
+                <i class="fa fa-bell"></i>Đăng truyện
+            </a>
+        </li>
+
+        <li class="col-left active">
+            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/chuongtruyen.html"><i class="fa-solid fa-message"></i>Quản lí chương</a>
+        </li>
+    </ul>
+    <div class="row-right">
+        <div id="profile-upper">
+            <div id="profile-banner-image">
+                <div id="profile-d">
+                    <img class="rounded-circle"
+                         src="/NovelWebsite/NovelWebsite/wwwroot/image/test2.jpg" />
+
+                    <div id="u-name">Username (ID)</div>
+                    <div class="tb" id="m-btns">
+                        <div class="td">
+                            <div class="m-btn"><i class="fas fa-cog"></i></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+
+        <div class="container">
+            <form action="" method="get">
+                <label for="name">Tên người dùng:</label>
+                <input id="name" name="name" type="text" value="" /><br />
+
+                <label for="email">Email</label>
+                <input type="email"
+                       name="email"
+                       id="email"
+                       placeholder="Nhập email" /><br />
+
+                <label>Mật khẩu:</label>
+                <input name="pass" type="password" value="" /><br />
+            </form>
+        </div>
     </div>
-    <table>
-      <tr>
-        <th>Truyện theo dõi</th>
-        <th>Truyện đề cử</th>
-      </tr>
-      <tr>
-        <td>
-          <p>7</p>
-          <a href="">Xem tất cả</a>
-        </td>
-        <td>
-          <p>0</p>
-          <a href="">Xem tất cả</a>
-        </td>
-      </tr>
-    </table>
-  </div>
 </main>
