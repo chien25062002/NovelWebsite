@@ -456,3 +456,23 @@ a.closemark:hover {
     width: 100px;
 }
 
+/*   */
+@media only screen and (max-width: 768px ) {
+    .control-area-wrap {
+        display: none;
+    }
+
+    .box-chapters {
+        padding: 2rem;
+    }
+
+    .control-box-content i {
+        padding : 1rem;
+    }
+
+    .user--discussion.col-md-10 {
+        width: 84%;
+        margin-left: 0.5rem;
+    }
+}
+

@@ -1,4 +1,67 @@
-﻿/* Profile image header */
+﻿
+/* userprofile1 */
+.index__truyendangdoc--listitem {
+    display: flex;
+    margin-bottom: 3rem;
+    margin-left: 27px;
+    margin-top: 31px;
+}
+
+.book--imgcss {
+    height: 120px;
+    width: 80px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.book--info a {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.book--info p {
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.book--info h3 {
+    margin-top: -8px;
+    margin-bottom: 0;
+}
+
+.book-state a {
+    font: 16px;
+    font-weight: lighter;
+}
+
+.describe {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
+.catagory {
+    display: flex;
+    margin: 0;
+}
+
+    .catagory p:first-child {
+        padding-right: 5px;
+    }
+
+.catagory-wrap {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+    .catagory-wrap a {
+        font-size: 14px;
+        padding: 5px;
+    }
+/* Profile image header */
 #profile-upper {
     position: relative;
 }
