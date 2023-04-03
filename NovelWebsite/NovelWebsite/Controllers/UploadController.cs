@@ -11,14 +11,14 @@ namespace NovelWebsite.Entities
             _dbContext = dbContext;
         }
 
-        [Route("/dang-truyen")]
-        public IActionResult AddOrUpdateBook()
+        [Route("/dang-truyen/{id?}")]
+        public IActionResult AddOrUpdateBook(int? id)
         {
             return View();
         }
 
-        [Route("/{id}/dang-chuong")]
-        public IActionResult AddOrUpdateChapter(int id)
+        [Route("/dang-chuong/{id?}")]
+        public IActionResult AddOrUpdateChapter(int? id)
         {
             return View();
         }
