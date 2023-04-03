@@ -141,13 +141,13 @@
                     <div class="col-auto">
                         <div class="category-select-picture">
                             <div class="category-img-container">
-                                <img src="/image/test.jpg">
+                                <img src="/image/test.jpg" class="category-image">
                             </div>
-                            
                         </div>
                     </div>
+                    <input type="text" name="CategoryImage" hidden/>
                     <div class="col-auto">
-                        <button class="btn btn-primary" onclick="importData()">Đổi ảnh</button>
+                        <input type="file" name="fileUpload"></input>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
@@ -159,5 +159,10 @@
 </div>
 
 @section Scripts{
+    <script>
+        var folder = "category";
+        console.log("@Model[0].CategoryImage");
+    </script>
     <script type="text/javascript" src="~/content/admin/category.js"></script>
+    <script type="text/javascript" src="~/content/admin/image.js"></script>
 }

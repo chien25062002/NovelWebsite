@@ -21,14 +21,18 @@ namespace NovelWebsite.Areas.Admin.Controllers
             {
                 return Json(new { status = "error" });
             }
-            string folderUploads = Path.Combine(_environment.WebRootPath, $"img\\{folder}");
+            string folderUploads = Path.Combine(_environment.WebRootPath, $"image\\{folder}");
+
+            bool exists = System.IO.Directory.Exists(folderUploads);
+            if (!exists)
+                System.IO.Directory.CreateDirectory(folderUploads);
             string fileName = Guid.NewGuid().ToString() + file.FileName;
             string fullPath = Path.Combine(folderUploads, fileName);
             using (var stream = new FileStream(fullPath, FileMode.Create))
             {
                 file.CopyTo(stream);
             }
-            return Json($"/img/{folder}/{fileName}");
+            return Json($"/image/{folder}/{fileName}");
         }
     }
 }
