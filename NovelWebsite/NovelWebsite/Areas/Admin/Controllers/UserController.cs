@@ -20,11 +20,15 @@ namespace NovelWebsite.Areas.Admin.Controllers
 
         // isDeleted = true: xoá tk, Status = 0: đang hoạt động, Status = 1: bị ban
 
-        public IActionResult Index(int pageNumber = 1, int pageSize = 10)
+        public IActionResult Index(int roleId = 0, int status = 0, int pageNumber = 1, int pageSize = 10)
         {
-            var listUser = _dbContext.Accounts.Where(x => x.Status == 0 && x.IsDeleted == false)
+            var listUser = _dbContext.Accounts.Where(x => x.Status == status && x.IsDeleted == false)
                                               .Include(x => x.User).ThenInclude(x => x.Role)
-                                              .OrderByDescending(a => a.CreatedDate);
+                                              .OrderByDescending(a => a.CreatedDate).ToList();
+            if (roleId != 0)
+            {
+                listUser = listUser.Where(x => x.User.Role.RoleId == roleId).ToList();
+            }
 
             ViewBag.pageNumber = pageNumber;
             ViewBag.pageSize = pageSize;
@@ -60,12 +64,12 @@ namespace NovelWebsite.Areas.Admin.Controllers
             var user = _dbContext.Accounts.Where(x => x.AccountName == account).Include(p => p.User).ThenInclude(p => p.Role).FirstOrDefault();
             if (user != null)
             {
-                user.Status = 1;
-                user.User.Status = 1;
+                user.Status = 1 - user.Status;
+                user.User.Status = 1 - user.Status;
                 _dbContext.Accounts.Update(user);
                 _dbContext.SaveChanges();
             }
-            return Json("");
+            return Redirect("/Admin/User/Index");
         }
 
         public IActionResult UpdateRole(int userId, int roleId)
@@ -77,7 +81,7 @@ namespace NovelWebsite.Areas.Admin.Controllers
                 _dbContext.Users.Update(user);
                 _dbContext.SaveChanges();
             }
-            return Json("");
+            return Redirect("/Admin/User/Index");
         }
     }
 }

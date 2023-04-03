@@ -14,12 +14,8 @@ main {
 }
 
 .container {
-    max-width: 1140px
-}
-
-.tabs-box {
-    max-width: 420px;
-    clear: both
+    max-width: 1140px;
+    padding-top: 20px !important; 
 }
 
 .tabs .indicator {
@@ -160,7 +156,11 @@ main {
     font-size: 1.1rem;
     font-weight: bold;
     color: #444;
-    margin: .5rem 0 0 0
+    margin: .5rem 0 0 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
 }
 
 .book-chapter, .book-chapter a {
@@ -244,18 +244,6 @@ main {
 .alpha a {
     padding: 0 .47rem
 }
-
-.adv-btn {
-    font-size: 1.2rem;
-    color: #666;
-    cursor: pointer
-}
-
-    .adv-btn i {
-        margin-left: .4rem;
-        vertical-align: top
-    }
-
 
 .sort-by-lbl {
     font-size: 1.1rem;
