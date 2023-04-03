@@ -45,7 +45,7 @@ $.ajax({
         data.forEach((item, index) => {
             row.append(`<div class="index__theloai--chitiet-cot col-md-6">
                                     <a href="javascript:void(0)">
-                                        <i class="fa-solid fa-tags"></i>
+                                        <img src="${item.categoryImage}"/>
                                         <span>
                                             <p class="tentruyen">${item.categoryName}</p>
                                             <p class="soluongtruyen">${item.quantity}</p>

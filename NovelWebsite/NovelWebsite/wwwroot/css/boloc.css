@@ -175,3 +175,63 @@ p.etc {
 .btn-filter i {
     color: inherit;
 }
+
+/*  */
+
+
+.section-search-advance-mobile {
+    display: none;
+}
+
+.wrap-search-advance-mobile select {
+    border-radius: 8px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    display: inline-block;
+    font-size: 12px;
+    margin: 0 5px 10px 0;
+    background-color: #fff;
+    width: 300px;
+}
+
+.footer--inside-container {
+    max-width: 100% !important;
+}
+
+@media only screen and (max-width: 1024px ) {
+    .nav__mobile-btn {
+        display: block;
+    }
+
+    footer .footer--container {
+        display: flex;
+    }
+
+    .nav__mobile-btn {
+        display: block;
+    }
+
+    .rank-box-list.col-3 {
+        display: none;
+    }
+
+    .rank-box {
+        width: 100%;
+    }
+
+    .section-search-advance-mobile {
+        display: block;
+    }
+
+    .section-search-advance-mobile {
+        margin: 1rem 0.5rem 1rem 1rem;
+    }
+
+    select {
+        width: 300Px;
+    }
+
+    .col-9 {
+        width: 100%;
+    }
+}

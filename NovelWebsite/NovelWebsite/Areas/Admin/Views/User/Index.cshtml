@@ -17,7 +17,26 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
-                        <h4>Danh sách người dùng</h4>
+                        <div class="row" style="margin-bottom: 1.5rem;">
+                            <div class="col-md-4">
+                                <h4>Danh sách người dùng</h4>
+                            </div>
+                            <div class="col-md-4 offset-md-4">
+                                <div class="btn-group">
+                                  <button type="button" class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
+                                    Lọc theo
+                                  </button>
+                                  <ul class="dropdown-menu">
+                                    <li><a href="/Admin/User/Index">Tất cả</a></li>
+                                    <li><a href="/Admin/User/Index?roleId=1">Admin</a></li>
+                                    <li><a href="/Admin/User/Index?roleId=2">Biên tập viên</a></li>
+                                    <li><a href="/Admin/User/Index?roleId=3">Người dùng</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a href="/Admin/User/Index?status=1" class="alert-danger">Banned</a></li>
+                                  </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-12">
                         <div class="table-responsive">
@@ -45,7 +64,7 @@
                                             <tr class="align-middle">
                                                 <td>
                                                     <div>
-                                                        <img src="@item.User.Avatar" class="card-img-top rounded-circle">
+                                                        <img src="@item.User.Avatar"class="rounded-circle">
                                                     </div>
                                                 </td>
                                                 <td>
@@ -69,9 +88,10 @@
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
                                                             <a class="dropdown-item" data-coreui-toggle="modal" data-coreui-target="#roleModal" role="button">Chỉnh sửa role</a>
-                                                            <a class="dropdown-item text-danger" href="/Admin/User/BanUser?account=@item.AccountName">Ban</a>
+                                                            <a class="dropdown-item text-danger" href="/Admin/User/BanUser?account=@item.AccountName">@(item.Status == 0 ? "Ban" : "Unban")</a>
                                                         </div>
                                                     </div>
+                                                    <form method="get" action="/Admin/User/UpdateRole">
                                                     <div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog modal-sm">
                                                             <div class="modal-content">
@@ -79,17 +99,19 @@
                                                                     <h5 class="modal-title" id="exampleModalLabel">Chỉnh sửa Role</h5>
                                                                     <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
                                                                 </div>
+                                                                <input type="text" name="userid" value="@item.User.UserId" hidden />
                                                                 <div class="modal-body">
                                                                     <label class="form-label" for="specificSizeSelect">Role</label>
-                                                                    <select class="form-select" id="specificSizeSelect"/>
+                                                                    <select name="roleid" class="form-select" asp-for="@item.User.RoleId" id="specificSizeSelect" asp-items="@ViewBag.Role"></select>
                                                                    </div>
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
-                                                                    <button type="button" class="btn btn-primary" data-coreui-dismiss="modal">Save changes</button>
+                                                                    <button type="submit" class="btn btn-primary" data-coreui-dismiss="modal">Save changes</button>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    </form>
                                                 </td>
                                             </tr>   
                                         }
@@ -178,3 +200,6 @@
     </div>
 </div>
 
+<script>
+    console.log("@ViewBag.Role")
+</script>

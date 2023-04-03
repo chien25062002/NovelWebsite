@@ -9,6 +9,7 @@ function AddOrUpdateCategory(id) {
             $('input[name="CategoryId"]').val(data.categoryId);
             $('input[name="CategoryName"]').val(data.categoryName);
             $('input[name="CategoryImage"]').val(data.categoryImage);
+            $('img.category-image').attr("src", data.categoryImage);
         },
         error: function () { },
         complete: function () { }

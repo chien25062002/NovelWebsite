@@ -9,3 +9,21 @@ th {
 form {
     margin-bottom: 20px;
 }
+
+ul.dropdown-menu li a {
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.btn-group{
+    float: right;
+}
+
+button.btn.dropdown-toggle {
+    border: 1px solid;
+}
+
+img.rounded-circle {
+    width: 128px;
+    height: 128px;
+}
