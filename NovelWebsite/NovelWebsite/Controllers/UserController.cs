@@ -31,5 +31,11 @@ namespace NovelWebsite.Controllers
         {
             return View();
         }
+
+        [Route("/{bookId}/danh-sach-chuong")]
+        public IActionResult ListOfChapters(int bookId)
+        {
+            return View();
+        }
     }
 }
