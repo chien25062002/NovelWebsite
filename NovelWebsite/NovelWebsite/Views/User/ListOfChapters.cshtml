@@ -1,4 +1,10 @@
-﻿<link rel="stylesheet" href="~/css/index.css">
+﻿@{
+    int pageSize = (int)ViewBag.pageSize;
+    int pageCount = (int)ViewBag.pageCount;
+    int pageNumber = (int)ViewBag.pageNumber;
+}
+
+<link rel="stylesheet" href="~/css/index.css">
 <link rel="stylesheet" href="~/css/userprofile.css">
 
 
