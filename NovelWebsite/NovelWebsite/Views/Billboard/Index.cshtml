@@ -24,9 +24,9 @@
 
 
         <a class="dropdown-button" data-hover="true" data-beloworigin="true"
-           data-constrainwidth="false" data-activates='ddCommentFilter'
+           data-constrainwidth="false" data-activates='ddRankCate'
            style="font-size: 1.23rem; color: #666666;">Thể loại<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
-        <ul id='ddCommentFilter' class='dropdown-content'>
+        <ul id='ddRankCate' class='dropdown-content'>
             <li class="active"><a href="/review">Tất cả</a></li>
 
             <li class=""><a href=>Cate</a></li>
@@ -43,9 +43,9 @@
 
         </ul>
         <a class="dropdown-button" data-hover="true" data-beloworigin="true"
-           data-constrainwidth="false" data-activates='ddCommentFilter'
+           data-constrainwidth="false" data-activates='ddRankFilter'
            style="font-size: 1.23rem; color: #666666;">Xếp theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
-        <ul id='ddCommentFilter' class='dropdown-content'>
+        <ul id='ddRankFilter' class='dropdown-content'>
             <li class="active"><a href="/review">Lượt bình chọn</a></li>
 
             <li class=""><a href=>Lượt review</a></li>
@@ -58,9 +58,9 @@
 
         </ul>
         <a class="dropdown-button right" data-hover="true" data-beloworigin="true"
-           data-constrainwidth="false" data-activates='ddCommentFilter'
+           data-constrainwidth="false" data-activates='ddRankRank'
            style="font-size: 1.23rem; color: #666666;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
-        <ul id='ddCommentFilter' class='dropdown-content'>
+        <ul id='ddRankRank' class='dropdown-content'>
             <li class="active"><a href="/review">Từ trên xuống</a></li>
 
             <li class=""><a href=>Từ lên xuống</a></li>
@@ -79,7 +79,7 @@
                         </a>
                     </div>
                     <div class="info-col">
-                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip-id="@item.BookName"
+                        <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="@item.BookName"
                        href="/truyen/@item.Slug-@item.BookId">
                             <h5 class="book-title truncate">@item.BookName</h5>
                         </a>
