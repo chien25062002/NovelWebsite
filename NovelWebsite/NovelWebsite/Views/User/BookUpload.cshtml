@@ -3,22 +3,8 @@
 
 
 <main>
-    <ul class="row-left">
-        <li class="col-left active"><a href="/NovelWebsite/NovelWebsite/wwwroot/html/userprofile.html"><i class="fa fa-user"></i>Hồ sơ</a></li>
-
-        <li class="col-left active" id="tutruyen">
-            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/userprofile1.html"
-               style="color:#EE4259">
-                <i class="fa fa-book"></i>Tủ truyện
-            </a>
-        </li>
-
-        <li class="col-left active"><a href="/NovelWebsite/NovelWebsite/wwwroot/html/dangtruyen.html"><i class="fa fa-bell"></i>Đăng truyện</a></li>
-
-        <li class="col-left active">
-            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/chuongtruyen.html"><i class="fa-solid fa-message"></i>Quản lí chương</a>
-        </li>
-    </ul>
+    @await Component.InvokeAsync("UserNavbar")
+    
     <div class="row-right">
 
 

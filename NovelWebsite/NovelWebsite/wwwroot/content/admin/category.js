@@ -15,3 +15,7 @@ function AddOrUpdateCategory(id) {
         complete: function () { }
     })
 }
+
+$('img.input-img').on('load', function () {
+    $('input[name="CategoryImage"]').val(imgPath);
+});

@@ -356,3 +356,19 @@ function startCKEditor(toolbar, editor) {
         });
 
 }
+
+$.ajax({
+    url: "/Book/GetBookTags?id=" + id,
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        console.log(data);
+        $('#book-tag').html('');
+        data.forEach((item, index) => {
+            $('#book-tag').append(`<a href="javascript:void(0)">${item.tagName}</a>`);
+        });
+    },
+    error: function () { },
+    complete: function () { }
+})
