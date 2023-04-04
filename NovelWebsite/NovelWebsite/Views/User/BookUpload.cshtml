@@ -1,24 +1,21 @@
-﻿@*@{
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@*@{
     int pageSize = (int)ViewBag.pageSize;
     int pageCount = (int)ViewBag.pageCount;
     int pageNumber = (int)ViewBag.pageNumber;
-    //string name = ViewBag.searchName as string;
+    string name = ViewBag.searchName as string;
 }
-
-
 *@
-<link href="~/css/index.css" rel="stylesheet">
-<link href="~/css/userprofile.css" rel="stylesheet">
-
+<link href="~/css/userprofile.css" rel="stylesheet" />
 
 <main>
+  
     @await Component.InvokeAsync("UserNavbar")
-    
     <div class="row-right">
 
 
-        <div class="reading"> <span>Đang đọc</span></div>
-        <hr>
         <div class="rank-box-main col-9">
            
             <div class="rank-box-main-body">
@@ -57,12 +54,12 @@
                                     </li>
                                 }
                             }
-                           
+                       
                         </ul>
                     </div>
                 </div>
             </div>
-            @*<div class="rank-box-main-pagination">
+           @* <div class="rank-box-main-pagination">
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
                         <a class="page-link" href="/bo-loc?pageNumber=@Math.Max(1, pageNumber - 1)">
@@ -85,3 +82,8 @@
         </div>
     </div>
 </main>
+@section Scripts{
+    <script type="text/javascript" src="~/js/filterbtn.js"></script>
+    <script type="text/javascript" src="~/content/filter.js"></script>
+
+}
