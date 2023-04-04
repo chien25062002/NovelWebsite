@@ -63,6 +63,9 @@
         font-size: 14px;
         padding: 5px;
     }
+ul.pagination {
+    float: right;
+}
 /* Profile image header */
 /*.header__box--center {
     margin-left: auto;
@@ -140,7 +143,7 @@ ul li {
     background-color: #1d2124;
 }*/
 
-    .nav-item--trangchu span,
+    /*.nav-item--trangchu span,
     .fa-list {
         font-size: 16px;
         display: block;
@@ -153,7 +156,7 @@ ul li {
         padding-left: 18px;
         display: flex;
     }
-
+*/
 .fa-list {
     padding-right: 10px;
 }
@@ -466,14 +469,18 @@ input#name,
 input#email,
 input[type="password"] {
     border: 1px solid #e7e7e7;
-    padding-top: 0.5rem;
+    padding: 0.5rem;
     border-radius: 5px;
 }
 
 label {
     padding: 0.5rem 0;
 }
-
+button.btn.btn-primary.submit-btn {
+    margin-left: auto;
+    width: 27%;
+    /* float: right; */
+}
 @media only screen and (max-width: 767px) {
     .nav__bars-btn {
         display: block;
