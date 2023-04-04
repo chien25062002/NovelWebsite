@@ -412,6 +412,7 @@ li.col-left.active {
     border: 0.5px solid rgba(190, 186, 186, 0.7);
     border-radius: 10px;
     width: 80%;
+    padding: 10px;
 }
 
 .col-left {
@@ -463,6 +464,7 @@ form {
   border-radius: 20px; */
     margin-top: 5rem;
     margin-bottom: 20px;
+    padding: 10px;
 }
 
 input#name,
@@ -473,8 +475,17 @@ input[type="password"] {
     border-radius: 5px;
 }
 
-label {
+/*label {
     padding: 0.5rem 0;
+}*/
+
+.textbox-dangtruyen  {
+    padding: 10px;
+}
+
+#dangtruyen-editor {
+    border: 1px solid #ccced1;
+    background: #fff;
 }
 button.btn.btn-primary.submit-btn {
     margin-left: auto;

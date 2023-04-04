@@ -69,7 +69,7 @@
                             </div>*@
                             <div class="input-comment">
                                 <div id="post-toolbar"></div>
-                                <textarea id="post-editor" class="input--box" name="content">@Html.Raw(HttpUtility.HtmlDecode(Model == null ? "" : Model.Content))</textarea>
+                                <div id="post-editor" class="input--box" name="content">@Html.Raw(HttpUtility.HtmlDecode(Model == null ? "" : Model.Content))</div>
                             </div>
                         </div>
                         <!-- /.box-body -->

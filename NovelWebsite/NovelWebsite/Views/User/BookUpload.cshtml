@@ -1,91 +1,102 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-<link href="~/css/userprofile.css" rel="stylesheet" />
+﻿<link href="~/css/index.css" rel="stylesheet">
+<link href="~/css/userprofile.css" rel="stylesheet">
+
 
 <main>
-    <ul class="row-left">
-        <li class="col-left active"><a href="/NovelWebsite/NovelWebsite/wwwroot/html/userprofile.html"><i class="fa fa-user"></i>Hồ sơ</a></li>
-
-        <li class="col-left active" id="tutruyen">
-            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/userprofile1.html"
-               style="color:#EE4259">
-                <i class="fa fa-book"></i>Tủ truyện
-            </a>
-        </li>
-
-        <li class="col-left active"><a href="/NovelWebsite/NovelWebsite/wwwroot/html/dangtruyen.html"><i class="fa fa-bell"></i>Đăng truyện</a></li>
-
-        <li class="col-left active">
-            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/chuongtruyen.html"><i class="fa-solid fa-message"></i>Quản lí chương</a>
-        </li>
-    </ul>
+    @await Component.InvokeAsync("UserNavbar")
+    
     <div class="row-right">
 
 
         <div class="reading"> <span>Đang đọc</span></div>
         <hr>
-        <div class="index__truyendangdoc--listitem  listitem--odd">
-            <div class="book--img">
-                <a href="javascript:void(0)">
-                    <img src="/NovelWebsite/NovelWebsite/wwwroot/image/test3.jpg" class="book--imgcss">
-                </a>
-            </div>
-            <div class="book--info">
-                <h3>
-                    <a href="/html/truyen.html">Tên truyện mới 1</a>
-                </h3>
-                <div class="book-state">
-                    <a href="javascript:void(0)">Tác giả</a>
+        <div class="index__right-wrap--list row">
+            <div class="index__right-wrap--listitem col-md-12 listitem--odd">
+                <div class="book--img">
+                    <a href="javascript:void(0)">
+                        <img src="/image/test3.jpg" class="book--imgcss">
+                    </a>
                 </div>
-                
-                <div class="describe">
-                    Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện
-                    mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
-                    v
-                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1
+                <div class="book--info">
+                    <div class="book-name">
+                        <a href="/html/truyen.html">Tên truyện mới 1</a>
+                    </div>
+                    <div class="book-state">
+                        <a href="javascript:void(0)">Tác giả</a>
+                    </div>
+                    <p>
+                        <em>
+                            <span class="chapters">xxx</span>
+                        </em>
+                        <cite>Số chương</cite>
+                        <i>|</i>
+                        <em>
+                            <span class="views">xxx</span>
+                        </em>
+                        <cite>Lượt xem</cite>
+                    </p>
+                    <div class="category">
+                        <p>Thể loại:</p>
+                        <p class="category-wrap">
+                            <a href="javascript:void(0)">thục sơn</a>
+                        </p>
+                    </div>
+                    <div class="describe">
+                        <i class="fa-solid fa-quote-left"></i>
+                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1
+                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="index__truyendangdoc--listitem  listitem--odd">
-            <div class="book--img">
-                <a href="javascript:void(0)">
-                    <img src="/NovelWebsite/NovelWebsite/wwwroot/image/test3.jpg" class="book--imgcss">
-                </a>
-            </div>
-            <div class="book--info">
-                <h3>
-                    <a href="/html/truyen.html">Tên truyện mới 1</a>
-                </h3>
-                <div class="book-state">
-                    <a href="javascript:void(0)">Tác giả</a>
+        <div class="index__right-wrap--list row">
+            <div class="index__right-wrap--listitem col-md-12 listitem--odd">
+                <div class="book--img">
+                    <a href="javascript:void(0)">
+                        <img src="/image/test3.jpg" class="book--imgcss">
+                    </a>
                 </div>
-                
-                <div class="describe">
-                    Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện
-                    mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu
-                    v
-                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1
-                    Giới thiệu về truyện mới 1 Giới thiệu v
-                    truyện mới 1Giới thiệu về truyện mới 1
+                <div class="book--info">
+                    <div class="book-name">
+                        <a href="/html/truyen.html">Tên truyện mới 1</a>
+                    </div>
+                    <div class="book-state">
+                        <a href="javascript:void(0)">Tác giả</a>
+                    </div>
+                    <p>
+                        <em>
+                            <span class="chapters">xxx</span>
+                        </em>
+                        <cite>Số chương</cite>
+                        <i>|</i>
+                        <em>
+                            <span class="views">xxx</span>
+                        </em>
+                        <cite>Lượt xem</cite>
+                    </p>
+                    <div class="category">
+                        <p>Thể loại:</p>
+                        <p class="category-wrap">
+                            <a href="javascript:void(0)">thục sơn</a>
+                        </p>
+                    </div>
+                    <div class="describe">
+                        <i class="fa-solid fa-quote-left"></i>
+                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1
+                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
+                        truyện mới 1Giới thiệu về truyện mới 1
+                    </div>
                 </div>
             </div>
         </div>

@@ -71,7 +71,7 @@ a {
 }
 
     .search form {
-        /* width: inherit;*/
+        width: inherit;
         display: flex;
     }
 
@@ -268,6 +268,12 @@ ul li {
         font-size: 16px;
         line-height: 40px;
         color: inherit;
+    }
+
+    .index__theloai--chitiet-cot img {
+        width: 25px;
+        height: 25px;
+        margin: auto;
     }
 
     .index__theloai--chitiet-cot p {
@@ -911,6 +917,16 @@ img {
 
 /*mobile &tablet*/
 @media only screen and (max-width: 63.9375em) {
+    .search form {
+        display: flex;
+        width: 100%;
+    }
+
+    .category-dropdown {
+        margin: auto;
+        width: 30%;
+    }
+
     .index__btv__mobile {
         display: block;
     }
