@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 
 namespace NovelWebsite.Controllers
@@ -33,9 +34,18 @@ namespace NovelWebsite.Controllers
         }
 
         [Route("/{bookId}/danh-sach-chuong")]
-        public IActionResult ListOfChapters(int bookId)
+        public IActionResult ListOfChapters(int bookId, int pageNumber = 1, int pageSize = 16)
         {
-            return View();
+            var query = _dbContext.Chapters.Where(b => b.BookId == bookId && b.IsDeleted == false)
+                                        .OrderBy(b => b.CreatedDate)
+                                        .ToList();
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;
+            ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
+
+            return View(query.Skip(pageSize * pageNumber - pageSize)
+                         .Take(pageSize)
+                         .ToList());
         }
     }
 }
