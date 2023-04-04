@@ -1,4 +1,4 @@
-﻿th {
+﻿/*th {
     color: #ebedef;
 }
 
@@ -67,4 +67,20 @@ textarea {
     .sub-catagory {
         display: block;
     }
+}*/
+.button {
+    text-align: center;
+    margin: 10px;
+}
+li.list-group-item {
+    display: flex;
+    margin:auto;
+}
+
+element.style {
+}
+
+.col-9 {
+    flex: 0 0 auto;
+    width: 100%;
 }
