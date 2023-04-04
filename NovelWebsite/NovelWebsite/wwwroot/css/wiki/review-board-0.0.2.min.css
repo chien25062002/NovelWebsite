@@ -9,6 +9,11 @@
         margin-top: 2rem
     }
 
+
+p {
+    margin: 0;
+}
+
 .review-group {
     display: flex;
     display: -ms-flexbox;
@@ -196,83 +201,6 @@
     }
 
 
-.mce-container .mce-textbox:focus {
-    border-color: #343a40
-}
-
-.mce-tinymce {
-    border: 0;
-    border-radius: 10px 10px 0 0
-}
-
-#formPostReview .mce-tinymce {
-    border-radius: 0
-}
-
-.mce-toolbar-grp {
-    border-radius: 10px 10px 0 0
-}
-
-.mce-popover {
-    width: auto !important;
-    height: auto !important
-}
-
-#formLoadBook {
-    height: 44px;
-    line-height: 44px;
-    background-color: #f0f0f0;
-    border-radius: 10px 10px 0 0;
-    padding: 0 .5rem
-}
-
-input.book-url {
-    background: white;
-    width: calc(100% - 100px);
-    height: 29px;
-    line-height: 29px;
-    margin: 0;
-    border: 1px solid #bbb;
-    box-sizing: border-box;
-    padding: 0 .7rem;
-    color: #333
-}
-
-    input.book-url ::input-placeholder {
-        color: #bbb
-    }
-
-    input.book-url :-moz-placeholder {
-        color: #bbb
-    }
-
-    input.book-url ::-moz-placeholder {
-        color: #bbb
-    }
-
-    input.book-url :-ms-input-placeholder {
-        color: #bbb
-    }
-
-.btn-load-book {
-    color: #343a40;
-    font-size: 1.1rem;
-    font-weight: bold;
-    background-color: #eff4f3;
-    text-transform: none;
-    border-radius: 5px;
-    padding: 0 .7rem;
-    height: 29px;
-    line-height: 29px;
-    margin-left: .5rem;
-    margin-bottom: 5px
-}
-
-    .btn-load-book:hover {
-        color: #eff4f3 !important;
-        background-color: #343a40
-    }
-
 .word-wrap {
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -290,7 +218,7 @@ input.book-url {
 
 .midup-body {
     text-align: left;
-    margin-left: 5px;
+    padding-left: 160px;
 }
 
 
@@ -299,16 +227,27 @@ input.book-url {
     position: static;
 }
 
+h4{
+    margin: 0 !important;
+}
+h5 {
+    margin-block-end:0;
+    margin:0 !important;
+}
 .book-title h5, .book-title a {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     color: #444;
-    margin: .5rem 0 0 0
+    margin: .5rem 0 0 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
 .book-author, .book-author a {
     color: #333;
-    margin: .1rem 0 0 0
+    margin: 0;
 }
 
 .book-publisher, .book-publisher a {
@@ -459,6 +398,12 @@ input.book-url {
     color: orange !important
 }
 
+@media only screen and (max-width:500px){
+    .midup-body {
+        clear: both;
+        padding: 0
+    }
+}
 @media only screen and (max-width:600px) {
     #commentBoard {
         padding: 1rem 1rem
@@ -524,8 +469,6 @@ input.book-url {
     .book-item {
         width: 150px;
     }
-
-
 
     .cover-wrapper {
         flex: 0 0 150px;

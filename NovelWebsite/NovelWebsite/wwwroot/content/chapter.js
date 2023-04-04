@@ -77,7 +77,7 @@ $.ajax({
                                         </div>                                       
                                         <div class="input-comment col">
                                             <div id="chapter-toolbar"></div>
-                                            <div id="comment-editor" class="input--box"></div>
+                                            <div id="chapter-editor" class="input--box"></div>
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
@@ -86,7 +86,7 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-        startCKEditor('chapter-toolbar', 'comment-editor');
+        
         data.forEach((item, index) => {
             var content = $('<textarea />').html(item.content).text();
             $('#list-comment-chapter').append(`<li class="list-group-item">
@@ -120,6 +120,7 @@ $.ajax({
                                     </div>
                                 </li>`);
         });
+        startCKEditor('chapter-toolbar', 'chapter-editor');
     },
     error: function (e) { console.log(e) },
     complete: function () { }
