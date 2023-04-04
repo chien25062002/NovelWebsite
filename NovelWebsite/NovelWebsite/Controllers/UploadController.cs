@@ -57,7 +57,7 @@ namespace NovelWebsite.Entities
                     _dbContext.SaveChanges();
                 }
                 var book = _dbContext.Books.FirstOrDefault(b => b.BookId == bookModel.BookId && b.IsDeleted == false);
-                if (book == null)
+                if (book.BookId == null)
                 {
                     book = new BookEntity()
                     {
