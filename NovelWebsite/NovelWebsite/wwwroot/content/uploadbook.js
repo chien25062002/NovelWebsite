@@ -74,7 +74,7 @@ DecoupledEditor
 
 
 $('img.input-img').on('load', function () {
-    if (imgPath != null) {
+    if (imgPath == null) {
         imgPath = bookImg;
     }
 
