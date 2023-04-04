@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using NovelWebsite.Entities;
 using NovelWebsite.Extensions;
+using NovelWebsite.Models;
 
 namespace NovelWebsite.Controllers
 {   
@@ -96,6 +97,22 @@ namespace NovelWebsite.Controllers
         {
             var listBooks = _dbContext.Books.Where(b => b.Category.CategoryId == id).Include("Author").OrderByDescending(b => b.CreatedDate).Take(number).ToList();
             return Json(listBooks);
+        }
+
+        [Route("{action}")]
+        public IActionResult GetBookTags(int id)
+        {
+            var bookTag = _dbContext.BookTags.Where(x => x.BookId == id).Select(x => x.TagId).ToList();
+            var tags = _dbContext.Tags.ToList();
+            List<TagEntity> listTag = new List<TagEntity>();
+            foreach (var item in tags)
+            {
+                if (bookTag.Contains(item.TagId))
+                {
+                    listTag.Add(item);
+                }
+            }
+            return Json(listTag);
         }
     }
 }
