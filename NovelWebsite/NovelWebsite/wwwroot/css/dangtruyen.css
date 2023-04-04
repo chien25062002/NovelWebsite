@@ -84,3 +84,16 @@ element.style {
     flex: 0 0 auto;
     width: 100%;
 }
+#hoso,#tutruyen{
+    border:none;
+}
+#hoso>a{
+    color:black;
+}
+#truyendang {
+    border: 0.5px solid rgba(190, 186, 186, 0.7);
+    border-radius: 5px;
+}
+    #truyendang > a {
+        color: #EE4259
+    }
