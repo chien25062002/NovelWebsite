@@ -1,6 +1,6 @@
 ﻿
 DecoupledEditor
-    .create(document.querySelector('#dangtruyen-editor'), {
+    .create(document.querySelector('#chapterpost-editor'), {
         toolbar: {
             items: [
                 'selectAll', '|',
@@ -62,7 +62,7 @@ DecoupledEditor
 
     })
     .then(editor => {
-        const toolbarContainer = document.querySelector('#dangtruyen-toolbar');
+        const toolbarContainer = document.querySelector('#chapterpost-toolbar');
 
         toolbarContainer.prepend(editor.ui.view.toolbar.element);
 
@@ -73,16 +73,8 @@ DecoupledEditor
     });
 
 
-$('img.input-img').on('load', function () {
-    if (imgPath == null) {
-        imgPath = bookImg;
-    }
-    $('input[name="Avatar"]').val(imgPath);
-    
-});
-
-$('#upload-book').on('submit', function () {
-    $("input[name='introduce']").val($('#dangtruyen-editor').html());
+$('#upload-chapter').on('submit', function () {
+    $("input[name='content']").val($('#chapterpost-editor').html());
     return true;
 });
 

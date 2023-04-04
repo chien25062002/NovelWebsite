@@ -11,7 +11,7 @@ $.ajax({
         });*/
         data.forEach((item, index) => {
             $('#list-chuong').append(`<li class="list-group-item col-4">
-                        <a href="/truyen/${link}/chuong-${item.chapterNumber}-${item.slug}-${item.chapterId}">Chương ${item.chapterNumber}: ${item.chapterName}</a>
+                        <a href="/truyen/${link}/chuong-${item.chapterNumber}/${item.slug}-${item.chapterId}">Chương ${item.chapterNumber}: ${item.chapterName}</a>
                         </li>`);
             /*if (index % 2 == 1) {
                 $('.index__theloai--wrap').append(row);
@@ -38,7 +38,7 @@ $.ajax({
         });*/
         data.forEach((item, index) => {
             $('#list-chuong').append(`<li class="list-group-item col-4">
-                        <a href="/truyen/${link}/chuong-${item.chapterNumber}-${item.slug}-${item.chapterId}">Chương ${item.chapterNumber}: ${item.chapterName}</a>
+                        <a href="/truyen/${link}/chuong-${item.chapterNumber}/${item.slug}-${item.chapterId}">Chương ${item.chapterNumber}: ${item.chapterName}</a>
                         </li>`);
             /*if (index % 2 == 1) {
                 $('.index__theloai--wrap').append(row);

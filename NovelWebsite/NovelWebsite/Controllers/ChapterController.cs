@@ -43,7 +43,7 @@ namespace NovelWebsite.Controllers
             return currentViewCount + 1;
         }
 
-        [Route("{slug}-{id:int}/chuong-{chapterNumber:int}-{chapterSlug}-{chapterId:int}")]
+        [Route("{slug}-{id:int}/chuong-{chapterNumber:int}/{chapterSlug}-{chapterId:int}")]
         public IActionResult Index(int chapterId)
         {
             var chapter = _dbContext.Chapters.Where(c => c.ChapterId == chapterId)

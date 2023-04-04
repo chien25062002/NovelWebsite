@@ -40,6 +40,10 @@ namespace NovelWebsite.Entities
             if (!ModelState.IsValid)
             {
                 TempData["error"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).First();
+                if (bookModel.BookId == 0)
+                {
+                    return Redirect("/dang-truyen/");
+                }
                 return Redirect("/dang-truyen/" + bookModel.BookId);
             }
             else
@@ -98,10 +102,12 @@ namespace NovelWebsite.Entities
             }
         }
 
-        [Route("/dang-chuong/{id?}")]
-        public IActionResult AddOrUpdateChapter(int id = 0)
+        [Route("/truyen/{bookId:int}/dang-chuong/{chapterId?}")]
+        public IActionResult AddOrUpdateChapter(int bookId, int chapterId = 0)
         {
-            var chapter = _dbContext.Chapters.Where(b => b.Status == 0 && b.IsDeleted == false && b.ChapterId == id).FirstOrDefault();
+            var chapter = _dbContext.Chapters.Where(b => b.Status == 0 && b.IsDeleted == false && b.ChapterId == chapterId).FirstOrDefault();
+            ViewBag.ChapterNumber = chapter == null ? _dbContext.Chapters.Where(b => b.BookId == bookId).Count() + 1 : chapter.ChapterNumber;
+            ViewBag.BookId = bookId;
             if (chapter == null)
             {
                 return View();
@@ -114,8 +120,12 @@ namespace NovelWebsite.Entities
         {
             if (!ModelState.IsValid)
             {
-                TempData["error"] = ModelState.Values.First();
-                return Redirect("/dang-chuong/" + chapterModel.BookId);
+                TempData["error"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).First();
+                if (chapterModel.ChapterId != 0)
+                {
+                    return Redirect($"/truyen/{chapterModel.BookId}/dang-chuong/{chapterModel.ChapterId}");
+                }
+                return Redirect($"/truyen/{chapterModel.BookId}/dang-chuong/");
             }
             var chapter = _dbContext.Chapters.FirstOrDefault(c => c.ChapterId == chapterModel.ChapterId && c.IsDeleted == false);
             if (chapter == null)
@@ -123,11 +133,16 @@ namespace NovelWebsite.Entities
                 chapter = new ChapterEntity()
                 {
                     ChapterName = chapterModel.ChapterName,
-                    Content = chapterModel.Content,
+                    ChapterNumber = _dbContext.Chapters.Where(b => b.BookId == chapterModel.BookId).Count() + 1,
+                    BookId = chapterModel.BookId,
+                    Content = StringExtension.HtmlEncode(chapterModel.Content),
                     Views = 0,
                     Likes = 0,
+                    Slug = StringExtension.Slugify(chapterModel.ChapterName),
                     CreatedDate = DateTime.Now,
-                    UpdatedDate = DateTime.Now
+                    UpdatedDate = DateTime.Now,
+                    Status = 0,
+                    IsDeleted = false,
                 };
                 _dbContext.Chapters.Add(chapter);
             }
@@ -136,10 +151,12 @@ namespace NovelWebsite.Entities
                 chapter.ChapterName = chapterModel.ChapterName;
                 chapter.Content = StringExtension.HtmlEncode(chapterModel.Content);
                 chapter.UpdatedDate = DateTime.Now;
+                chapter.Slug = StringExtension.Slugify(chapterModel.ChapterName);
                 _dbContext.Chapters.Update(chapter);
             }
             _dbContext.SaveChanges();
-            return AddOrUpdateChapter(chapter.ChapterId);
+            var book = _dbContext.Books.FirstOrDefault(b => b.BookId == chapterModel.BookId);
+            return Redirect($"/truyen/{book.Slug}-{book.BookId}/chuong-{chapter.ChapterNumber}/{chapter.Slug}-{chapter.ChapterId}");
         }
 
         public IActionResult AddTagsToBook(List<int>listTag, int bookId)
