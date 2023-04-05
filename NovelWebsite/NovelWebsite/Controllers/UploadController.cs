@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Extensions;
@@ -16,15 +17,16 @@ namespace NovelWebsite.Entities
             _dbContext = dbContext;
         }
 
-        [Route("/dang-truyen/{id?}")]
-        public IActionResult AddOrUpdateBook(int id = 0)
+        [Authorize(Policy = "BookOwner")]
+        [Route("/{userId}/dang-truyen/{bookId?}")]
+        public IActionResult AddOrUpdateBook(int bookId = 0)
         {
-            var book = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false && b.BookId == id)
+            var book = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false && b.BookId == bookId)
                                        .Include(b => b.Author)
                                        .Include(b => b.Category)
                                        .FirstOrDefault();
             ViewBag.Tags = _dbContext.Tags.ToList();
-            ViewBag.CheckedTags = GetBookTags(id);
+            ViewBag.CheckedTags = GetBookTags(bookId);
             ViewBag.BookStatuses = new SelectList(_dbContext.BookStatuses.ToList(), "BookStatusId", "BookStatusName");
             ViewBag.Categories = new SelectList(_dbContext.Categories.ToList(), "CategoryId", "CategoryName");
             if (book == null)
@@ -102,7 +104,8 @@ namespace NovelWebsite.Entities
             }
         }
 
-        [Route("/truyen/{bookId:int}/dang-chuong/{chapterId?}")]
+        [Authorize(Policy = "BookOwner")]
+        [Route("/{userId}/truyen/{bookId:int}/dang-chuong/{chapterId?}")]
         public IActionResult AddOrUpdateChapter(int bookId, int chapterId = 0)
         {
             var chapter = _dbContext.Chapters.Where(b => b.Status == 0 && b.IsDeleted == false && b.ChapterId == chapterId).FirstOrDefault();
