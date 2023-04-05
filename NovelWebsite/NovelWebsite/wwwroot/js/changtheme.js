@@ -44,5 +44,5 @@ function changeSize(flag) {
         }
     }
     $('.box-size .lang').text(number);
-    $('.box-chap').css('font-size',number + 'px');
+    $('.box-chap p').css('font-size',number + 'px');
 }
