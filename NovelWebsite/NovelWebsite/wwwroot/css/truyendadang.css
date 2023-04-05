@@ -1,0 +1,62 @@
+﻿.button {
+    text-align: center;
+    margin: 10px;
+}
+
+li.list-group-item {
+    display: flex;
+    margin: auto;
+}
+
+element.style {
+}
+
+.col-9 {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+#hoso, #tutruyen {
+    border: none;
+}
+
+    #hoso > a {
+        color: black;
+    }
+
+#truyendang {
+    border: 0.5px solid rgba(190, 186, 186, 0.7);
+    border-radius: 5px;
+}
+
+    #truyendang > a {
+        color: #EE4259
+    }
+
+li.list-group-item {
+    border: none;
+}
+.book--info-buttons {
+    width: 260px;
+    position: relative;
+}
+    .book--info-buttons p {
+      /*  position: absolute;*/
+        bottom: 0;
+        margin: 0;
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+    }
+        .book--info-buttons p > a:first-child {
+            margin-right: 24px;
+            background-color: #f44b4b;
+            color: #fff;
+        }
+
+        .book--info-buttons p > a {
+            font-size: 16px;
+            padding: 6px 12px;
+            border-radius: 0;
+            border: 1px solid;
+        }

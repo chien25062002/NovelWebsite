@@ -14,7 +14,6 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    /* overflow-x: hidden; */
 }
 
 a {
@@ -219,7 +218,6 @@ ul li {
 /* phần chỉnh sửa cho Tải xuống 
 
 */
-
 .index__row, .index__banner {
     width: 1200px;
     margin-right: auto;
@@ -227,12 +225,6 @@ ul li {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-
-/*.index__one {
-    margin-top: 30px;
-    margin-bottom: 30px;
-}*/
-
 .index__theloai--wrap {
     background-color: #343a40;
     border-radius: 5px;
@@ -301,7 +293,6 @@ ul li {
     padding-top: 10px;
     padding-bottom: 10px;
 } */
-
 .carousel-inner {
     border-radius: 5px;
 }
@@ -827,6 +818,7 @@ ul li {
 .mobile {
     width: 10%;
     z-index: 5;
+    display:none;
 }
 .section {
     display: none;
