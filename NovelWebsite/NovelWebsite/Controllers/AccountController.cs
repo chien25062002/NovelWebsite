@@ -35,6 +35,7 @@ namespace NovelWebsite.Controllers
                     new Claim(ClaimTypes.NameIdentifier, account.AccountName)
                 };
                 claims.Add(new Claim(ClaimTypes.Role, login.User.Role.RoleName));
+                claims.Add(new Claim("UserId", login.UserId.ToString()));
                 claims.Add(new Claim("Username", login.User.UserName));
                 claims.Add(new Claim("Avatar", login.User.Avatar));
                 var claimIndentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -103,6 +104,7 @@ namespace NovelWebsite.Controllers
                 {
                     AccountName = claims.FindFirst(ClaimTypes.NameIdentifier).Value,
                     Role = claims.FindFirst(ClaimTypes.Role).Value,
+                    UserId = Int32.Parse(claims.FindFirst("UserId").Value),
                     Username = claims.FindFirst("Username").Value,
                     Avatar = claims.FindFirst("Avatar").Value
                 };
