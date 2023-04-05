@@ -36,6 +36,33 @@ function AddChapterComment(id) {
         data: {
             ChapterId: id,
             UserId: user.userId,
+            Content: $('#chapter-editor').html()
+        },
+        dataType: "json",
+        beforeSend: function () { },
+        success: function () {
+            console.log("success");
+            location.reload();
+        },
+        error: function () { },
+        complete: function () { }
+    })
+}
+
+
+
+function AddPostComment(id) {
+    var user = GetUserInfo();
+    if (user == "") {
+        alert("Bạn cần đăng nhập để có thể bình luận!");
+        return;
+    }
+    $.ajax({
+        url: "/Comment/AddComment",
+        type: "POST",
+        data: {
+            PostId: id,
+            UserId: user.userId,
             Content: $('#comment-editor').html()
         },
         dataType: "json",

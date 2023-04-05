@@ -679,7 +679,7 @@ ul li {
     border: none;
 }
 
-.nav__bars-btn {
+/*.nav__bars-btn {
     width: 28px;
     height: 28px;
     color: #fff;
@@ -753,8 +753,81 @@ ul li {
     width: 10%;
     z-index: 5;
     display:none;
+}*/
+.nav__bars-btn {
+    width: 28px;
+    height: 28px;
+    color: #fff;
+    display: none;
+    margin-left: 8px;
 }
 
+.nav__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: none;
+    animation: fadeIn linear 0.2s;
+}
+
+.navbar_mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 320px;
+    max-width: 100%;
+    background-color: rgb(134, 127, 127);
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform linear 0.2s;
+}
+
+.nav_mobile-item {
+    margin-top: 24px;
+}
+
+.nav__mobile-link {
+    text-decoration: none;
+    color: #3b3939;
+    display: block;
+    padding: 8px 0;
+    font-size: 1.4rem;
+}
+
+.nav__mobile-close {
+    width: 28px;
+    height: 28px;
+    color: #666;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.nav__input {
+    display: none;
+}
+
+    .nav__input:checked ~ .nav__overlay {
+        display: block;
+    }
+
+    .nav__input:checked ~ .navbar_mobile {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+
+#tin:active ~ .index__tintuc {
+    display: block;
+}
+
+.mobile {
+    width: 10%;
+    z-index: 5;
+}
 .section {
     display: none;
 }
@@ -873,6 +946,15 @@ img {
 
 
 
+
+    .category-dropdown {
+       
+        width: 30%;
+    }
+
+
+
+
     .book--img {
         margin: 1rem 2rem;
     }
@@ -886,9 +968,7 @@ img {
         margin: 1rem auto;
     }
 
-    /*.index__truyenhoanthanh--listitem {
-        text-align: center;
-    }*/
+    
 
     h3 {
         text-align: center;
@@ -922,15 +1002,13 @@ img {
         text-align: center;
     }
 
-    /* #demo, */
+ 
     .modal-title,
     .index__truyenmoi.col-md-3 {
         display: none;
     }
 
-    /*  .index__truyenmoito--listitem {
-        display: block;
-    }*/
+
     .index__right-wrap--listitem {
         text-align: center;
         display: block;

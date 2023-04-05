@@ -1,26 +1,7 @@
 ﻿<link rel="stylesheet"
       href="~/css/userprofile.css">
-
 <main>
-    <ul class="row-left">
-        <li class="col-left active" id="hoso"><a href="/NovelWebsite/NovelWebsite/wwwroot/html/userprofile.html" style="color:#EE4259"><i class="fa fa-user"></i>Hồ sơ</a></li>
-
-        <li class="col-left active">
-            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/userprofile1.html">
-                <i class="fa fa-book"></i>Tủ truyện
-            </a>
-        </li>
-
-        <li class="col-left active">
-            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/dangtruyen.html">
-                <i class="fa fa-bell"></i>Đăng truyện
-            </a>
-        </li>
-
-        <li class="col-left active">
-            <a href="/NovelWebsite/NovelWebsite/wwwroot/html/chuongtruyen.html"><i class="fa-solid fa-message"></i>Quản lí chương</a>
-        </li>
-    </ul>
+    @await Component.InvokeAsync("UserNavbar")
     <div class="row-right">
         <div id="profile-upper">
             <div id="profile-banner-image">
@@ -31,7 +12,17 @@
                     <div id="u-name">Username (ID)</div>
                     <div class="tb" id="m-btns">
                         <div class="td">
-                            <div class="m-btn"><i class="fas fa-cog"></i></div>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary show" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" fdprocessedid="riowej">
+                                    <div class="m-btn"><i class="fas fa-cog"></i></div>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end show" aria-labelledby="dropdownMenuButton1" data-popper-placement="bottom-end" style="position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate3d(0px, 42.4px, 0px);">
+                                    <li><a class="dropdown-item" href="/">chỉnh sửa profile</a></li>
+                               
+                                </ul>
+                            </div>
+
+                           
                         </div>
                     </div>
                 </div>
@@ -51,6 +42,7 @@
 
                 <label>Mật khẩu:</label>
                 <input name="pass" type="password" value="" /><br />
+                 <button class="btn btn-primary submit-btn" type="submit">Lưu</button>
             </form>
         </div>
     </div>

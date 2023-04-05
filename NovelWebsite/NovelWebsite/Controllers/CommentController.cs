@@ -28,6 +28,7 @@ namespace NovelWebsite.Controllers
                 UserId = comment.UserId,
                 Content = StringExtension.HtmlEncode(comment.Content),
                 ReplyCommentId = comment.ReplyCommentId == 0 ? null : comment.ReplyCommentId,
+                PostId = comment.PostId == 0 ? null : comment.PostId,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
                 Status = 0,
