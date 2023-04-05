@@ -39,6 +39,7 @@ namespace NovelWebsite.Entities
         }
 
         [HttpPost]
+        [Route("{action}")]
         public IActionResult AddOrUpdateBook(BookModel bookModel)
         {
             if (!ModelState.IsValid)
@@ -121,6 +122,7 @@ namespace NovelWebsite.Entities
         }
 
         [HttpPost]
+        [Route("{action}")]
         public IActionResult AddOrUpdateChapter(ChapterModel chapterModel)
         {
             var claims = HttpContext.User.Identity as ClaimsIdentity;

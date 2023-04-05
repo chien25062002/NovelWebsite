@@ -22,10 +22,48 @@ namespace NovelWebsite.Controllers
         public IActionResult Profile(int id)
         {
             var claims = HttpContext.User.Identity as ClaimsIdentity;
-            var account = _dbContext.Accounts.Where(a => a.AccountName == claims.FindFirst(ClaimTypes.NameIdentifier).Value)
-                                                .Include(a => a.User)
+            var user = _dbContext.Users.Where(a => a.UserId == Int32.Parse(claims.FindFirst("UserId").Value))
                                                 .FirstOrDefault();
-            return View(account);
+            return View(user);
+        }
+
+        [HttpPost]
+        [Route("{action}")]
+        public IActionResult UpdateProfile(UserModel userModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                TempData["error"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).First();
+            }
+            else
+            {
+                var user = _dbContext.Users.FirstOrDefault(u => u.UserId == userModel.UserId);
+                user.UserName = userModel.Username;
+                user.Email = userModel.Email;
+                _dbContext.Users.Update(user);
+                _dbContext.SaveChanges();
+            }
+            return Redirect($"/ho-so/{userModel.UserId}");
+        }
+
+        [Route("{action}")]
+        public IActionResult UpdateAvatar(int userId, string avatar)
+        {
+            var user = _dbContext.Users.FirstOrDefault(u => u.UserId == userId);
+            user.Avatar = avatar;
+            _dbContext.Users.Update(user);
+            _dbContext.SaveChanges();
+            return Json(avatar);
+        }
+
+        [Route("{action}")]
+        public IActionResult UpdateCoverPhoto(int userId, string coverPhoto)
+        {
+            var user = _dbContext.Users.FirstOrDefault(u => u.UserId == userId);
+            user.CoverPhoto = coverPhoto;
+            _dbContext.Users.Update(user);
+            _dbContext.SaveChanges();
+            return Json(coverPhoto);
         }
 
         [Route("{id}/tu-truyen")]
@@ -78,6 +116,7 @@ namespace NovelWebsite.Controllers
             ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
             var claims = HttpContext.User.Identity as ClaimsIdentity;
             ViewBag.userId = Int32.Parse(claims.FindFirst("UserId").Value);
+            ViewBag.bookId = bookId;
 
             return View(query.Skip(pageSize * pageNumber - pageSize)
                          .Take(pageSize)

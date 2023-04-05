@@ -106,7 +106,7 @@ namespace NovelWebsite.Controllers
                     Role = claims.FindFirst(ClaimTypes.Role).Value,
                     UserId = Int32.Parse(claims.FindFirst("UserId").Value),
                     Username = claims.FindFirst("Username").Value,
-                    Avatar = claims.FindFirst("Avatar").Value
+                    Avatar = claims.FindFirst("Avatar").Value,
                 };
                 return Json(user);
             }

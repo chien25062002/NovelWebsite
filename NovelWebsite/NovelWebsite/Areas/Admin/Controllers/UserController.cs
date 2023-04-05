@@ -40,24 +40,6 @@ namespace NovelWebsite.Areas.Admin.Controllers
                          .ToList());
         }
 
-        public IActionResult AddOrUpdateUser(string account)
-        {
-            var user = _dbContext.Accounts.Where(x => x.AccountName == account).Include(p => p.User).ThenInclude(p => p.Role).FirstOrDefault();
-            if (user != null)
-            {
-                return Json(new UserModel()
-                {
-                    AccountName = account,
-                    UserId = user.UserId,
-                    Username = user.User.UserName,
-                    Avatar = user.User.Avatar,
-                    CoverPhoto = user.User.CoverPhoto,
-                    Email = user.User.Email,
-                    Role = user.User.Role.RoleName
-                });
-            }
-            return Json("");
-        }
 
         public IActionResult BanUser(string account)
         {
