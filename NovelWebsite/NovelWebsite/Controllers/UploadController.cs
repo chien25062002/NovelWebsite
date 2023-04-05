@@ -8,6 +8,8 @@ using System.Security.Claims;
 
 namespace NovelWebsite.Entities
 {
+    [Route("/dang-tai")]
+    [Route("/{controller}")]
     public class UploadController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -18,7 +20,7 @@ namespace NovelWebsite.Entities
         }
 
         [Authorize(Policy = "BookOwner")]
-        [Route("/{userId}/dang-truyen/{bookId?}")]
+        [Route("{userId}/truyen/{bookId?}")]
         public IActionResult AddOrUpdateBook(int bookId = 0)
         {
             var book = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false && b.BookId == bookId)
@@ -44,9 +46,9 @@ namespace NovelWebsite.Entities
                 TempData["error"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).First();
                 if (bookModel.BookId == 0)
                 {
-                    return Redirect("/dang-truyen/");
+                    return Redirect($"/dang-tai/{bookModel.UserId}/truyen/");
                 }
-                return Redirect("/dang-truyen/" + bookModel.BookId);
+                return Redirect($"/dang-tai/{bookModel.UserId}/truyen/" + bookModel.BookId);
             }
             else
             {
@@ -105,7 +107,7 @@ namespace NovelWebsite.Entities
         }
 
         [Authorize(Policy = "BookOwner")]
-        [Route("/{userId}/truyen/{bookId:int}/dang-chuong/{chapterId?}")]
+        [Route("{userId}/truyen/{bookId:int}/chuong/{chapterId?}")]
         public IActionResult AddOrUpdateChapter(int bookId, int chapterId = 0)
         {
             var chapter = _dbContext.Chapters.Where(b => b.Status == 0 && b.IsDeleted == false && b.ChapterId == chapterId).FirstOrDefault();
@@ -121,14 +123,16 @@ namespace NovelWebsite.Entities
         [HttpPost]
         public IActionResult AddOrUpdateChapter(ChapterModel chapterModel)
         {
+            var claims = HttpContext.User.Identity as ClaimsIdentity;
+            var userId = Int32.Parse(claims.FindFirst("UserId").Value);
             if (!ModelState.IsValid)
             {
                 TempData["error"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).First();
                 if (chapterModel.ChapterId != 0)
                 {
-                    return Redirect($"/truyen/{chapterModel.BookId}/dang-chuong/{chapterModel.ChapterId}");
+                    return Redirect($"/dang-tai/{userId}/truyen/{chapterModel.BookId}/chuong/{chapterModel.ChapterId}");
                 }
-                return Redirect($"/truyen/{chapterModel.BookId}/dang-chuong/");
+                return Redirect($"/dang-tai/{userId}/truyen/{chapterModel.BookId}/chuong");
             }
             var chapter = _dbContext.Chapters.FirstOrDefault(c => c.ChapterId == chapterModel.ChapterId && c.IsDeleted == false);
             if (chapter == null)

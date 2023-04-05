@@ -1,98 +1,88 @@
-﻿@*<link rel="stylesheet" href="~/css/index.css">*@
+﻿@using System.Web
+@model List<BookEntity>
+
+@{
+    int pageSize = (int)ViewBag.pageSize;
+    int pageCount = (int)ViewBag.pageCount;
+    int pageNumber = (int)ViewBag.pageNumber;
+}
+
+@*<link rel="stylesheet" href="~/css/index.css">*@
 <link rel="stylesheet" href="~/css/userprofile.css">
 
 <style>
-    #hoso{
-        border:none !important;
+    #hoso {
+        border: none !important;
     }
-    #hoso > a{
-        color:black !important;
-    }
-    #tutruyen{
+
+        #hoso > a {
+            color: black !important;
+        }
+
+    #tutruyen {
         border: 0.5px solid rgba(190, 186, 186, 0.7);
         border-radius: 5px;
     }
-    #tutruyen > a{
-            color:  #EE4259;
-    }
-    main{
+
+        #tutruyen > a {
+            color: #EE4259;
+        }
+
+    main {
         height: calc(75vh);
     }
 </style>
+
 <main>
     @await Component.InvokeAsync("UserNavbar")
 
     <div class="row-right">
         <div class="reading"><span>Đang đọc</span></div>
-        <div class="index__right-wrap--list row">
-            <div class="index__right-wrap--listitem col-md-12 listitem--odd">
-                <div class="book--img">
-                    <a href="javascript:void(0)">
-                        <img src="/image/test3.jpg" class="book--imgcss">
-                    </a>
-                </div>
-                <div class="book--info">
-                    <div class="book-name">
-                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                    </div>
-                    <div class="book-state">
-                        <a href="javascript:void(0)">Tác giả</a>
-                    </div>
-                 
-                    <div class="describe">
-                        <i class="fa-solid fa-quote-left"></i>
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
+        @{
+            foreach (var item in Model)
+            {
+                <div class="index__right-wrap--list row">
+                    <div class="index__right-wrap--listitem col-md-12 listitem--odd">
+                        <div class="book--img">
+                            <a href="/truyen/@item.Slug-@item.BookId">
+                                <img src="@item.Avatar" class="book--imgcss">
+                            </a>
+                        </div>
+                        <div class="book--info">
+                            <div class="book-name">
+                                <a href="/truyen/@item.Slug-@item.BookId">@item.BookName</a>
+                            </div>
+                            <div class="book-state">
+                                <a href="javascript:void(0)">@item.Author.AuthorName</a>
+                            </div>
+
+                            <div class="describe">
+                                <i class="fa-solid fa-quote-left"></i>
+                                    @Html.Raw(HttpUtility.HtmlDecode(item.Introduce))
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="index__right-wrap--list row">
-            <div class="index__right-wrap--listitem col-md-12 listitem--odd">
-                <div class="book--img">
-                    <a href="javascript:void(0)">
-                        <img src="/image/test3.jpg" class="book--imgcss">
-                    </a>
-                </div>
-                <div class="book--info">
-                    <div class="book-name">
-                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                    </div>
-                    <div class="book-state">
-                        <a href="javascript:void(0)">Tác giả</a>
-                    </div>
-                  
-                    <div class="describe">
-                        <i class="fa-solid fa-quote-left"></i>
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                        truyện mới 1Giới thiệu về truyện mới 1
-                    </div>
-                </div>
-            </div>
-        </div>
+            }
+        }
         <div class="rank-box-main-pagination">
             <ul class="pagination justify-content-end">
-                <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                <li class="page-item"><p class="etc">...</p></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
-                <li class="page-item"><a class="page-link" href="javascript:void(0)">Trang cuối</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="/ho-so/@Model[0].UserId/tu-truyen?pageNumber=@Math.Max(1, pageNumber - 1)">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                @{
+                    for (int i = 1; i <= pageCount; ++i)
+                    {
+                        <li class="page-item"><a class="page-link" href="/ho-so/@Model[0].UserId/tu-truyen?pageNumber=@i">@i</a></li>
+                    }
+                }
+                <li class="page-item">
+                    <a class="page-link" href="/ho-so/@Model[0].UserId/tu-truyen?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

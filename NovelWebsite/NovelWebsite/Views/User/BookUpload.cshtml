@@ -1,398 +1,78 @@
-﻿
+﻿@model List<BookEntity>
+
+@{
+    int pageSize = (int)ViewBag.pageSize;
+    int pageCount = (int)ViewBag.pageCount;
+    int pageNumber = (int)ViewBag.pageNumber;
+}
+
 <link href="~/css/userprofile.css" rel="stylesheet" />
 <link href="~/css/truyendadang.css" rel="stylesheet" />
 <main>
-  
+
     @await Component.InvokeAsync("UserNavbar")
     <div class="row-right">
-
-
         <div class="rank-box-main col-9">
             <div class="rank-box-main-header">
                 <h4>Truyện đã đăng</h4>
-                <a class="btn" href="/html/truyen.html">Thêm truyện</a>
+                <a class="btn" href="/dang-tai/@Model[0].UserId/truyen">Đăng truyện mới</a>
             </div>
             <div class="rank-box-main-body">
                 <div class="rank-view-list">
                     <div class="rank-view-list-item">
                         <ul class="list-group">
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                        
-                                        <p>Số chương</p>
-                                    </div>
-                                    @*<div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                       
-                                        <p>Số chương</p>
-                                    </div>
-                                   @* <div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                     
-                                        <p>Số chương</p>
-                                    </div>
-                                  @*  <div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                        
-                                        <p>Số chương</p>
-                                    </div>
-                                   @* <div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                        
-                                        <p>Số chương</p>
-                                    </div>
-                                @*    <div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                      
-                                        <p>Số chương</p>
-                                    </div>
-                                  @*  <div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                      
-                                        <p>Số chương</p>
-                                    </div>
-                                    @*<div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                     
-                                        <p>Số chương</p>
-                                    </div>
-                                   @* <div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                       
-                                        <p>Số chương</p>
-                                    </div>
-                                    @*<div class="describe">
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                        Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu về truyện mới 1 Giới thiệu v
-                                        truyện mới 1Giới thiệu về truyện mới 1
-                                    </div>*@
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
-                            <li class="list-group-item">
-                                <div class="book--img">
-                                    <a href="javascript:void(0)">
-                                        <img src="/image/test3.jpg" class="book--imgcss">
-                                    </a>
-                                </div>
-                                <div class="book--info">
-                                    <h3>
-                                        <a href="/html/truyen.html">Tên truyện mới 1</a>
-                                    </h3>
-                                    <div class="book-state">
-                                        <a href="javascript:void(0)">Tác giả</a>
-                                        <i>|</i>
-                                        <a href="javascript:void(0)">thục sơn</a>
-                                        <i>|</i>
-                                        <p>Tình trạng</p>
-                                     
-                                        <p>Số chương</p>
-                                    </div>
-                              
-                                </div>
-                                <div class="book--info-buttons">
-                                    <p>
-                                        <a class="btn" href="/html/truyen.html">Sửa truyện</a>
-                                        <a class="btn" href="/html/truyen.html">Xóa truyện</a>
-                                    </p>
-                                </div>
-                            </li>
+                            @{
+                                foreach (var item in Model)
+                                {
+                                    <li class="list-group-item">
+                                        <div class="book--img">
+                                            <a href="javascript:void(0)">
+                                                <img src="@item.Avatar" class="book--imgcss">
+                                            </a>
+                                        </div>
+                                        <div class="book--info">
+                                            <h3>
+                                                <a href="/truyen/@item.Slug-@item.BookId">@item.BookName</a>
+                                            </h3>
+                                            <div class="book-state">
+                                                <a href="javascript:void(0)">@item.Author.AuthorName</a>
+                                                <i>|</i>
+                                                @item.BookStatus.BookStatusName
+                                                <i>|</i>
+                                                @item.NumberOfChapters
+                                            </div>
+                                            <div class="book--info-buttons">
+                                                <p>
+                                                    <a class="btn" href="/dang-tai/@item.UserId/truyen/@item.BookId">Sửa truyện</a>
+                                                    <a class="btn" href="/dang-tai/@item.UserId/truyen/@item.BookId/danh-sach-chuong">Danh sách chương</a>
+                                                </p>
+                                            </div>
+                                    </li>
+                                }
+                            }
                         </ul>
                     </div>
                 </div>
             </div>
-            
+
             <div class="rank-box-main-pagination">
                 <ul class="pagination justify-content-end">
-                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                    <li class="page-item"><p class="etc">...</p></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">Trang cuối</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="/ho-so/@Model[0].UserId/truyen-da-dang?pageNumber=@Math.Max(1, pageNumber - 1)">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    @{
+                        for (int i = 1; i <= pageCount; ++i)
+                        {
+                            <li class="page-item"><a class="page-link" href="/ho-so/@Model[0].UserId/truyen-da-dang?pageNumber=@i">@i</a></li>
+                        }
+                    }
+                    <li class="page-item">
+                        <a class="page-link" href="/ho-so/@Model[0].UserId/truyen-da-dang?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -403,5 +83,5 @@
     <script type="text/javascript" src="~/js/filterbtn.js"></script>
     <script type="text/javascript" src="~/content/filter.js"></script>
 
-}
+    }
 *@

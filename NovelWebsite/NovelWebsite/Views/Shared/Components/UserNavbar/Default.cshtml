@@ -1,19 +1,14 @@
-﻿@{
-    int userId = @Model;
-}
+﻿@model AccountEntity
+
 
 <ul class="row-left">
-    <li class="col-left active" id="hoso"><a href="/ho-so/@userId"><i class="fa fa-user"></i>Hồ sơ</a></li>
+    <li class="col-left active" id="hoso"><a href="/ho-so/@Model.UserId"><i class="fa fa-user"></i>Hồ sơ</a></li>
 
     <li class="col-left active" id="tutruyen">
-        <a href="/ho-so/@userId/tu-truyen"
-          @* style="color:#EE4259*@">
+        <a href="/ho-so/@Model.UserId/tu-truyen">
             <i class="fa fa-book"></i>Tủ truyện
         </a>
     </li>
 
-    <li class="col-left active" id="truyendang"><a href="/ho-so/@userId/truyen-da-dang"><i class="fa fa-bell"></i>Truyện đã đăng</a></li>
-@*    <li class="col-left active">
-        <a href="/dang-chuong/@(chapterId == 0 ? "" : chapterId)"><i class="fa-solid fa-message"></i>Quản lí chương</a>
-    </li>
-*@</ul>
+    <li class="col-left active" id="truyendang"><a href="/ho-so/@Model.UserId/truyen-da-dang"><i class="fa fa-bell"></i>Truyện đã đăng</a></li>
+</ul>

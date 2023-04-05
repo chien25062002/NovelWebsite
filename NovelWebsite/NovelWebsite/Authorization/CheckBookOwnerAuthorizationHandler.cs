@@ -13,7 +13,16 @@ namespace NovelWebsite.Authorization
         }
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, BookOwnerRequirement requirement)
         {
-            var bookId = new HttpContextAccessor().HttpContext.Request.RouteValues["bookId"].ToString();
+            string bookId = "";
+            try
+            {
+                bookId = new HttpContextAccessor().HttpContext.Request.RouteValues["bookId"].ToString();
+            }
+            catch (Exception ex)
+            {
+                context.Succeed(requirement);
+                return Task.CompletedTask;
+            }
             var bookUserId = _dbContext.Books.Where(b => b.BookId == Int32.Parse(bookId)).First().UserId.ToString();
             var currentUserId = new HttpContextAccessor().HttpContext.Request.RouteValues["userId"].ToString();
             if (bookUserId == currentUserId)
