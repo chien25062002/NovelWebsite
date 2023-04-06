@@ -51,10 +51,16 @@ namespace NovelWebsite.Areas.Admin.Controllers
             }
             else
             {
-                _dbContext.Banners.Update(banner);
+                cat.BannerSize = banner.BannerSize;
+                cat.BannerImage = banner.BannerImage;
+                if (banner.BookId != null)
+                {
+                    cat.BookId = banner.BookId;
+                }
+                _dbContext.Banners.Update(cat);
             }
             _dbContext.SaveChanges();
-            return Redirect("/Admin/Category/Index");
+            return Redirect("/Admin/Banner/Index");
         }
 
         public IActionResult DeleteBanner(int id)
