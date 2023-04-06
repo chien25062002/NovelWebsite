@@ -10,6 +10,7 @@
 }
 
 <link rel="stylesheet" href="~/css/admin/admintag.css">
+<link rel="stylesheet" href="~/css/admin/adminbanner.css">
 
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
@@ -25,10 +26,10 @@
                                 <thead class="table-dark fw-semibold">
                                     <tr class="align-middle">
                                         @*<th class="text-center">
-                                            <svg class="icon">
-                                            <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
-                                            </svg>
-                                            </th>*@
+                                        <svg class="icon">
+                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
+                                        </svg>
+                                        </th>*@
                                         <th>Mã banner</th>
                                         <th>Banner</th>
                                         <th>Loại</th>
@@ -45,8 +46,20 @@
                                                     <div>@item.BannerId</div>
                                                 </td>
                                                 <td>
-                                                    <div>
+                                                    <div class="banner-img" data-coreui-toggle="modal" data-coreui-target="@("#modal_"+@item.BannerId)" role="button">
                                                         <img src="@item.BannerImage" />
+                                                    </div>
+                                                    <div class="modal fade" id="modal_@item.BannerId" tabindex="-1">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <img src="@item.BannerImage" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -92,13 +105,13 @@
                         <div class="box-footer">
                             <div class="box-footer-clearfix">
                                 @*<ul class="pagination pagination-sm no-margin pull-right">
-                                    <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Max(pageNumber-1,1)">&laquo;</a></li>
-                                    @for (int i = 1; i <= pageCount; ++i)
-                                    {
-                                    <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@i">@i</a></li>
-                                    }
-                                    <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Min(pageNumber+1,pageCount)">&raquo;</a></li>
-                                    </ul>*@
+                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Max(pageNumber-1,1)">&laquo;</a></li>
+                                @for (int i = 1; i <= pageCount; ++i)
+                                {
+                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@i">@i</a></li>
+                                }
+                                <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Min(pageNumber+1,pageCount)">&raquo;</a></li>
+                                </ul>*@
                                 <ul class="pagination justify-content-end">
                                     <li class="page-item">
                                         <a class="page-link" href="/Admin/Banner/Index?pageNumber=@Math.Max(1, pageNumber - 1)">
@@ -168,11 +181,11 @@
 </div>
 
 @section Scripts{
-<script>
-    var folder = 'banner';
-</script>
+    <script>
+        var folder = 'banner';
+    </script>
 
-<script type="text/javascript" src="~/content/admin/banner.js"></script>
-<script type="text/javascript" src="~/content/image.js"></script>
+    <script type="text/javascript" src="~/content/admin/banner.js"></script>
+    <script type="text/javascript" src="~/content/image.js"></script>
 }
 
