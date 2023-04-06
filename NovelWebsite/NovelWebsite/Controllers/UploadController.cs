@@ -19,6 +19,7 @@ namespace NovelWebsite.Entities
             _dbContext = dbContext;
         }
 
+        [Authorize(Policy = "UserIdentity")]
         [Authorize(Policy = "BookOwner")]
         [Route("{userId}/truyen/{bookId?}")]
         public IActionResult AddOrUpdateBook(int bookId = 0)
@@ -107,6 +108,7 @@ namespace NovelWebsite.Entities
             }
         }
 
+        [Authorize(Policy = "UserIdentity")]
         [Authorize(Policy = "BookOwner")]
         [Route("{userId}/truyen/{bookId:int}/chuong/{chapterId?}")]
         public IActionResult AddOrUpdateChapter(int bookId, int chapterId = 0)
