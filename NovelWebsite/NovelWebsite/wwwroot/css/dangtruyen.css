@@ -1,4 +1,4 @@
-﻿/*th {
+﻿th {
     color: #ebedef;
 }
 
@@ -67,33 +67,4 @@ textarea {
     .sub-catagory {
         display: block;
     }
-}*/
-.button {
-    text-align: center;
-    margin: 10px;
 }
-li.list-group-item {
-    display: flex;
-    margin:auto;
-}
-
-element.style {
-}
-
-.col-9 {
-    flex: 0 0 auto;
-    width: 100%;
-}
-#hoso,#tutruyen{
-    border:none;
-}
-#hoso>a{
-    color:black;
-}
-#truyendang {
-    border: 0.5px solid rgba(190, 186, 186, 0.7);
-    border-radius: 5px;
-}
-    #truyendang > a {
-        color: #EE4259
-    }

@@ -1,8 +1,12 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
+using NovelWebsite.Authorization;
 using NovelWebsite.Entities;
 using System.Configuration;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +17,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options => {
     options.LoginPath = "/Admin/Account/Login";
 });
+
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("BookOwner", policy => policy.Requirements.Add(new BookOwnerRequirement()));
+});
+
+builder.Services.AddTransient<IAuthorizationHandler, CheckBookOwnerAuthorizationHandler>();
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddDistributedMemoryCache();           
 builder.Services.AddSession(cfg => {                   

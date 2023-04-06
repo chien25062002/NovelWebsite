@@ -1,72 +1,51 @@
-﻿@{
+﻿@using NovelWebsite.Extensions
+@model List<ChapterEntity>
+
+@{
     int pageSize = (int)ViewBag.pageSize;
     int pageCount = (int)ViewBag.pageCount;
     int pageNumber = (int)ViewBag.pageNumber;
+    int userId = ViewBag.userId;
+    int bookId = ViewBag.bookId;
 }
 
-<link rel="stylesheet" href="~/css/index.css">
+
 <link rel="stylesheet" href="~/css/userprofile.css">
 <link rel="stylesheet" href="~/css/admin/adminbook.css">
 <link href="~/css/listchapter.css" rel="stylesheet" />
 <main>
     @await Component.InvokeAsync("UserNavbar")
 
-    @*viết code tiếp vào đây*@
     <div class="body flex-grow-1 px-3">
         <div class="container-lg">
             <div class="row">
-                <div class="col-md-12">
-                    <h4>Tìm kiếm truyện</h4>
-                    <div class="search input-group float-md-start w-50 search-admin">
-                        <input type="text" class="form-control shadow-none" placeholder="Nhập tên truyện">
-                        <button class="btn btn-success btn--search-color" type="submit" title="searchButton">
-                            <i class="fa-solid fa-magnifying-glass search__btn--icons"></i>
-                        </button>
-                    </div>
-                </div>
                 <div class="col-md-12 tieude">
                     <h4>Danh sách chương </h4>
-                    <button>Thêm chương</button>
+                    <button><a href="/dang-tai/@userId/truyen/@bookId/chuong">Thêm chương</a></button>
                 </div>
                 <div class="col-md-12">
                     <div class="table-responsive">
                         <table class="table border mb-0 table-striped">
                             <thead class="table-dark fw-semibold">
                                 <tr class="align-middle">
-                                    @*<th class="text-center">
-                                    <svg class="icon">
-                                    <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
-                                    </svg>
-                                    </th>*@
                                     <th>STT</th>
                                     <th>Tên chương</th>
-                                    <th>lượt xem</th>
+                                    <th>Lượt xem</th>
                                     <th>Yêu thích</th>
-                                    <th>Ngày đăng</th>
+                                    <th>Cập nhật gần nhất</th>
                                     <th></th>
-                                   
                                 </tr>
                             </thead>
                             <tbody>
-                            @*    @{
-                                    int i = 1;
+                                @{
                                     foreach (var item in Model)
                                     {
                                         <tr class="align-middle">
                                             <td>
-                                                <div>@i</div>
+                                                <div>@item.ChapterId</div>
                                             </td>
                                             <td>
-                                                <div>@item.BookName</div>
-                                            </td>
-                                            <td>
-                                                <div>@item.Author.AuthorName</div>
-                                            </td>
-                                            <td>
-                                                <div>@item.Category.CategoryName</div>
-                                            </td>
-                                            <td>
-                                                <div>@item.NumberOfChapters</div>
+                                                <div>@item.ChapterName</div>
                                             </td>
                                             <td>
                                                 <div>@item.Views</div>
@@ -75,63 +54,17 @@
                                                 <div>@item.Likes</div>
                                             </td>
                                             <td>
-                                                <div>@item.Recommends</div>
+                                                <div>@DateTimeExtension.TimeSpan((DateTime)item.UpdatedDate)</div>
                                             </td>
                                             <td>
-                                                <div>@item.BookStatus.BookStatusName</div>
-                                            </td>
-                                            <td>
-                                                <div>@item.UpdatedDate</div>
-                                            </td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                        <svg class="icon">
-                                                            <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="/truyen/@item.Slug-@item.BookId">Thông tin truyện</a>
-                                                        <a class="dropdown-item" href="/dang-truyen">Chỉnh sửa</a>
-                                                        <a class="dropdown-item text-danger" href="#">Xoá</a>
-                                                    </div>
+                                                <div>
+                                                    <button><a href="/dang-tai/@userId/truyen/@item.BookId/chuong/@item.ChapterId">Sửa</a></button>
+                                                    <button><a href="">Xóa</a></button>
                                                 </div>
                                             </td>
                                         </tr>
-                                        i++;
                                     }
-                                }*@
-                                <tr class="align-middle">
-                                <td>
-                                <div>Đây là tên truyện 1</div>
-                                </td>
-                                <td>
-                                <div>Yiorgos Avraamu</div>
-                                </td>
-                                <td>
-                                <div>Thể loại Vjp</div>
-                                </td>
-                                <td>
-                                <div>xxx Chương</div>
-                                </td>
-                                <td>
-                                <div>xxx Lượt xem</div>
-                                </td>
-                                <td>
-                                <div>
-                                    <button>Sửa</button>
-                                    <button>Xóa</button>
-                                </div>
-                                </td>
-                                
-                                @*<td>
-                                <div>Đang tiến hành</div>
-                                </td>*@
-                                @*<td>
-                                <div class="fw-semibold">10 sec ago</div>
-                                </td>*@
-                                
-                                </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
@@ -139,29 +72,20 @@
                 <div class="col-md-12">
                     <div class="box-footer">
                         <div class="box-footer-clearfix">
-                            @*<ul class="pagination pagination-sm no-margin pull-right">
-                            <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Max(pageNumber-1,1)">&laquo;</a></li>
-                            @for (int i = 1; i <= pageCount; ++i)
-                            {
-                            <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@i">@i</a></li>
-                            }
-                            <li><a href="/Admin/Blog/Index?name=@name&&pageNumber=@Math.Min(pageNumber+1,pageCount)">&raquo;</a></li>
-                            </ul>*@
                             <ul class="pagination justify-content-end">
                                 <li class="page-item">
-                                    <a class="page-link" href="javascript:void(0)">
+                                    <a class="page-link" href="/dang-tai/@userId/truyen/@bookId/danh-sach-chuong?pageNumber=@Math.Max(1, pageNumber - 1)">
                                         <span aria-hidden="true">&laquo;</span>
                                     </a>
                                 </li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">1</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">5</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">571</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">572</a></li>
+                                @{
+                                    for (int i = 1; i <= pageCount; ++i)
+                                    {
+                                        <li class="page-item"><a class="page-link" href="/dang-tai/@userId/truyen/@bookId/danh-sach-chuong?pageNumber=@i">@i</a></li>
+                                    }
+                                }
                                 <li class="page-item">
-                                    <a class="page-link" href="javascript:void(0)">
+                                    <a class="page-link" href="/dang-tai/@userId/truyen/@bookId/danh-sach-chuong?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
                                         <span aria-hidden="true">&raquo;</span>
                                     </a>
                                 </li>

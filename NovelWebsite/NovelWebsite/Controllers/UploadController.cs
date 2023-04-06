@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Extensions;
@@ -7,6 +8,8 @@ using System.Security.Claims;
 
 namespace NovelWebsite.Entities
 {
+    [Route("/dang-tai")]
+    [Route("/{controller}")]
     public class UploadController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -16,15 +19,16 @@ namespace NovelWebsite.Entities
             _dbContext = dbContext;
         }
 
-        [Route("/dang-truyen/{id?}")]
-        public IActionResult AddOrUpdateBook(int id = 0)
+        [Authorize(Policy = "BookOwner")]
+        [Route("{userId}/truyen/{bookId?}")]
+        public IActionResult AddOrUpdateBook(int bookId = 0)
         {
-            var book = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false && b.BookId == id)
+            var book = _dbContext.Books.Where(b => b.Status == 0 && b.IsDeleted == false && b.BookId == bookId)
                                        .Include(b => b.Author)
                                        .Include(b => b.Category)
                                        .FirstOrDefault();
             ViewBag.Tags = _dbContext.Tags.ToList();
-            ViewBag.CheckedTags = GetBookTags(id);
+            ViewBag.CheckedTags = GetBookTags(bookId);
             ViewBag.BookStatuses = new SelectList(_dbContext.BookStatuses.ToList(), "BookStatusId", "BookStatusName");
             ViewBag.Categories = new SelectList(_dbContext.Categories.ToList(), "CategoryId", "CategoryName");
             if (book == null)
@@ -35,6 +39,7 @@ namespace NovelWebsite.Entities
         }
 
         [HttpPost]
+        [Route("{action}")]
         public IActionResult AddOrUpdateBook(BookModel bookModel)
         {
             if (!ModelState.IsValid)
@@ -42,9 +47,9 @@ namespace NovelWebsite.Entities
                 TempData["error"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).First();
                 if (bookModel.BookId == 0)
                 {
-                    return Redirect("/dang-truyen/");
+                    return Redirect($"/dang-tai/{bookModel.UserId}/truyen/");
                 }
-                return Redirect("/dang-truyen/" + bookModel.BookId);
+                return Redirect($"/dang-tai/{bookModel.UserId}/truyen/" + bookModel.BookId);
             }
             else
             {
@@ -102,7 +107,8 @@ namespace NovelWebsite.Entities
             }
         }
 
-        [Route("/truyen/{bookId:int}/dang-chuong/{chapterId?}")]
+        [Authorize(Policy = "BookOwner")]
+        [Route("{userId}/truyen/{bookId:int}/chuong/{chapterId?}")]
         public IActionResult AddOrUpdateChapter(int bookId, int chapterId = 0)
         {
             var chapter = _dbContext.Chapters.Where(b => b.Status == 0 && b.IsDeleted == false && b.ChapterId == chapterId).FirstOrDefault();
@@ -116,16 +122,19 @@ namespace NovelWebsite.Entities
         }
 
         [HttpPost]
+        [Route("{action}")]
         public IActionResult AddOrUpdateChapter(ChapterModel chapterModel)
         {
+            var claims = HttpContext.User.Identity as ClaimsIdentity;
+            var userId = Int32.Parse(claims.FindFirst("UserId").Value);
             if (!ModelState.IsValid)
             {
                 TempData["error"] = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).First();
                 if (chapterModel.ChapterId != 0)
                 {
-                    return Redirect($"/truyen/{chapterModel.BookId}/dang-chuong/{chapterModel.ChapterId}");
+                    return Redirect($"/dang-tai/{userId}/truyen/{chapterModel.BookId}/chuong/{chapterModel.ChapterId}");
                 }
-                return Redirect($"/truyen/{chapterModel.BookId}/dang-chuong/");
+                return Redirect($"/dang-tai/{userId}/truyen/{chapterModel.BookId}/chuong");
             }
             var chapter = _dbContext.Chapters.FirstOrDefault(c => c.ChapterId == chapterModel.ChapterId && c.IsDeleted == false);
             if (chapter == null)
