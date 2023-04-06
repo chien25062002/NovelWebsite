@@ -43,9 +43,9 @@ $.ajax({
         let maxitem = Math.ceil(data.length / 3);
         console.log(data.length, maxitem)
         data.forEach((item, index) => {
+            console.log(item);
             row.append(`<li><a href="/bo-loc?categoryId=${item.categoryId}">${item.categoryName}</a></li>`);
             if ((index != 0 && index % maxitem == (maxitem - 1)) || index == data.length - 1) {
-
                 console.log(index)
                 $('#chapter-category').append(row);
                 row = jQuery('<ul>', {

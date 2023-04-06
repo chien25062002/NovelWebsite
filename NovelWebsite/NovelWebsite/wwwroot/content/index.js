@@ -7,8 +7,12 @@
         // k xài empty html với carousel k nó sẽ lỗi
         //$('#categories').html('');
         data.forEach(function (item, index) {
+            var link = "";
+            if (item.book != null) {
+                link = `/truyen/${item.book.slug}-${item.bookId}`;
+            }
             let row = `<div class="carousel-item active">
-                            <img src="${item.bannerImage}" alt="Los Angeles" class="d-block w-100">
+                            <a href="${link}"< img src="${item.bannerImage}" alt = "Los Angeles" class="d-block w-100" >
                         </div>`;
             $('.carousel-inner').append(row);
             //$('#categories').append(row);
@@ -44,7 +48,7 @@ $.ajax({
         });
         data.forEach((item, index) => {
             row.append(`<div class="index__theloai--chitiet-cot col-md-6">
-                                    <a href="javascript:void(0)">
+                                    <a href="/bo-loc?categoryId=${item.categoryId}">
                                         <img src="${item.categoryImage}"/>
                                         <span>
                                             <p class="tentruyen">${item.categoryName}</p>
@@ -57,22 +61,6 @@ $.ajax({
                 row = jQuery('<div>', {
                     class: 'index__theloai--chitiet row',
                 });;
-            }
-        });
-        $('#chapter-category').html('');
-        let row1 = jQuery('<ul>', {
-            class: 'col-md-4',
-        });
-        let maxitem = Math.ceil(data.length / 3);
-        /*console.log(data.length, maxitem)*/
-        data.forEach((item, index) => {
-            row1.append(`<li><a href="javascript:void(0)">${item.categoryName}</a></li>`);
-            if ((index != 0 && index % maxitem == (maxitem - 1)) || index == data.length - 1) {
-                /*console.log(index)*/
-                $('#chapter-category').append(row1);
-                row1 = jQuery('<ul>', {
-                    class: 'col-md-4',
-                });
             }
         });
     },
@@ -109,7 +97,7 @@ $.ajax({
         data.forEach((item, index) => {
             let row = `<li class="list-group-item">
                             <i class="fa-solid fa-book-open"></i>
-                            <a href="/html/truyen.html">${item.book.bookName}</a>
+                            <a href="/truyen/${item.book.slug}-${item.book.bookId}">${item.book.bookName}</a>
                             <span class="index__truyenmoi--chuong">Chapter ${item.chapterNumber}</span>
                         </li>`;
             $('#new-chapters').append(row);
@@ -141,7 +129,7 @@ $.ajax({
                             <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                         </div>
                         <div class="book-state">
-                            <a href="javascript:void(0)">${item.author.authorName}</a >
+                            <a href="/tac-gia/${item.author.authorId}/${item.author.slug}">${item.author.authorName}</a >
                         </div>
                         <p class="book-status">
                             <em>
@@ -157,7 +145,7 @@ $.ajax({
                         <div class="category">
                             <p>Thể loại:</p>
                             <p class="category-wrap">
-                                <a href="javascript:void(0)">${item.category.categoryName}</a >
+                                <a href="/bo-loc?categoryId=${item.categoryId}">${item.category.categoryName}</a >
                             </p>
                         </div>
                         <div class="describe">
