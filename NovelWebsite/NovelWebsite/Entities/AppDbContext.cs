@@ -21,7 +21,7 @@ namespace NovelWebsite.Entities
         public DbSet<PostEntity> Posts { get; set; }
         public DbSet<ReviewEntity> Reviews { get; set; }
         public DbSet<TagEntity> Tags { get; set; }
-        public DbSet<BannerEntity> Banner { get; set; }
+        public DbSet<BannerEntity> Banners { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<CategoryEntity>().ToTable("Category");
