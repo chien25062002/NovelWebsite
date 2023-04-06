@@ -1,5 +1,6 @@
 ﻿using NovelWebsite.Models;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovelWebsite.Entities
 {
@@ -10,7 +11,8 @@ namespace NovelWebsite.Entities
         public string BannerSize { get; set; }
         public string BannerImage { get; set; }
 
+        [ForeignKey("BookId")]
         public int? BookId { get; set; }
-
+        public BookEntity Book { get; set; }
     }
 }
