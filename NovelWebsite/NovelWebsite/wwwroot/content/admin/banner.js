@@ -7,7 +7,10 @@ function AddOrUpdateBanner(id) {
         beforeSend: function () { },
         success: function (data) {
             $('input[name="BannerId"]').val(data.bannerId);
-            $('input[name="bannerImage"]').val(data.bannerImage);
+            $('input[name="BannerImage"]').val(data.bannerImage);
+            $('select[name="BannerSize"]').val(data.bannerSize);
+            $('select[name="BookId"]').val(data.bookId);
+
             $('img.input-img').attr("src", data.bannerImage);
         },
         error: function () { },

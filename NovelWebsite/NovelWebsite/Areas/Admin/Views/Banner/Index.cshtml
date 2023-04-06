@@ -101,18 +101,18 @@
                                     </ul>*@
                                 <ul class="pagination justify-content-end">
                                     <li class="page-item">
-                                        <a class="page-link" href="/Admin/BannerIndex?pageNumber=@Math.Max(1, pageNumber - 1)">
+                                        <a class="page-link" href="/Admin/Banner/Index?pageNumber=@Math.Max(1, pageNumber - 1)">
                                             <span aria-hidden="true">&laquo;</span>
                                         </a>
                                     </li>
                                     @{
                                         for (int i = 1; i <= pageCount; ++i)
                                         {
-                                            <li class="page-item"><a class="page-link" href="/Admin/BannerIndex?pageNumber=@i">@i</a></li>
+                                            <li class="page-item"><a class="page-link" href="/Admin/Banner/Index?pageNumber=@i">@i</a></li>
                                         }
                                     }
                                     <li class="page-item">
-                                        <a class="page-link" href="/Admin/BannerIndex?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
+                                        <a class="page-link" href="/Admin/Banner/Index?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
                                             <span aria-hidden="true">&raquo;</span>
                                         </a>
                                     </li>
@@ -155,7 +155,7 @@
                     </div>
                     <div class="col-12">
                         <label for="inputMaTheLoai" class="form-label">Thuộc sách</label>
-                        <select name="roleid" class="form-select" name="BookId" asp-items="@ViewBag.Books"></select>
+                        <select class="form-select" name="BookId" asp-items="@ViewBag.Books"></select>
                     </div>
                     <div class="col-12">
                         <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
