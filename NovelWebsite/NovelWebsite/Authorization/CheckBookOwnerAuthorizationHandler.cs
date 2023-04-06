@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using NovelWebsite.Entities;
+using System.Security.Claims;
 
 namespace NovelWebsite.Authorization
 {
@@ -13,6 +14,13 @@ namespace NovelWebsite.Authorization
         }
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, BookOwnerRequirement requirement)
         {
+            var claims = context.User.Identity as ClaimsIdentity;
+            var role = claims.FindFirst(ClaimTypes.Role).Value;
+            if (role == "Admin" || role == "Biên tập viên")
+            {
+                context.Succeed(requirement);
+                return Task.CompletedTask;
+            }
             string bookId = "";
             try
             {

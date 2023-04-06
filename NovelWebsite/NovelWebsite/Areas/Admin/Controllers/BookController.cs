@@ -3,11 +3,13 @@ using NovelWebsite.Entities;
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Models;
 using Microsoft.AspNetCore.Authorization;
+using X.PagedList;
 
 namespace NovelWebsite.Areas.Admin.Controllers
 {
     [Area("Admin")]
     [Authorize(Roles = "Admin")]
+    [Route("/Admin/Book")]
     public class BookController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -16,11 +18,10 @@ namespace NovelWebsite.Areas.Admin.Controllers
         {
             _dbContext = dbContext;
         }
-        public IActionResult ListOfBooks(string name, int pageNumber = 1, int pageSize = 10)
+
+        [Route("ListOfBooks")]
+        public IActionResult ListOfBooks(string? name, int pageNumber = 1, int pageSize = 10)
         {
-            int pageTotal = _dbContext.Books.Count();
-            int pageCount = (int)Math.Ceiling(1.0 * pageTotal / pageSize);
-            int skip = pageNumber * pageSize - pageSize;
             var query = _dbContext.Books.Where(b => string.IsNullOrEmpty(name) || b.BookName.ToLower().Contains(name.ToLower()))
                                         .Where(b => b.IsDeleted == false)
                                         .Include(b => b.Author)
@@ -29,7 +30,10 @@ namespace NovelWebsite.Areas.Admin.Controllers
                                         .Include(b => b.BookStatus)
                                         .OrderByDescending(b => b.CreatedDate)
                                         .ToList();
-            return View(query);
+
+            ViewBag.searchName = name;
+            PagedList<BookEntity> listBook = new PagedList<BookEntity>(query, pageNumber, pageSize);
+            return View(listBook);
         }
         
         public IActionResult AddOrUpdateBook(int id = 0)

@@ -20,6 +20,17 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddAuthorization(options =>
 {
+    options.AddPolicy("UserIdentity", policy => policy.RequireAssertion(context =>
+    {
+        var role = context.User.FindFirst(ClaimTypes.Role).Value;
+        if (role == "Admin" || role == "Biên tập viên")
+        {
+            return true;
+        }
+        var currentUserId = context.User.FindFirst("UserId").Value;
+        var accessId = new HttpContextAccessor().HttpContext.Request.RouteValues["userId"].ToString();
+        return currentUserId == accessId;
+    }));
     options.AddPolicy("BookOwner", policy => policy.Requirements.Add(new BookOwnerRequirement()));
 });
 
