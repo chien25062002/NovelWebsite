@@ -824,10 +824,19 @@ ul li {
     display: block;
 }
 
+
 .mobile {
     width: 10%;
     z-index: 5;
+    display: none;
 }
+
+@media (max-width: 46.1875em) {
+    .mobile {
+        display: block;
+    }
+}
+
 .section {
     display: none;
 }
@@ -939,8 +948,9 @@ img {
         max-width: 50%;
         margin-top: 2rem;
     }
-    .mobile{
-        display:block;
+
+    .mobile {
+        display: block;
     }
 
 
@@ -948,7 +958,6 @@ img {
 
 
     .category-dropdown {
-       
         width: 30%;
     }
 
@@ -968,7 +977,7 @@ img {
         margin: 1rem auto;
     }
 
-    
+
 
     h3 {
         text-align: center;
@@ -1002,7 +1011,7 @@ img {
         text-align: center;
     }
 
- 
+
     .modal-title,
     .index__truyenmoi.col-md-3 {
         display: none;
@@ -1105,7 +1114,6 @@ img {
 
 .category-dropdown {
     margin: auto;
-    
 }
 
 .user-function li a {
