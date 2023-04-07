@@ -15,7 +15,7 @@
         <div class="rank-box-main col-9">
             <div class="rank-box-main-header">
                 <h4>Truyện đã đăng</h4>
-                <a class="btn" href="/dang-tai/@Model[0].UserId/truyen">Đăng truyện mới</a>
+                <a class="btn" href="/dang-tai/@ViewBag.UserId/truyen">Đăng truyện mới</a>
             </div>
             <div class="rank-box-main-body">
                 <div class="rank-view-list">
@@ -58,18 +58,18 @@
             <div class="rank-box-main-pagination">
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
-                        <a class="page-link" href="/ho-so/@Model[0].UserId/truyen-da-dang?pageNumber=@Math.Max(1, pageNumber - 1)">
+                        <a class="page-link" href="/ho-so/@ViewBag.UserId/truyen-da-dang?pageNumber=@Math.Max(1, pageNumber - 1)">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     @{
                         for (int i = 1; i <= pageCount; ++i)
                         {
-                            <li class="page-item"><a class="page-link" href="/ho-so/@Model[0].UserId/truyen-da-dang?pageNumber=@i">@i</a></li>
+                            <li class="page-item"><a class="page-link" href="/ho-so/@ViewBag.UserId/truyen-da-dang?pageNumber=@i">@i</a></li>
                         }
                     }
                     <li class="page-item">
-                        <a class="page-link" href="/ho-so/@Model[0].UserId/truyen-da-dang?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
+                        <a class="page-link" href="/ho-so/@ViewBag.UserId/truyen-da-dang?pageNumber=@Math.Min(pageNumber + 1, pageCount)">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

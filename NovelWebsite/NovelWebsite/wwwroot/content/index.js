@@ -118,6 +118,7 @@ $.ajax({
             class: 'index__right-wrap--list row',
         });
         data.forEach((item, index) => {
+            var introduce = $('<textarea />').html(item.introduce).text();
             row.append(`<div class="index__right-wrap--listitem col-md-6">
                     <div class="book--img">
                         <a href="/truyen/${item.slug}-${item.bookId}">
@@ -150,7 +151,7 @@ $.ajax({
                         </div>
                         <div class="describe">
                             <i class="fa-solid fa-quote-left"></i>
-                            ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").replace(/<\/?[^>]+(>|$)/g, "")}
+                            ${introduce.replace(/<\/?[^>]+(>|$)/g, "").replace(/<\/?[^>]+(>|$)/g, "")}
                         </div>
                     </div>
                 </div>`);
@@ -255,6 +256,7 @@ $.ajax({
             class: 'index__right-wrap--list row',
         });
         data.forEach((item, index) => {
+            var introduce = $('<textarea />').html(item.introduce).text();
             if (index == 0) {
                 $('#newbook-avatar').append(`<div class="index__left-wrap-detail card">
                                 <img class="card-img-top" src="${item.avatar}" alt="Card image">
@@ -266,7 +268,7 @@ $.ajax({
                                     <p class="card-text index__left-wrap--sochuong">${item.numberOfChapters} Chương</p >
                                     <p class="card-text index__left-wrap--gioithieu">
                                         <i>
-                                            ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0,255)}
+                                            ${introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0,255)}
                                         </i>
                                     </p>
                                     <a href="/truyen/${item.slug}-${item.bookId}" class="btn btn-primary index__left-wrap--cardbtn">
@@ -309,7 +311,7 @@ $.ajax({
                                 </div>
                                 <div class="describe">
                                     <i class="fa-solid fa-quote-left"></i>
-                                        ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 100)}
+                                        ${introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 100)}
                                 </div>
                             </div>
                         </div>`);
@@ -337,8 +339,8 @@ $.ajax({
         let row = jQuery('<div>', {
             class: 'index__right-wrap--list row',
         });
-        console.log(data);
         data.forEach((item, index) => {
+            var introduce = $('<textarea />').html(item.introduce).text();
             if (index == 0) {
                 $('#finishbook-avatar').append(`<div class="index__left-wrap-detail card">
                                 <img class="card-img-top" src="${item.avatar}" alt="Card image">
@@ -350,7 +352,7 @@ $.ajax({
                                     <p class="card-text index__left-wrap--sochuong">${item.numberOfChapters} chương</p >
                                     <p class="card-text index__left-wrap--gioithieu">
                                         <i>
-                                            ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 255)}
+                                            ${introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 255)}
                                         </i>
                                     </p>
                                     <a href="/truyen/${item.slug}-${item.bookId}" class="btn btn-primary index__left-wrap--cardbtn">
@@ -393,7 +395,7 @@ $.ajax({
                                 </div>
                                 <div class="describe">
                                     <i class="fa-solid fa-quote-left"></i>
-                                        ${item.introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 100)}
+                                        ${introduce.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 100)}
                                 </div>
                             </div>
                         </div>`);
