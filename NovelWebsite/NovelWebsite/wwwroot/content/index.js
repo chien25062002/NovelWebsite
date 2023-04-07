@@ -290,7 +290,7 @@ $.ajax({
                                     <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                                 </div>
                                 <div class="book-state">
-                                    <a href="javascript:void(0)">${item.author.authorName}</a >
+                                    <a href="/tac-gia/${item.author.authorId}/${item.author.slug}">${item.author.authorName}</a >
                                 </div>
                                 <p class="book-status">
                                     <em>
@@ -374,7 +374,7 @@ $.ajax({
                                     <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                                 </div>
                                 <div class="book-state">
-                                    <a href="javascript:void(0)">${item.author.authorName}</a >
+                                    <a href="/tac-gia/${item.author.authorId}/${item.author.slug}">${item.author.authorName}</a >
                                 </div>
                                 <p class="book-status">
                                     <em>

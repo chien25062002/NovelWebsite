@@ -7,7 +7,7 @@ var link = p[p.length - 1];
 
 
 $.ajax({
-    url: "/Book/GetListChapters?id=" + id,
+    url: "/Book/GetListChapters?id=" + bookId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
@@ -33,7 +33,7 @@ $.ajax({
 })
 
 $.ajax({
-    url: "/Book/GetListReviews?id=" + id,
+    url: "/Book/GetListReviews?id=" + bookId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
@@ -61,7 +61,6 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-        console.log(1234);
         data.forEach((item, index) => {
             var content = $('<textarea />').html(item.content).text();
             $('#list-review').append(`<li class="list-group-item">
@@ -109,7 +108,7 @@ $.ajax({
 })
 
 $.ajax({
-    url: "/Book/GetListComments?id=" + id,
+    url: "/Book/GetListComments?id=" + bookId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
@@ -183,7 +182,7 @@ $.ajax({
 })
 
 $.ajax({
-    url: "/Book/GetAuthorBooks?id=" + id,
+    url: "/Book/GetAuthorBooks?id=" + authorId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
@@ -214,7 +213,7 @@ $.ajax({
 })
 
 $.ajax({
-    url: "/Book/GetUserBooks?id=" + id,
+    url: "/Book/GetUserBooks?id=" + userId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
@@ -243,7 +242,7 @@ $.ajax({
 })
 
 $.ajax({
-    url: "/Book/BooksMaybeYouLike?id=" + id,
+    url: "/Book/BooksMaybeYouLike?id=" + bookId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },

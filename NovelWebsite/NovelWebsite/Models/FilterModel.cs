@@ -2,11 +2,11 @@
 {
     public class FilterModel
     {
-        public string BookStatusId { get; set; }
+        public List<string> BookStatus { get; set; }
         public int CategoryId { get; set; }
-        public string RankType { get; set; }
-        public int ChapterRange { get; set; }
+        public string Rank { get; set; }
+        public List<int> ChapterRange { get; set; }
         public string OrderBy { get; set; }
-        public List<int> ListTags { get; set; }
+        public List<int> Tag { get; set; }
     }
 }

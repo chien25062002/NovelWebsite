@@ -5,7 +5,6 @@
     beforeSend: function () { },
     success: function (data) {
         if (data == "") return;
-        $('div.col.login').html('');
         let user = GetUserInfo();
         let bar = `<div class="dropdown">
                         <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,12 +40,9 @@ $.ajax({
             class: 'col-md-4',
         });
         let maxitem = Math.ceil(data.length / 3);
-        console.log(data.length, maxitem)
         data.forEach((item, index) => {
-            console.log(item);
             row.append(`<li><a href="/bo-loc?categoryId=${item.categoryId}">${item.categoryName}</a></li>`);
             if ((index != 0 && index % maxitem == (maxitem - 1)) || index == data.length - 1) {
-                console.log(index)
                 $('#chapter-category').append(row);
                 row = jQuery('<ul>', {
                     class: 'col-md-4',
@@ -67,7 +63,6 @@ function GetUserInfo() {
         dataType: "json",
         beforeSend: function () { },
         success: function (data) {
-            console.log(data);
             user = data;
         },
         error: function () { },

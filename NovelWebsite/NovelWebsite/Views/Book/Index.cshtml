@@ -16,7 +16,7 @@
             <div class="book--info">
                 <h1>@Model.BookName</h1>
                 <p class="book--info-tag">
-                    <a href="javascript:void(0)">@Model.Author.AuthorName</a>
+                    <a href="/tac-gia/@Model.AuthorId/@Model.Author.Slug">@Model.Author.AuthorName</a>
                     <a href="javascript:void(0)">@Model.BookStatus.BookStatusName</a>
                     <a href="javascript:void(0)">@Model.Category.CategoryName</a>
                 </p>
@@ -733,7 +733,8 @@
 @section Scripts{
     <script>
         var bookId = `@Model.BookId`;
-        console.log(bookId);
+        var userId = `@Model.UserId`;
+        var authorId = `@Model.AuthorId`;
     </script>
 
     @*<script type="text/javascript" src="~/js/ckeditorscript.js"></script>*@
