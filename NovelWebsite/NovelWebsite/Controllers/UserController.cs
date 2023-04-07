@@ -98,6 +98,7 @@ namespace NovelWebsite.Controllers
             ViewBag.pageNumber = pageNumber;
             ViewBag.pageSize = pageSize;
             ViewBag.pageCount = Math.Ceiling(books.Count() * 1.0 / pageSize);
+            ViewBag.UserId = id;
 
             return View(books.Skip(pageSize * pageNumber - pageSize)
                          .Take(pageSize)
