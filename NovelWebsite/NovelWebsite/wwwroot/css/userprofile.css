@@ -37,6 +37,9 @@
     font: 16px;
     font-weight: lighter;
 }
+.book--info {
+    max-width: 86%;
+}
 
 .describe {
     display: -webkit-box;
