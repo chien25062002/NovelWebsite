@@ -63,7 +63,7 @@ function AddPostComment(id) {
         data: {
             PostId: id,
             UserId: user.userId,
-            Content: $('#comment-editor').html()
+            Content: $('#postcomment-editor').html()
         },
         dataType: "json",
         beforeSend: function () { },
