@@ -269,7 +269,7 @@ i:hover {
 }
 
     #profile-banner-image img {
-        width: 12%;
+        width: 14%;
         height: calc(8vw);
         object-fit: cover;
         z-index: 1;
@@ -278,6 +278,7 @@ i:hover {
         top: 6rem;
         left: 6.5rem;
         display: inline;
+        background-color:white;
     }
 
 #profile-pic {
@@ -295,7 +296,7 @@ i:hover {
 
 #u-name {
     position: absolute;
-    top: 106px;
+    top: 100px;
     left: 230px;
     color: #fff;
     font-size: 25px;
@@ -318,7 +319,7 @@ i:hover {
     color: #0e0e0e;
     font-size: 14px;
     white-space: pre;
-    padding: 5px 8px 6px 8px;
+    padding: 5px 8px 6px 16px;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 2px;
 }
@@ -496,54 +497,66 @@ button.btn.btn-primary.submit-btn {
     width: 27%;
     /* float: right; */
 }
-@media only screen and (max-width: 767px) {
-    .nav__bars-btn {
-        display: block;
-    }
-
-    ul.nav.navbar-nav {
-        display: none;
-    }
-
-    .navbar {
-        display: none;
-    }
-
-    .row-left {
-        display: none;
-    }
-
-    .row-right {
-        width: 100%;
-    }
-
-    .logo {
-        display: none;
-    }
-
+@media only screen and (max-width: 900px) {
     #profile-banner-image img {
-        width: 105px;
-        height: 105px;
+        width: 25%;
+        height: calc(12vw);
         object-fit: cover;
         z-index: 1;
         position: absolute;
         border: 5px solid white;
         top: 6rem;
-        left: 1rem;
-        display: inline;
+        left: 3.5rem;
     }
 
-    .header__box--center.row {
-        width: 80%;
-    }
+    @media only screen and (max-width: 767px) {
+        .nav__bars-btn {
+            display: block;
+        }
 
-    #u-name {
-        left: 130px;
-        font-size: 20px;
-    }
+        ul.nav.navbar-nav {
+            display: none;
+        }
 
-    header {
-        height: 5rem;
-        height: calc(15vh);
+        .navbar {
+            display: none;
+        }
+
+        .row-left {
+            display: none;
+        }
+
+        .row-right {
+            width: 100%;
+        }
+
+        .logo {
+            display: none;
+        }
+
+        #profile-banner-image img {
+            width: 105px;
+            height: 105px;
+            object-fit: cover;
+            z-index: 1;
+            position: absolute;
+            border: 5px solid white;
+            top: 6rem;
+            left: 1rem;
+            display: inline;
+        }
+
+        .header__box--center.row {
+            width: 80%;
+        }
+
+        #u-name {
+            left: 130px;
+            font-size: 20px;
+        }
+
+        header {
+            height: 5rem;
+            height: calc(15vh);
+        }
     }
-}
