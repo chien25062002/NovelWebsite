@@ -17,9 +17,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0
 }
-.tooltipped {
-    color: #fff
-}
 td, th {
     padding: 0
 }
@@ -1834,6 +1831,7 @@ small {
     position: absolute;
     opacity: 0;
     display: none;
+    color: aliceblue;
     height: 7px;
     width: 14px;
     border-radius: 0 0 14px 14px;
