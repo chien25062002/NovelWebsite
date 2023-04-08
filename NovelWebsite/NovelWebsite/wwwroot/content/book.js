@@ -4,7 +4,24 @@ var id = param[param.length - 1];
 var p = queryString.split('/');
 var link = p[p.length - 1];
 
-
+window.onload = function () {
+    GetFav();
+    GetRec();
+    GetFollow();
+    console.log(isFollow);
+    if (isFav == true) {
+        $('#btn-fav').addClass("selected");
+        $('#btn-fav').text("Bỏ yêu thích");
+    }
+    if (isRec == true) {
+        $('#btn-rec').addClass("selected");
+        $('#btn-rec').text("Bỏ đề cử");
+    }
+    if (isFollow == true) {
+        $('#btn-follow').addClass("selected");
+        $('#btn-follow').text("Bỏ theo dõi");
+    }
+}
 
 $.ajax({
     url: "/Book/GetListChapters?id=" + bookId,

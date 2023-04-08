@@ -2,24 +2,6 @@
 var isFollow = false;
 var isRec = false;
 
-window.onload = function () {
-    GetFav();
-    GetRec();
-    GetFollow();
-    console.log(isFollow);
-    if (isFav == true) {
-        $('#btn-fav').addClass("selected");
-        $('#btn-fav').text("Bỏ yêu thích");
-    }
-    if (isRec == true) {
-        $('#btn-rec').addClass("selected");
-        $('#btn-rec').text("Bỏ đề cử");
-    }
-    if (isFollow == true) {
-        $('#btn-follow').addClass("selected");
-        $('#btn-follow').text("Bỏ theo dõi");
-    }
-}
 
 function GetFav() {
     $.ajax({
