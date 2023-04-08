@@ -2,6 +2,7 @@
 using NovelWebsite.Entities;
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Models;
+using System.Diagnostics;
 
 namespace NovelWebsite.Controllers
 {
@@ -11,6 +12,11 @@ namespace NovelWebsite.Controllers
         public HomeController(AppDbContext dbContext)
         {
             _dbContext = dbContext;
+        }
+
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
         public IActionResult Index()

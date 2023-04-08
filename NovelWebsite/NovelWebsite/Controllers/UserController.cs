@@ -17,13 +17,14 @@ namespace NovelWebsite.Controllers
         {
             _dbContext = dbContext;
         }
-        
-        [Route("{id?}")]
-        public IActionResult Profile(int id = 0)
+
+        [Authorize(Policy = "UserIdentity")]
+        [Route("{userid?}")]
+        public IActionResult Profile(int userId = 0)
         {
-            if (id != 0)
+            if (userId != 0)
             {
-                var user = _dbContext.Users.FirstOrDefault(x => x.UserId == id);
+                var user = _dbContext.Users.FirstOrDefault(x => x.UserId == userId);
                 return View(user);
             }
             var claims = HttpContext.User.Identity as ClaimsIdentity;

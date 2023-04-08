@@ -1,10 +1,52 @@
 ﻿function replyComment(el) {
     var id = '#' + el;
     var user = GetUserInfo();
-    $(id).append(`
-            <div class= "user--discussion-child">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
+    const newDivElement = $('<div>', {
+        class: 'user--discussion-child'
+    });
+    const newUlElement = $('<ul>', {
+        class: 'list-group list-group-flush'
+    });
+
+    $.ajax({
+        url: "/Comment/GetReplyComment?commentId=" + el,
+        type: "GET",
+        dataType: "json",
+        beforeSend: function () { },
+        success: function (data) {
+            console.log(data);
+            data.forEach((item) => {
+                var content = $('<textarea />').html(item.content).text();
+                newUlElement.append(`<li class="list-group-item">
+                                    <div class="row user--comment-section">
+                                        <div class="user--photo col-md-auto">
+                                            <a href="javascript:void(0)">
+                                                <img src="${item.user.avatar}">
+                                            </a>
+                                        </div>
+                                        <div class="col user--discussion-main" id="${item.commentId}">
+                                            <div class="user--discussion">
+                                                <p class="users">
+                                                    <a href="javascript:void(0)">${item.user.userName}</a>
+                                                </p>
+                                                <p class="comments">
+                                                    ${content}
+                                                </p>
+                                                <p class="info--wrap">
+                                                    <span>${item.createdDate} </span>
+                                                    
+                                                    <a href="javascript:void(0)">
+                                                        <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                        ${item.dislikes} thích
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>`);
+            })
+
+            newUlElement.append(`<li class="list-group-item">
                         <div class="row user--comment-section">
                             <div class="user--photo col-md-auto">
                                 <a href="javascript:void(0)">
@@ -24,9 +66,13 @@
                     </li>
                 </ul>
             </div>`)
-    var toolbar = 'reply' + el + '-toolbar';
-    var editor = 'reply' + el + '-editor';
-    startCKEditor(toolbar, editor);
+            newDivElement.append(newUlElement);
+            $(id).append(newDivElement);
+            var toolbar = 'reply' + el + '-toolbar';
+            var editor = 'reply' + el + '-editor';
+            startCKEditor(toolbar, editor);
+        }
+    });
 }
 
 function startCKEditor(toolbar, editor) {
@@ -104,36 +150,3 @@ function startCKEditor(toolbar, editor) {
         });
 
 }
-
-/*data.forEach((item, index) => {
-                $(id).append(`<li class= "list-group-item">
-                    <div class="row user--comment-section">
-                        <div class="user--photo col-md-auto">
-                            <a href="javascript:void(0)">
-                                <img src="${user.user.avatar}">
-                            </a>
-                        </div>
-                        <div class="col user--discussion-main" id="${item.commentId}">
-                            <div class="user--discussion">
-                                <p class="users">
-                                    <a href="javascript:void(0)">${user.user.userName}</a>
-                                </p>
-                                <p class="comments">
-                                    ${content}
-                                </p>
-                                <p class="info--wrap">
-                                    <span>${item.createdDate} </span>
-                                    <a href="javascript:void(0)" onclick="replyComment(${item.commentId})">
-                                        <i class="fa-regular fa-comment-dots info-icon"></i>
-                                        ${item.likes} trả lời
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                        ${item.dislikes} thích
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </li >`)
-            })*/
