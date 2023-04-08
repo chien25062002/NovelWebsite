@@ -5,70 +5,16 @@ var p = queryString.split('/');
 var link = p[p.length - 1];
 
 $.ajax({
-    url: "/Chapter/GetAllCategories",
-    type: "GET",
-    dataType: "json",
-    beforeSend: function () { },
-    success: function (data) {
-        $('#chapter-category').html('');
-        let row = jQuery('<ul>', {
-            class: 'col-md-4',
-        });
-        let maxitem = Math.ceil(data.length / 3);
-        console.log(data.length, maxitem)
-        data.forEach((item, index) => {
-            row.append(`<li><a href="/bo-loc?categoryId=${item.categoryId}">${item.categoryName}</a></li>`);
-            if ((index != 0 && index % maxitem == (maxitem - 1)) || index == data.length - 1) {
-
-                console.log(index)
-                $('#chapter-category').append(row);
-                row = jQuery('<ul>', {
-                    class: 'col-md-4',
-                });
-            }
-        });
-    },
-    error: function () { },
-    complete: function () { }
-})
-
-$.ajax({
-    url: "/Chapter/GetListChapters?id=" + id,
-    type: "GET",
-    dataType: "json",
-    beforeSend: function () { },
-    success: function (data) {
-        $('#list-chapter-box').html('');
-        /*let row = jQuery('<div>', {
-            class: 'index__theloai--chitiet row',
-        });*/
-        data.forEach((item, index) => {
-            $('#list-chapter-box').append(`<li class="list-group-item col-6">
-                        <a href="/truyen/${link}/chuong-${item.chapterNumber}/${item.slug}-${item.chapterId}">Chương ${item.chapterNumber}: ${item.chapterName}</a>
-                        </li>`);
-            /*if (index % 2 == 1) {
-                $('.index__theloai--wrap').append(row);
-                row = jQuery('<div>', {
-                    class: 'index__theloai--chitiet row',
-                });;
-            }*/
-        });
-    },
-    error: function () { },
-    complete: function () { }
-})
-
-$.ajax({
-    url: "/Chapter/GetListComments?id=" + id,
+    url: "/Post/GetListComments?id=" + id,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
     success: function (data) {
         var user = GetUserInfo();
 
-        $('#list-comment-chapter').html('');
-        
-        $('#list-comment-chapter').append(`<li class="list-group-item">
+        $('#list-commentpost-chapter').html('');
+
+        $('#list-commentpost-chapter').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
@@ -76,8 +22,8 @@ $.ajax({
                                             </a>
                                         </div>                                       
                                         <div class="input-comment col">
-                                            <div id="chapter-toolbar"></div>
-                                            <div id="chapter-editor" class="input--box"></div>
+                                            <div id="postcomment-toolbar"></div>
+                                            <div id="postcomment-editor" class="input--box"></div>
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
@@ -86,10 +32,10 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-        
+
         data.forEach((item, index) => {
             var content = $('<textarea />').html(item.content).text();
-            $('#list-comment-chapter').append(`<li class="list-group-item">
+            $('#list-commentpost-chapter').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
@@ -120,7 +66,7 @@ $.ajax({
                                     </div>
                                 </li>`);
         });
-        startCKEditor('chapter-toolbar', 'chapter-editor');
+        startCKEditor('postcomment-toolbar', 'postcomment-editor');
     },
     error: function (e) { console.log(e) },
     complete: function () { }

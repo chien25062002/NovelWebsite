@@ -46,5 +46,11 @@ namespace NovelWebsite.Controllers
                                        .FirstOrDefault();
             return View(post);
         }
+
+        /*public IActionResult GetListComments(int id)
+        {
+            var listComment = _dbContext.Comments.Where(c => c.Post.PostId == id).Include("User").OrderByDescending(c => c.CreatedDate).ToList();
+            return Json(listComment);
+        }*/
     }
 }
