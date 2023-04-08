@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
+using NovelWebsite.Models;
+using X.PagedList;
 
 namespace NovelWebsite.Controllers
 {
@@ -22,12 +24,12 @@ namespace NovelWebsite.Controllers
                                         .Where(b => category_id == 0 || b.CategoryId == category_id)
                                         .Include(b => b.Author)
                                         .Include(b => b.Category)
-                                        .OrderByDescending(b => b.CreatedDate);
+                                        .OrderByDescending(b => b.CreatedDate).ToList();
             if (!string.IsNullOrEmpty(order))
             {
                 if (order == "up")
                 {
-                    query = query.OrderBy(b => b.CreatedDate);
+                    query = query.OrderBy(b => b.CreatedDate).ToList();
                 }
             }
 
@@ -36,28 +38,36 @@ namespace NovelWebsite.Controllers
                 switch (sort_by)
                 {
                     case "view":
-                        query.OrderByDescending(b => b.Views);
+                        query = query.OrderByDescending(b => b.Views).ToList();
                         break;
                     case "like":
-                        query.OrderByDescending(b => b.Likes);
+                        query = query.OrderByDescending(b => b.Likes).ToList();
                         break;
                     case "follow":
-                        
+                        var mostFollow = _dbContext.BookUserFollows
+                                        .GroupBy(bu => bu.BookId)
+                                        .OrderByDescending(g => g.Count())
+                                        .Select(g => g.Key)
+                                        .ToList();
+                        query = query.OrderBy(b => {
+                            var index = mostFollow.IndexOf(b.BookId);
+                            return index == -1 ? mostFollow.Count : index;
+                        }).ToList();
                         break;
                     case "recommend":
-                        query.OrderByDescending(b => b.Recommends);
+                        query = query.OrderByDescending(b => b.Recommends).ToList();
                         break;
                 }
             }
 
-            ViewBag.pageNumber = pageNumber;
-            ViewBag.pageSize = pageSize;
-            ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
             ViewBag.categoryId = category_id;
             ViewBag.sortBy = sort_by;
             ViewBag.order = order;
+            ViewBag.category = _dbContext.Categories.ToList();
 
-            return View(query.Skip(pageSize * pageNumber - pageSize).Take(pageSize).ToList());
+            PagedList<BookEntity> listBook = new PagedList<BookEntity>(query, pageNumber, pageSize);
+
+            return View(listBook);
         }
 
     }

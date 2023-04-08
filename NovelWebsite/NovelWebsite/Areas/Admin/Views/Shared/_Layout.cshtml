@@ -79,20 +79,13 @@
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="">
             <li class="nav-item">
-                <a class="nav-link" href="~/dist/index.html">
+                <a class="nav-link" href="/Admin">
                     <svg class="nav-icon">
-                        <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-speedometer"></use>
-                    </svg> Dashboard<span class="badge badge-sm bg-info ms-auto">NEW</span>
+                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-speedometer"></use>
+                    </svg> Dashboard
                 </a>
             </li>
             <li class="nav-title">Quản lý</li>
-            <li class="nav-item">
-                <a class="nav-link" href="~/dist/colors.html">
-                    <svg class="nav-icon">
-                        <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-drop"></use>
-                    </svg> Thống kê
-                </a>
-            </li>
             <li class="nav-group">
                 <a class="nav-link nav-group-toggle" href="~/dist/#">
                     <svg class="nav-icon">
@@ -124,30 +117,11 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="~/dist/charts.html">
-                    <svg class="nav-icon">
-                        <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-                    </svg> Email
-                </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/Admin/User/Index">
                     <svg class="nav-icon">
                         <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
                     </svg> Người dùng
                 </a>
-            </li>
-            <li class="nav-group">
-                <a class="nav-link nav-group-toggle" href="~/dist/#">
-                    <svg class="nav-icon">
-                        <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-notes"></use>
-                    </svg> Bình luận
-                </a>
-                <ul class="nav-group-items">
-                    <li class="nav-item"><a class="nav-link" href="~/dist/forms/form-control.html"> Mọi người</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/dist/forms/select.html"> Thêm thành viên</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/dist/forms/checks-radios.html"> Thông tin của tôi</a></li>
-                </ul>
             </li>
         </ul>
     </div>
@@ -164,9 +138,8 @@
                     </svg>
                 </a>
                 <ul class="header-nav d-none d-md-flex">
-                    <li class="nav-item"><a class="nav-link" href="~/dist/#">Dashboard</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/dist/#">Users</a></li>
-                    <li class="nav-item"><a class="nav-link" href="~/dist/#">Settings</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Admin">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/ho-so">Users</a></li>
                 </ul>
                 <ul class="header-nav ms-auto">
                     <li class="nav-item">
@@ -210,14 +183,10 @@
                             </a>
                             <div class="dropdown-header bg-light py-2">
                                 <div class="fw-semibold">Settings</div>
-                            </div><a class="dropdown-item" href="~/dist/#">
+                            </div><a class="dropdown-item" href="/ho-so">
                                 <svg class="icon me-2">
                                     <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-user"></use>
-                                </svg> Trang cá nhân
-                            </a><a class="dropdown-item" href="~/dist/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-settings"></use>
-                                </svg> Cài đặt
+                                </svg> Cá nhân
                             </a><a class="dropdown-item" href="/">
                                 <svg class="icon me-2">
                                     <use xlink:href="/dist/vendors/@@coreui/icons/svg/free.svg#cil-file"></use>
@@ -262,6 +231,7 @@
     <script src="~/dist/vendors/@@coreui/chartjs/js/coreui-chartjs.js"></script>
     <script src="~/dist/vendors/@@coreui/utils/js/coreui-utils.js"></script>
     <script src="~/dist/js/main.js"></script>
+    <script src="~/content/admin/layout.js"></script>
 
     <script>
     </script>

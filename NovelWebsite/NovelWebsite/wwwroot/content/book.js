@@ -4,7 +4,24 @@ var id = param[param.length - 1];
 var p = queryString.split('/');
 var link = p[p.length - 1];
 
-
+window.onload = function () {
+    GetFav();
+    GetRec();
+    GetFollow();
+    console.log(isFollow);
+    if (isFav == true) {
+        $('#btn-fav').addClass("selected");
+        $('#btn-fav').text("Bỏ yêu thích");
+    }
+    if (isRec == true) {
+        $('#btn-rec').addClass("selected");
+        $('#btn-rec').text("Bỏ đề cử");
+    }
+    if (isFollow == true) {
+        $('#btn-follow').addClass("selected");
+        $('#btn-follow').text("Bỏ theo dõi");
+    }
+}
 
 $.ajax({
     url: "/Book/GetListChapters?id=" + bookId,
@@ -67,13 +84,13 @@ $.ajax({
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
+                                                <img src="${item.user.avatar}">
                                             </a>
                                         </div>
                                         <div class="col user--discussion-main">
                                             <div class="user--discussion">
                                                 <p class="users">
-                                                    <a href="javascript:void(0)">${user.user.userName}</a>
+                                                    <a href="javascript:void(0)">${item.user.userName}</a>
                                                 </p>
                                                 <p class="comments">
                                                     ${content}
@@ -118,6 +135,7 @@ $.ajax({
             class: 'index__theloai--chitiet row',
         });
         var user = GetUserInfo();
+        
         $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
@@ -136,26 +154,27 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
+
         data.forEach((item, index) => {
             var content = $('<textarea />').html(item.content).text();
             $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="${user.user.avatar}">
+                                                <img src="${item.user.avatar}">
                                             </a>
                                         </div>
-                                        <div class="col user--discussion-main">
+                                        <div class="col user--discussion-main" id="${item.commentId}">
                                             <div class="user--discussion">
                                                 <p class="users">
-                                                    <a href="javascript:void(0)">${user.user.userName}</a>
+                                                    <a href="javascript:void(0)">${item.user.userName}</a>
                                                 </p>
                                                 <p class="comments">
                                                     ${content}
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
-                                                    <a href="javascript:void(0)">
+                                                    <a href="javascript:void(0)" onclick="replyComment(${item.commentId}); this.onclick=null;">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
                                                         ${item.likes} trả lời
                                                     </a>
@@ -242,16 +261,12 @@ $.ajax({
 })
 
 $.ajax({
-    url: "/Book/BooksMaybeYouLike?id=" + bookId,
+    url: "/Book/BooksMaybeYouLike?id=" + categoryId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
     success: function (data) {
         $('#book-same-like').html('');
-        /*let row = jQuery('<div>', {
-            class: 'index__theloai--chitiet row',
-        });*/
-        console.log()
         data.forEach((item, index) => {
             $('#book-same-like').append(`<li class="list-group-item">
                                 <div class="like-more-img">

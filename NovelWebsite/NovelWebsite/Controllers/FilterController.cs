@@ -80,7 +80,7 @@ namespace NovelWebsite.Controllers
                         f2 = f2.OrderByDescending(b => b.Recommends).ToList();
                         break;
                     case "follow":
-                        var mostFollow = _dbContext.BookUsers
+                        var mostFollow = _dbContext.BookUserFollows
                                         .GroupBy(bu => bu.BookId)
                                         .OrderByDescending(g => g.Count())
                                         .Select(g => g.Key)

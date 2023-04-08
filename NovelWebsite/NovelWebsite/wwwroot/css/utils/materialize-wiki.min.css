@@ -17,9 +17,6 @@ table {
     border-collapse: collapse;
     border-spacing: 0
 }
-.tooltipped {
-    color: #fff
-}
 td, th {
     padding: 0
 }
@@ -1815,7 +1812,7 @@ small {
     z-index: 2000;
     background-color: transparent;
     border-radius: 2px;
-    color: #fff;
+    color: #fff !important;
     min-height: 36px;
     line-height: 120%;
     opacity: 0;
@@ -1827,7 +1824,7 @@ small {
     left: 0;
     top: 0;
     pointer-events: none;
-    will-change: top,left
+    will-change: top, left
 }
 
 .backdrop {
@@ -1840,7 +1837,7 @@ small {
     background-color: #323232;
     z-index: -1;
     transform-origin: 50% 10%;
-    will-change: transform,opacity
+    will-change: transform, opacity
 }
 
 .btn-floating {

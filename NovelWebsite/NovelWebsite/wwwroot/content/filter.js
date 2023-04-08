@@ -63,7 +63,7 @@ function getDataTempValue(domList) {
 }
 
 
-$('form').on('submit', function (e) {
+$('#filter-form').on('submit', function (e) {
     e.preventDefault();
     var bookStatus = getDataTempValue(document.getElementById("filter-status").getElementsByClassName("box-active"));
     var rank = getDataTempValue(document.getElementById("filter-rank").getElementsByClassName("box-active"));

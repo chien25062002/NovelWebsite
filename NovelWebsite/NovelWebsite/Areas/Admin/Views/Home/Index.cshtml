@@ -1,11 +1,11 @@
 ﻿@{
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
     int numberOfBooks = ViewBag.NumberOfBooks;
-    int numberOfAcceptedBook = ViewBag.NumberOfAcceptedBooks;
+    int numberOfFinishedBooks = ViewBag.NumberOfFinishedBooks;
     int numberOfUsers = ViewBag.NumberOfUsers;
     int numberOfChapters = ViewBag.NumberOfChapters;
     int numberOfComments = ViewBag.NumberOfComments;
-    long views = ViewBag.Views;
+    int numberOfReviews = ViewBag.NumberOfReviews;
 }
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
@@ -23,14 +23,6 @@
                             <div class="text-medium-emphasis text-uppercase fw-semibold small">Số người dùng</div>
                         </div>
                     </div>
-                    <div class="card-footer px-3 py-2">
-                        <a class="btn-block text-medium-emphasis d-flex justify-content-between align-items-center" href="#">
-                            <span class="small fw-semibold">View More</span>
-                            <svg class="icon">
-                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-chevron-right"></use>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="col-6 col-lg-4">
@@ -46,14 +38,6 @@
                             <div class="text-medium-emphasis text-uppercase fw-semibold small">Tổng số truyện</div>
                         </div>
                     </div>
-                    <div class="card-footer px-3 py-2">
-                        <a class="btn-block text-medium-emphasis d-flex justify-content-between align-items-center" href="#">
-                            <span class="small fw-semibold">View More</span>
-                            <svg class="icon">
-                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-chevron-right"></use>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="col-6 col-lg-4">
@@ -65,17 +49,9 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="fs-6 fw-semibold text-warning">@numberOfAcceptedBook truyện</div>
-                            <div class="text-medium-emphasis text-uppercase fw-semibold small">Truyện đã đăng</div>
+                            <div class="fs-6 fw-semibold text-warning">@numberOfFinishedBooks truyện</div>
+                            <div class="text-medium-emphasis text-uppercase fw-semibold small">Truyện đã hoàn thành</div>
                         </div>
-                    </div>
-                    <div class="card-footer px-3 py-2">
-                        <a class="btn-block text-medium-emphasis d-flex justify-content-between align-items-center" href="#">
-                            <span class="small fw-semibold">View More</span>
-                            <svg class="icon">
-                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-chevron-right"></use>
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -96,14 +72,6 @@
                             <div class="text-medium-emphasis text-uppercase fw-semibold small">Số chương đã duyệt</div>
                         </div>
                     </div>
-                    <div class="card-footer px-3 py-2">
-                        <a class="btn-block text-medium-emphasis d-flex justify-content-between align-items-center" href="#">
-                            <span class="small fw-semibold">View More</span>
-                            <svg class="icon">
-                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-chevron-right"></use>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="col-6 col-lg-4">
@@ -119,14 +87,6 @@
                             <div class="text-medium-emphasis text-uppercase fw-semibold small">Số lượt bình luận</div>
                         </div>
                     </div>
-                    <div class="card-footer px-3 py-2">
-                        <a class="btn-block text-medium-emphasis d-flex justify-content-between align-items-center" href="#">
-                            <span class="small fw-semibold">View More</span>
-                            <svg class="icon">
-                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-chevron-right"></use>
-                            </svg>
-                        </a>
-                    </div>
                 </div>
             </div>
             <div class="col-6 col-lg-4">
@@ -138,437 +98,24 @@
                             </svg>
                         </div>
                         <div>
-                            <div class="fs-6 fw-semibold text-dark">@views</div>
-                            <div class="text-medium-emphasis text-uppercase fw-semibold small">Số lượt xem</div>
+                            <div class="fs-6 fw-semibold text-dark">@numberOfReviews review</div>
+                            <div class="text-medium-emphasis text-uppercase fw-semibold small">Số lượt review</div>
                         </div>
-                    </div>
-                    <div class="card-footer px-3 py-2">
-                        <a class="btn-block text-medium-emphasis d-flex justify-content-between align-items-center" href="#">
-                            <span class="small fw-semibold">View More</span>
-                            <svg class="icon">
-                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-chevron-right"></use>
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </div>
             <!-- /.col-->
         </div>
-        <!-- /.row-->
-        <!-- /.card.mb-4-->
-        <!-- /.row-->
         <br>
-        <div class="row">
-            <div class="col-md-12">
-                <h4>Danh sách người dùng</h4>
-            </div>
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table border mb-0 table-striped">
-                        <thead class="table-dark fw-semibold">
-                            <tr class="align-middle">
-                                <th class="text-center">
-                                    <svg class="icon">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
-                                    </svg>
-                                </th>
-                                <th>User</th>
-                                <th>Post</th>
-                                <th>Comment</th>
-                                <th>Activity</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-paper-plane"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="small text-medium-emphasis">Last login</div>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-paper-plane"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="small text-medium-emphasis">Last login</div>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-paper-plane"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="small text-medium-emphasis">Last login</div>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-paper-plane"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="small text-medium-emphasis">Last login</div>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-paper-plane"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="float-start">
-                                        <div class="fw-semibold">xxx lượt</div>
-                                    </div>
-                                    <svg class="icon" style="margin-left: 10px;">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                                    </svg>
-                                </td>
-                                <td>
-                                    <div class="small text-medium-emphasis">Last login</div>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Info</a><a class="dropdown-item" href="#">Edit</a><a class="dropdown-item text-danger" href="#">Delete</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+
+        <div class="chart">
+            <canvas id="lineChart" style="height:150px"></canvas>
         </div>
-        <br>
-        <div class="row">
-            <div class="col-md-12">
-                <h4>Danh sách duyệt bài</h4>
-            </div>
-            <div class="col-md-12">
-                <div class="table-responsive">
-                    <table class="table border mb-0 table-striped">
-                        <thead class="table-dark fw-semibold">
-                            <tr class="align-middle">
-                                <th class="text-center">
-                                    <svg class="icon">
-                                        <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-people"></use>
-                                    </svg>
-                                </th>
-                                <th>User</th>
-                                <th>Tên truyện</th>
-                                <th>Chương</th>
-                                <th>Trạng thái</th>
-                                <th>Thời gian đăng tải</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="tentruyen">Đây là tên truyện</div>
-                                </td>
-                                <td>
-                                    <div class="chuong">Chương xxx</div>
-                                </td>
-                                <td>
-                                    <div class="trangthai">Chờ duyệt</div>
-                                </td>
-                                <td>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Duyệt</a><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="tentruyen">Đây là tên truyện</div>
-                                </td>
-                                <td>
-                                    <div class="chuong">Chương xxx</div>
-                                </td>
-                                <td>
-                                    <div class="trangthai">Chờ duyệt</div>
-                                </td>
-                                <td>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Duyệt</a><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="tentruyen">Đây là tên truyện</div>
-                                </td>
-                                <td>
-                                    <div class="chuong">Chương xxx</div>
-                                </td>
-                                <td>
-                                    <div class="trangthai">Chờ duyệt</div>
-                                </td>
-                                <td>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Duyệt</a><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="tentruyen">Đây là tên truyện</div>
-                                </td>
-                                <td>
-                                    <div class="chuong">Chương xxx</div>
-                                </td>
-                                <td>
-                                    <div class="trangthai">Chờ duyệt</div>
-                                </td>
-                                <td>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Duyệt</a><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td class="text-center">
-                                    <div class="avatar avatar-md"><img class="avatar-img" src="assets/img/avatars/1.jpg" alt="user@email.com"><span class="avatar-status bg-success"></span></div>
-                                </td>
-                                <td>
-                                    <div>Yiorgos Avraamu</div>
-                                    <div class="small text-medium-emphasis"><span>New</span> | Registered: Jan 1, 2020</div>
-                                </td>
-                                <td>
-                                    <div class="tentruyen">Đây là tên truyện</div>
-                                </td>
-                                <td>
-                                    <div class="chuong">Chương xxx</div>
-                                </td>
-                                <td>
-                                    <div class="trangthai">Chờ duyệt</div>
-                                </td>
-                                <td>
-                                    <div class="fw-semibold">10 sec ago</div>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-transparent p-0" type="button" data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@@coreui/icons/svg/free.svg#cil-options"></use>
-                                            </svg>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="#">Duyệt</a><a class="dropdown-item" href="#">Chỉnh sửa</a><a class="dropdown-item text-danger" href="#">Xóa</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 
 @section Scripts{
-    <script>
-    
-    </script>
+    <script type="text/javascript" src="~/js/utils/utils.js"></script>
+    @*<script type="text/javascript" src="~/content/chart.js"></script>*@
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 using NovelWebsite.Extensions;
@@ -8,6 +9,7 @@ using System.Security.Claims;
 namespace NovelWebsite.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin, Biên tập viên")]
     public class PostController : Controller
     {
         private readonly AppDbContext _dbContext;

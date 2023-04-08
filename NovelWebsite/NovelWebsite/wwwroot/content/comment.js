@@ -75,3 +75,25 @@ function AddPostComment(id) {
         complete: function () { }
     })
 }
+
+function AddReplyComment(id) {
+    var user = GetUserInfo();
+    var contentEle = '#reply' + id + '-editor';
+    $.ajax({
+        url: "/Comment/AddComment",
+        type: "POST",
+        data: {
+            ReplyCommentId: id,
+            UserId: user.userId,
+            Content: $(contentEle).html()
+        },
+        dataType: "json",
+        beforeSend: function () { },
+        success: function () {
+            console.log("success");
+            location.reload();
+        },
+        error: function () { },
+        complete: function () { }
+    })
+}

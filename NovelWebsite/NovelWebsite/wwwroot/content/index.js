@@ -306,7 +306,7 @@ $.ajax({
                                 <div class="category">
                                     <p>Thể loại:</p>
                                     <p class="category-wrap">
-                                        <a href="javascript:void(0)">${item.category.categoryName}</a >
+                                        <a href="/bo-loc?categoryId=${item.categoryId}">${item.category.categoryName}</a >
                                     </p>
                                 </div>
                                 <div class="describe">
@@ -390,7 +390,7 @@ $.ajax({
                                 <div class="category">
                                     <p>Thể loại:</p>
                                     <p class="category-wrap">
-                                        <a href="javascript:void(0)">${item.category.categoryName}</a >
+                                        <a href="/bo-loc?categoryId=${item.categoryId}">${item.category.categoryName}</a >
                                     </p>
                                 </div>
                                 <div class="describe">
