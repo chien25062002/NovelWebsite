@@ -46,5 +46,11 @@ namespace NovelWebsite.Controllers
             _dbContext.Comments.Remove(cmt);
             return Json("200");
         }
+
+        public IActionResult GetReplyComment(int commentId)
+        {
+            var cmt = _dbContext.Comments.Where(x => x.ReplyCommentId == commentId).ToList();
+            return Json(cmt);
+        }
     }
 }
