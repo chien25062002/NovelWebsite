@@ -16,7 +16,7 @@
                             <li><a class="dropdown-item" href="/ho-so/${user.userId}">Hồ sơ</a></li>
                             <li><a class="dropdown-item" href="/ho-so/${user.userId}/tu-truyen">Tủ truyện</a></li>
                             <li><a class="dropdown-item" href="/ho-so/${user.userId}/truyen-da-dang">Truyện đã đăng</a></li>
-                            <li><a class="dropdown-item" href="/dang-truyen">Đăng tải</a></li>
+                            <li><a class="dropdown-item" href="/dang-tai/${user.userId}/truyen">Đăng tải</a></li>
                         </ul>
                     </div>`;
         $('div.col.login').append(bar);

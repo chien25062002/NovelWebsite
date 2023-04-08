@@ -22,7 +22,7 @@ namespace NovelWebsite.Areas.Admin.Controllers
 
             ViewBag.pageNumber = pageNumber;
             ViewBag.pageSize = pageSize;
-            ViewBag.pageCount = Math.Ceiling(_dbContext.Categories.Count() * 1.0 / pageSize);
+            ViewBag.pageCount = Math.Ceiling(_dbContext.Banners.Count() * 1.0 / pageSize);
 
             ViewBag.Books = new SelectList(_dbContext.Books.ToList(), "BookId", "BookName");
 
