@@ -162,7 +162,7 @@ $.ajax({
                                                 <img src="${user.user.avatar}">
                                             </a>
                                         </div>
-                                        <div class="col user--discussion-main">
+                                        <div class="col user--discussion-main" id="${item.commentId}">
                                             <div class="user--discussion">
                                                 <p class="users">
                                                     <a href="javascript:void(0)">${user.user.userName}</a>
@@ -172,7 +172,7 @@ $.ajax({
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
-                                                    <a href="javascript:void(0)">
+                                                    <a href="javascript:void(0)" onclick="replyComment(${item.commentId}); this.onclick=null;">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
                                                         ${item.likes} trả lời
                                                     </a>
