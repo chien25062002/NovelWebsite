@@ -225,13 +225,18 @@ html::-webkit-scrollbar {
 .truyen-btn {
     position: absolute;
     bottom: 0;
-    left: 0;
+    /*left: 0;*/
+    background: none;
+    color: #262626;
+    right: 0;
+    padding: 5px 10px;
+    font-weight: 500;
 }
 
-    .truyen-btn:hover {
+    /*.truyen-btn:hover {
         background-color: #4949f2;
         color: #fff !important;
-    }
+    }*/
 
 .like-more-img {
     width: 84px;
