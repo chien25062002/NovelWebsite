@@ -34,9 +34,9 @@
                 </p>
                 <p class="book--info-buttons">
                     <a class="btn" href="/truyen/@Model.Slug-@Model.BookId">Đọc truyện</a>
-                    <a class="btn" href="javascript:void(0)" onclick="onClickInfoBtn(this,1)">Yêu thích</a>
-                    <a class="btn" href="javascript:void(0)" onclick="onClickInfoBtn(this,2)">Theo dõi</a>
-                    <a class="btn" href="javascript:void(0)" onclick="onClickInfoBtn(this,3)">Đề cử</a>
+                    <a class="btn" id="btn-fav" href="javascript:void(0)" onclick="onClickInfoBtn(this,1)">Yêu thích</a>
+                    <a class="btn" id="btn-follow" href="javascript:void(0)" onclick="onClickInfoBtn(this,2)">Theo dõi</a>
+                    <a class="btn" id="btn-rec" href="javascript:void(0)" onclick="onClickInfoBtn(this,3)">Đề cử</a>
                 </p>
             </div>
         </div>
@@ -735,12 +735,15 @@
         var bookId = `@Model.BookId`;
         var userId = `@Model.UserId`;
         var authorId = `@Model.AuthorId`;
+        var categoryId = `@Model.CategoryId`;
+        console.log(categoryId);
     </script>
 
     @*<script type="text/javascript" src="~/js/ckeditorscript.js"></script>*@
     <script type="text/javascript" src="~/content/book.js"></script>
     <script type="text/javascript" src="~/content/comment.js"></script>
     <script type="text/javascript" src="~/content/review.js"></script>
+    <script type="text/javascript" src="~/content/interact.js"></script>
 
 }
 

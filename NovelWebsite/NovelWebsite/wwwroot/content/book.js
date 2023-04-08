@@ -242,16 +242,12 @@ $.ajax({
 })
 
 $.ajax({
-    url: "/Book/BooksMaybeYouLike?id=" + bookId,
+    url: "/Book/BooksMaybeYouLike?id=" + categoryId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
     success: function (data) {
         $('#book-same-like').html('');
-        /*let row = jQuery('<div>', {
-            class: 'index__theloai--chitiet row',
-        });*/
-        console.log()
         data.forEach((item, index) => {
             $('#book-same-like').append(`<li class="list-group-item">
                                 <div class="like-more-img">
