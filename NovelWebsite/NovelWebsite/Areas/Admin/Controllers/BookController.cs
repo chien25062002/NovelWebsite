@@ -8,7 +8,7 @@ using X.PagedList;
 namespace NovelWebsite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Biên tập viên")]
     [Route("/Admin/Book")]
     public class BookController : Controller
     {

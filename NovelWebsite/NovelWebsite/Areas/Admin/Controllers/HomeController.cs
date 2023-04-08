@@ -1,10 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 using System.Linq;
 
 namespace NovelWebsite.Areas.Controllers
 {
     [Area("Admin")]
+    [Authorize (Roles = "Admin, Biên tập viên")]
     public class HomeController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -16,12 +19,11 @@ namespace NovelWebsite.Areas.Controllers
         public IActionResult Index()
         {
             ViewBag.NumberOfUsers = _dbContext.Users.Count();
-            ViewBag.NumberOfAcceptedBooks = _dbContext.Books.Count(x => x.Status == 1);
             ViewBag.NumberOfBooks = _dbContext.Books.Count();
-            ViewBag.NumberOfChapters = _dbContext.Chapters.Count(x => x.Status == 1);
+            ViewBag.NumberOfFinishedBooks = _dbContext.Books.Count(x => x.BookStatusId == "HOANTHANH");
+            ViewBag.NumberOfChapters = _dbContext.Chapters.Count();
             ViewBag.NumberOfComments = _dbContext.Comments.Count();
-            // views lấy từ session
-            ViewBag.Views = 123456789;
+            ViewBag.NumberOfReviews = _dbContext.Reviews.Count();
             return View();
         }
     }

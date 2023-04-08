@@ -7,7 +7,7 @@ using NovelWebsite.Entities;
 namespace NovelWebsite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Biên tập viên")]
     public class BannerController : Controller
     {
         private readonly AppDbContext _dbContext;

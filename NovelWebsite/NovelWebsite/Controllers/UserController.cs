@@ -18,13 +18,18 @@ namespace NovelWebsite.Controllers
             _dbContext = dbContext;
         }
         
-        [Route("{id}")]
-        public IActionResult Profile(int id)
+        [Route("{id?}")]
+        public IActionResult Profile(int id = 0)
         {
+            if (id != 0)
+            {
+                var user = _dbContext.Users.FirstOrDefault(x => x.UserId == id);
+                return View(user);
+            }
             var claims = HttpContext.User.Identity as ClaimsIdentity;
-            var user = _dbContext.Users.Where(a => a.UserId == Int32.Parse(claims.FindFirst("UserId").Value))
+            var user2 = _dbContext.Users.Where(a => a.UserId == Int32.Parse(claims.FindFirst("UserId").Value))
                                                 .FirstOrDefault();
-            return View(user);
+            return View(user2);
         }
 
         [HttpPost]
