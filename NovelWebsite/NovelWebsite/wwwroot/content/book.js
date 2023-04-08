@@ -135,6 +135,7 @@ $.ajax({
             class: 'index__theloai--chitiet row',
         });
         var user = GetUserInfo();
+        
         $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
@@ -153,6 +154,7 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
+
         data.forEach((item, index) => {
             var content = $('<textarea />').html(item.content).text();
             $('#list-comment').append(`<li class="list-group-item">

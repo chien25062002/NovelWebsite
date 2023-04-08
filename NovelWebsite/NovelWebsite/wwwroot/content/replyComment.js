@@ -3,8 +3,45 @@
     var user = GetUserInfo();
     $(id).append(`
             <div class= "user--discussion-child">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
+                <ul class="list-group list-group-flush">`)
+    $.ajax({
+        url: "/Book/GetListComments?id=" + bookId,
+        type: "GET",
+        dataType: "json",
+        beforeSend: function () { },
+        success: function (data) {
+            data.forEach((item) => {
+                $(id).append(`<li class="list-group-item">
+                                            <div class="row user--comment-section">
+                                                <div class="user--photo col-md-auto">
+                                                    <a href="javascript:void(0)">
+                                                        <img src="${item.user.avatar}">
+                                                    </a>
+                                                </div>
+                                                <div class="col user--discussion-main" id="${item.commentId}">
+                                                    <div class="user--discussion">
+                                                        <p class="users">
+                                                            <a href="javascript:void(0)">${item.user.userName}</a>
+                                                        </p>
+                                                        <p class="comments">
+                                                            ${content}
+                                                        </p>
+                                                        <p class="info--wrap">
+                                                            <span>${item.createdDate} </span>
+                                                    
+                                                            <a href="javascript:void(0)">
+                                                                <i class="fa-regular fa-thumbs-up info-icon"></i>
+                                                                ${item.dislikes} thích
+                                                            </a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>`)
+            })
+        }
+    });
+    $(id).append(`<li class="list-group-item">
                         <div class="row user--comment-section">
                             <div class="user--photo col-md-auto">
                                 <a href="javascript:void(0)">
@@ -104,36 +141,3 @@ function startCKEditor(toolbar, editor) {
         });
 
 }
-
-/*data.forEach((item, index) => {
-                $(id).append(`<li class= "list-group-item">
-                    <div class="row user--comment-section">
-                        <div class="user--photo col-md-auto">
-                            <a href="javascript:void(0)">
-                                <img src="${user.user.avatar}">
-                            </a>
-                        </div>
-                        <div class="col user--discussion-main" id="${item.commentId}">
-                            <div class="user--discussion">
-                                <p class="users">
-                                    <a href="javascript:void(0)">${user.user.userName}</a>
-                                </p>
-                                <p class="comments">
-                                    ${content}
-                                </p>
-                                <p class="info--wrap">
-                                    <span>${item.createdDate} </span>
-                                    <a href="javascript:void(0)" onclick="replyComment(${item.commentId})">
-                                        <i class="fa-regular fa-comment-dots info-icon"></i>
-                                        ${item.likes} trả lời
-                                    </a>
-                                    <a href="javascript:void(0)">
-                                        <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                        ${item.dislikes} thích
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </li >`)
-            })*/
