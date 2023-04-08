@@ -917,6 +917,7 @@ img {
 
 /*mobile &tablet*/
 @media only screen and (max-width: 63.9375em) {
+    
     .search form {
         display: flex;
         width: 100%;
@@ -939,22 +940,12 @@ img {
         max-width: 50%;
         margin-top: 2rem;
     }
-
     .mobile {
         display: block;
     }
-
-
-
-
-
     .category-dropdown {
         width: 30%;
     }
-
-
-
-
     .book--img {
         margin: 1rem 2rem;
     }
@@ -967,9 +958,6 @@ img {
     h4.index__truyenmoi--title {
         margin: 1rem auto;
     }
-
-
-
     h3 {
         text-align: center;
     }
