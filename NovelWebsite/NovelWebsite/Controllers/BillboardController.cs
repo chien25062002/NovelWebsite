@@ -60,9 +60,6 @@ namespace NovelWebsite.Controllers
                 }
             }
 
-            ViewBag.pageNumber = pageNumber;
-            ViewBag.pageSize = pageSize;
-            ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
             ViewBag.categoryId = category_id;
             ViewBag.sortBy = sort_by;
             ViewBag.order = order;
