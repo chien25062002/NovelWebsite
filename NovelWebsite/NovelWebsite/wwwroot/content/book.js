@@ -84,13 +84,13 @@ $.ajax({
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
+                                                <img src="${item.user.avatar}">
                                             </a>
                                         </div>
                                         <div class="col user--discussion-main">
                                             <div class="user--discussion">
                                                 <p class="users">
-                                                    <a href="javascript:void(0)">${user.user.userName}</a>
+                                                    <a href="javascript:void(0)">${item.user.userName}</a>
                                                 </p>
                                                 <p class="comments">
                                                     ${content}
@@ -159,13 +159,13 @@ $.ajax({
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="${user.user.avatar}">
+                                                <img src="${item.user.avatar}">
                                             </a>
                                         </div>
                                         <div class="col user--discussion-main" id="${item.commentId}">
                                             <div class="user--discussion">
                                                 <p class="users">
-                                                    <a href="javascript:void(0)">${user.user.userName}</a>
+                                                    <a href="javascript:void(0)">${item.user.userName}</a>
                                                 </p>
                                                 <p class="comments">
                                                     ${content}

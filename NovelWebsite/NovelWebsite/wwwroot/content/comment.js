@@ -78,17 +78,14 @@ function AddPostComment(id) {
 
 function AddReplyComment(id) {
     var user = GetUserInfo();
-    if (user == "") {
-        alert("Bạn cần đăng nhập để có thể bình luận!");
-        return;
-    }
+    var contentEle = '#reply' + id + '-editor';
     $.ajax({
         url: "/Comment/AddComment",
         type: "POST",
         data: {
             ReplyCommentId: id,
             UserId: user.userId,
-            Content: $('#comment-editor').html()
+            Content: $(contentEle).html()
         },
         dataType: "json",
         beforeSend: function () { },

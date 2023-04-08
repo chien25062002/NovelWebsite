@@ -17,7 +17,7 @@
                             </div>
                             <div class="submit-btn col-md-12">
                                 <div class="submit-btn-wrap">
-                                    <button class="btn btn-primary">Đăng</button>
+                                    <button class="btn btn-primary" onclick="AddReplyComment(${el})">Đăng</button>
                                 </div>
                             </div>
                         </div>
@@ -28,7 +28,6 @@
     var editor = 'reply' + el + '-editor';
     startCKEditor(toolbar, editor);
 }
-
 
 function startCKEditor(toolbar, editor) {
     DecoupledEditor
