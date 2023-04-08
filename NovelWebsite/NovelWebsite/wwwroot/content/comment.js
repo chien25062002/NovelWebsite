@@ -75,3 +75,28 @@ function AddPostComment(id) {
         complete: function () { }
     })
 }
+
+function AddReplyComment(id) {
+    var user = GetUserInfo();
+    if (user == "") {
+        alert("Bạn cần đăng nhập để có thể bình luận!");
+        return;
+    }
+    $.ajax({
+        url: "/Comment/AddComment",
+        type: "POST",
+        data: {
+            ReplyCommentId: id,
+            UserId: user.userId,
+            Content: $('#comment-editor').html()
+        },
+        dataType: "json",
+        beforeSend: function () { },
+        success: function () {
+            console.log("success");
+            location.reload();
+        },
+        error: function () { },
+        complete: function () { }
+    })
+}
