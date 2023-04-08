@@ -2,6 +2,8 @@
 using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 using NovelWebsite.Extensions;
+using NovelWebsite.Models;
+using X.PagedList;
 
 namespace NovelWebsite.Controllers
 {
@@ -15,24 +17,25 @@ namespace NovelWebsite.Controllers
         }
         public IActionResult Index(string? sort_by, int categoryId = 0, int pageNumber = 1, int pageSize = 8)
         {
-            var reviews = _dbContext.Reviews.Where(r => categoryId == 0 || r.Book.CategoryId == categoryId)
+            var reviews = _dbContext.Reviews.Include(r => r.Book).ThenInclude(b => b.Author)
+                                            .Where(r => categoryId == 0 || r.Book.CategoryId == categoryId)
                                             .Include(b => b.User)
-                                            .Include(r => r.Book).ThenInclude(b => b.Author)
-                                            .OrderByDescending(r => r.CreatedDate);
+                                            .OrderByDescending(r => r.CreatedDate).ToList();
             if (sort_by != null)
             {
                 if (sort_by == "up")
                 {
-                    reviews = reviews.OrderBy(r => r.CreatedDate);
+                    reviews = reviews.OrderBy(r => r.CreatedDate).ToList();
                 }
             }
 
-            ViewBag.pageNumber = pageNumber;
-            ViewBag.pageSize = pageSize;
-            ViewBag.pageCount = Math.Ceiling(reviews.Count() * 1.0 / pageSize);
             ViewBag.categoryId = categoryId;
             ViewBag.sortBy = sort_by;
-            return View(reviews.Skip(pageSize * pageNumber - pageSize).Take(pageSize).ToList());            
+            ViewBag.category = _dbContext.Categories.ToList();
+
+            PagedList<ReviewEntity> listReview = new PagedList<ReviewEntity>(reviews, pageNumber, pageSize);
+
+            return View(listReview);            
         }
 
         [HttpPost]

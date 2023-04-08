@@ -307,7 +307,7 @@ i:hover {
     position: absolute;
     right: 3px;
     bottom: 10px;
-    width: 50px;
+    width: 34px;
 }
 
     #m-btns .td {
@@ -319,7 +319,7 @@ i:hover {
     color: #0e0e0e;
     font-size: 14px;
     white-space: pre;
-    padding: 5px 8px 6px 16px;
+    padding: 5px 8px 6px 9px;
     background-color: rgba(255, 255, 255, 0.7);
     border-radius: 2px;
 }
@@ -442,23 +442,11 @@ i.fa-solid.fa-message {
     padding-right: 0.5rem;
 }
 
-/*.footer--container {
-    background: #e5e4db;
-    margin-top: 10px;
-    padding: 20px 0;
-    border-top: 1px solid #e7e7e7;
-    color: #4e4e4e;
-}
-
-.footer--inside-container {
-    max-width: 100%;
-    margin: 0 auto;
-}*/
 
 
 form {
     display: grid;
-    /* width: 50%; */
+  
 }
 
 .container {
@@ -480,9 +468,7 @@ input[type="password"] {
     border-radius: 5px;
 }
 
-/*label {
-    padding: 0.5rem 0;
-}*/
+
 
 .textbox-dangtruyen  {
     padding: 10px;

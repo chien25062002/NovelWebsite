@@ -15,7 +15,9 @@ namespace NovelWebsite.Entities
         public DbSet<BookTagEntity> BookTags { get; set; }
         public DbSet<ChapterEntity> Chapters { get; set; }
         public DbSet<CommentEntity> Comments { get; set; }
-        public DbSet<BookUserEntity> BookUsers { get; set; }
+        public DbSet<BookUserFollowEntity> BookUserFollows { get; set; }
+        public DbSet<BookUserLikeEntity> BookUserLikes { get; set; }
+        public DbSet<BookUserRecommendEntity> BookUserRecommends { get; set; }
         public DbSet<UserEntity> Users { get; set; }
         public DbSet<RoleEntity> Roles { get; set; }
         public DbSet<PostEntity> Posts { get; set; }
@@ -36,7 +38,9 @@ namespace NovelWebsite.Entities
             modelBuilder.Entity<UserEntity>().ToTable("User");
             modelBuilder.Entity<RoleEntity>().ToTable("Role");
             modelBuilder.Entity<PostEntity>().ToTable("Post");
-            modelBuilder.Entity<BookUserEntity>().ToTable("BookUser").HasKey(bu => new {bu.BookId, bu.UserId});
+            modelBuilder.Entity<BookUserFollowEntity>().ToTable("BookUserFollow").HasKey(bu => new {bu.BookId, bu.UserId});
+            modelBuilder.Entity<BookUserLikeEntity>().ToTable("BookUserLike").HasKey(bu => new {bu.BookId, bu.UserId});
+            modelBuilder.Entity<BookUserRecommendEntity>().ToTable("BookUserRecommend").HasKey(bu => new {bu.BookId, bu.UserId});
             modelBuilder.Entity<ReviewEntity>().ToTable("Review");
             modelBuilder.Entity<BannerEntity>().ToTable("Banner");
             base.OnModelCreating(modelBuilder);

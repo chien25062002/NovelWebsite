@@ -16,7 +16,7 @@
                             <li><a class="dropdown-item" href="/ho-so/${user.userId}">Hồ sơ</a></li>
                             <li><a class="dropdown-item" href="/ho-so/${user.userId}/tu-truyen">Tủ truyện</a></li>
                             <li><a class="dropdown-item" href="/ho-so/${user.userId}/truyen-da-dang">Truyện đã đăng</a></li>
-                            <li><a class="dropdown-item" href="/dang-truyen">Đăng tải</a></li>
+                            <li><a class="dropdown-item" href="/dang-tai/${user.userId}/truyen">Đăng tải</a></li>
                         </ul>
                     </div>`;
         $('div.col.login').append(bar);
@@ -41,12 +41,9 @@ $.ajax({
             class: 'col-md-4',
         });
         let maxitem = Math.ceil(data.length / 3);
-        console.log(data.length, maxitem)
         data.forEach((item, index) => {
-            console.log(item);
             row.append(`<li><a href="/bo-loc?categoryId=${item.categoryId}">${item.categoryName}</a></li>`);
             if ((index != 0 && index % maxitem == (maxitem - 1)) || index == data.length - 1) {
-                console.log(index)
                 $('#chapter-category').append(row);
                 row = jQuery('<ul>', {
                     class: 'col-md-4',
@@ -67,7 +64,6 @@ function GetUserInfo() {
         dataType: "json",
         beforeSend: function () { },
         success: function (data) {
-            console.log(data);
             user = data;
         },
         error: function () { },

@@ -72,7 +72,7 @@ namespace NovelWebsite.Controllers
 
         public IActionResult GetMostFollows(int number = 10)
         {
-            var grBook = _dbContext.BookUsers.GroupBy(b => b.Book.BookId);
+            var grBook = _dbContext.BookUserFollows.GroupBy(b => b.Book.BookId);
             var query = grBook.Select(g => new
             {
                 BookId = g.Key,
@@ -88,7 +88,7 @@ namespace NovelWebsite.Controllers
 
         public IActionResult GetNewBooks(int number = 10)
         {
-            return Json(_dbContext.Books.OrderBy(b => b.CreatedDate)
+            return Json(_dbContext.Books.OrderByDescending(b => b.CreatedDate)
                                         .Include(b => b.BookStatus)
                                         .Include(b => b.Category)
                                         .Include(b => b.Author).Take(number).ToList());

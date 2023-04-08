@@ -31,79 +31,144 @@ namespace NovelWebsite.Controllers
             ViewBag.pageSize = pageSize;
             ViewBag.pageCount = Math.Ceiling(query.Count() * 1.0 / pageSize);
             ViewBag.searchName = searchName;
+            ViewBag.categoryId = categoryId;    
 
             return View(query.Skip(pageSize * pageNumber - pageSize)
                          .Take(pageSize)
                          .ToList());
         }
 
+        [Route("")]
         [Route("{action}")]
-
         [HttpPost]
-        public IActionResult Index(FilterModel filterModel)
+        public IActionResult Index(FilterModel filterModel, int pageNumber = 1, int pageSize = 10)
         {
+            // lọc theo thư mục
             var query = _dbContext.Books.Include(b => b.Author)
                                         .Include(b => b.BookStatus)
                                         .Where(b => b.IsDeleted == false)
-                                        .Where(b => string.IsNullOrEmpty(b.CategoryId.ToString()) || b.CategoryId == filterModel.CategoryId)
-                                        .Where(b => string.IsNullOrEmpty(b.BookStatusId) || b.BookStatusId == filterModel.BookStatusId);
-            switch (filterModel.RankType)
+                                        .Where(b => filterModel.CategoryId == 0 || b.CategoryId == filterModel.CategoryId).ToList();
+            var final = query;
+            // lọc theo tình trạng
+            if (filterModel.BookStatus.Count > 0 && filterModel.BookStatus[0] != null)
             {
-                case "Views":
-                    query = query.OrderByDescending(b => b.Views);
-                    break;
-                case "Likes":
-                    query = query.OrderByDescending(b => b.Likes);
-                    break;
-                case "Recommends":
-                    query = query.OrderByDescending(b => b.Recommends);
-                    break;
-                default:
-                    query = query.OrderByDescending(b => b.CreatedDate);
-                    break;
+                var f1 = query.Where(b => b.BookStatusId == filterModel.BookStatus[0]).ToList();
+                for (int i = 1; i < filterModel.BookStatus.Count(); i++)
+                {
+                    var temp = query.Where(b => b.BookStatusId == filterModel.BookStatus[i]);
+                    foreach (var item in temp)
+                    {
+                        f1.Add(item);
+                    }
+                }
+                final = f1;
             }
-            switch (filterModel.ChapterRange)
+
+            // lọc theo xếp hạng
+            if (!string.IsNullOrEmpty(filterModel.Rank))
             {
-                case 299:
-                    query = query.Where(b => b.NumberOfChapters < 300);
-                    break;
-                case 999:
-                    query = query.Where(b => b.NumberOfChapters >= 300 && b.NumberOfChapters <= 1000);
-                    break;
-                case 1999:
-                    query = query.Where(b => b.NumberOfChapters >= 1000 && b.NumberOfChapters <= 2000);
-                    break;
-                case 2999:
-                    query = query.Where(b => b.NumberOfChapters > 2000);
-                    break;
-                default:
-                    break;
+                var f2 = final;
+                switch (filterModel.Rank)
+                {
+                    case "view":
+                        f2 = f2.OrderByDescending(b => b.Views).ToList();
+                        break;
+                    case "like":
+                        f2 = f2.OrderByDescending(b => b.Likes).ToList();
+                        break;
+                    case "recommend":
+                        f2 = f2.OrderByDescending(b => b.Recommends).ToList();
+                        break;
+                    case "follow":
+                        var mostFollow = _dbContext.BookUserFollows
+                                        .GroupBy(bu => bu.BookId)
+                                        .OrderByDescending(g => g.Count())
+                                        .Select(g => g.Key)
+                                        .ToList();
+                        f2 = f2.OrderBy(b => {
+                                                var index = mostFollow.IndexOf(b.BookId);
+                                                return index == -1 ? mostFollow.Count : index;
+                                            }).ToList();
+                        break;
+                    case "comment":
+                        var mostComment = _dbContext.Comments
+                                        .GroupBy(bu => bu.BookId)
+                                        .OrderByDescending(g => g.Count())
+                                        .Select(g => g.Key)
+                                        .ToList();
+                        f2 = f2.OrderBy(b => {
+                            var index = mostComment.IndexOf(b.BookId);
+                            return index == -1 ? mostComment.Count : index;
+                        }).ToList();
+                        break;
+                    default:
+                        f2 = f2.OrderByDescending(b => b.CreatedDate).ToList();
+                        break;
+                }
+                final = f2;
             }
-            var filterTags = _dbContext.BookTags.ToList();
-            foreach (var tag in filterModel.ListTags)
+
+            // lọc theo số chương
+            if (filterModel.ChapterRange.Count > 0)
             {
-                filterTags = filterTags.Where(f => f.TagId == tag).ToList();
+                var f3 = final;
+                int minRange = filterModel.ChapterRange[0];
+                f3 = f3.Where(b => b.NumberOfChapters <= filterModel.ChapterRange[0]).ToList();
+                for (int i = 1; i < filterModel.ChapterRange.Count(); i++)
+                {
+                    var temp = final.Where(b => b.NumberOfChapters <= filterModel.ChapterRange[i] && b.NumberOfChapters > minRange);
+                    minRange = filterModel.ChapterRange[i];
+                    foreach (var item in temp)
+                    {
+                        f3.Add(item);
+                    }
+                }
+                final = f3;
             }
-            var grBooks = filterTags.GroupBy(f => f.BookId);
-            var filterAll = from t in grBooks
-                          join b in query on t.Key equals b.BookId
-                          select b;
-            switch (filterModel.OrderBy)
+            // sắp xếp
+
+            if (!string.IsNullOrEmpty(filterModel.OrderBy))
             {
-                case "Updated":
-                    filterAll = filterAll.OrderByDescending(f => f.UpdatedDate);
-                    break;
-                case "New":
-                    filterAll = filterAll.OrderByDescending(f => f.CreatedDate);
-                    break;
-                case "Chapter":
-                    filterAll = filterAll.OrderByDescending(f => f.NumberOfChapters);
-                    break;
-                default:
-                    filterAll = filterAll.OrderByDescending(f => f.CreatedDate);
-                    break;
+                var f4 = final;
+                switch (filterModel.OrderBy)
+                {
+                    case "new":
+                        f4 = f4.OrderByDescending(b => b.CreatedDate).ToList();
+                        break;
+                    case "old":
+                        f4 = f4.OrderBy(b => b.CreatedDate).ToList();
+                        break;
+                }
+                final = f4;
             }
-            return View(filterAll);
+
+            // lọc theo tag
+            // kiểm tra tag của những quyển đã có -> tag nào k có thì remove khỏi ds
+            if (filterModel.Tag.Count > 0)
+            {
+                var f5 = new List<BookEntity>(final);
+                foreach (var item in final)
+                {
+                    var temp = _dbContext.BookTags.Where(b => b.BookId == item.BookId).Select(b => b.TagId).ToList();
+                    foreach (var tag in temp)
+                    {
+                        if (!filterModel.Tag.Contains(tag))
+                        {
+                            f5.Remove(item);
+                            break;
+                        }
+                    }
+                }
+                final = f5;
+            }
+
+            ViewBag.pageNumber = pageNumber;
+            ViewBag.pageSize = pageSize;
+            ViewBag.pageCount = Math.Ceiling(final.Count() * 1.0 / pageSize);
+
+            return View(final.Skip(pageSize * pageNumber - pageSize)
+                         .Take(pageSize)
+                         .ToList());
         }
 
         [Route("{action}")]

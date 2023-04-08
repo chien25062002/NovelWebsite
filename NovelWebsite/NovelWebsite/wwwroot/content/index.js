@@ -290,7 +290,7 @@ $.ajax({
                                     <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                                 </div>
                                 <div class="book-state">
-                                    <a href="javascript:void(0)">${item.author.authorName}</a >
+                                    <a href="/tac-gia/${item.author.authorId}/${item.author.slug}">${item.author.authorName}</a >
                                 </div>
                                 <p class="book-status">
                                     <em>
@@ -306,7 +306,7 @@ $.ajax({
                                 <div class="category">
                                     <p>Thể loại:</p>
                                     <p class="category-wrap">
-                                        <a href="javascript:void(0)">${item.category.categoryName}</a >
+                                        <a href="/bo-loc?categoryId=${item.categoryId}">${item.category.categoryName}</a >
                                     </p>
                                 </div>
                                 <div class="describe">
@@ -374,7 +374,7 @@ $.ajax({
                                     <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
                                 </div>
                                 <div class="book-state">
-                                    <a href="javascript:void(0)">${item.author.authorName}</a >
+                                    <a href="/tac-gia/${item.author.authorId}/${item.author.slug}">${item.author.authorName}</a >
                                 </div>
                                 <p class="book-status">
                                     <em>
@@ -390,7 +390,7 @@ $.ajax({
                                 <div class="category">
                                     <p>Thể loại:</p>
                                     <p class="category-wrap">
-                                        <a href="javascript:void(0)">${item.category.categoryName}</a >
+                                        <a href="/bo-loc?categoryId=${item.categoryId}">${item.category.categoryName}</a >
                                     </p>
                                 </div>
                                 <div class="describe">

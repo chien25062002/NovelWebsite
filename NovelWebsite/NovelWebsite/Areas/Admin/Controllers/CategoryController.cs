@@ -7,7 +7,7 @@ using NovelWebsite.Models;
 namespace NovelWebsite.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin, Biên tập viên")]
     public class CategoryController : Controller
     {
         private readonly AppDbContext _dbContext;

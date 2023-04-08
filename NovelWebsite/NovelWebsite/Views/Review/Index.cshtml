@@ -1,14 +1,14 @@
 ﻿@using NovelWebsite.Entities
 @using System.Web
+@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<ReviewEntity>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
 @{
-    int pageSize = (int)ViewBag.pageSize;
-    int pageCount = (int)ViewBag.pageCount;
-    int pageNumber = (int)ViewBag.pageNumber;
-    string categoryId = ViewBag.categoryId as string;
+    int categoryId = ViewBag.categoryId;
     string sort_by = ViewBag.sortBy;
 }
 
-@model List<ReviewEntity>
 
 <link rel="stylesheet" href="~/css/wiki/review-board-0.0.2.min.css">
 <link href=~/css/utils/materialize-wiki.min.css type="text/css" rel="stylesheet"
@@ -43,18 +43,12 @@
                    data-constrainwidth="false" data-activates='ddCommentFilter'
                    style="font-size: 1.23rem; color: #666666; margin-top: 0.37rem; margin-right: 0.5rem; margin-bottom: 1rem;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
                 <ul id='ddCommentFilter' class='dropdown-content'>
-                    <li class="active"><a href="/review">Tất cả</a></li>
-                    <li class=""><a href=>Cate</a></li>
-                    <li class=""><a href=>Cate</a></li>
-
-                    <li class=""><a href=>Cate</a></li>
-
-                    <li class=""><a href=>Cate</a></li>
-
-                    <li class=""><a href=>Cate</a></li>
-
-                    <li class=""><a href=>Cate</a></li>
-
+                    @{
+                        foreach (var item in ViewBag.category)
+                        {
+                            <li class=""><a href="/review?categoryId=@item.CategoryId">@item.CategoryName</a></li>
+                        }
+                    }
                 </ul>
 
             </div>
@@ -74,8 +68,7 @@
                                     </h5>
                                     <p class="book-author index__truyenmoito--theloai"><a class="truncate" href="">@item.Book.Author.AuthorName</a></p>
                                     <p class="index__truyenmoito--gioithieu">
-                                        <i>
-                                            @Html.Raw(item.Book.Introduce.Substring(0,128))
+                                        <i>@Html.Raw(HttpUtility.HtmlDecode(item.Book.Introduce.Substring(0,128)))
                                         </i>
                                     </p>
                                 </div>
@@ -145,22 +138,10 @@
                 <div class="box-footer">
                     <div class="box-footer clearfix">
                         <ul class="pagination justify-content-end">
-                            <li class="page-item">
-                                <a class="page-link" href="/review?sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@Math.Max(1, pageNumber - 1)">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            @{
-                                for (int i = 1; i <= pageCount; ++i)
-                                {
-                                    <li class="page-item"><a class="page-link" href="/review?sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@i">@i</a></li>
-                                }
-                            }
-                            <li class="page-item">
-                                <a class="page-link" href="/review?sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@Math.Min(pageNumber + 1, pageCount)">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
+                            @Html.PagedListPager(Model, page => Url.Action("", new {sort_by = sort_by, categoryId = categoryId, pageNumber = page}),new X.PagedList.Web.Common.PagedListRenderOptions(){
+                            LiElementClasses = new List<String> {"page-item"},
+                            PageClasses = new List<String> {"page-link"}
+                            })
                         </ul>
                     </div>
                 </div>

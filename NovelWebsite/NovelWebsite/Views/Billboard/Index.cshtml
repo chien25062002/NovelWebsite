@@ -1,8 +1,9 @@
-﻿@{
-    int pageSize = (int)ViewBag.pageSize;
-    int pageCount = (int)ViewBag.pageCount;
-    int pageNumber = (int)ViewBag.pageNumber;
-    string categoryId = ViewBag.categoryId as string;
+﻿@using X.PagedList.Mvc.Core
+@model X.PagedList.IPagedList<BookEntity>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    int categoryId = ViewBag.categoryId;
     string sort_by = ViewBag.sortBy;
     string order = ViewBag.order;
 }
@@ -27,43 +28,28 @@
            data-constrainwidth="false" data-activates='ddRankCate'
            style="font-size: 1.23rem; color: #666666;">Thể loại<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
         <ul id='ddRankCate' class='dropdown-content'>
-            <li class="active"><a href="/review">Tất cả</a></li>
-
-            <li class=""><a href=>Cate</a></li>
-
-            <li class=""><a href=>Cate</a></li>
-
-            <li class=""><a href=>Cate</a></li>
-
-            <li class=""><a href=>Cate</a></li>
-
-            <li class=""><a href=>Cate</a></li>
-
-            <li class=""><a href=>Cate</a></li>
-
+            @{
+                foreach(var item in ViewBag.category)
+                {
+                    <li class=""><a href="/bang-xep-hang?category_id=@item.CategoryId">@item.CategoryName</a></li>
+                }
+            }
         </ul>
         <a class="dropdown-button" data-hover="true" data-beloworigin="true"
            data-constrainwidth="false" data-activates='ddRankFilter'
            style="font-size: 1.23rem; color: #666666;">Xếp theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
         <ul id='ddRankFilter' class='dropdown-content'>
-            <li class="active"><a href="/review">Lượt bình chọn</a></li>
-
-            <li class=""><a href=>Lượt review</a></li>
-
-            <li class=""><a href=>Lượt bình luận</a></li>
-
-            <li class=""><a href=>Lượt đọc</a></li>
-
-            <li class=""><a href=>Mới hoàn thành</a></li>
-
+            <li class="active"><a href="/bang-xep-hang?sort_by=like">Lượt yêu thích</a></li>
+            <li class=""><a href="/bang-xep-hang?sort_by=recommend">Lượt đề cử</a></li>
+            <li class=""><a href="/bang-xep-hang?sort_by=follow">Lượt theo dõi</a></li>
+            <li class=""><a href="/bang-xep-hang?sort_by=view">Lượt đọc</a></li>
         </ul>
         <a class="dropdown-button right" data-hover="true" data-beloworigin="true"
            data-constrainwidth="false" data-activates='ddRankRank'
            style="font-size: 1.23rem; color: #666666;">Lọc theo<i class="fa fa-sort-desc" aria-hidden="true" style="font-size: 1.6rem; margin: 0 0.4rem; vertical-align: top; line-height: 1.2rem"></i></a>
         <ul id='ddRankRank' class='dropdown-content'>
-            <li class="active"><a href="/review">Từ trên xuống</a></li>
-
-            <li class=""><a href=>Từ lên xuống</a></li>
+            <li class="active"><a href="/bang-xep-hang?order=down">Mới nhất</a></li>
+            <li class=""><a href="/bang-xep-hang?order=up">Cũ nhất</a></li>
 
         </ul>
     </div>
@@ -101,22 +87,10 @@
         <div class="box-footer">
             <div class="box-footer clearfix">
                 <ul class="pagination justify-content-end">
-                    <li class="page-item">
-                        <a class="page-link" href="/bang-xep-hang?order=@order&&sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@Math.Max(1, pageNumber - 1)">
-                            <span aria-hidden="true">&laquo;</span>
-                        </a>
-                    </li>
-                    @{
-                        for (int i = 1; i <= pageCount; ++i)
-                        {
-                            <li class="page-item"><a class="page-link" href="/bang-xep-hang?order=@order&&sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@i">@i</a></li>
-                        }
-                    }
-                    <li class="page-item">
-                        <a class="page-link" href="/bang-xep-hang?order=@order&&sort_by=@sort_by&&categoryId=@categoryId&&pageNumber=@Math.Min(pageNumber + 1, pageCount)">
-                            <span aria-hidden="true">&raquo;</span>
-                        </a>
-                    </li>
+                    @Html.PagedListPager(Model, page => Url.Action("", new {sort_by = sort_by, order = order, categoryId = categoryId, pageNumber = page}),new X.PagedList.Web.Common.PagedListRenderOptions(){
+                            LiElementClasses = new List<String> {"page-item"},
+                            PageClasses = new List<String> {"page-link"}
+                            })
                 </ul>
             </div>
         </div>
