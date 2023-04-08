@@ -1,4 +1,10 @@
 ﻿﻿ /* userprofile1 */
+.row-right {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
 .index__truyendangdoc--listitem {
     display: flex;
     margin-bottom: 3rem;
@@ -68,98 +74,12 @@
     }
 ul.pagination {
     float: right;
+    position: relative;
+   
+    bottom:0px;
 }
 /* Profile image header */
-/*.header__box--center {
-    margin-left: auto;
-    margin-right: auto;
-}
 
-    .header__box--center.row {
-        margin-bottom: 2rem;
-    }
-
-header {
-    height: 5rem;
-    height: calc(24vh);
-}
-
-.header__main {
-    background: #e5e4db;
-}
-
-.logo {
-    width: 220px;
-    height: 60px;
-    margin: 16px;
-    padding: 0;
-}
-    .logo a {
-        width: 220px;
-        height: 60px;
-        display: block;
-        background: url(/image/Illustration4.png) no-repeat;
-        background-size: 100%;
-    }
-*/
-
-/*.search {
-    margin: 1.5rem auto;
-    width: 360px;
-}
-
-.search__btn--icons {
-    font-size: 16px;
-    color: #fff;
-}
-
-.btn--search-color {
-    background-color: #343a40;
-}
-
-    .btn--search-color:hover {
-        background-color: #3e98a1;
-    }
-
-.navbar {
-    background-color: #343a40;
-    height: 40px;
-    padding: 0;
-}
-
-.navbar__main {
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #343a40;
-}
-
-ul li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.nav-item--trangchu {
-    width: 300px;
-    cursor: pointer;
-    background-color: #1d2124;
-}*/
-
-    /*.nav-item--trangchu span,
-    .fa-list {
-        font-size: 16px;
-        display: block;
-        color: #fff;
-        background-color: #1d2124;
-        margin: 6px 0;
-    }
-
-    .nav-item--trangchu span {
-        padding-left: 18px;
-        display: flex;
-    }
-*/
 .fa-list {
     padding-right: 10px;
 }
@@ -269,7 +189,7 @@ i:hover {
 }
 
     #profile-banner-image img {
-        width: 14%;
+        width: 13%;
         height: calc(8vw);
         object-fit: cover;
         z-index: 1;
@@ -308,6 +228,7 @@ i:hover {
     right: 3px;
     bottom: 10px;
     width: 34px;
+    margin-right:12px;
 }
 
     #m-btns .td {
@@ -438,7 +359,7 @@ li.col-left.active {
 i.fa.fa-user,
 i.fa.fa-book,
 i.fa.fa-bell,
-i.fa-solid.fa-message {
+i.fa-solid.fa-message, i.fa-solid.fa-shield-halved, i.bi.bi-journal-arrow-up, i.fa-solid.fa-briefcase {
     padding-right: 0.5rem;
 }
 
