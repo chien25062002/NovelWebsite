@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NovelWebsite.Entities;
 using NovelWebsite.Extensions;
 using NovelWebsite.Models;
@@ -49,7 +50,7 @@ namespace NovelWebsite.Controllers
 
         public IActionResult GetReplyComment(int commentId)
         {
-            var cmt = _dbContext.Comments.Where(x => x.ReplyCommentId == commentId).ToList();
+            var cmt = _dbContext.Comments.Where(x => x.ReplyCommentId == commentId).Include(x => x.User).ToList();
             return Json(cmt);
         }
     }
