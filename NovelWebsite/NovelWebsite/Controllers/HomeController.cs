@@ -88,7 +88,7 @@ namespace NovelWebsite.Controllers
 
         public IActionResult GetNewBooks(int number = 10)
         {
-            return Json(_dbContext.Books.OrderBy(b => b.CreatedDate)
+            return Json(_dbContext.Books.OrderByDescending(b => b.CreatedDate)
                                         .Include(b => b.BookStatus)
                                         .Include(b => b.Category)
                                         .Include(b => b.Author).Take(number).ToList());

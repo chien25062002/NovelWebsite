@@ -48,10 +48,10 @@ namespace NovelWebsite.Controllers
         public IActionResult Index(int id)
         {
             var book = _dbContext.Books.Where(b => b.BookId == id)
-                                       .Include("Author")
-                                       .Include("BookStatus")
-                                       .Include("User")
-                                       .Include("Category")
+                                       .Include(b => b.Author)
+                                       .Include(b => b.BookStatus)
+                                       .Include(b => b.User)
+                                       .Include(b => b.Category)
                                        .FirstOrDefault();
             ViewData["Views"] = UpdateViewCount(book.BookId, (int)book.Views);
             return View(book);
@@ -95,7 +95,7 @@ namespace NovelWebsite.Controllers
         [Route("{action}")]
         public IActionResult BooksMaybeYouLike(int id, int number = 6)
         {
-            var listBooks = _dbContext.Books.Where(b => b.Category.CategoryId == id).Include("Author").OrderByDescending(b => b.CreatedDate).Take(number).ToList();
+            var listBooks = _dbContext.Books.Include(b => b.Category).Where(b => b.Category.CategoryId == id).Include("Author").OrderByDescending(b => b.CreatedDate).Take(number).ToList();
             return Json(listBooks);
         }
 

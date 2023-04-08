@@ -5,6 +5,7 @@
     beforeSend: function () { },
     success: function (data) {
         if (data == "") return;
+        $('div.col.login').html('');
         let user = GetUserInfo();
         let bar = `<div class="dropdown">
                         <button class="btn btn-secondary" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
