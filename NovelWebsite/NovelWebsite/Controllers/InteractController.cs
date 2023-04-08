@@ -23,50 +23,49 @@ namespace NovelWebsite.Controllers
             return Int32.Parse(claims.FindFirst("UserId").Value);
         }
 
-        [Route("/updatefav")]
-
-        public bool UpdateFav(int bookId, bool fav)
+        [Route("getfav/{bookId}")]
+        public bool GetFav(int bookId)
         {
-            var book = _dbContext.Books.FirstOrDefault(x => x.BookId == bookId);
-            if (fav)
+            var book = _dbContext.BookUserLikes.FirstOrDefault(x => x.BookId == bookId && x.UserId == GetUserId());
+            if (book == null)
             {
-                book.Likes ++;
+                return false;
             }
-            else
-            {
-                book.Likes --;
-            }
-            _dbContext.Books.Update(book);
-            _dbContext.SaveChanges();
             return true;
         }
 
-        [Route("/updaterec")]
-
-        public bool UpdateRec(int bookId, bool rec)
+        [Route("getrec/{bookId}")]
+        public bool GetRec(int bookId)
         {
-            var book = _dbContext.Books.FirstOrDefault(x => x.BookId == bookId);
-            if (rec)
+            var book = _dbContext.BookUserRecommends.FirstOrDefault(x => x.BookId == bookId && x.UserId == GetUserId());
+            if (book == null)
             {
-                book.Recommends++;
+                return false;
             }
-            else
-            {
-                book.Recommends--;
-            }
-            _dbContext.Books.Update(book);
-            _dbContext.SaveChanges();
             return true;
         }
 
-        [Route("/updatefollow")]
-        public bool UpdateFollow(int bookId)
+        [Route("getfollow/{bookId}")]
+        public bool GetFollow(int bookId)
+        {
+            int id = GetUserId();
+            var book = _dbContext.BookUserFollows.FirstOrDefault(x => x.BookId == bookId && x.UserId == GetUserId());
+            if (book == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        [Route("updatefav/{bookId}")]
+
+        public bool UpdateFav(int bookId)
         {
             var book = _dbContext.Books.FirstOrDefault(x => x.BookId == bookId);
-            var link = _dbContext.BookUsers.FirstOrDefault(x => x.BookId == bookId && x.UserId == GetUserId());
+            var link = _dbContext.BookUserLikes.FirstOrDefault(x => x.BookId == bookId && x.UserId == GetUserId());
             if (link == null)
             {
-                _dbContext.BookUsers.Add(new BookUserEntity()
+                _dbContext.BookUserLikes.Add(new BookUserLikeEntity()
                 {
                     UserId = GetUserId(),
                     BookId = bookId,
@@ -74,7 +73,50 @@ namespace NovelWebsite.Controllers
             }
             else
             {
-                _dbContext.BookUsers.Remove(link);
+                _dbContext.BookUserLikes.Remove(link);
+            }
+            _dbContext.SaveChanges();
+            return true;
+        }
+
+        [Route("updaterec/{bookId}")]
+
+        public bool UpdateRec(int bookId)
+        {
+            var book = _dbContext.Books.FirstOrDefault(x => x.BookId == bookId);
+            var link = _dbContext.BookUserRecommends.FirstOrDefault(x => x.BookId == bookId && x.UserId == GetUserId());
+            if (link == null)
+            {
+                _dbContext.BookUserRecommends.Add(new BookUserRecommendEntity()
+                {
+                    UserId = GetUserId(),
+                    BookId = bookId,
+                });
+            }
+            else
+            {
+                _dbContext.BookUserRecommends.Remove(link);
+            }
+            _dbContext.SaveChanges();
+            return true;
+        }
+
+        [Route("updatefollow/{bookId}")]
+        public bool UpdateFollow(int bookId)
+        {
+            var book = _dbContext.Books.FirstOrDefault(x => x.BookId == bookId);
+            var link = _dbContext.BookUserFollows.FirstOrDefault(x => x.BookId == bookId && x.UserId == GetUserId());
+            if (link == null)
+            {
+                _dbContext.BookUserFollows.Add(new BookUserFollowEntity()
+                {
+                    UserId = GetUserId(),
+                    BookId = bookId,
+                });
+            }
+            else
+            {
+                _dbContext.BookUserFollows.Remove(link);
             }
             _dbContext.SaveChanges();
             return true;

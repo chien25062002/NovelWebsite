@@ -11,7 +11,7 @@
 //         $(el).prev().collapse("toggle");
 //     }
 // }
-
+/*
 function onClickInfoBtn(el, index) {
     if(index == 1) {
         if($(el).hasClass("selected")){
@@ -41,4 +41,4 @@ function onClickInfoBtn(el, index) {
         }
     }
 
-}
+}*/

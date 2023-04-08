@@ -69,7 +69,7 @@ namespace NovelWebsite.Controllers
         [Route("{id}/tu-truyen")]
         public IActionResult Bookshelf(int id, int pageNumber = 1, int pageSize = 10)
         {
-            var books = _dbContext.BookUsers.Where(x => x.UserId == id).ToList();
+            var books = _dbContext.BookUserFollows.Where(x => x.UserId == id).ToList();
             var all = _dbContext.Books.Where(x => x.Status == 0 && x.IsDeleted == false).Include(b => b.Author).ToList();
             var bookshelf = new List<BookEntity>();
             foreach (var item in books)
@@ -80,6 +80,7 @@ namespace NovelWebsite.Controllers
             ViewBag.pageNumber = pageNumber;
             ViewBag.pageSize = pageSize;
             ViewBag.pageCount = Math.Ceiling(bookshelf.Count() * 1.0 / pageSize);
+            ViewBag.UserId = id;
 
             return View(bookshelf.Skip(pageSize * pageNumber - pageSize)
                          .Take(pageSize)

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovelWebsite.Models
 {
-    public class BookUserEntity
+    public class BookUserRecommendEntity
     {
         [ForeignKey("UserId")]
         public int UserId { get; set; }
