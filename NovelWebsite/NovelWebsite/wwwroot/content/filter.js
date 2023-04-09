@@ -63,7 +63,7 @@ function getDataTempValue(domList) {
 }
 
 
-$('#filter-form').on('submit', function (e) {
+$('.btn-filter').on('click', function (e) {
     e.preventDefault();
     var bookStatus = getDataTempValue(document.getElementById("filter-status").getElementsByClassName("box-active"));
     var rank = getDataTempValue(document.getElementById("filter-rank").getElementsByClassName("box-active"));
@@ -85,8 +85,6 @@ $('#filter-form').on('submit', function (e) {
         Tag: tag
     };
 
-    var formData = $.param(data);
-
     var form = $('<form>').attr('action', '/bo-loc')
         .attr('method', 'post');
 
@@ -95,30 +93,36 @@ $('#filter-form').on('submit', function (e) {
         .attr('value', data.Category)
         .appendTo(form);
 
-    $('<input>').attr('type', 'hidden')
-        .attr('name', 'BookStatus')
-        .attr('value', data.BookStatus)
-        .appendTo(form);
+    bookStatus.forEach(function (item, index) {
+        $('<input>').attr('type', 'hidden')
+            .attr('name', 'BookStatus')
+            .attr('value', item)
+            .appendTo(form);
+    });
 
     $('<input>').attr('type', 'hidden')
         .attr('name', 'Rank')
         .attr('value', data.Rank)
         .appendTo(form);
 
-    $('<input>').attr('type', 'hidden')
-        .attr('name', 'ChapterRange')
-        .attr('value', data.ChapterRange)
-        .appendTo(form);
+    chapter.forEach(function (item, index) {
+        $('<input>').attr('type', 'hidden')
+            .attr('name', 'ChapterRange')
+            .attr('value', item)
+            .appendTo(form);
+    });
 
     $('<input>').attr('type', 'hidden')
         .attr('name', 'OrderBy')
         .attr('value', data.OrderBy)
         .appendTo(form);
 
-    $('<input>').attr('type', 'hidden')
-        .attr('name', 'Tag')
-        .attr('value', data.Tag)
-        .appendTo(form);
+    tag.forEach(function (item, index) {
+        $('<input>').attr('type', 'hidden')
+            .attr('name', 'Tag')
+            .attr('value', item)
+            .appendTo(form);
+    });
 
     form.appendTo('body').submit();
 
