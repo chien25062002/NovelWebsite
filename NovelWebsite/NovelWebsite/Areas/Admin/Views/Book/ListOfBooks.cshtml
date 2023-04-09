@@ -1,4 +1,5 @@
-﻿@using NovelWebsite.Models
+﻿@using NovelWebsite.Extensions
+@using NovelWebsite.Models
 @using X.PagedList.Mvc.Core
 @model X.PagedList.IPagedList<BookEntity>
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
@@ -83,7 +84,7 @@
                                             <div>@item.BookStatus.BookStatusName</div>
                                         </td>
                                         <td>
-                                            <div>@item.UpdatedDate</div>
+                                            <div>@DateTimeExtension.TimeSpan(item.UpdatedDate)</div>
                                         </td>
                                         <td>
                                             <div class="dropdown">
@@ -95,6 +96,7 @@
                                                 <div class="dropdown-menu dropdown-menu-end">
                                                     <a class="dropdown-item" href="/truyen/@item.Slug-@item.BookId">Thông tin truyện</a>
                                                     <a class="dropdown-item" href="/dang-tai/@item.UserId/truyen/@item.BookId">Chỉnh sửa</a>
+                                                    <a class="dropdown-item" href="/dang-tai/@item.UserId/truyen/@item.BookId/danh-sach-chuong">Danh sách chương</a>
                                                     <a class="dropdown-item text-danger" href="#">Xoá</a>
                                                 </div>
                                             </div>

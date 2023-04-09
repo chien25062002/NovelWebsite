@@ -1,60 +1,56 @@
-﻿
+﻿window.onload = function () {
+    UploadChapterMonthlyReport();
+}
 
-const DATA_COUNT = 7;
-const NUMBER_CFG = { count: DATA_COUNT, min: -100, max: 100 };
+function UploadChapterMonthlyReport() {
+    $.ajax({
+        url: "/Admin/Home/UploadChapterMonthlyReport",
+        type: "GET",
+        dataType: "json",
+        beforeSend: function () { },
+        context: this,
+        success: function (dt) {
+            console.log(dt);
+            var data = {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                datasets: [{
+                    label: "Tần suất cập nhật chương mới trong năm",
+                    backgroundColor: "rgba(255,99,132,0.2)",
+                    borderColor: "rgba(255,99,132,1)",
+                    borderWidth: 2,
+                    borderRadius: 5,
+                    hoverBackgroundColor: "rgba(255,99,132,0.4)",
+                    hoverBorderColor: "rgba(255,99,132,1)",
+                    data: dt,
+                }]
+            };
 
-const labels = Utils.months({ count: 7 });
-const data = {
-    labels: labels,
-    datasets: [
-        {
-            label: 'Fully Rounded',
-            data: Utils.numbers(NUMBER_CFG),
-            borderColor: Utils.CHART_COLORS.red,
-            backgroundColor: Utils.transparentize(Utils.CHART_COLORS.red, 0.5),
-            borderWidth: 2,
-            borderRadius: Number.MAX_VALUE,
-            borderSkipped: false,
-        },
-        {
-            label: 'Small Radius',
-            data: Utils.numbers(NUMBER_CFG),
-            borderColor: Utils.CHART_COLORS.blue,
-            backgroundColor: Utils.transparentize(Utils.CHART_COLORS.blue, 0.5),
-            borderWidth: 2,
-            borderRadius: 5,
-            borderSkipped: false,
-        }
-    ]
-};
+            var options = {
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        stacked: true,
+                        grid: {
+                            display: true,
+                            color: "rgba(255,99,132,0.2)"
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            };
 
-const actions = [
-    {
-        name: 'Randomize',
-        handler(chart) {
-            chart.data.datasets.forEach(dataset => {
-                dataset.data = Utils.numbers({ count: chart.data.labels.length, min: -100, max: 100 });
+            new Chart('chart', {
+                type: 'bar',
+                options: options,
+                data: data
             });
-            chart.update();
-        }
-    },
-];
 
-const config = {
-    type: 'bar',
-    data: data,
-    options: {
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'Chart.js Bar Chart'
-            }
-        }
-    },
-};
-
-const myChart = new Chart($("#lineChart"), config, data, action);
+        },
+        error: function () { },
+        complete: function () { }
+    });
+}

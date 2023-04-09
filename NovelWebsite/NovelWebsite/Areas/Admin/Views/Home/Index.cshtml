@@ -7,6 +7,17 @@
     int numberOfComments = ViewBag.NumberOfComments;
     int numberOfReviews = ViewBag.NumberOfReviews;
 }
+<style>
+    .chart-container {
+      position: relative;
+      margin: auto;
+      height: 50vh;
+      width: 80vw;
+    }
+
+</style>
+
+
 <div class="body flex-grow-1 px-3">
     <div class="container-lg">
         <div class="row">
@@ -108,14 +119,15 @@
         </div>
         <br>
 
-        <div class="chart">
-            <canvas id="lineChart" style="height:150px"></canvas>
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
         </div>
+
 
     </div>
 </div>
 
 @section Scripts{
     <script type="text/javascript" src="~/js/utils/utils.js"></script>
-    @*<script type="text/javascript" src="~/content/chart.js"></script>*@
+    <script type="text/javascript" src="~/content/chart.js"></script>
 }
