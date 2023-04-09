@@ -1,4 +1,5 @@
-﻿@model List<BookEntity>
+﻿@using System.Web;
+@model List<BookEntity>
 
 @{
     int pageSize = (int)ViewBag.pageSize;
@@ -7,7 +8,9 @@
 }
 
 <link href="~/css/userprofile.css" rel="stylesheet" />
+<link href="~/css/boloc.css" rel="stylesheet" />
 <link href="~/css/truyendadang.css" rel="stylesheet" />
+
 <main>
 
     @await Component.InvokeAsync("UserNavbar")
@@ -20,12 +23,14 @@
                 <a class="btn btn-secondary float-end" href="/dang-tai/@ViewBag.UserId/truyen">Đăng truyện mới</a>
             </div>
         </div>
+        <div class="rank-view-list">
+            <div class="rank-view-list-item">
+                <ul class="list-group" id="filter-book">
             
             @{
                 foreach (var item in Model)
                 {
-                    <div class="index__right-wrap--list row">
-                        <div class="index__right-wrap--listitem col-md-12">
+                     <li class="list-group-item">
                             <div class="book--img">
                                 <a href="javascript:void(0)">
                                     <img src="@item.Avatar" class="book--imgcss">
@@ -35,13 +40,17 @@
                                 <h3>
                                     <a href="/truyen/@item.Slug-@item.BookId">@item.BookName</a>
                                 </h3>
-                            </div>
-                            <div class="book-state">
-                                <a href="javascript:void(0)">@item.Author.AuthorName</a>
-                                <i>|</i>
-                                @item.BookStatus.BookStatusName
-                                <i>|</i>
-                                @item.NumberOfChapters
+                                <div class="book-state">
+                                    <a href="javascript:void(0)">@item.Author.AuthorName</a>
+                                    <i>|</i>
+                                    @item.BookStatus.BookStatusName
+                                    <i>|</i>
+                                    @item.NumberOfChapters
+                                </div>
+                                <div class="describe">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                        @Html.Raw(HttpUtility.HtmlDecode(item.Introduce))
+                                </div>
                             </div>
                             <div class="book--info-buttons">
                                 <p>
@@ -49,10 +58,12 @@
                                     <a class="btn" href="/dang-tai/@item.UserId/truyen/@item.BookId/danh-sach-chuong">Danh sách chương</a>
                                 </p>
                             </div>
-                        </div>
-                    </div>
+                     </li>
                 }
             }
+                </ul>
+            </div>
+        </div>
 
 
         <div class="book-pagination">
