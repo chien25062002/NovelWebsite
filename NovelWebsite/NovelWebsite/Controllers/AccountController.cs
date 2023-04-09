@@ -51,6 +51,11 @@ namespace NovelWebsite.Controllers
         [HttpPost]
         public IActionResult Signup(AccountModel account)
         {
+            if (!ModelState.IsValid)
+            {
+                var error = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage).First();
+                return Json(error);
+            }
             var check = _dbContext.Accounts.FirstOrDefault(p => p.AccountName == account.AccountName && p.IsDeleted == false && p.Status == 0);
             if (check != null)
             {
