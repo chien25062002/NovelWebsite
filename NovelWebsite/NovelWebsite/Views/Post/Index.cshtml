@@ -3,8 +3,6 @@
 <link rel="stylesheet" href="~/css/truyen.css">
 
 <script type="text/javascript" src="~/js/changbtn.js"></script>
-<script type="text/javascript" src="~/tinymce/js/tinymce/tinymce.min.js"></script>
-<script type="text/javascript" src="~/js/tinymcescript.js"></script>
 
 <div class="container body-container">
     <div class="content">
@@ -52,7 +50,7 @@
         <div class="user--comment-discuss-wrap">
             <div class="user--comment-discuss-list">
                 <div class="user--comment-discuss-list-title">Bình luận</div>
-                <ul class="list-group list-group-flush" id="list-comment-chapter">
+                <ul class="list-group list-group-flush" id="list-commentpost-chapter">
                     <li class="list-group-item">
                         <div class="row user--comment-section">
                             <div class="user--photo col-md-auto">
@@ -62,7 +60,7 @@
                             </div>
                             <div class="input-comment col">
                                 <div id="postcomment-toolbar"></div>
-                                <div id="postcomment-editor" class="ck-blurred input--box ck ck-content ck-editor__editable ck-rounded-corners ck-editor__editable_inline" lang="vi" dir="ltr" role="textbox" aria-label="Trình chỉnh sửa Văn bản dạng RTF. Vùng chỉnh sửa:  main" contenteditable="true"><p><br data-cke-filler="true"></p></div>
+                                <div id="postcomment-editor"></div>
                             </div>
 
                             <div class="submit-btn col-md-12">
@@ -152,6 +150,10 @@
  </div>
 
 @section Scripts {
-    <script type="text/javascript" src="~/content/postcomment.js"></script>
+    <script type="text/javascript" src="~/content/post.js"></script>
+    
+    <script type="text/javascript" src="~/content/comment.js"></script>
+    <script type="text/javascript" src="~/content/interact.js"></script>
+    <script type="text/javascript" src="~/content/replyComment.js"></script>
 }
 

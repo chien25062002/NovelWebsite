@@ -64,7 +64,7 @@ $.ajax({
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
-                                                <img src="/image/test3.jpg">
+                                                <img src="${user.user.avatar}">
                                             </a>
                                         </div>                                       
                                         <div class="input-comment col">
@@ -176,11 +176,11 @@ $.ajax({
                                                     <span>${item.createdDate} </span>
                                                     <a href="javascript:void(0)" onclick="replyComment(${item.commentId}); this.onclick=null;">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
-                                                        ${item.likes} trả lời
+                                                        Trả lời
                                                     </a>
                                                     <a href="javascript:void(0)">
                                                         <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                        ${item.dislikes} thích
+                                                        ${item.likes} thích
                                                     </a>
                                                 </p>
                                             </div>
