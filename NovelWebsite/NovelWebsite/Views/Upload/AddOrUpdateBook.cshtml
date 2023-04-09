@@ -9,6 +9,28 @@
     string error = TempData["error"] as string;
     List<TagEntity> listTag = ViewBag.CheckedTags;
 }
+<style>
+    #hoso {
+        border: none !important;
+    }
+
+        #hoso > a {
+            color: black !important;
+        }
+
+    #dangtruyen {
+        border: 0.5px solid rgba(190, 186, 186, 0.7);
+        border-radius: 5px;
+    }
+
+        #dangtruyen > a {
+            color: #EE4259;
+        }
+
+    /* main {
+            height: calc(75vh);
+        }*/
+</style>
 
 <main>
     @await Component.InvokeAsync("UserNavbar")
