@@ -50,7 +50,7 @@ namespace NovelWebsite.Controllers
                                         .Where(b => filterModel.CategoryId == 0 || b.CategoryId == filterModel.CategoryId).ToList();
             var final = query;
             // lọc theo tình trạng
-            if (filterModel.BookStatus.Count > 0 && filterModel.BookStatus[0] != null)
+            if (filterModel.BookStatus != null)
             {
                 var f1 = query.Where(b => b.BookStatusId == filterModel.BookStatus[0]).ToList();
                 for (int i = 1; i < filterModel.BookStatus.Count(); i++)
@@ -109,7 +109,7 @@ namespace NovelWebsite.Controllers
             }
 
             // lọc theo số chương
-            if (filterModel.ChapterRange.Count > 0)
+            if (filterModel.ChapterRange != null)
             {
                 var f3 = final;
                 int minRange = filterModel.ChapterRange[0];
@@ -144,12 +144,17 @@ namespace NovelWebsite.Controllers
 
             // lọc theo tag
             // kiểm tra tag của những quyển đã có -> tag nào k có thì remove khỏi ds
-            if (filterModel.Tag.Count > 0)
+            if (filterModel.Tag != null)
             {
                 var f5 = new List<BookEntity>(final);
                 foreach (var item in final)
                 {
                     var temp = _dbContext.BookTags.Where(b => b.BookId == item.BookId).Select(b => b.TagId).ToList();
+                    if (temp.Count == 0)
+                    {
+                        f5.Remove(item);
+                        continue;
+                    }
                     foreach (var tag in temp)
                     {
                         if (!filterModel.Tag.Contains(tag))

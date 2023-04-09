@@ -12,7 +12,7 @@
                 link = `/truyen/${item.book.slug}-${item.bookId}`;
             }
             let row = `<div class="carousel-item active">
-                            <a href="${link}"< img src="${item.bannerImage}" alt = "Los Angeles" class="d-block w-100" >
+                            <img src="${item.bannerImage}" alt="Los Angeles" class="d-block w-100"><a href="${link}"></a></img>
                         </div>`;
             $('.carousel-inner').append(row);
             //$('#categories').append(row);
