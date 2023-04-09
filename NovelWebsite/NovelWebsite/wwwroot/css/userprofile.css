@@ -29,7 +29,7 @@
 
 .book--info p {
     font-size: 14px;
-    overflow: hidden;
+    /*overflow: hidden;*/
     white-space: nowrap;
     text-overflow: ellipsis;
 }
@@ -72,11 +72,18 @@
         font-size: 14px;
         padding: 5px;
     }
-ul.pagination {
+/*ul.pagination {
     float: right;
     position: relative;
    
     bottom:0px;
+}*/
+.book-pagination {
+    padding: 10px;
+}
+
+.book-pagination ul {
+    margin: 0;
 }
 /* Profile image header */
 
@@ -319,14 +326,17 @@ li.active a {
 }
 
 .reading {
-    padding-left: 1.5rem;
-    padding-top: 10px;
+    padding: 0 10px;
 }
 
 
-.reading>a {
+.reading span {
     font-size: 18px;
     font-weight: 500;
+}
+
+.index__right-wrap--list {
+    padding: 10px;
 }
 
 li.active a:hover {
@@ -400,11 +410,11 @@ input[type="password"] {
     border: 1px solid #ccced1;
     background: #fff;
 }
-button.btn.btn-primary.submit-btn {
+/*button.btn.btn-primary.submit-btn {
     margin-left: auto;
-    width: 27%;
+    width: 27%;*/
     /* float: right; */
-}
+/*}*/
 @media only screen and (max-width: 900px) {
     #profile-banner-image img {
         width: 25%;
