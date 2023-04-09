@@ -75,5 +75,13 @@ namespace NovelWebsite.Controllers
             return Json(listChapters);
         }
 
+        [Route("{action}")]
+        public IActionResult DeleteChapter(int chapterId)
+        {
+            var chapter = _dbContext.Chapters.FirstOrDefault(x => x.ChapterId == chapterId);
+            _dbContext.Chapters.Remove(chapter);
+            _dbContext.SaveChanges();
+            return Json("");
+        }
     }
 }

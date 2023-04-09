@@ -62,7 +62,7 @@
                                             <td>
                                                 <div class="float-end">
                                                     <a href="/dang-tai/@userId/truyen/@item.BookId/chuong/@item.ChapterId" class="btn btn-secondary">Sửa</a>
-                                                    <a href="#" class="btn btn-secondary">Xóa</a>
+                                                    <a href="" onclick="DeleteChapter(@item.ChapterId)" class="btn btn-secondary">Xóa</a>
                                                 </div>
                                             </td>
                                         </tr>
@@ -100,3 +100,7 @@
         </div>
     </div>
 </main>
+
+@section Scripts{
+    <script type="text/javascript" src="~/content/crud_chapter.js"></script>
+}
