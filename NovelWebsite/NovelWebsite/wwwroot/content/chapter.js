@@ -4,6 +4,10 @@ var id = param[param.length - 1];
 var p = queryString.split('/');
 var link = p[p.length - 1];
 
+window.onload = function () {
+    GetListComment();
+}
+
 $.ajax({
     url: "/Chapter/GetAllCategories",
     type: "GET",
@@ -58,17 +62,20 @@ $.ajax({
     complete: function () { }
 })
 
-$.ajax({
-    url: "/Chapter/GetListComments?id=" + id,
-    type: "GET",
-    dataType: "json",
-    beforeSend: function () { },
-    success: function (data) {
-        var user = GetUserInfo();
 
-        $('#list-comment-chapter').html('');
-        
-        $('#list-comment-chapter').append(`<li class="list-group-item">
+function GetListComment() {
+    $.ajax({
+        url: "/Chapter/GetListComments?id=" + id,
+        type: "GET",
+        async: false,
+        dataType: "json",
+        beforeSend: function () { },
+        success: function (data) {
+            var user = GetUserInfo();
+
+            $('#list-comment-chapter').html('');
+
+            $('#list-comment-chapter').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
@@ -86,10 +93,10 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-        
-        data.forEach((item, index) => {
-            var content = $('<textarea />').html(item.content).text();
-            $('#list-comment-chapter').append(`<li class="list-group-item">
+
+            data.forEach((item, index) => {
+                var content = $('<textarea />').html(item.content).text();
+                $('#list-comment-chapter').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
@@ -106,7 +113,7 @@ $.ajax({
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
-                                                    <a href="javascript:void(0)" onclick="replyComment(${item.commentId}); this.onclick=null;">
+                                                    <a href="javascript:void(0)" id="btn-reply-cmt-${item.commentId}" onclick="replyComment(${item.commentId}); this.onclick=null;">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
                                                         Trả lời
                                                     </a>
@@ -119,12 +126,13 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-        });
-        startCKEditor('chapter-toolbar', 'chapter-editor');
-    },
-    error: function (e) { console.log(e) },
-    complete: function () { }
-})
+            });
+            startCKEditor('chapter-toolbar', 'chapter-editor');
+        },
+        error: function (e) { console.log(e) },
+        complete: function () { }
+    })
+}
 
 function startCKEditor(toolbar, editor) {
     DecoupledEditor

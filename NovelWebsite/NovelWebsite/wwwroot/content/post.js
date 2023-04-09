@@ -1,20 +1,20 @@
-﻿var queryString = window.location.href;
-var param = queryString.split('-');
-var id = param[param.length - 1];
-var p = queryString.split('/');
-var link = p[p.length - 1];
+﻿window.onload = function () {
+    GetListComment();
+}
 
-$.ajax({
-    url: "/Post/GetListComments?id=" + id,
-    type: "GET",
-    dataType: "json",
-    beforeSend: function () { },
-    success: function (data) {
-        var user = GetUserInfo();
+function GetListComment() {
+    $.ajax({
+        url: "/Post/GetListComments?id=" + postId,
+        type: "GET",
+        async: false,
+        dataType: "json",
+        beforeSend: function () { },
+        success: function (data) {
+            var user = GetUserInfo();
 
-        $('#list-commentpost-chapter').html('');
+            $('#list-commentpost-chapter').html('');
 
-        $('#list-commentpost-chapter').append(`<li class="list-group-item">
+            $('#list-commentpost-chapter').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
@@ -27,15 +27,15 @@ $.ajax({
                                         </div>
                                         <div class="submit-btn col-md-12">
                                             <div class="submit-btn-wrap">
-                                                <button class="btn btn-primary" onclick="AddChapterComment(${chapterId})">Đăng</button>
+                                                <button class="btn btn-primary" onclick="AddPostComment(${postId})">Đăng</button>
                                             </div>
                                         </div>
                                     </div>
                                 </li>`);
 
-        data.forEach((item, index) => {
-            var content = $('<textarea />').html(item.content).text();
-            $('#list-commentpost-chapter').append(`<li class="list-group-item">
+            data.forEach((item, index) => {
+                var content = $('<textarea />').html(item.content).text();
+                $('#list-commentpost-chapter').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
@@ -52,7 +52,7 @@ $.ajax({
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
-                                                    <a href="javascript:void(0)" onclick="replyComment(${item.commentId}); this.onclick=null;">
+                                                    <a href="javascript:void(0)" id="btn-reply-cmt-${item.commentId}" onclick="replyComment(${item.commentId}); this.onclick=null;">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
                                                         Trả lời
                                                     </a>
@@ -65,12 +65,13 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-        });
-        startCKEditor('postcomment-toolbar', 'postcomment-editor');
-    },
-    error: function (e) { console.log(e) },
-    complete: function () { }
-})
+            });
+            startCKEditor('postcomment-toolbar', 'postcomment-editor');
+        },
+        error: function (e) { console.log(e) },
+        complete: function () { }
+    })
+}
 
 function startCKEditor(toolbar, editor) {
     DecoupledEditor

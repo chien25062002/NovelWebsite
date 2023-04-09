@@ -90,8 +90,10 @@ function AddReplyComment(id) {
         dataType: "json",
         beforeSend: function () { },
         success: function () {
-            console.log("success");
-            location.reload();
+            GetListComment();
+            var el = "#btn-reply-cmt-" + id;
+            console.log(123);
+            $(el).click();
         },
         error: function () { },
         complete: function () { }

@@ -5,6 +5,7 @@ using NovelWebsite.Entities;
 namespace NovelWebsite.Controllers
 {
     [Route("/tin-tuc")]
+    [Route("/{controller}")]
     public class PostController : Controller
     {
         private readonly AppDbContext _dbContext;
@@ -15,6 +16,8 @@ namespace NovelWebsite.Controllers
         }
 
         [Route("")]
+        [Route("{action}")]
+
         public IActionResult ListOfPosts(string? sort_by, string? name, int pageNumber = 1, int pageSize = 10)
         {
             var query = _dbContext.Posts.Where(p => string.IsNullOrEmpty(name) || p.Title.ToLower().Trim().Contains(name.ToLower().Trim()))
@@ -39,6 +42,8 @@ namespace NovelWebsite.Controllers
         }
 
         [Route("{slug}-{id:int}")]
+        [Route("{action}")]
+
         public IActionResult Index(int id)
         {
             var post = _dbContext.Posts.Where(p => p.Status == 0 && p.IsDeleted == false && p.PostId == id)
@@ -47,10 +52,11 @@ namespace NovelWebsite.Controllers
             return View(post);
         }
 
-        /*public IActionResult GetListComments(int id)
+        [Route("{action}")]
+        public IActionResult GetListComments(int id)
         {
-            var listComment = _dbContext.Comments.Where(c => c.Post.PostId == id).Include("User").OrderByDescending(c => c.CreatedDate).ToList();
+            var listComment = _dbContext.Comments.Where(c => c.PostId == id).Include(p => p.User).OrderByDescending(c => c.CreatedDate).ToList();
             return Json(listComment);
-        }*/
+        }
     }
 }

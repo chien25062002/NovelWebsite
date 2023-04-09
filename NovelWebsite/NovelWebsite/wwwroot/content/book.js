@@ -21,7 +21,9 @@ window.onload = function () {
         $('#btn-follow').addClass("selected");
         $('#btn-follow').text("Bỏ theo dõi");
     }
+    GetListComment();
 }
+
 
 $.ajax({
     url: "/Book/GetListChapters?id=" + bookId,
@@ -124,19 +126,21 @@ $.ajax({
     complete: function () { }
 })
 
-$.ajax({
-    url: "/Book/GetListComments?id=" + bookId,
-    type: "GET",
-    dataType: "json",
-    beforeSend: function () { },
-    success: function (data) {
-        $('#list-comment').html('');
-        let row = jQuery('<div>', {
-            class: 'index__theloai--chitiet row',
-        });
-        var user = GetUserInfo();
-        
-        $('#list-comment').append(`<li class="list-group-item">
+function GetListComment() {
+    $.ajax({
+        url: "/Book/GetListComments?id=" + bookId,
+        type: "GET",
+        async: false,
+        dataType: "json",
+        beforeSend: function () { },
+        success: function (data) {
+            $('#list-comment').html('');
+            let row = jQuery('<div>', {
+                class: 'index__theloai--chitiet row',
+            });
+            var user = GetUserInfo();
+
+            $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
@@ -155,9 +159,9 @@ $.ajax({
                                     </div>
                                 </li>`);
 
-        data.forEach((item, index) => {
-            var content = $('<textarea />').html(item.content).text();
-            $('#list-comment').append(`<li class="list-group-item">
+            data.forEach((item, index) => {
+                var content = $('<textarea />').html(item.content).text();
+                $('#list-comment').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
@@ -174,7 +178,7 @@ $.ajax({
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
-                                                    <a href="javascript:void(0)" onclick="replyComment(${item.commentId}); this.onclick=null;">
+                                                    <a href="javascript:void(0)" id="btn-reply-cmt-${item.commentId}" onclick="replyComment(${item.commentId}); this.onclick=null;">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
                                                         Trả lời
                                                     </a>
@@ -187,18 +191,20 @@ $.ajax({
                                         </div>
                                     </div>
                                 </li>`);
-            if (index % 2 == 1) {
-                $('.index__theloai--wrap').append(row);
-                row = jQuery('<div>', {
-                    class: 'index__theloai--chitiet row',
-                });;
-            }
-        });
-        startCKEditor('comment-toolbar', 'comment-editor');
-    },
-    error: function () { },
-    complete: function () { }
-})
+                if (index % 2 == 1) {
+                    $('.index__theloai--wrap').append(row);
+                    row = jQuery('<div>', {
+                        class: 'index__theloai--chitiet row',
+                    });;
+                }
+            });
+            startCKEditor('comment-toolbar', 'comment-editor');
+        },
+        error: function () { },
+        complete: function () { }
+    })
+
+}
 
 $.ajax({
     url: "/Book/GetAuthorBooks?id=" + authorId,
