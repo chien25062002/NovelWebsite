@@ -166,8 +166,7 @@ namespace NovelWebsite.Entities
                 _dbContext.Chapters.Update(chapter);
             }
             _dbContext.SaveChanges();
-            var book = _dbContext.Books.FirstOrDefault(b => b.BookId == chapterModel.BookId);
-            return Redirect($"/truyen/{book.Slug}-{book.BookId}/chuong-{chapter.ChapterNumber}/{chapter.Slug}-{chapter.ChapterId}");
+            return Redirect($"/dang-tai/{userId}/truyen/{chapter.BookId}/danh-sach-chuong");
         }
 
         public IActionResult AddTagsToBook(List<int>listTag, int bookId)
