@@ -316,12 +316,20 @@
     background-color: #191b1ccc;
 }
 
+.value-07 a {
+    color: #e5e5e5;
+}
+
 .value-07 i {
-    color: #191b1ccc;    
+    color: inherit;    
 }
 
 .body-07 {
     color: #e5e5e5;
+}
+
+.body-07 i {
+
 }
 
 .theme-value i {

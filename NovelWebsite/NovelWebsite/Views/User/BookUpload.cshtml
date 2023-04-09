@@ -12,50 +12,50 @@
 
     @await Component.InvokeAsync("UserNavbar")
     <div class="row-right">
-        <div class="rank-box-main col-9">
-            <div class="rank-box-main-header">
-                <h4>Truyện đã đăng</h4>
-                <a class="btn" href="/dang-tai/@ViewBag.UserId/truyen">Đăng truyện mới</a>
+        <div class="row" style="padding: 0 10px;">
+            <div class="reading col-md-6">
+                <span>Truyện đã đăng</span>
             </div>
-            <div class="rank-box-main-body">
-                <div class="rank-view-list">
-                    <div class="rank-view-list-item">
-                        <ul class="list-group">
-                            @{
-                                foreach (var item in Model)
-                                {
-                                    <li class="list-group-item">
-                                        <div class="book--img">
-                                            <a href="javascript:void(0)">
-                                                <img src="@item.Avatar" class="book--imgcss">
-                                            </a>
-                                        </div>
-                                        <div class="book--info">
-                                            <h3>
-                                                <a href="/truyen/@item.Slug-@item.BookId">@item.BookName</a>
-                                            </h3>
-                                            <div class="book-state">
-                                                <a href="javascript:void(0)">@item.Author.AuthorName</a>
-                                                <i>|</i>
-                                                @item.BookStatus.BookStatusName
-                                                <i>|</i>
-                                                @item.NumberOfChapters
-                                            </div>
-                                            <div class="book--info-buttons">
-                                                <p>
-                                                    <a class="btn" href="/dang-tai/@item.UserId/truyen/@item.BookId">Sửa truyện</a>
-                                                    <a class="btn" href="/dang-tai/@item.UserId/truyen/@item.BookId/danh-sach-chuong">Danh sách chương</a>
-                                                </p>
-                                            </div>
-                                    </li>
-                                }
-                            }
-                        </ul>
+            <div class="col-md-6">
+                <a class="btn btn-secondary float-end" href="/dang-tai/@ViewBag.UserId/truyen">Đăng truyện mới</a>
+            </div>
+        </div>
+            
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="index__right-wrap--list row">
+                        <div class="index__right-wrap--listitem col-md-12">
+                            <div class="book--img">
+                                <a href="javascript:void(0)">
+                                    <img src="@item.Avatar" class="book--imgcss">
+                                </a>
+                            </div>
+                            <div class="book--info">
+                                <h3>
+                                    <a href="/truyen/@item.Slug-@item.BookId">@item.BookName</a>
+                                </h3>
+                            </div>
+                            <div class="book-state">
+                                <a href="javascript:void(0)">@item.Author.AuthorName</a>
+                                <i>|</i>
+                                @item.BookStatus.BookStatusName
+                                <i>|</i>
+                                @item.NumberOfChapters
+                            </div>
+                            <div class="book--info-buttons">
+                                <p>
+                                    <a class="btn" href="/dang-tai/@item.UserId/truyen/@item.BookId">Sửa truyện</a>
+                                    <a class="btn" href="/dang-tai/@item.UserId/truyen/@item.BookId/danh-sach-chuong">Danh sách chương</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                }
+            }
 
-            <div class="rank-box-main-pagination">
+
+        <div class="book-pagination">
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
                         <a class="page-link" href="/ho-so/@ViewBag.UserId/truyen-da-dang?pageNumber=@Math.Max(1, pageNumber - 1)">
@@ -75,7 +75,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+
     </div>
 
 </main>
