@@ -14,10 +14,10 @@
             let row = `<div class="carousel-item active">
                             <img src="${item.bannerImage}" alt="Los Angeles" class="d-block w-100"><a href="${link}"></a></img>
                         </div>`;
-            $('.carousel-inner').append(row);
+            $('#banner-carousel').append(row);
             //$('#categories').append(row);
         });
-        $('.carousel-inner').trigger('refresh.owl.carousel');
+        $('#banner-carousel').trigger('refresh.owl.carousel');
     },
     error: function () { },
     complete: function () { }
@@ -407,6 +407,182 @@ $.ajax({
                 }
             }
         });
+    },
+    error: function () { },
+    complete: function () { }
+})
+
+/* Mobile */
+
+$.ajax({
+    url: "/Home/GetEditorRecommends",
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        data.forEach((item, index) => {
+            var introduce = $('<textarea />').html(item.introduce).text();
+            $('#editor-recommend-mobile').append(`
+                <div class="carousel-item">
+                    <div class="index__right-wrap--list row">
+                        <div class="index__right-wrap--listitem">
+                            <div class="book--img">
+                                <a href="/truyen/${item.slug}-${item.bookId}">
+                                    <img src="${item.avatar}" class="book--imgcss">
+                                </a>
+                            </div>
+                            <div class="book--info">
+                                <div class="book-name">
+                                    <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
+                                </div>
+                                <div class="book-state">
+                                    <a href="/tac-gia/${item.author.authorId}/${item.author.slug}">${item.author.authorName}</a >
+                                </div>
+                                <p class="book-status">
+                                    <em>
+                                        <span class="chapters">${item.numberOfChapters}</span >
+                                    </em>
+                                    <cite>Chương</cite>
+                                    <i>|</i>
+                                    <em>
+                                        <span class="views">${item.views}</span >
+                                    </em>
+                                    <cite>Lượt xem</cite>
+                                </p>
+                                <div class="category">
+                                    <p>Thể loại:</p>
+                                    <p class="category-wrap">
+                                        <a href="/bo-loc?categoryId=${item.categoryId}">${item.category.categoryName}</a >
+                                    </p>
+                                </div>
+                                <div class="describe">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    ${introduce.replace(/<\/?[^>]+(>|$)/g, "").replace(/<\/?[^>]+(>|$)/g, "")}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
+        });
+        $("#editor-recommend-mobile .carousel-item").first().addClass("active");
+        $('#editor-recommend-mobile').trigger('refresh.owl.carousel');
+        
+    },
+    error: function () { },
+    complete: function () { }
+})
+
+$.ajax({
+    url: "/Home/GetNewBooks",
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        data.forEach((item, index) => {
+            var introduce = $('<textarea />').html(item.introduce).text();
+            $('#new-book-mobile').append(`
+                <div class="carousel-item">
+                    <div class="index__right-wrap--list row">
+                        <div class="index__right-wrap--listitem">
+                            <div class="book--img">
+                                <a href="/truyen/${item.slug}-${item.bookId}">
+                                    <img src="${item.avatar}" class="book--imgcss">
+                                </a>
+                            </div>
+                            <div class="book--info">
+                                <div class="book-name">
+                                    <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
+                                </div>
+                                <div class="book-state">
+                                    <a href="/tac-gia/${item.author.authorId}/${item.author.slug}">${item.author.authorName}</a >
+                                </div>
+                                <p class="book-status">
+                                    <em>
+                                        <span class="chapters">${item.numberOfChapters}</span >
+                                    </em>
+                                    <cite>Chương</cite>
+                                    <i>|</i>
+                                    <em>
+                                        <span class="views">${item.views}</span >
+                                    </em>
+                                    <cite>Lượt xem</cite>
+                                </p>
+                                <div class="category">
+                                    <p>Thể loại:</p>
+                                    <p class="category-wrap">
+                                        <a href="/bo-loc?categoryId=${item.categoryId}">${item.category.categoryName}</a >
+                                    </p>
+                                </div>
+                                <div class="describe">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    ${introduce.replace(/<\/?[^>]+(>|$)/g, "").replace(/<\/?[^>]+(>|$)/g, "")}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
+        });
+        $("#new-book-mobile .carousel-item").first().addClass("active");
+        $('#new-book-mobile').trigger('refresh.owl.carousel');
+
+    },
+    error: function () { },
+    complete: function () { }
+})
+
+$.ajax({
+    url: "/Home/GetFinishedBooks",
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        data.forEach((item, index) => {
+            var introduce = $('<textarea />').html(item.introduce).text();
+            $('#finish-book-mobile').append(`
+                <div class="carousel-item">
+                    <div class="index__right-wrap--list row">
+                        <div class="index__right-wrap--listitem">
+                            <div class="book--img">
+                                <a href="/truyen/${item.slug}-${item.bookId}">
+                                    <img src="${item.avatar}" class="book--imgcss">
+                                </a>
+                            </div>
+                            <div class="book--info">
+                                <div class="book-name">
+                                    <a href="/truyen/${item.slug}-${item.bookId}">${item.bookName}</a >
+                                </div>
+                                <div class="book-state">
+                                    <a href="/tac-gia/${item.author.authorId}/${item.author.slug}">${item.author.authorName}</a >
+                                </div>
+                                <p class="book-status">
+                                    <em>
+                                        <span class="chapters">${item.numberOfChapters}</span >
+                                    </em>
+                                    <cite>Chương</cite>
+                                    <i>|</i>
+                                    <em>
+                                        <span class="views">${item.views}</span >
+                                    </em>
+                                    <cite>Lượt xem</cite>
+                                </p>
+                                <div class="category">
+                                    <p>Thể loại:</p>
+                                    <p class="category-wrap">
+                                        <a href="/bo-loc?categoryId=${item.categoryId}">${item.category.categoryName}</a >
+                                    </p>
+                                </div>
+                                <div class="describe">
+                                    <i class="fa-solid fa-quote-left"></i>
+                                    ${introduce.replace(/<\/?[^>]+(>|$)/g, "").replace(/<\/?[^>]+(>|$)/g, "")}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`);
+        });
+        $("#finish-book-mobile .carousel-item").first().addClass("active");
+        $('#finish-book-mobile').trigger('refresh.owl.carousel');
+
     },
     error: function () { },
     complete: function () { }
