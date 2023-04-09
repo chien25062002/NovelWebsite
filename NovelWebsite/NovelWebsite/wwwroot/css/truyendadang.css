@@ -41,7 +41,7 @@ li.list-group-item {
     position: relative;
 }
 
-    .book--info-buttons p {
+/*    .book--info-buttons p {
         position: absolute;
         bottom: -64px;
         margin: 0;
@@ -49,7 +49,7 @@ li.list-group-item {
         justify-content: flex-end;
         
         padding-left: 555px;
-    }
+    }*/
 
 .book--info-buttons p > a:first-child {
             margin-right: 24px;
@@ -84,3 +84,17 @@ h4 {
     font-size: 14px;
     font-weight: 400;
 }
+
+.rank-view-list {
+    padding: 0 10px;
+}
+
+.rank-view-list-item li {
+    padding: 10px 0;
+}
+
+.rank-view-list-item div.book--info {
+    width: 550px;
+}
+
+
