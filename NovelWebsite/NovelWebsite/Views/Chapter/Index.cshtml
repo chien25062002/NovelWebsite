@@ -1,6 +1,12 @@
 ﻿@using System.Web
 @model ChapterEntity
 
+@{
+    var prevChapter = ViewBag.prevChapter;
+    var nextChapter = ViewBag.nextChapter;
+    var bookLink = ViewBag.bookLink;
+}
+
 <link rel="stylesheet" href="~/css/truyen.css">
 <link rel="stylesheet" href="~/css/doctruyen.css">
 
@@ -28,11 +34,11 @@
                                 <i class="fa-solid fa-xmark"></i>
                             </a>
                             <div class="catalog-direct">
-                                <a href="javascript:void(0)" type="button" class="btn">
+                                <a href="@(prevChapter == null ? "javascript:void(0)" : bookLink + "chuong-" + prevChapter.ChapterNumber + "/" + prevChapter.Slug + "-" + prevChapter.ChapterId)" type="button" class="btn">
                                     <i class="fa-solid fa-arrow-left"></i>
                                     <span>Chương trước</span>
                                 </a>
-                                <a href="javascript:void(0)" type="button" class="btn">
+                                <a href="@(nextChapter == null ? "javascript:void(0)" : bookLink + "chuong-" + nextChapter.ChapterNumber + "/" + nextChapter.Slug + "-" + nextChapter.ChapterId)" type="button" class="btn">
                                     <span>Chương sau</span>
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
@@ -58,91 +64,6 @@
                                     <li class="list-group-item col-6">
                                         <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
                                     </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-                                    <li class="list-group-item col-6">
-                                        <a href="/html/doctruyen.html">Chương 1: Vương trường sinh</a>
-                                    </li>
-
                                 </ul>
                             </div>
                         </div>
@@ -242,7 +163,6 @@
                                 Donate
                             </a>*@
                         </div>
-
                         <div class="box-icon-section-right">
                             <a href="javascript:void(0)">
                                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -251,15 +171,14 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="control-box">
                     <div class="control-box-content">
-                            <a href="javascript:void(0)">
+                            <a href="@(prevChapter == null ? "javascript:void(0)" : bookLink + "chuong-" + prevChapter.ChapterNumber + "/" + prevChapter.Slug + "-" + prevChapter.ChapterId)">
                                 <i class="fa-solid fa-angle-left"></i>
                                 Chương trước
                             </a>
 
-                            <a href="javascript:void(0)">
+                            <a href="@(nextChapter == null ? "javascript:void(0)" : bookLink + "chuong-" + nextChapter.ChapterNumber + "/" + nextChapter.Slug + "-" + nextChapter.ChapterId)">
                             Chương sau
                             <i class="fa-solid fa-angle-right"></i>
                             </a>
@@ -573,11 +492,11 @@
 @section Scripts {
     <script>
         var chapterId = `@Model.ChapterId`;
+        var bookId = `@Model.BookId`;
     </script>
 
     <script type="text/javascript" src="~/content/chapter.js"></script>
     <script type="text/javascript" src="~/content/comment.js"></script>
-    <script type="text/javascript" src="~/content/interact.js"></script>
     <script type="text/javascript" src="~/content/replyComment.js"></script>
     <script type="text/javascript" src="~/js/popover.js"></script>
     <script type="text/javascript" src="~/js/changtheme.js"></script>

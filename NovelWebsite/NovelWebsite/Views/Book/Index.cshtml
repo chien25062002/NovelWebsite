@@ -1,6 +1,12 @@
 ﻿@using System.Web
 @model BookEntity
-
+@{
+    var firstChapterUrl = "";
+    var firstChapter = ViewBag.firstChapter;
+    if (firstChapter != null){
+        firstChapterUrl = "chuong-1/" + firstChapter.Slug + "-" + firstChapter.ChapterId;
+    }
+}
 <link rel="stylesheet" href="~/css/truyen.css">
 
 <div class="book--information">
@@ -33,7 +39,7 @@
                     <i class="no-italic">Đề cử</i>
                 </p>
                 <p class="book--info-buttons">
-                    <a class="btn" href="/truyen/@Model.Slug-@Model.BookId">Đọc truyện</a>
+                    <a class="btn" href="/truyen/@Model.Slug-@Model.BookId/@firstChapterUrl">Đọc truyện</a>
                     <a class="btn" id="btn-fav" href="javascript:void(0)" onclick="onClickInfoBtn(this,1)">Yêu thích</a>
                     <a class="btn" id="btn-follow" href="javascript:void(0)" onclick="onClickInfoBtn(this,2)">Theo dõi</a>
                     <a class="btn" id="btn-rec" href="javascript:void(0)" onclick="onClickInfoBtn(this,3)">Đề cử</a>
@@ -546,7 +552,7 @@
                     </li>
 
                 </ul>
-            </div>
+            </div>@*
             <div class="book--pagination">
                 <ul class="pagination justify-content-end">
                     <li class="page-item">
@@ -567,7 +573,7 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div>*@
         </div>
     </div>
 

@@ -50,6 +50,9 @@ namespace NovelWebsite.Controllers
                                              .Include(c => c.Book)
                                              .ThenInclude(b => b.Author)
                                              .FirstOrDefault();
+            ViewBag.prevChapter = _dbContext.Chapters.Where(c => c.BookId == chapter.BookId && c.ChapterNumber == chapter.ChapterNumber - 1).FirstOrDefault();
+            ViewBag.nextChapter = _dbContext.Chapters.Where(c => c.BookId == chapter.BookId && c.ChapterNumber == chapter.ChapterNumber + 1).FirstOrDefault();
+            ViewBag.bookLink = $"/truyen/{chapter.Book.Slug}-{chapter.BookId}/";
             return View(chapter);
         }
         [Route("{action}")]
@@ -68,7 +71,7 @@ namespace NovelWebsite.Controllers
         [Route("{action}")]
         public IActionResult GetListChapters(int id)
         {
-            var listChapters = _dbContext.Chapters.Where(c => c.ChapterId == id).OrderBy(c => c.CreatedDate).ToList();
+            var listChapters = _dbContext.Chapters.Where(c => c.BookId == id).OrderBy(c => c.CreatedDate).ToList();
             return Json(listChapters);
         }
 

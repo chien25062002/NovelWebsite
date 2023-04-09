@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Internal;
 using NovelWebsite.Authorization;
 using NovelWebsite.Entities;
 using System.Configuration;
+using System.Net;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -65,6 +67,9 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
+
+app.UseStatusCodePagesWithRedirects("/Error/{0}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
@@ -89,21 +94,6 @@ app.UseEndpoints(endpoints =>
      name: "filter",
      pattern: "bo-loc/",
      defaults: new { controller = "Filter", action = "Index" });
-
-    /*    endpoints.MapControllerRoute(
-          name: "truyen",
-          pattern: "truyen/{slug}-{createddate}{id}",
-          defaults: new {controller = "Book", action = "Index"});*/
-
-    /*    endpoints.MapControllerRoute(
-          name: "tintuc",
-          pattern: "tin-tuc/{slug}-{createddate}{id}",
-          defaults: new { controller = "Post", action = "Index" });
-
-        endpoints.MapControllerRoute(
-          name: "chuong",
-          pattern: "truyen/{slug}-{createddate}{id}-chuong-{chapternumber?}-{chapterslug?}",
-          defaults: new { controller = "Chapter", action = "Index" });*/
 });
 
 // Create Database If Not Exists

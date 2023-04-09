@@ -53,6 +53,7 @@ namespace NovelWebsite.Controllers
                                        .Include(b => b.User)
                                        .Include(b => b.Category)
                                        .FirstOrDefault();
+            ViewBag.firstChapter = _dbContext.Chapters.Where(x => x.BookId == id && x.ChapterNumber == 1).FirstOrDefault();
             ViewData["Views"] = UpdateViewCount(book.BookId, (int)book.Views);
             return View(book);
         }

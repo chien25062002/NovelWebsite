@@ -31,7 +31,12 @@ namespace NovelWebsite.Authorization
                 context.Succeed(requirement);
                 return Task.CompletedTask;
             }
-            var bookUserId = _dbContext.Books.Where(b => b.BookId == Int32.Parse(bookId)).First().UserId.ToString();
+            var bookUser = _dbContext.Books.Where(b => b.BookId == Int32.Parse(bookId)).FirstOrDefault();
+            if (bookUser == null)
+            {
+                return Task.CompletedTask;
+            }
+            var bookUserId = bookUser.UserId.ToString();
             var currentUserId = new HttpContextAccessor().HttpContext.Request.RouteValues["userId"].ToString();
             if (bookUserId == currentUserId)
             {

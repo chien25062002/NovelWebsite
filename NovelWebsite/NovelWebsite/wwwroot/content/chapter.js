@@ -35,9 +35,9 @@ $.ajax({
     error: function () { },
     complete: function () { }
 })
-
+console.log(bookId);
 $.ajax({
-    url: "/Chapter/GetListChapters?id=" + id,
+    url: "/Chapter/GetListChapters?id=" + bookId,
     type: "GET",
     dataType: "json",
     beforeSend: function () { },
@@ -50,12 +50,6 @@ $.ajax({
             $('#list-chapter-box').append(`<li class="list-group-item col-6">
                         <a href="/truyen/${link}/chuong-${item.chapterNumber}/${item.slug}-${item.chapterId}">Chương ${item.chapterNumber}: ${item.chapterName}</a>
                         </li>`);
-            /*if (index % 2 == 1) {
-                $('.index__theloai--wrap').append(row);
-                row = jQuery('<div>', {
-                    class: 'index__theloai--chitiet row',
-                });;
-            }*/
         });
     },
     error: function () { },
