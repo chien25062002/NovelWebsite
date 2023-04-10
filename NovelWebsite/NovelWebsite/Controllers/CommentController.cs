@@ -32,8 +32,6 @@ namespace NovelWebsite.Controllers
                 PostId = comment.PostId == 0 ? null : comment.PostId,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
-                Status = 0,
-                IsDeleted = false
             };
             _dbContext.Comments.Add(cmt);
             _dbContext.SaveChanges();

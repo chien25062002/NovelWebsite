@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace NovelWebsite.Models
 {
-    public class CommentEntity : BaseEntity
+    public class CommentEntity
     {
         [Key]
         public int CommentId { get; set; }
@@ -24,8 +24,12 @@ namespace NovelWebsite.Models
         [ForeignKey("CommentId")]
         public int? ReplyCommentId { get; set; }
         public CommentEntity ReplyComment { get; set; }
+        public int NumberOfReplyComment { get; set; }
         public string Content { get; set; }
         public int? Likes { get; set; }
-        public int? Dislikes { get; set; }
+        public DateTime CreatedDate { get; set; }
+        public string? CreatedBy { get; set; }
+        public DateTime UpdatedDate { get; set; }
+        public string? UpdatedBy { get; set; }
     }
 }

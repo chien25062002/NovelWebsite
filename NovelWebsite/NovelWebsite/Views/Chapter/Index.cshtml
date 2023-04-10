@@ -154,7 +154,7 @@
                     <p>Hãy nhấn like ở mỗi chương để ủng hộ dịch giả nhé</p>
                     <div class="box-icon-section">
                         <div class="box-icon-section-left">
-                            <a href="javascript:void(0)">
+                            <a href="javascript:void(0)" onclick="onClickBtnLikeChapter(this)" id="chapter-like-btn">
                                 <i class="fa-regular fa-thumbs-up"></i>
                                 @Model.Likes
                             </a>
@@ -496,7 +496,9 @@
     </script>
 
     <script type="text/javascript" src="~/content/chapter.js"></script>
+    <script type="text/javascript" src="~/content/interact_chapter.js"></script>
     <script type="text/javascript" src="~/content/comment.js"></script>
+    <script type="text/javascript" src="~/content/interact_comment.js"></script>
     <script type="text/javascript" src="~/content/replyComment.js"></script>
     <script type="text/javascript" src="~/js/popover.js"></script>
     <script type="text/javascript" src="~/js/changtheme.js"></script>

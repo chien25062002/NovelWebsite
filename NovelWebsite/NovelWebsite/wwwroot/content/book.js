@@ -4,24 +4,41 @@ var id = param[param.length - 1];
 var p = queryString.split('/');
 var link = p[p.length - 1];
 
+
 window.onload = function () {
-    GetFav();
-    GetRec();
-    GetFollow();
-    console.log(isFollow);
-    if (isFav == true) {
+    GetBookFav();
+    GetBookRec();
+    GetBookFollow();
+    if (isBookFav == true) {
         $('#btn-fav').addClass("selected");
         $('#btn-fav').text("Bỏ yêu thích");
     }
-    if (isRec == true) {
+    if (isBookRec == true) {
         $('#btn-rec').addClass("selected");
         $('#btn-rec').text("Bỏ đề cử");
     }
-    if (isFollow == true) {
+    if (isBookFollow == true) {
         $('#btn-follow').addClass("selected");
         $('#btn-follow').text("Bỏ theo dõi");
     }
     GetListComment();
+    ReviewUserLike();
+    CommentUserLike();
+}
+
+function ReviewUserLike() {
+    $('.review-group').map(function () {
+        var id = this.id.split('-');
+        var reviewId = id[id.length - 1];
+        GetReviewLike(reviewId);
+        if (isReviewLike == true) {
+            var rv = '#review-like-btn-' + reviewId;
+            $(rv).addClass("like-active");
+            $(rv).find('i').addClass("like-active");
+            $(rv).find('.thank-num').addClass("like-active");
+        }
+        isReviewLike = false;
+    });
 }
 
 
@@ -58,9 +75,6 @@ $.ajax({
     beforeSend: function () { },
     success: function (data) {
         $('#list-review').html('');
-        /*let row = jQuery('<div>', {
-            class: 'index__theloai--chitiet row',
-        });*/
         var user = GetUserInfo();
         $('#list-review').append(`<li class="list-group-item">
                                     <div class="row user--comment-section">
@@ -83,7 +97,7 @@ $.ajax({
         data.forEach((item, index) => {
             var content = $('<textarea />').html(item.content).text();
             $('#list-review').append(`<li class="list-group-item">
-                                    <div class="row user--comment-section">
+                                    <div class="row user--comment-section review-group" id="review-${item.reviewId}">
                                         <div class="user--photo col-md-auto">
                                             <a href="javascript:void(0)">
                                                 <img src="${item.user.avatar}">
@@ -99,25 +113,15 @@ $.ajax({
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
-                                                    <a href="javascript:void(0)">
-                                                        <i class="fa-solid fa-square-caret-up info-icon rate-up"></i>
-                                                        ${item.likes}
-                                                    </a>
-                                                    <a href="javascript:void(0)">
-                                                        <i class="fa-solid fa-square-caret-up info-icon rate-down"></i>
-                                                        ${item.dislikes}
+                                                    <a href="javascript:void(0)" id="review-like-btn-${item.reviewId}" onclick="onClickBtnLikeReview(this,${item.reviewId})">
+                                                        <i class="fa-regular fa-thumbs-up"></i>
+                                                        <span class="thank-num">${item.likes}</span>
                                                     </a>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                 </li>`);
-            /*if (index % 2 == 1) {
-                $('.index__theloai--wrap').append(row);
-                row = jQuery('<div>', {
-                    class: 'index__theloai--chitiet row',
-                });;
-            }*/
             
         });
         startCKEditor('review-toolbar', 'review-editor');
@@ -169,7 +173,7 @@ function GetListComment() {
                                             </a>
                                         </div>
                                         <div class="col user--discussion-main" id="${item.commentId}">
-                                            <div class="user--discussion">
+                                            <div class="user--discussion comment-group" id="comment-${item.commentId}">
                                                 <p class="users">
                                                     <a href="javascript:void(0)">${item.user.userName}</a>
                                                 </p>
@@ -178,13 +182,13 @@ function GetListComment() {
                                                 </p>
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
-                                                    <a href="javascript:void(0)" id="btn-reply-cmt-${item.commentId}" onclick="replyComment(${item.commentId}); this.onclick=null;">
+                                                    <a href="javascript:void(0)" onclick="replyComment(${item.commentId})">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
-                                                        Trả lời
+                                                        ${item.numberOfReplyComment} trả lời
                                                     </a>
-                                                    <a href="javascript:void(0)">
+                                                    <a href="javascript:void(0)" id="comment-like-btn-${item.commentId}" onclick="onClickBtnLikeComment(this, ${item.commentId})">
                                                         <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                        ${item.likes} thích
+                                                        ${item.likes}
                                                     </a>
                                                 </p>
                                             </div>
@@ -392,3 +396,28 @@ $.ajax({
     error: function () { },
     complete: function () { }
 })
+
+function AddReview(id) {
+    var user = GetUserInfo();
+    if (user == "") {
+        alert("Bạn cần đăng nhập để có thể bình luận!");
+        return;
+    }
+    $.ajax({
+        url: "/Review/AddReview",
+        type: "POST",
+        data: {
+            BookId: id,
+            UserId: user.userId,
+            Content: $('#review-editor').html()
+        },
+        dataType: "json",
+        beforeSend: function () { },
+        success: function () {
+            console.log("success");
+            location.reload();
+        },
+        error: function () { },
+        complete: function () { }
+    })
+}

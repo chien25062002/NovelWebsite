@@ -6,6 +6,11 @@ var link = p[p.length - 1];
 
 window.onload = function () {
     GetListComment();
+    GetChapterLike();
+    CommentUserLike();
+    if (isChapterLike == true) {
+        $('#chapter-like-btn').addClass("like-active");
+    }
 }
 
 $.ajax({
@@ -35,7 +40,8 @@ $.ajax({
     error: function () { },
     complete: function () { }
 })
-console.log(bookId);
+
+
 $.ajax({
     url: "/Chapter/GetListChapters?id=" + bookId,
     type: "GET",
@@ -43,9 +49,6 @@ $.ajax({
     beforeSend: function () { },
     success: function (data) {
         $('#list-chapter-box').html('');
-        /*let row = jQuery('<div>', {
-            class: 'index__theloai--chitiet row',
-        });*/
         data.forEach((item, index) => {
             $('#list-chapter-box').append(`<li class="list-group-item col-6">
                         <a href="/truyen/${link}/chuong-${item.chapterNumber}/${item.slug}-${item.chapterId}">Chương ${item.chapterNumber}: ${item.chapterName}</a>
@@ -98,7 +101,7 @@ function GetListComment() {
                                             </a>
                                         </div>
                                         <div class="col user--discussion-main" id="${item.commentId}">
-                                            <div class="user--discussion">
+                                            <div class="user--discussion  comment-group" id="comment-${item.commentId}">
                                                 <p class="users">
                                                     <a href="javascript:void(0)">${item.user.userName}</a>
                                                 </p>
@@ -109,11 +112,11 @@ function GetListComment() {
                                                     <span>${item.createdDate} </span>
                                                     <a href="javascript:void(0)" id="btn-reply-cmt-${item.commentId}" onclick="replyComment(${item.commentId}); this.onclick=null;">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
-                                                        Trả lời
+                                                        ${item.numberOfReplyComment} trả lời
                                                     </a>
-                                                    <a href="javascript:void(0)">
+                                                    <a href="javascript:void(0)" id="comment-like-btn-${item.commentId}" onclick="onClickBtnLikeComment(this, ${item.commentId})">
                                                         <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                        ${item.likes} thích
+                                                        ${item.likes}
                                                     </a>
                                                 </p>
                                             </div>

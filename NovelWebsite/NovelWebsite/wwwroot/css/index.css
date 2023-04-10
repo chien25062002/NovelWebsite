@@ -1,5 +1,6 @@
 :root {
     --tagname: #1b92dd;
+    --like-color: #cd3030;
 }
 
 * {
@@ -1135,4 +1136,10 @@ img {
 
 .header__box--center.row {
     flex-wrap: unset;
+}
+
+
+.like-active{
+    font-weight: bold !important;
+    color: var(--like-color) !important;
 }

@@ -27,7 +27,7 @@
                 <div class="box-ads">
                     <div class="box-icon-section">
                         <div class="box-icon-section-left">
-                            <a href="javascript:void(0)">
+                            <a href="javascript:void(0)" id="post-like-btn" onclick="onClickBtnLikePost(this)">
                                 <i class="fa-regular fa-thumbs-up"></i>
                                 @Model.Likes
                             </a>
@@ -155,7 +155,9 @@
     </script>
 
     <script type="text/javascript" src="~/content/post.js"></script>
+    <script type="text/javascript" src="~/content/interact_post.js"></script>
     <script type="text/javascript" src="~/content/comment.js"></script>
+    <script type="text/javascript" src="~/content/interact_comment.js"></script>
     <script type="text/javascript" src="~/content/replyComment.js"></script>
 }
 
