@@ -1,4 +1,17 @@
 ﻿$.ajax({
+    url: "/Banner/GetAdsBanner",
+    type: "GET",
+    dataType: "json",
+    beforeSend: function () { },
+    success: function (data) {
+        var randomBanner = data[Math.floor(Math.random() * data.length)];
+        $('.banner-sm').attr('src', randomBanner.bannerImage);
+    },
+    error: function () { },
+    complete: function () { }
+});
+
+$.ajax({
     url: "/Account/GetAccount",
     type: "GET",
     dataType: "json",

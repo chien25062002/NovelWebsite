@@ -13,6 +13,7 @@ window.onload = function () {
     }
 }
 
+
 $.ajax({
     url: "/Chapter/GetAllCategories",
     type: "GET",

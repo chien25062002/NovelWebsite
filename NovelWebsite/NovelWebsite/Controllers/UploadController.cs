@@ -175,7 +175,7 @@ namespace NovelWebsite.Entities
             var prevListTag = _dbContext.BookTags.Where(x => x.BookId == bookId);
             foreach (var item in prevListTag)
             {
-                if (listTag.Contains(item.TagId))
+                if (!listTag.Contains(item.TagId))
                 {
                     _dbContext.BookTags.Remove(item);
                 }

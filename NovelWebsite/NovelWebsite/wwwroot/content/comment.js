@@ -2,7 +2,6 @@
     $('.comment-group').map(function () {
         var id = this.id.split('-');
         var cmtId = id[id.length - 1];
-        console.log(cmtId);
         GetCommentLike(cmtId);
         if (isCommentLike == true) {
             var cmt = '#comment-like-btn-' + cmtId;

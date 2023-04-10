@@ -528,10 +528,11 @@ ul li {
     margin-bottom: 7px;
 }
 
-/*.book--info h3 {
-    margin-top: -8px;
-    margin-bottom: 0;
-}*/
+
+.box-chap p {
+    font-size: 18px;
+}
+
 
 .book-name, .book-state {
     margin-bottom: 5px;

@@ -85,7 +85,7 @@ function UpdateBookFollow() {
 
 function onClickInfoBtn(el, index) {
     if (index == 1) {
-        UpdateFav();
+        UpdateBookFav();
         if ($(el).hasClass("selected")) {
             $(el).removeClass("selected");
             $(el).text("Yêu thích");
@@ -95,7 +95,7 @@ function onClickInfoBtn(el, index) {
         }
     }
     if (index == 2) {
-        UpdateFollow();
+        UpdateBookFollow();
         if ($(el).hasClass("selected")) {
             $(el).removeClass("selected");
             $(el).text("Theo dõi");
@@ -105,7 +105,7 @@ function onClickInfoBtn(el, index) {
         }
     }
     if (index == 3) {
-        UpdateRec();
+        UpdateBookRec();
         if ($(el).hasClass("selected")) {
             $(el).removeClass("selected");
             $(el).text("Đề cử");
