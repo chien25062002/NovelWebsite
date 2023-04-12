@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication.Google;
+﻿using Microsoft.AspNetCore.Authentication.Facebook;
+using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Mvc;
 using NovelWebsite.Entities;
 using System.Security.Claims;
@@ -19,7 +20,11 @@ namespace NovelWebsite.Components
             if (User.Identity.AuthenticationType == GoogleDefaults.AuthenticationScheme)
             {
                 account += "@google";
-            } 
+            }
+            if (User.Identity.AuthenticationType == FacebookDefaults.AuthenticationScheme)
+            {
+                account += "@facebook";
+            }
             var user = _dbContext.Accounts.Where(a => a.AccountName == account).FirstOrDefault();
             return View(user);
         }

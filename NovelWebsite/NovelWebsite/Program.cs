@@ -25,7 +25,12 @@ builder.Services.AddAuthentication().AddGoogle(googleOptions =>
     IConfigurationSection googleAuthNSection = builder.Configuration.GetSection("Authentication:Google");
     googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
     googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-});
+}).AddFacebook(facebookOptions =>
+{
+    facebookOptions.AppId = builder.Configuration["Authentication:Facebook:AppId"];
+    facebookOptions.AppSecret = builder.Configuration["Authentication:Facebook:AppSecret"];
+    facebookOptions.AccessDeniedPath = "/Error/Log";
+}); ;
 
 builder.Services.AddAuthorization(options =>
 {

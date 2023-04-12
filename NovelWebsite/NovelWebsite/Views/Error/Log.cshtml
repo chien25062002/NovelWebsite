@@ -1,4 +1,6 @@
-﻿
+﻿@{
+    string log = ViewBag.Log;
+}
 <link href="~/css/error404.css" rel="stylesheet" />
 
 <main style="text-align: center;margin-bottom: 3.5rem;margin-top: 3.5rem;">
@@ -207,7 +209,18 @@
     </g>
   </svg>
 
-  <p id="errorText">@ViewBag.Log</p>
+  <p id="errorText">
+        @{
+            if (log != null)
+            {
+                @log
+            }
+            else
+            {
+                <span>Có lỗi gì đó đã xảy ra. Trở về trang chủ?</span>
+            }
+        }
+  </p>
   <a id="errorLink" class="btn" href="/">Trang chủ</a>
 </main>
 
