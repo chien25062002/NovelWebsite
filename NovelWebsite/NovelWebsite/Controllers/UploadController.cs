@@ -32,6 +32,7 @@ namespace NovelWebsite.Entities
             ViewBag.CheckedTags = GetBookTags(bookId);
             ViewBag.BookStatuses = new SelectList(_dbContext.BookStatuses.ToList(), "BookStatusId", "BookStatusName");
             ViewBag.Categories = new SelectList(_dbContext.Categories.ToList(), "CategoryId", "CategoryName");
+            ViewBag.UserId = book == null ? Int32.Parse(HttpContext.User.FindFirstValue("UserId"))  : book.UserId;
             if (book == null)
             {
                 return View();
@@ -54,8 +55,6 @@ namespace NovelWebsite.Entities
             }
             else
             {
-                var claims = HttpContext.User.Identity as ClaimsIdentity;
-                var userId = _dbContext.Accounts.First(a => a.AccountName == claims.FindFirst(ClaimTypes.NameIdentifier).Value).UserId;
                 AuthorEntity author = _dbContext.Authors.FirstOrDefault(a => a.AuthorName == bookModel.AuthorName);
                 if (author == null)
                 {
@@ -67,14 +66,14 @@ namespace NovelWebsite.Entities
                     _dbContext.SaveChanges();
                 }
                 var book = _dbContext.Books.FirstOrDefault(b => b.BookId == bookModel.BookId && b.IsDeleted == false);
-                if (book.BookId == null)
+                if (book == null)
                 {
                     book = new BookEntity()
                     {
                         BookName = bookModel.BookName,
                         CategoryId = bookModel.CategoryId,
                         AuthorId = author.AuthorId,
-                        UserId = userId,
+                        UserId = Int32.Parse(HttpContext.User.FindFirstValue("UserId")),
                         NumberOfChapters = 0,
                         Views = 0,
                         Likes = 0,

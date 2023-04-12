@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Mvc;
 using NovelWebsite.Entities;
 using System.Security.Claims;
 
@@ -14,8 +15,12 @@ namespace NovelWebsite.Components
         }
         public IViewComponentResult Invoke()
         {
-            var claims = HttpContext.User.Identity as ClaimsIdentity;
-            var user = _dbContext.Accounts.Where(a => a.AccountName == claims.FindFirst(ClaimTypes.NameIdentifier).Value).FirstOrDefault();
+            var account = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (User.Identity.AuthenticationType == GoogleDefaults.AuthenticationScheme)
+            {
+                account += "@google";
+            } 
+            var user = _dbContext.Accounts.Where(a => a.AccountName == account).FirstOrDefault();
             return View(user);
         }
 

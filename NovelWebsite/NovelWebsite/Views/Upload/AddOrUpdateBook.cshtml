@@ -62,6 +62,7 @@
                         <div class="editor--content input-group">
                             <input type="text" class="editbook--name form-control" name="BookName" placeholder="Nhập tên truyện..." value="@(Model == null ? "" : Model.BookName)" />
                             <input type="text" name="BookId" value="@(Model == null ? "" : Model.BookId)" hidden/>
+                            <input type="text" name="UserId" value="@ViewBag.UserId" hidden/>
                         </div>
                     </div>
                 </div>

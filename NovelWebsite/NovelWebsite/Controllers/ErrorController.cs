@@ -10,5 +10,13 @@ namespace NovelWebsite.Controllers
         {
             return View($"~/Views/Error/{errCode}.cshtml");
         }
+
+        [Route("Log")]
+        public IActionResult Log()
+        {
+            ViewBag.Log = TempData["log"];
+            return View();
+        }
+
     }
 }

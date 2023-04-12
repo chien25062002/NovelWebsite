@@ -20,6 +20,13 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
     options.LoginPath = "/Admin/Account/Login";
 });
 
+builder.Services.AddAuthentication().AddGoogle(googleOptions =>
+{
+    IConfigurationSection googleAuthNSection = builder.Configuration.GetSection("Authentication:Google");
+    googleOptions.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    googleOptions.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+});
+
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("UserIdentity", policy => policy.RequireAssertion(context =>
@@ -66,7 +73,6 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.UseStatusCodePagesWithRedirects("/Error/{0}");
 
