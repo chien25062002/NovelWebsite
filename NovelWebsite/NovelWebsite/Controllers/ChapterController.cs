@@ -46,7 +46,8 @@ namespace NovelWebsite.Controllers
         [Route("{slug}-{id:int}/chuong-{chapterNumber:int}/{chapterSlug}-{chapterId:int}")]
         public IActionResult Index(int chapterId)
         {
-            var chapter = _dbContext.Chapters.Where(c => c.ChapterId == chapterId)
+            var chapter = _dbContext.Chapters.Where(c => c.IsDeleted == false)
+                                             .Where(c => c.ChapterId == chapterId)
                                              .Include(c => c.Book)
                                              .ThenInclude(b => b.Author)
                                              .FirstOrDefault();
@@ -71,7 +72,10 @@ namespace NovelWebsite.Controllers
         [Route("{action}")]
         public IActionResult GetListChapters(int id)
         {
-            var listChapters = _dbContext.Chapters.Where(c => c.BookId == id).OrderBy(c => c.CreatedDate).ToList();
+            var listChapters = _dbContext.Chapters.Where(c => c.IsDeleted == false)
+                                                  .Where(c => c.BookId == id)
+                                                  .OrderBy(c => c.CreatedDate)
+                                                  .ToList();
             return Json(listChapters);
         }
 
@@ -79,7 +83,8 @@ namespace NovelWebsite.Controllers
         public IActionResult DeleteChapter(int chapterId)
         {
             var chapter = _dbContext.Chapters.FirstOrDefault(x => x.ChapterId == chapterId);
-            _dbContext.Chapters.Remove(chapter);
+            chapter.IsDeleted = true;
+            _dbContext.Chapters.Update(chapter);
             _dbContext.SaveChanges();
             return Json("");
         }

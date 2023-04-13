@@ -6,6 +6,7 @@
         beforeSend: function () { },
         context: this,
         success: function (data) {
+            console.log(data);
             location.reload();
         },
         error: function () { },

@@ -117,6 +117,7 @@ namespace NovelWebsite.Controllers
         public IActionResult ListOfChapters(int bookId, int pageNumber = 1, int pageSize = 16)
         {
             var query = _dbContext.Chapters.Where(b => b.BookId == bookId && b.IsDeleted == false)
+                                        .Where(c => c.IsDeleted == false)
                                         .OrderBy(b => b.CreatedDate)
                                         .ToList();
             ViewBag.pageNumber = pageNumber;
