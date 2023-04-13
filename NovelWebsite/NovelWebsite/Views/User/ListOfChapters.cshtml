@@ -62,7 +62,11 @@
                                             <td>
                                                 <div class="float-end">
                                                     <a href="/dang-tai/@userId/truyen/@item.BookId/chuong/@item.ChapterId" class="btn btn-secondary">Sửa</a>
-                                                    <a href="" onclick="DeleteChapter(@item.ChapterId)" class="btn btn-secondary">Xóa</a>
+                                                    @{
+                                                        if (item.ChapterNumber == Model.Count()){
+                                                            <a href="" onclick="DeleteChapter(@item.ChapterId)" class="btn btn-secondary">Xóa</a>
+                                                        }
+                                                    }
                                                 </div>
                                             </td>
                                         </tr>
