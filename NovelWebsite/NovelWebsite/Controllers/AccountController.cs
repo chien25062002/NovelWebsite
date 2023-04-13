@@ -5,6 +5,8 @@ using NovelWebsite.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.Facebook;
 
 namespace NovelWebsite.Controllers
 {
@@ -38,6 +40,7 @@ namespace NovelWebsite.Controllers
                 claims.Add(new Claim("UserId", login.UserId.ToString()));
                 claims.Add(new Claim("Username", login.User.UserName));
                 claims.Add(new Claim("Avatar", login.User.Avatar));
+                claims.Add(new Claim(ClaimTypes.Email, login.User.Email));
                 var claimIndentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimIndentity));
                 return Json("");
@@ -104,16 +107,50 @@ namespace NovelWebsite.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                var claims = HttpContext.User.Identity as ClaimsIdentity;
-                var user = new UserModel()
+                try
                 {
-                    AccountName = claims.FindFirst(ClaimTypes.NameIdentifier).Value,
-                    Role = claims.FindFirst(ClaimTypes.Role).Value,
-                    UserId = Int32.Parse(claims.FindFirst("UserId").Value),
-                    Username = claims.FindFirst("Username").Value,
-                    Avatar = claims.FindFirst("Avatar").Value,
-                };
-                return Json(user);
+                    var name = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                    if (User.Identity.AuthenticationType == GoogleDefaults.AuthenticationScheme)
+                    {
+                        name += "@google";
+                    }
+                    else if (User.Identity.AuthenticationType == FacebookDefaults.AuthenticationScheme)
+                    {
+                        name += "@facebook";
+                    }
+                    
+                    var account = _dbContext.Accounts.Where(x => x.AccountName == name)
+                                                        .Include(x => x.User).ThenInclude(x => x.Role).FirstOrDefault();
+                    if (account != null)
+                    {
+                        var user = new UserModel()
+                        {
+                            AccountName = account.AccountName,
+                            Role = account.User.Role.RoleName,
+                            UserId = account.UserId,
+                            Username = account.User.UserName,
+                            Avatar = account.User.Avatar,
+                        };
+                        return Json(user);
+                    }
+                    else
+                    {
+                        var claims = HttpContext.User.Identity as ClaimsIdentity;
+                        var user = new UserModel()
+                        {
+                            AccountName = claims.FindFirst(ClaimTypes.NameIdentifier).Value,
+                            Role = claims.FindFirst(ClaimTypes.Role).Value,
+                            UserId = Int32.Parse(claims.FindFirst("UserId").Value),
+                            Username = claims.FindFirst("Username").Value,
+                            Avatar = claims.FindFirst("Avatar").Value,
+                        };
+                        return Json(user);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return Json("");
+                }
             }
             return Json("");
         }
@@ -122,8 +159,16 @@ namespace NovelWebsite.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                var claims = HttpContext.User.Identity as ClaimsIdentity;
-                var account = _dbContext.Accounts.Where(a => a.AccountName == claims.FindFirst(ClaimTypes.NameIdentifier).Value)
+                var accountName = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                if (User.Identity.AuthenticationType == GoogleDefaults.AuthenticationScheme)
+                {
+                    accountName += "@google";
+                }
+                if (User.Identity.AuthenticationType == FacebookDefaults.AuthenticationScheme)
+                {
+                    accountName += "@facebook";
+                }
+                var account = _dbContext.Accounts.Where(a => a.AccountName == accountName)
                                                  .Include(a => a.User)
                                                  .FirstOrDefault();
                 return Json(account);

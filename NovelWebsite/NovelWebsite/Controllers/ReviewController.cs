@@ -47,7 +47,6 @@ namespace NovelWebsite.Controllers
                 UserId = review.UserId,
                 Content = StringExtension.HtmlEncode(review.Content),
                 Likes = 0,
-                Dislikes = 0,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
                 Status = 0,

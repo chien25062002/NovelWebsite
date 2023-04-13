@@ -44,10 +44,11 @@ namespace NovelWebsite.Controllers
         public IActionResult Index(FilterModel filterModel, int pageNumber = 1, int pageSize = 10)
         {
             // lọc theo thư mục
-            var query = _dbContext.Books.Include(b => b.Author)
+            var query = _dbContext.Books.Where(b => filterModel.CategoryId == 0 || b.CategoryId == filterModel.CategoryId)
+                                        .Include(b => b.Author)
                                         .Include(b => b.BookStatus)
                                         .Where(b => b.IsDeleted == false)
-                                        .Where(b => filterModel.CategoryId == 0 || b.CategoryId == filterModel.CategoryId).ToList();
+                                        .ToList();
             var final = query;
             // lọc theo tình trạng
             if (filterModel.BookStatus != null)
@@ -155,9 +156,9 @@ namespace NovelWebsite.Controllers
                         f5.Remove(item);
                         continue;
                     }
-                    foreach (var tag in temp)
+                    foreach (var tag in filterModel.Tag)
                     {
-                        if (!filterModel.Tag.Contains(tag))
+                        if (!temp.Contains(tag))
                         {
                             f5.Remove(item);
                             break;

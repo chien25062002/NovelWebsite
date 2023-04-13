@@ -1,4 +1,18 @@
-﻿
+﻿function CommentUserLike() {
+    $('.comment-group').map(function () {
+        var id = this.id.split('-');
+        var cmtId = id[id.length - 1];
+        GetCommentLike(cmtId);
+        if (isCommentLike == true) {
+            var cmt = '#comment-like-btn-' + cmtId;
+            $(cmt).addClass("like-active");
+            $(cmt).find('i').addClass("like-active");
+            $(cmt).find('.thank-num').addClass("like-active");
+        }
+        isCommentLike = false;
+    });
+}
+
 function AddBookComment(id) {
     var user = GetUserInfo();
     if (user == "") {

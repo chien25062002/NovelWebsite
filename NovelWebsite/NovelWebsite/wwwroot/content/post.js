@@ -1,5 +1,10 @@
 ﻿window.onload = function () {
     GetListComment();
+    GetPostLike();
+    if (isPostLike == true) {
+        $('#post-like-btn').addClass("like-active");
+    }
+    CommentUserLike();
 }
 
 function GetListComment() {
@@ -43,7 +48,7 @@ function GetListComment() {
                                             </a>
                                         </div>
                                         <div class="col user--discussion-main" id="${item.commentId}">
-                                            <div class="user--discussion">
+                                            <div class="user--discussion comment-group" id="comment-${item.commentId}">
                                                 <p class="users">
                                                     <a href="javascript:void(0)">${item.user.userName}</a>
                                                 </p>
@@ -54,11 +59,11 @@ function GetListComment() {
                                                     <span>${item.createdDate} </span>
                                                     <a href="javascript:void(0)" id="btn-reply-cmt-${item.commentId}" onclick="replyComment(${item.commentId}); this.onclick=null;">
                                                         <i class="fa-regular fa-comment-dots info-icon"></i>
-                                                        Trả lời
+                                                        ${item.numberOfReplyComment} trả lời
                                                     </a>
-                                                    <a href="javascript:void(0)">
+                                                    <a href="javascript:void(0)" id="comment-like-btn-${item.commentId}" onclick="onClickBtnLikeComment(this, ${item.commentId})">
                                                         <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                        ${item.likes} thích
+                                                        ${item.likes}
                                                     </a>
                                                 </p>
                                             </div>

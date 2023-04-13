@@ -152,6 +152,13 @@
                                         <input type="password" class="form-control" name="Password" placeholder="Mật khẩu" required>
                                         <label><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
                                     </div>
+                                    
+                                    <div class="social-auth-links text-center">
+                                          <a href="/login-facebook" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa-brands fa-facebook" style="color: white"></i> Log in using
+                                            Facebook</a><br />
+                                          <a href="/login-google" class="btn btn-block btn-social btn-google btn-flat"><i class="fa-brands fa-google" style="color: white"></i> Log in using
+                                            Google+</a>
+                                    </div>
                                 </div>
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
@@ -177,21 +184,27 @@
                             <form class="needs-validation" id="signup-form">
                                 <div class="modal-body" id="modal-body-signup">
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" id="tendangnhap2" placeholder="Tên đăng nhập" name="AccountName" required>
+                                        <input type="text" class="form-control" id="tendangnhap2" placeholder="Tên đăng nhập" name="AccountName">
                                         <label for="tdn"><i class="fa-solid fa-user modal--icon"></i>Tên đăng nhập</label>
                                     </div>
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="email" class="form-control" id="email2" placeholder="Email" name="Email" required>
+                                        <input type="email" class="form-control" id="email2" placeholder="Email" name="Email">
                                         <label for="eml"><i class="fa-solid fa-envelope modal--icon"></i></i>Email</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input type="password" class="form-control" id="matkhau2" placeholder="Mật khẩu" name="Password" required>
+                                        <input type="password" class="form-control" id="matkhau2" placeholder="Mật khẩu" name="Password">
                                         <label for="mk"><i class="fa-solid fa-key modal--icon"></i>Mật khẩu</label>
                                     </div>
 
                                     <div class="form-floating mt-3 mb-3">
-                                        <input type="password" class="form-control" id="nlmatkhau2" placeholder="Nhập lại mật khẩu" name="PasswordAgain" required>
+                                        <input type="password" class="form-control" id="nlmatkhau2" placeholder="Nhập lại mật khẩu" name="PasswordAgain">
                                         <label for="rmk"><i class="fa-solid fa-key modal--icon"></i>Nhập lại mật khẩu</label>
+                                    </div>
+                                    <div class="social-auth-links text-center">
+                                          <a href="/signup-facebook" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa-brands fa-facebook" style="color: white"></i> Sign up using
+                                            Facebook</a><br />
+                                          <a href="/signup-google" class="btn btn-block btn-social btn-google btn-flat"><i class="fa-brands fa-google" style="color: white"></i> Sign up using
+                                            Google+</a>
                                     </div>
                                 </div>
                                 <!-- Modal footer -->
@@ -259,6 +272,7 @@
         </div>
     </footer>
     <script type="text/javascript" src="~/content/layout.js"></script>
+   @* <script type="text/javascript" src="~/content/login.js"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

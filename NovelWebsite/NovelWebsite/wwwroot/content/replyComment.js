@@ -12,6 +12,7 @@
         url: "/Comment/GetReplyComment?commentId=" + el,
         type: "GET",
         dataType: "json",
+        async: false,
         beforeSend: function () { },
         success: function (data) {
             console.log(data);
@@ -25,7 +26,7 @@
                                             </a>
                                         </div>
                                         <div class="col user--discussion-main" id="${item.commentId}">
-                                            <div class="user--discussion">
+                                            <div class="user--discussion comment-group" id="comment-${item.commentId}">
                                                 <p class="users">
                                                     <a href="javascript:void(0)">${item.user.userName}</a>
                                                 </p>
@@ -35,9 +36,9 @@
                                                 <p class="info--wrap">
                                                     <span>${item.createdDate} </span>
                                                     
-                                                    <a href="javascript:void(0)">
+                                                    <a href="javascript:void(0)" id="comment-like-btn-${item.commentId}" onclick="onClickBtnLikeComment(this, ${item.commentId})">
                                                         <i class="fa-regular fa-thumbs-up info-icon"></i>
-                                                        ${item.dislikes} thích
+                                                        ${item.likes}
                                                     </a>
                                                 </p>
                                             </div>
@@ -73,6 +74,8 @@
             startCKEditor(toolbar, editor);
         }
     });
+
+    CommentUserLike();
 }
 
 function startCKEditor(toolbar, editor) {

@@ -1,24 +1,15 @@
-﻿function AddReview(id) {
-    var user = GetUserInfo();
-    if (user == "") {
-        alert("Bạn cần đăng nhập để có thể bình luận!");
-        return;
-    }
-    $.ajax({
-        url: "/Review/AddReview",
-        type: "POST",
-        data: {
-            BookId: id,
-            UserId: user.userId,
-            Content: $('#review-editor').html()
-        },
-        dataType: "json",
-        beforeSend: function () { },
-        success: function () {
-            console.log("success");
-            location.reload();
-        },
-        error: function () { },
-        complete: function () { }
-    })
+﻿window.onload = function () {
+    $('.review-group').map(function () {
+        var id = this.id.split('-');
+        var reviewId = id[id.length - 1];
+        GetReviewLike(reviewId);
+        console.log(isReviewLike);
+        if (isReviewLike == true) {
+            var rv = '#review-like-btn-' + reviewId;
+            $(rv).addClass("like-active");
+            $(rv).find('i').addClass("like-active");
+            $(rv).find('.thank-num').addClass("like-active");
+        }
+        isReviewLike = false;
+    });
 }

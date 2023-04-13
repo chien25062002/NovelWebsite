@@ -1,5 +1,6 @@
 :root {
     --tagname: #1b92dd;
+    --like-color: #cd3030;
 }
 
 * {
@@ -527,10 +528,11 @@ ul li {
     margin-bottom: 7px;
 }
 
-/*.book--info h3 {
-    margin-top: -8px;
-    margin-bottom: 0;
-}*/
+
+.box-chap p {
+    font-size: 18px;
+}
+
 
 .book-name, .book-state {
     margin-bottom: 5px;
@@ -1135,4 +1137,40 @@ img {
 
 .header__box--center.row {
     flex-wrap: unset;
+}
+
+
+.like-active{
+    font-weight: bold !important;
+    color: var(--like-color) !important;
+}
+
+.btn.btn-flat {
+    border-radius: 5px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    border-width: 1px;
+    width: 100%;
+    margin: .25rem 0;
+}
+
+.btn-facebook, .btn-facebook:hover {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0,0,0,0.2);
+}
+
+.btn-social {
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn-google, .btn-google:hover {
+    color: #fff;
+    background-color: #dd4b39;
+    border-color: rgba(0,0,0,0.2);
 }

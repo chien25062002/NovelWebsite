@@ -1,44 +1,44 @@
-﻿var isFav = false;
-var isFollow = false;
-var isRec = false;
+﻿var isBookFav = false;
+var isBookFollow = false;
+var isBookRec = false;
 
 
-function GetFav() {
+function GetBookFav() {
     $.ajax({
-        url: "/interact/getfav/" + bookId,
+        url: "/interact/get-book-fav/" + bookId,
         type: "GET",
         async: false,
         beforeSend: function () { },
         success: function (data) {
-            isFav = data;
+            isBookFav = data;
         },
         error: function () { },
         complete: function () { }
     })
 }
 
-function GetRec() {
+function GetBookRec() {
     $.ajax({
-        url: "/interact/getrec/" + bookId,
+        url: "/interact/get-book-rec/" + bookId,
         type: "GET",
         async: false,
         beforeSend: function () { },
         success: function (data) {
-            isRec = data;
+            isBookRec = data;
         },
         error: function () { },
         complete: function () { }
     })
 }
 
-function GetFollow() {
+function GetBookFollow() {
     $.ajax({
-        url: "/interact/getfollow/" + bookId,
+        url: "/interact/get-book-follow/" + bookId,
         type: "GET",
         async: false,
         beforeSend: function () { },
         success: function (data) {
-            isFollow = data;
+            isBookFollow = data;
         },
         error: function () { },
         complete: function () { }
@@ -46,9 +46,9 @@ function GetFollow() {
 }
 
 
-function UpdateFav() {
+function UpdateBookFav() {
     $.ajax({
-        url: "/interact/updatefav/" + bookId,
+        url: "/interact/update-book-fav/" + bookId,
         type: "GET",
         beforeSend: function () { },
         success: function (data) {
@@ -58,9 +58,9 @@ function UpdateFav() {
     })
 }
 
-function UpdateRec() {
+function UpdateBookRec() {
     $.ajax({
-        url: "/interact/updaterec/" + bookId,
+        url: "/interact/update-book-rec/" + bookId,
         type: "GET",
         beforeSend: function () { },
         success: function (data) {
@@ -70,9 +70,9 @@ function UpdateRec() {
     })
 }
 
-function UpdateFollow() {
+function UpdateBookFollow() {
     $.ajax({
-        url: "/interact/updatefollow/" + bookId,
+        url: "/interact/update-book-follow/" + bookId,
         type: "GET",
         beforeSend: function () { },
         success: function (data) {
@@ -85,7 +85,7 @@ function UpdateFollow() {
 
 function onClickInfoBtn(el, index) {
     if (index == 1) {
-        UpdateFav();
+        UpdateBookFav();
         if ($(el).hasClass("selected")) {
             $(el).removeClass("selected");
             $(el).text("Yêu thích");
@@ -95,7 +95,7 @@ function onClickInfoBtn(el, index) {
         }
     }
     if (index == 2) {
-        UpdateFollow();
+        UpdateBookFollow();
         if ($(el).hasClass("selected")) {
             $(el).removeClass("selected");
             $(el).text("Theo dõi");
@@ -105,7 +105,7 @@ function onClickInfoBtn(el, index) {
         }
     }
     if (index == 3) {
-        UpdateRec();
+        UpdateBookRec();
         if ($(el).hasClass("selected")) {
             $(el).removeClass("selected");
             $(el).text("Đề cử");
