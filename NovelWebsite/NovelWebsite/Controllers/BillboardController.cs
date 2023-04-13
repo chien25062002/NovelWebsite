@@ -24,6 +24,8 @@ namespace NovelWebsite.Controllers
                                         .Where(b => category_id == 0 || b.CategoryId == category_id)
                                         .Include(b => b.Author)
                                         .Include(b => b.Category)
+                                        .Include(b => b.User)
+                                        .Include(b => b.BookStatus)
                                         .OrderByDescending(b => b.CreatedDate).ToList();
             if (!string.IsNullOrEmpty(order))
             {
