@@ -30,6 +30,7 @@ namespace NovelWebsite.Controllers
                 Content = StringExtension.HtmlEncode(comment.Content),
                 ReplyCommentId = comment.ReplyCommentId == 0 ? null : comment.ReplyCommentId,
                 PostId = comment.PostId == 0 ? null : comment.PostId,
+                Likes = 0,
                 CreatedDate = DateTime.Now,
                 UpdatedDate = DateTime.Now,
             };
