@@ -55,6 +55,7 @@ namespace NovelWebsite.Areas.Admin.Controllers
             return View(query);
         }
 
+        [Route("DeleteBook/{bookId}")]
         public IActionResult DeleteBook(int bookId)
         {
             var book = _dbContext.Books.First(x => x.BookId == bookId);

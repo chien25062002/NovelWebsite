@@ -114,5 +114,5 @@ function onClickInfoBtn(el, index) {
             $(el).text("Bỏ đề cử")
         }
     }
-
+    location.reload();
 }
