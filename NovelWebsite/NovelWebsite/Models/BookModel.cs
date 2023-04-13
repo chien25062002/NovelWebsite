@@ -23,6 +23,6 @@ namespace NovelWebsite.Models
         public string Introduce { get; set; }
         [Required]
         public string BookStatusId { get; set; }
-        public List<int> Tag { get; set; }
+        public List<int>? Tag { get; set; }
     }
 }

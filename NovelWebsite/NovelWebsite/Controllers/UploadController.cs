@@ -102,7 +102,16 @@ namespace NovelWebsite.Entities
                     _dbContext.Books.Update(book);
                 }
                 _dbContext.SaveChanges();
-                AddTagsToBook(bookModel.Tag, book.BookId);
+                if (bookModel.Tag != null)
+                {
+                    AddTagsToBook(bookModel.Tag, book.BookId);
+                }
+                else
+                {
+                    var tag = _dbContext.BookTags.Where(x => x.BookId == book.BookId);
+                    _dbContext.BookTags.RemoveRange(tag);
+                    _dbContext.SaveChanges();
+                }
                 return Redirect($"/truyen/{book.Slug}-{book.BookId}");
             }
         }
