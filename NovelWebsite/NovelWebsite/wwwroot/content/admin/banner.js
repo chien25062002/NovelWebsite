@@ -19,5 +19,8 @@ function AddOrUpdateBanner(id) {
 }
 
 $('img.input-img').on('load', function () {
-    $('input[name="bannerImage"]').val(imgPath);
+    if (imgPath == "") {
+        imgPath = $('input[name="BannerImage"]').val();
+    }
+    $('input[name="BannerImage"]').val(imgPath);
 });

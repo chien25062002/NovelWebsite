@@ -17,5 +17,8 @@ function AddOrUpdateCategory(id) {
 }
 
 $('img.input-img').on('load', function () {
+    if (imgPath == "") {
+        imgPath = $('input[name="CategoryImage"]').val();
+    }
     $('input[name="CategoryImage"]').val(imgPath);
 });

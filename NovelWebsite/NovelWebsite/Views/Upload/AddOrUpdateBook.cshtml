@@ -96,7 +96,7 @@
                                 <img src="@(Model == null ? "/image/book-default.jpg" : Model.Avatar)" class="input-img">
                             </div>
                             <input type="file" name="fileUpload"></input>
-                                <input type="text" name="Avatar" value="@(Model == null ? "/image/book-default.jpg" : Model.Avatar)" hidden/>
+                                <input type="text" name="Avatar" asp-for="@Model.Avatar" value="@(Model == null ? "/image/book-default.jpg" : Model.Avatar)" hidden/>
 
                         </div>
                     </div>

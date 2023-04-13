@@ -81,6 +81,8 @@ $('img.input-img').on('load', function () {
     
 });
 
+console.log($('input[name="Avatar"]').val())
+
 $('#upload-book').on('submit', function () {
     $("input[name='introduce']").val($('#dangtruyen-editor').html());
     return true;
