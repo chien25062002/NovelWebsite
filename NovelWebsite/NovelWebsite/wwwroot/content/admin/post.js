@@ -71,3 +71,8 @@
         console.error(err.stack);
     });
 
+$('#upload-post').on('submit', function () {
+    $("input[name='content']").val($('#post-editor').html());
+    console.log($("input[name='content']").val())
+    return true;
+});

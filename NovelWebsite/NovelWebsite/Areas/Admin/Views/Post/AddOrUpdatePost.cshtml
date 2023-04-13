@@ -19,7 +19,7 @@
             <!-- /.col -->
             <div class="col-md-12">
                 <div class="box box-primary">
-                    <form method="post" action="/Admin/Post/AddOrUpdatePost">
+                    <form method="post" action="/Admin/Post/AddOrUpdatePost" id="upload-post">
                         <div class="box-header with-border">
                             <h3 class="box-title">Quản lý bài viết</h3>
                         </div>
@@ -69,7 +69,8 @@
                             </div>*@
                             <div class="input-comment">
                                 <div id="post-toolbar"></div>
-                                <div id="post-editor" class="input--box" name="content">@Html.Raw(HttpUtility.HtmlDecode(Model == null ? "" : Model.Content))</div>
+                                <div id="post-editor" class="input--box">@Html.Raw(HttpUtility.HtmlDecode(Model == null ? "" : Model.Content))</div>
+                                <input type="text" name="content" hidden/>
                             </div>
                         </div>
                         <!-- /.box-body -->

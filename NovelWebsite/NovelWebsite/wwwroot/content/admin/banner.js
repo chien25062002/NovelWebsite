@@ -23,6 +23,4 @@ $('img.input-img').on('load', function () {
         imgPath = $('input[name="BannerImage"]').val();
     }
     $('input[name="BannerImage"]').val(imgPath);
-    console.log($('input[name="BannerImage"]').val());
 });
-console.log($('input[name="BannerImage"]').val());
